@@ -1,0 +1,23 @@
+{
+  "extends": "react-app",
+  "rules": {
+    "comma-dangle": [
+      "error"
+    ],
+    "react/jsx-space-before-closing": [
+      2,
+      "always"
+    ],
+    "react/jsx-closing-bracket-location": [
+      2,
+      "tag-aligned"
+    ],
+    "semi": [
+      "error"
+    ],
+    "indent": [
+      "error",
+      2
+    ]
+  }
+}
