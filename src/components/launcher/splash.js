@@ -3,10 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
-  ActivityIndicator,
+  ActivityIndicator
 } from 'react-native';
 
-import {PAGES} from './../../constants/'
+import {PAGES} from './../../constants/';
 
 export default class Splash extends Component {
 
@@ -23,7 +23,7 @@ export default class Splash extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>SPLASH!</Text>
-        <ActivityIndicator/>
+        <ActivityIndicator />
       </View>
     );
   }
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    backgroundColor: 'green'
   },
   title: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
