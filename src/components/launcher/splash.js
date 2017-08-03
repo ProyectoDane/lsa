@@ -10,6 +10,20 @@ import StorageKeys from './../../util/storageKeys';
 
 import {PAGES} from './../../constants/';
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green'
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10
+  }
+});
+
 export default class Splash extends Component {
 
   constructor(props) {
@@ -48,7 +62,7 @@ export default class Splash extends Component {
       } else {
         this.navigateToStartupVideo();
       }
-    }, 3000);
+    }, 500);
   }
 
   render() {
@@ -60,17 +74,3 @@ export default class Splash extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'green'
-  },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10
-  }
-});

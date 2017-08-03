@@ -1,20 +1,8 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
-  Text,
-  View
+  StyleSheet
 } from 'react-native';
-
-export default class Splash extends Component {
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>HOME!</Text>
-      </View>
-    );
-  }
-}
+import Categories from './../categories/categories';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,3 +17,15 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
+
+export default class Splash extends Component {
+
+  render() {
+    return (
+      <Categories
+        navigation={this.props.navigation}
+      />
+    );
+  }
+
+}
