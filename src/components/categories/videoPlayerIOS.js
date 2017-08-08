@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 
 import {
-  AlertIOS,
   Platform,
   StyleSheet,
   Text,
@@ -13,8 +12,7 @@ import {
 
 import Video from 'react-native-video';
 
-export default class VideoPlayer extends Component {
-
+export default class VideoPlayerIOS extends Component {
   constructor(props) {
     super(props);
     this.onLoad = this.onLoad.bind(this);
@@ -57,8 +55,8 @@ export default class VideoPlayer extends Component {
   }
 
   renderSkinControl(skin) {
-    const isSelected = this.state.skin == skin;
-    const selectControls = skin == 'native' || skin == 'embed';
+    const isSelected = this.state.skin === skin;
+    const selectControls = skin === 'native' || skin === 'embed';
     return (
       <TouchableOpacity onPress={() => {
         this.setState({
@@ -74,7 +72,7 @@ export default class VideoPlayer extends Component {
   }
 
   renderRateControl(rate) {
-    const isSelected = (this.state.rate == rate);
+    const isSelected = (this.state.rate === rate);
 
     return (
       <TouchableOpacity onPress={() => { this.setState({rate: rate});}}>
@@ -86,7 +84,7 @@ export default class VideoPlayer extends Component {
   }
 
   renderResizeModeControl(resizeMode) {
-    const isSelected = (this.state.resizeMode == resizeMode);
+    const isSelected = (this.state.resizeMode === resizeMode);
 
     return (
       <TouchableOpacity onPress={() => { this.setState({resizeMode: resizeMode});}}>
@@ -98,7 +96,7 @@ export default class VideoPlayer extends Component {
   }
 
   renderVolumeControl(volume) {
-    const isSelected = (this.state.volume == volume);
+    const isSelected = (this.state.volume === volume);
 
     return (
       <TouchableOpacity onPress={() => { this.setState({volume: volume});}}>
@@ -110,7 +108,7 @@ export default class VideoPlayer extends Component {
   }
 
   renderIgnoreSilentSwitchControl(ignoreSilentSwitch) {
-    const isSelected = (this.state.ignoreSilentSwitch == ignoreSilentSwitch);
+    const isSelected = (this.state.ignoreSilentSwitch === ignoreSilentSwitch);
 
     return (
       <TouchableOpacity onPress={() => { this.setState({ignoreSilentSwitch: ignoreSilentSwitch});}}>
@@ -124,12 +122,14 @@ export default class VideoPlayer extends Component {
   renderCustomSkin() {
     const flexCompleted = this.getCurrentTimePercentage() * 100;
     const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
+    const {params} = this.props.navigation.state;
+    let video = params.video.video;
 
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.fullScreen} onPress={() => {this.setState({paused: !this.state.paused});}}>
           <Video
-            source={require('./../../../res/video/tocarTimbre.mp4')}
+            source={video}
             style={styles.fullScreen}
             rate={this.state.rate}
             paused={this.state.paused}
@@ -140,7 +140,6 @@ export default class VideoPlayer extends Component {
             onLoad={this.onLoad}
             onBuffer={this.onBuffer}
             onProgress={this.onProgress}
-            onEnd={() => { AlertIOS.alert('Done!');}}
             repeat={true}
           />
         </TouchableOpacity>
@@ -194,12 +193,12 @@ export default class VideoPlayer extends Component {
   }
 
   renderNativeSkin() {
-    const videoStyle = this.state.skin == 'embed' ? styles.nativeVideoControls : styles.fullScreen;
+    const videoStyle = this.state.skin === 'embed' ? styles.nativeVideoControls : styles.fullScreen;
     return (
       <View style={styles.container}>
         <View style={styles.fullScreen}>
           <Video
-            source={require('./../../../res/video/tocarTimbre.mp4')}
+            source={require('./../../../res/video/tocar_timbre.mp4')}
             style={videoStyle}
             rate={this.state.rate}
             paused={this.state.paused}
@@ -210,7 +209,6 @@ export default class VideoPlayer extends Component {
             onLoad={this.onLoad}
             onBuffer={this.onBuffer}
             onProgress={this.onProgress}
-            onEnd={() => { AlertIOS.alert('Done!');}}
             repeat={true}
             controls={this.state.controls}
           />

@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
 export default class Categories extends Component {
 
   navigateToCategory(category) {
-    console.log("HOLIS");
     this.props.navigation.navigate(PAGES.PAGE_CATEGORY, {category: category});
   }
 

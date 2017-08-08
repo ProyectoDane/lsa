@@ -5,34 +5,54 @@ export const CATEGORIES_INDEX = {
       icon: require("./../../../res/icon/category-icon.png"),
       videos: [
         {
-          name_es: "TOCAR TIMBRE 1",
+          name_es: "CONTROL REMOTO",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/control_remoto.mp4")
         },
         {
-          name_es: "TOCAR TIMBRE 2",
+          name_es: "DIARIO",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/diario.mp4")
         },
         {
-          name_es: "TOCAR TIMBRE 3",
+          name_es: "LA CASA",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/la_casa.mp4")
         },
         {
-          name_es: "TOCAR TIMBRE 4",
+          name_es: "LIVING",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/living.mp4")
         },
         {
-          name_es: "TOCAR TIMBRE 5",
+          name_es: "PUERTA",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/puerta.mp4")
         },
         {
-          name_es: "TOCAR TIMBRE 6",
+          name_es: "SENTARSE",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: require("./../../../res/video/sentarse.mp4")
+        },
+        {
+          name_es: "SOFA",
+          icon: require("./../../../res/icon/video-icon.png"),
+          video: require("./../../../res/video/sofa.mp4")
+        },
+        {
+          name_es: "TELEVISOR",
+          icon: require("./../../../res/icon/video-icon.png"),
+          video: require("./../../../res/video/televisor.mp4")
+        },
+        {
+          name_es: "TOCAR TIMBRE",
+          icon: require("./../../../res/icon/video-icon.png"),
+          video: require("./../../../res/video/tocar_timbre.mp4")
+        },
+        {
+          name_es: "VENTANA",
+          icon: require("./../../../res/icon/video-icon.png"),
+          video: require("./../../../res/video/ventana.mp4")
         }
       ]
     },
@@ -43,27 +63,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -74,27 +94,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -105,27 +125,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -136,27 +156,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -167,27 +187,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -198,27 +218,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -229,27 +249,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -260,27 +280,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -291,27 +311,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -322,27 +342,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -353,27 +373,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -384,27 +404,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -415,27 +435,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -446,27 +466,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -477,27 +497,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -508,27 +528,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -539,27 +559,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -570,27 +590,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -601,27 +621,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -632,27 +652,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -663,27 +683,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     },
@@ -694,27 +714,27 @@ export const CATEGORIES_INDEX = {
         {
           name_es: "TOCAR TIMBRE 1",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 2",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 3",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 4",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         },
         {
           name_es: "TOCAR TIMBRE 5",
           icon: require("./../../../res/icon/video-icon.png"),
-          video: "tocarTimbre"
+          video: "tocar_timbre"
         }
       ]
     }

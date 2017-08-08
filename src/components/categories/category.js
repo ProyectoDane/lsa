@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from 'react-native';
 
 import {PAGES} from './../../constants/';
@@ -58,7 +59,9 @@ const styles = StyleSheet.create({
 export default class Category extends Component {
 
   navigateToVideo(video) {
-    this.props.navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: video});
+    let page = "";
+    Platform.OS === 'ios' ? page = PAGES.PAGE_VIDEO_PLAYER_IOS : page = PAGES.PAGE_VIDEO_PLAYER_ANDROID;
+    this.props.navigation.navigate(page, {video: video});
   }
 
   renderVideo(video) {
