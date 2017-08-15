@@ -275,7 +275,7 @@ export const CATEGORIES_INDEX = {
     },
     {
       name_es: "LA FIESTA DE CUMPLEAÑOS",
-      icon: require("./../../../res/icon/el-cumpleaños.png"),
+      icon: require("./../../../res/icon/el-cumpleanos.png"),
       videos: [
         {
           name_es: "TOCAR TIMBRE 1",
