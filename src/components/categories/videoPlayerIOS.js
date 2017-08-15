@@ -194,11 +194,13 @@ export default class VideoPlayerIOS extends Component {
 
   renderNativeSkin() {
     const videoStyle = this.state.skin === 'embed' ? styles.nativeVideoControls : styles.fullScreen;
+    const {params} = this.props.navigation.state;
+    let video = params.video.video;
     return (
       <View style={styles.container}>
         <View style={styles.fullScreen}>
           <Video
-            source={require('./../../../res/video/tocar_timbre.mp4')}
+            source={video}
             style={videoStyle}
             rate={this.state.rate}
             paused={this.state.paused}

@@ -92,6 +92,8 @@ export default class VideoPlayerAndroid extends Component {
   render() {
     const flexCompleted = this.getCurrentTimePercentage() * 100;
     const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
+    const {params} = this.props.navigation.state;
+    let video = params.video.video;
 
     return (
       <View style={styles.container}>
@@ -101,7 +103,7 @@ export default class VideoPlayerAndroid extends Component {
         >
           <Video
             ref={(ref: Video) => { this.video = ref; }}
-            source={require('./../../../res/video/tocar_timbre.mp4')}
+            source={video}
             style={styles.fullScreen}
             rate={this.state.rate}
             paused={this.state.paused}

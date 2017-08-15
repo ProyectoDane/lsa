@@ -10,9 +10,10 @@ import {
   Platform
 } from 'react-native';
 
+import {deviceIsTablet} from './../../util/deviceUtil';
 import {PAGES} from './../../constants/';
 
-const videosPerRow = 2;
+const videosPerRow = deviceIsTablet() ? 4 : 2;
 const videoPaddingVertical = 5;
 const videoPaddingHorizontal = 5;
 

@@ -9,10 +9,11 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import {deviceIsTablet} from './../../util/deviceUtil';
 import {CATEGORIES_INDEX} from './categoriesIndex';
 import {PAGES} from './../../constants/';
 
-const categoriesPerRow = 2;
+const categoriesPerRow = deviceIsTablet() ? 4 : 2;
 const categoryPaddingVertical = 5;
 const categoryPaddingHorizontal = 5;
 
@@ -53,6 +54,7 @@ export default class Categories extends Component {
   }
 
   renderCategory(category) {
+    console.log("WIDTH ", Dimensions.get('window').width);
     return (
       <TouchableOpacity
         onPress={() => this.navigateToCategory(category)}
