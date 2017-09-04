@@ -10,8 +10,17 @@ import {
 } from 'react-native';
 
 import Video from 'react-native-video';
+import Colors from './../../res/colors';
 
 export default class VideoPlayerAndroid extends Component {
+
+  static navigationOptions = ({navigation, screenProps}) => ({
+    headerTintColor: Colors.THEME_SECONDARY,
+    headerStyle: {
+      backgroundColor: Colors.THEME_PRIMARY,
+      elevation: 0
+    }
+  });
 
   state = {
     rate: 1,

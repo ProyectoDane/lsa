@@ -54,7 +54,6 @@ export default class Categories extends Component {
   }
 
   renderCategory(category) {
-    console.log("WIDTH ", Dimensions.get('window').width);
     return (
       <TouchableOpacity
         onPress={() => this.navigateToCategory(category)}
