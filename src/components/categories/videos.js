@@ -13,7 +13,7 @@ import {
 import {deviceIsTablet} from './../../util/deviceUtil';
 import {PAGES} from './../../constants/';
 
-const videosPerRow = deviceIsTablet() ? 4 : 2;
+const videosPerRow = deviceIsTablet() ? 6 : 3;
 const videoPaddingVertical = 5;
 const videoPaddingHorizontal = 5;
 
@@ -90,12 +90,13 @@ export default class Videos extends Component {
 
   render() {
     let videos = this.props.videos;
+    console.log(videos);
     let rows = [];
     for (var i = 0; i < videos.length; i += videosPerRow) {
       rows.push(this.renderRow(videos, i));
     }
     return (
-      <View style={styles.titleContainer}>
+      <View style={{flex: 1}}>
         <ScrollView style={{flex: 1}}>
           {rows}
         </ScrollView>

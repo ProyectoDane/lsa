@@ -13,7 +13,7 @@ import {deviceIsTablet} from './../../util/deviceUtil';
 import {CATEGORIES_INDEX} from './categoriesIndex';
 import {PAGES} from './../../constants/';
 
-const categoriesPerRow = deviceIsTablet() ? 4 : 2;
+const categoriesPerRow = deviceIsTablet() ? 6 : 3;
 const categoryPaddingVertical = 5;
 const categoryPaddingHorizontal = 5;
 

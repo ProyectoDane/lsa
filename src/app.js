@@ -108,11 +108,13 @@ const ProyectosSolidarios = TabNavigator(
     backBehavior: 'none',
     tabBarOptions: {
       showIcon: true,
+      showLabel: false,
       pressColor: 'white',
       activeTintColor: Colors.THEME_SECONDARY,
       inactiveTintColor: 'lightgrey',
       style: {backgroundColor: Colors.THEME_PRIMARY},
-      activeBackgroundColor: Colors.THEME_PRIMARY
+      activeBackgroundColor: Colors.THEME_PRIMARY,
+      indicatorStyle: {backgroundColor: 'transparent'}
     }
   }
 );
