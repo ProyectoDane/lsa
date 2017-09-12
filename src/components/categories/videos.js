@@ -13,7 +13,7 @@ import {
 import {deviceIsTablet} from './../../util/deviceUtil';
 import {PAGES} from './../../constants/';
 
-const videosPerRow = deviceIsTablet() ? 6 : 3;
+const videosPerRow = deviceIsTablet() ? 4 : 2;
 const videoPaddingVertical = 5;
 const videoPaddingHorizontal = 5;
 
