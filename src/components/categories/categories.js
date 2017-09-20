@@ -6,18 +6,23 @@ import {
   Image,
   ScrollView,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground,
+  Platform
 } from 'react-native';
 
 import {deviceIsTablet} from './../../util/deviceUtil';
 import {CATEGORIES_INDEX} from './categoriesIndex';
 import {PAGES} from './../../constants/';
+import Colors from './../../res/colors';
 
 const categoriesPerRow = deviceIsTablet() ? 4 : 2;
-const categoryPaddingVertical = 5;
-const categoryPaddingHorizontal = 5;
+const categoryPaddingVertical = 6;
+const categoryPaddingHorizontal = 6;
+const imagePaddingHorizontal = categoryPaddingHorizontal * 2;
+const imagePaddingVertical = categoryPaddingVertical * 2;
 
-const categoryWidth = Dimensions.get('window').width / categoriesPerRow;
+const categoryWidth = (Dimensions.get('window').width - 2 * categoryPaddingHorizontal) / categoriesPerRow;
 
 const styles = StyleSheet.create({
   categoryContainer: {
@@ -27,23 +32,41 @@ const styles = StyleSheet.create({
     paddingVertical: categoryPaddingVertical,
     paddingHorizontal: categoryPaddingHorizontal
   },
+  imageContainer: {
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: categoryWidth - 2 * categoryPaddingHorizontal,
+    height: categoryWidth - 4 * categoryPaddingVertical,
+    backgroundColor: 'white'
+  },
   categoryIcon: {
-    width: categoryWidth - 2 * categoryPaddingHorizontal * categoriesPerRow,
-    height: categoryWidth - 2 * categoryPaddingHorizontal * categoriesPerRow
+    width: categoryWidth - 2 * (categoryPaddingHorizontal + imagePaddingHorizontal),
+    height: categoryWidth - 2 * (categoryPaddingVertical + imagePaddingVertical),
+    backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
   },
   categoryNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 5,
-    width: categoryWidth - 2 * categoryPaddingHorizontal * categoriesPerRow,
-    height: 50,
-    backgroundColor: 'white'
+    width: categoryWidth - 2 * categoryPaddingHorizontal,
+    paddingHorizontal: imagePaddingHorizontal,
+    backgroundColor: 'white',
+    height: 50
   },
   categoryName: {
     textAlign: 'center'
   },
   rowContainer: {
     flexDirection: "row"
+  },
+  backgroundImageStyle: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
+  },
+  categoriesViewContainer: {
+    flex: 1,
+    paddingVertical: categoryPaddingVertical,
+    paddingHorizontal: categoryPaddingHorizontal
   }
 });
 
@@ -60,10 +83,12 @@ export default class Categories extends Component {
         key={category.name_es}
         style={styles.categoryContainer}
       >
-        <Image
-          style={styles.categoryIcon}
-          source={category.icon}
-        />
+        <View style={styles.imageContainer} >
+          <Image
+            style={styles.categoryIcon}
+            source={category.icon}
+          />
+        </View>
         <View style={styles.categoryNameContainer}>
           <Text style={styles.categoryName}>{category.name_es}</Text>
         </View>
@@ -93,9 +118,17 @@ export default class Categories extends Component {
       rows.push(this.renderRow(categories, i));
     }
     return (
-      <ScrollView style={{flex: 1}}>
-        {rows}
-      </ScrollView>
+      <View style={{flex: 1}}>
+        <ImageBackground
+          style={{flex: 1}}
+          imageStyle={styles.backgroundImageStyle}
+          source={require('./../../res/background/fondo-amarillo.jpg')}
+        >
+          <ScrollView style={styles.categoriesViewContainer}>
+            {rows}
+          </ScrollView>
+        </ImageBackground>
+      </View>
     );
   }
 

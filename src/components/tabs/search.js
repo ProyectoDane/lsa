@@ -5,28 +5,35 @@ import {
   TextInput,
   Platform,
   View,
-  Text
+  Text,
+  ImageBackground
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 import Videos from './../categories/videos';
 import {CATEGORIES_INDEX} from './../categories/categoriesIndex';
 
-const searchInputMaginHorizontal = 10;
-const noGrouponsMessageHorizontalMargin = 25;
+const searchInputMaginLeft = 10;
+const searchIconSize = 26;
+const searchIconMaginRight = searchInputMaginLeft;
+const searchInputMaginRight = searchIconMaginRight + searchIconSize + searchInputMaginLeft;
+const noGrouponsMessageHorizontalMargin = 30;
+const searchVideosBackground = require('./../../res/background/fondo-verde.jpg');
 
 const styles = StyleSheet.create({
   searchInput: {
     marginVertical: 10,
-    marginHorizontal: searchInputMaginHorizontal,
+    marginLeft: searchInputMaginLeft,
+    marginRight: searchInputMaginRight,
     height: 30,
-    width: Dimensions.get('window').width - searchInputMaginHorizontal * 2,
+    width: Dimensions.get('window').width - searchInputMaginLeft - searchInputMaginRight,
     paddingBottom: (Platform.OS === 'android') ? 6 : 0,
     paddingHorizontal: 5,
     fontSize: 14,
-    color: Colors.THEME_PRIMARY,
-    backgroundColor: 'white'
+    color: 'black',
+    backgroundColor: 'whitesmoke'
   },
   noVideosFoundContainer: {
     flex:           1,
@@ -38,6 +45,15 @@ const styles = StyleSheet.create({
     fontWeight:  'bold',
     marginLeft:  noGrouponsMessageHorizontalMargin,
     marginRight: noGrouponsMessageHorizontalMargin
+  },
+  backgroundImageStyle: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
+  },
+  searchIcon: {
+    color: Colors.THEME_SECONDARY,
+    marginRight: searchIconMaginRight
   }
 });
 
@@ -56,43 +72,70 @@ export default class Search extends Component {
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0
-    }
+    },
+    headerLeft: (
+      <TextInput
+        ref={r => this.searchInputRef = r}
+        style={styles.searchInput}
+        autoCapitalize={'characters'}
+        underlineColorAndroid={'transparent'}
+        placeholder={I18n.t('search_video')}
+        placeholderTextColor={Colors.THEME_SECONDARY}
+        autoFocus={false}
+        onChangeText={(text) => navigation.setParams({searchQuery: text})}
+      />
+    ),
+    headerRight: (
+      <Ionicons
+        name={'ios-search-outline'}
+        size={26}
+        style={styles.searchIcon}
+      />
+    )
   });
+
+  componentWillReceiveProps(nextProps) {
+    this.searchVideos(nextProps.navigation.state.params.searchQuery);
+  }
 
   render() {
     return (
       <View style={{flex: 1}}>
-        <TextInput
-          ref={r => this.searchInputRef = r}
-          style={styles.searchInput}
-          autoCapitalize={'characters'}
-          underlineColorAndroid={'transparent'}
-          placeholder={I18n.t('search_video')}
-          placeholderTextColor='lightgrey'
-          autoFocus={false}
-          onChangeText={(text) => this.searchVideos(text)}
-        />
         {this.state.query !== "" && this.state.videos.length > 0 ?
-        <Videos
-          navigation={this.props.navigation}
-          videos={this.state.videos}
-        />
-        : this.state.query !== "" && this.state.videos.length === 0 ?
-        <View style={styles.noVideosFoundContainer}>
-          <Text style={styles.noVideosFoundMessage}>{I18n.t('no_videos_found')}</Text>
-        </View> : null
+          <Videos
+            navigation={this.props.navigation}
+            videos={this.state.videos}
+            background={searchVideosBackground}
+          />
+          :
+          <ImageBackground
+            style={{flex: 1}}
+            imageStyle={[styles.backgroundImageStyle]}
+            source={require('./../../res/background/fondo-verde.jpg')}
+          >
+            {this.state.query !== "" && this.state.videos.length === 0 ?
+              <View style={styles.noVideosFoundContainer}>
+                <Text style={styles.noVideosFoundMessage}>{I18n.t('no_videos_found')}</Text>
+                </View> : null
+            }
+          </ImageBackground>
         }
       </View>
     );
   }
 
+  removeAccents(string) {
+    return string.split("Á").join("A").split("É").join("E").split("Í").join("I").split("Ó").join("O").split("Ú").join("U");
+  }
+
   searchVideos(searchString) {
     if (searchString && searchString.length > 1) {
+      searchString = this.removeAccents(searchString);
       let categories = CATEGORIES_INDEX.categories;
       let foundVideos = [];
       for (var i = 0; i < categories.length; i++) {
         for (var j = 0; j < categories[i].videos.length; j++) {
-          if (categories[i].videos[j].name_es.indexOf(searchString) !== -1) {
+          if (categories[i].videos[j].search_name_es.indexOf(searchString) !== -1) {
             foundVideos.push(categories[i].videos[j]);
           }
         }

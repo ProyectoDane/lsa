@@ -109,9 +109,8 @@ const ProyectosSolidarios = TabNavigator(
     tabBarOptions: {
       showIcon: true,
       showLabel: false,
-      pressColor: 'white',
-      activeTintColor: Colors.THEME_SECONDARY,
-      inactiveTintColor: 'lightgrey',
+      activeTintColor: Colors.TAB_BAR_ACTIVE_ICON,
+      inactiveTintColor: Colors.THEME_SECONDARY,
       style: {backgroundColor: Colors.THEME_PRIMARY},
       activeBackgroundColor: Colors.THEME_PRIMARY,
       indicatorStyle: {backgroundColor: 'transparent'}
