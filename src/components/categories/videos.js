@@ -87,7 +87,7 @@ export default class Videos extends Component {
         <View style={styles.imageContainer} >
           <Image
             style={styles.videoIcon}
-            source={video.icon}
+            source={video.image}
           />
         </View>
         <View style={styles.videoNameContainer}>

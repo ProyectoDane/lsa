@@ -12,7 +12,9 @@ export default class Home extends Component {
     headerBackTitle: null,
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0
+      elevation: 0,
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON
     }
   });
 

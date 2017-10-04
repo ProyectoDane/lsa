@@ -57,20 +57,6 @@ const ProyectosSolidarios = TabNavigator(
         )
       }
     },
-    SearchTab: {
-      screen: SearchTab,
-      path: '/search',
-      navigationOptions: {
-        tabBarLabel: 'Search',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons
-            name={focused ? 'ios-search' : 'ios-search-outline'}
-            size={26}
-            style={{ color: tintColor }}
-          />
-        )
-      }
-    },
     AlphabeticalTab: {
       screen: AlphabeticalTab,
       path: '/alphabetical',
@@ -79,6 +65,20 @@ const ProyectosSolidarios = TabNavigator(
         tabBarIcon: ({ tintColor, focused }) => (
           <Ionicons
             name={focused ? 'ios-list' : 'ios-list-outline'}
+            size={26}
+            style={{ color: tintColor }}
+          />
+        )
+      }
+    },
+    SearchTab: {
+      screen: SearchTab,
+      path: '/search',
+      navigationOptions: {
+        tabBarLabel: 'Search',
+        tabBarIcon: ({ tintColor, focused }) => (
+          <Ionicons
+            name={focused ? 'ios-search' : 'ios-search-outline'}
             size={26}
             style={{ color: tintColor }}
           />
