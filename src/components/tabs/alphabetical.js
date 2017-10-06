@@ -9,7 +9,9 @@ export default class Alphabetical extends Component {
     headerTintColor: Colors.THEME_SECONDARY,
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0
+      elevation: 0,
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON
     }
   });
 
