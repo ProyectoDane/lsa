@@ -6,3 +6,5 @@ export const PAGES = {
   PAGE_VIDEO_PLAYER_IOS: "VideoPlayerIOS",
   PAGE_VIDEO_PLAYER_ANDROID: "VideoPlayerAndroid"
 };
+
+export const ALPHABETICAL_CATEGORY_NAME_ES = "EL ALFABETO";
