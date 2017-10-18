@@ -3,19 +3,32 @@ import React, {
 } from 'react';
 
 import {
-  Platform,
   StyleSheet,
-  Text,
   TouchableOpacity,
-  View
+  ImageBackground,
+  Dimensions,
+  Platform,
+  View,
+  Image
 } from 'react-native';
 
 import Video from 'react-native-video';
 import Colors from './../../res/colors';
 
+const margin = 12;
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+const cardSize = 150;
+const cardPadding = 6;
+
+const videoWidth = windowWidth - 2 * margin;
+const videoRatio = 352 / 288;
+const videoHeight = Math.round(videoWidth / videoRatio);
+
 export default class VideoPlayerIOS extends Component {
 
   static navigationOptions = ({navigation, screenProps}) => ({
+    title: navigation.state.params.video.name_es,
     headerTintColor: Colors.THEME_SECONDARY,
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
@@ -25,332 +38,89 @@ export default class VideoPlayerIOS extends Component {
 
   constructor(props) {
     super(props);
-    this.onLoad = this.onLoad.bind(this);
-    this.onProgress = this.onProgress.bind(this);
-    this.onBuffer = this.onBuffer.bind(this);
+    this.onEnd = this.onEnd.bind(this);
   }
-  state = {
-    rate: 1,
-    volume: 1,
-    muted: false,
-    resizeMode: 'contain',
-    duration: 0.0,
-    currentTime: 0.0,
-    controls: false,
-    paused: true,
-    skin: 'custom',
-    ignoreSilentSwitch: null,
-    isBuffering: false
+
+  state = { paused: true };
+
+  onEnd() {
+    this.setState({ paused: true});
   };
 
-  onLoad(data) {
-    console.log('On load fired!');
-    this.setState({duration: data.duration});
-  }
-
-  onProgress(data) {
-    this.setState({currentTime: data.currentTime});
-  }
-
-  onBuffer({ isBuffering }: { isBuffering: boolean }) {
-    this.setState({ isBuffering });
-  }
-
-  getCurrentTimePercentage() {
-    if (this.state.currentTime > 0) {
-      return parseFloat(this.state.currentTime) / parseFloat(this.state.duration);
-    } else {
-      return 0;
-    }
-  }
-
-  renderSkinControl(skin) {
-    const isSelected = this.state.skin === skin;
-    const selectControls = skin === 'native' || skin === 'embed';
-    return (
-      <TouchableOpacity onPress={() => {
-        this.setState({
-          controls: selectControls,
-          skin: skin
-        });}}
-      >
-        <Text style={[styles.controlOption, {fontWeight: isSelected ? "bold" : "normal"}]}>
-          {skin}
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  renderRateControl(rate) {
-    const isSelected = (this.state.rate === rate);
-
-    return (
-      <TouchableOpacity onPress={() => { this.setState({rate: rate});}}>
-        <Text style={[styles.controlOption, {fontWeight: isSelected ? "bold" : "normal"}]}>
-          {rate}x
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  renderResizeModeControl(resizeMode) {
-    const isSelected = (this.state.resizeMode === resizeMode);
-
-    return (
-      <TouchableOpacity onPress={() => { this.setState({resizeMode: resizeMode});}}>
-        <Text style={[styles.controlOption, {fontWeight: isSelected ? "bold" : "normal"}]}>
-          {resizeMode}
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  renderVolumeControl(volume) {
-    const isSelected = (this.state.volume === volume);
-
-    return (
-      <TouchableOpacity onPress={() => { this.setState({volume: volume});}}>
-        <Text style={[styles.controlOption, {fontWeight: isSelected ? "bold" : "normal"}]}>
-          {volume * 100}%
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  renderIgnoreSilentSwitchControl(ignoreSilentSwitch) {
-    const isSelected = (this.state.ignoreSilentSwitch === ignoreSilentSwitch);
-
-    return (
-      <TouchableOpacity onPress={() => { this.setState({ignoreSilentSwitch: ignoreSilentSwitch});}}>
-        <Text style={[styles.controlOption, {fontWeight: isSelected ? "bold" : "normal"}]}>
-          {ignoreSilentSwitch}
-        </Text>
-      </TouchableOpacity>
-    );
-  }
-
-  renderCustomSkin() {
-    const flexCompleted = this.getCurrentTimePercentage() * 100;
-    const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
+  render() {
     const {params} = this.props.navigation.state;
-    let video = params.video.video;
+    let video = params.video;
 
     return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.fullScreen} onPress={() => {this.setState({paused: !this.state.paused});}}>
+      <ImageBackground
+        style={{flex: 1}}
+        imageStyle={styles.backgroundImageStyle}
+        source={require('./../../res/background/fondo-amarillo.jpg')}
+      >
+        <TouchableOpacity
+          style={styles.videoContainer}
+          onPress={() => {
+            this.video.seek(0);
+            this.setState({paused: !this.state.paused});
+          }}
+        >
           <Video
-            source={video}
-            style={styles.fullScreen}
-            rate={this.state.rate}
+            ref={(ref: Video) => { this.video = ref; }}
+            source={video.video}
+            style={styles.video}
+            rate={1}
             paused={this.state.paused}
-            volume={this.state.volume}
-            muted={this.state.muted}
-            ignoreSilentSwitch={this.state.ignoreSilentSwitch}
-            resizeMode={this.state.resizeMode}
-            onLoad={this.onLoad}
-            onBuffer={this.onBuffer}
-            onProgress={this.onProgress}
-            repeat={true}
+            muted={true}
+            resizeMode={'contain'}
+            onEnd={this.onEnd}
           />
         </TouchableOpacity>
 
-        <View style={styles.controls}>
-          <View style={styles.generalControls}>
-            <View style={styles.skinControl}>
-              {this.renderSkinControl('custom')}
-              {this.renderSkinControl('native')}
-              {this.renderSkinControl('embed')}
-            </View>
-          </View>
-          <View style={styles.generalControls}>
-            <View style={styles.rateControl}>
-              {this.renderRateControl(0.5)}
-              {this.renderRateControl(1.0)}
-              {this.renderRateControl(2.0)}
-            </View>
-
-            <View style={styles.volumeControl}>
-              {this.renderVolumeControl(0.5)}
-              {this.renderVolumeControl(1)}
-              {this.renderVolumeControl(1.5)}
-            </View>
-
-            <View style={styles.resizeModeControl}>
-              {this.renderResizeModeControl('cover')}
-              {this.renderResizeModeControl('contain')}
-              {this.renderResizeModeControl('stretch')}
-            </View>
-          </View>
-          <View style={styles.generalControls}>
-            {
-              (Platform.OS === 'ios') ?
-                <View style={styles.ignoreSilentSwitchControl}>
-                  {this.renderIgnoreSilentSwitchControl('ignore')}
-                  {this.renderIgnoreSilentSwitchControl('obey')}
-                </View> : null
-            }
-          </View>
-
-          <View style={styles.trackingControls}>
-            <View style={styles.progress}>
-              <View style={[styles.innerProgressCompleted, {flex: flexCompleted}]} />
-              <View style={[styles.innerProgressRemaining, {flex: flexRemaining}]} />
-            </View>
-          </View>
-        </View>
-      </View>
-    );
-  }
-
-  renderNativeSkin() {
-    const videoStyle = this.state.skin === 'embed' ? styles.nativeVideoControls : styles.fullScreen;
-    const {params} = this.props.navigation.state;
-    let video = params.video.video;
-    return (
-      <View style={styles.container}>
-        <View style={styles.fullScreen}>
-          <Video
-            source={video}
-            style={videoStyle}
-            rate={this.state.rate}
-            paused={this.state.paused}
-            volume={this.state.volume}
-            muted={this.state.muted}
-            ignoreSilentSwitch={this.state.ignoreSilentSwitch}
-            resizeMode={this.state.resizeMode}
-            onLoad={this.onLoad}
-            onBuffer={this.onBuffer}
-            onProgress={this.onProgress}
-            repeat={true}
-            controls={this.state.controls}
+        <View style={styles.cardContainer}>
+          <Image
+            style={styles.cardImage}
+            source={video.image}
           />
         </View>
-        <View style={styles.controls}>
-          <View style={styles.generalControls}>
-            <View style={styles.skinControl}>
-              {this.renderSkinControl('custom')}
-              {this.renderSkinControl('native')}
-              {this.renderSkinControl('embed')}
-            </View>
-          </View>
-          <View style={styles.generalControls}>
-            <View style={styles.rateControl}>
-              {this.renderRateControl(0.5)}
-              {this.renderRateControl(1.0)}
-              {this.renderRateControl(2.0)}
-            </View>
 
-            <View style={styles.volumeControl}>
-              {this.renderVolumeControl(0.5)}
-              {this.renderVolumeControl(1)}
-              {this.renderVolumeControl(1.5)}
-            </View>
-
-            <View style={styles.resizeModeControl}>
-              {this.renderResizeModeControl('cover')}
-              {this.renderResizeModeControl('contain')}
-              {this.renderResizeModeControl('stretch')}
-            </View>
-          </View>
-          <View style={styles.generalControls}>
-            {
-              (Platform.OS === 'ios') ?
-                <View style={styles.ignoreSilentSwitchControl}>
-                  {this.renderIgnoreSilentSwitchControl('ignore')}
-                  {this.renderIgnoreSilentSwitchControl('obey')}
-                </View> : null
-            }
-          </View>
-        </View>
-
-      </View>
+      </ImageBackground>
     );
   }
 
-  render() {
-    return this.state.controls ? this.renderNativeSkin() : this.renderCustomSkin();
-  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  backgroundImageStyle: {
+    width: windowWidth,
+    height: windowHeight,
+    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
+  },
+  videoContainer: {
+    width: videoWidth,
+    height: videoHeight,
+    marginHorizontal: margin,
+    marginTop: margin,
+    marginBottom: margin * 3,
+    backgroundColor: 'transparent'
+  },
+  video: {
+    width: videoWidth,
+    height: videoHeight,
+    backgroundColor: 'transparent'
+  },
+  cardContainer: {
+    alignItems: 'center',
     justifyContent: 'center',
+    width: cardSize,
+    height: cardSize,
+    padding: cardPadding,
+    backgroundColor: 'white',
+    marginLeft: (windowWidth - cardSize) / 2
+  },
+  cardImage: {
     alignItems: 'center',
-    backgroundColor: 'black'
-  },
-  fullScreen: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0
-  },
-  controls: {
-    backgroundColor: "transparent",
-    borderRadius: 5,
-    position: 'absolute',
-    bottom: 44,
-    left: 4,
-    right: 4
-  },
-  progress: {
-    flex: 1,
-    flexDirection: 'row',
-    borderRadius: 3,
-    overflow: 'hidden'
-  },
-  innerProgressCompleted: {
-    height: 20,
-    backgroundColor: '#cccccc'
-  },
-  innerProgressRemaining: {
-    height: 20,
-    backgroundColor: '#2C2C2C'
-  },
-  generalControls: {
-    flex: 1,
-    flexDirection: 'row',
-    overflow: 'hidden',
-    paddingBottom: 10
-  },
-  skinControl: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  rateControl: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  volumeControl: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  resizeModeControl: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  ignoreSilentSwitchControl: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  controlOption: {
-    alignSelf: 'center',
-    fontSize: 11,
-    color: "white",
-    paddingLeft: 2,
-    paddingRight: 2,
-    lineHeight: 12
-  },
-  nativeVideoControls: {
-    top: 184,
-    height: 300
+    justifyContent: 'flex-end',
+    width: cardSize - 2 * cardPadding,
+    height: cardSize - 2 * cardPadding
   }
 });
