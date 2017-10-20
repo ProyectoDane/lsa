@@ -3,8 +3,7 @@ export const PAGES = {
   PAGE_HOME: "Home",
   STARTUP_VIDEO: "StartupVideo",
   PAGE_CATEGORY: "Category",
-  PAGE_VIDEO_PLAYER_IOS: "VideoPlayerIOS",
-  PAGE_VIDEO_PLAYER_ANDROID: "VideoPlayerAndroid"
+  PAGE_VIDEO_PLAYER: "VideoPlayer"
 };
 
-export const ALPHABETICAL_CATEGORY_NAME_ES = "EL ALFABETO";
+export const ALPHABETICAL_CATEGORY_NAME_ES = "ALFABETO DACTILOLÓGICO";

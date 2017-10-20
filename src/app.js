@@ -11,8 +11,7 @@ import Alphabetical from './components/tabs/alphabetical';
 import Information from './components/tabs/information';
 import StartupVideo from './components/launcher/startupVideo';
 import Category from './components/categories/category';
-import VideoPlayerIOS from './components/categories/videoPlayerIOS';
-import VideoPlayerAndroid from './components/categories/videoPlayerAndroid';
+import VideoPlayer from './components/categories/videoPlayer';
 import Colors from './res/colors';
 
 //Splash: { screen: Splash },
@@ -21,20 +20,17 @@ import Colors from './res/colors';
 const HomeTab = StackNavigator({
   Home: {screen: Home},
   Category: {screen: Category},
-  VideoPlayerIOS: {screen: VideoPlayerIOS},
-  VideoPlayerAndroid: {screen: VideoPlayerAndroid}
+  VideoPlayer: {screen: VideoPlayer}
 });
 
 const SearchTab = StackNavigator({
   Search: {screen: Search},
-  VideoPlayerIOS: {screen: VideoPlayerIOS},
-  VideoPlayerAndroid: {screen: VideoPlayerAndroid}
+  VideoPlayer: {screen: VideoPlayer}
 });
 
 const AlphabeticalTab =  StackNavigator({
   Alphabetical: {screen: Alphabetical},
-  VideoPlayerIOS: {screen: VideoPlayerIOS},
-  VideoPlayerAndroid: {screen: VideoPlayerAndroid}
+  VideoPlayer: {screen: VideoPlayer}
 });
 
 const InformationTab =  StackNavigator({

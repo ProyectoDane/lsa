@@ -11,43 +11,38 @@ import {
   Platform
 } from 'react-native';
 
-import {deviceIsTablet} from './../../util/deviceUtil';
 import {CATEGORIES_INDEX} from './categoriesIndex';
 import {PAGES} from './../../constants/';
+import {getCardWidth, getCardsPerRow, getCardPadding} from './../../util/layoutUtil';
 import Colors from './../../res/colors';
 
-const categoriesPerRow = deviceIsTablet() ? 4 : 2;
-const categoryPaddingVertical = 6;
-const categoryPaddingHorizontal = 6;
-const imagePaddingHorizontal = categoryPaddingHorizontal * 2;
-const imagePaddingVertical = categoryPaddingVertical * 2;
-
-const categoryWidth = (Dimensions.get('window').width - 2 * categoryPaddingHorizontal) / categoriesPerRow;
+const imagePaddingHorizontal = getCardPadding() * 2;
+const imagePaddingVertical = getCardPadding() * 2;
 
 const styles = StyleSheet.create({
   categoryContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: categoryWidth,
-    paddingVertical: categoryPaddingVertical,
-    paddingHorizontal: categoryPaddingHorizontal
+    width: getCardWidth(),
+    paddingVertical: getCardPadding(),
+    paddingHorizontal: getCardPadding()
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    width: categoryWidth - 2 * categoryPaddingHorizontal,
-    height: categoryWidth - 4 * categoryPaddingVertical,
+    width: getCardWidth() - 2 * getCardPadding(),
+    height: getCardWidth() - 4 * getCardPadding(),
     backgroundColor: 'white'
   },
   categoryIcon: {
-    width: categoryWidth - 2 * (categoryPaddingHorizontal + imagePaddingHorizontal),
-    height: categoryWidth - 2 * (categoryPaddingVertical + imagePaddingVertical),
+    width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
+    height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
     backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
   },
   categoryNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: categoryWidth - 2 * categoryPaddingHorizontal,
+    width: getCardWidth() - 2 * getCardPadding(),
     paddingHorizontal: imagePaddingHorizontal,
     backgroundColor: 'white',
     height: 50
@@ -65,8 +60,8 @@ const styles = StyleSheet.create({
   },
   categoriesViewContainer: {
     flex: 1,
-    paddingVertical: categoryPaddingVertical,
-    paddingHorizontal: categoryPaddingHorizontal
+    paddingVertical: getCardPadding(),
+    paddingHorizontal: getCardPadding()
   }
 });
 
@@ -98,7 +93,7 @@ export default class Categories extends Component {
 
   renderRow(categories, index) {
     let categoriesRow = [];
-    for (var i = index; i < categories.length && i - index < categoriesPerRow; i++) {
+    for (var i = index; i < categories.length && i - index < getCardsPerRow(); i++) {
       categoriesRow.push(this.renderCategory(categories[i]));
     }
     return (
@@ -114,7 +109,7 @@ export default class Categories extends Component {
   render() {
     let categories = CATEGORIES_INDEX.categories;
     let rows = [];
-    for (var i = 0; i < categories.length; i += categoriesPerRow) {
+    for (var i = 0; i < categories.length; i += getCardsPerRow()) {
       rows.push(this.renderRow(categories, i));
     }
     return (

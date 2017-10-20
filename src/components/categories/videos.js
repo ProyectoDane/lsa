@@ -11,42 +11,37 @@ import {
   ImageBackground
 } from 'react-native';
 
-import {deviceIsTablet} from './../../util/deviceUtil';
 import {PAGES} from './../../constants/';
 import Colors from './../../res/colors';
+import {getCardWidth, getCardsPerRow, getCardPadding} from './../../util/layoutUtil';
 
-const videosPerRow = deviceIsTablet() ? 4 : 2;
-const videoPaddingVertical = 6;
-const videoPaddingHorizontal = 6;
-const imagePaddingHorizontal = videoPaddingHorizontal * 2;
-const imagePaddingVertical = videoPaddingVertical * 2;
-
-const videoWidth = (Dimensions.get('window').width - 2 * videoPaddingHorizontal) / videosPerRow;
+const imagePaddingHorizontal = getCardPadding() * 2;
+const imagePaddingVertical = getCardPadding() * 2;
 
 const styles = StyleSheet.create({
   videoContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: videoWidth,
-    paddingVertical: videoPaddingVertical,
-    paddingHorizontal: videoPaddingHorizontal
+    width: getCardWidth(),
+    paddingVertical: getCardPadding(),
+    paddingHorizontal: getCardPadding()
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    width: videoWidth - 2 * videoPaddingHorizontal,
-    height: videoWidth - 4 * videoPaddingVertical,
+    width: getCardWidth() - 2 * getCardPadding(),
+    height: getCardWidth() - 4 * getCardPadding(),
     backgroundColor: 'white'
   },
   videoIcon: {
-    width: videoWidth - 2 * (videoPaddingHorizontal + imagePaddingHorizontal),
-    height: videoWidth - 2 * (videoPaddingVertical + imagePaddingVertical),
+    width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
+    height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
     backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
   },
   videoNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: videoWidth - 2 * videoPaddingHorizontal,
+    width: getCardWidth() - 2 * getCardPadding(),
     paddingHorizontal: imagePaddingHorizontal,
     backgroundColor: 'white',
     height: 50
@@ -64,17 +59,15 @@ const styles = StyleSheet.create({
   },
   videosScrollView: {
     flex: 1,
-    paddingVertical: videoPaddingVertical,
-    paddingHorizontal: videoPaddingHorizontal
+    paddingVertical: getCardPadding(),
+    paddingHorizontal: getCardPadding()
   }
 });
 
 export default class Videos extends Component {
 
   navigateToVideo(video) {
-    let page = "";
-    Platform.OS === 'ios' ? page = PAGES.PAGE_VIDEO_PLAYER_IOS : page = PAGES.PAGE_VIDEO_PLAYER_ANDROID;
-    this.props.navigation.navigate(page, {video: video});
+    this.props.navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: video});
   }
 
   renderVideo(video) {
@@ -99,7 +92,7 @@ export default class Videos extends Component {
 
   renderRow(videos, index) {
     let videosRow = [];
-    for (var i = index; i < videos.length && i - index < videosPerRow; i++) {
+    for (var i = index; i < videos.length && i - index < getCardsPerRow(); i++) {
       videosRow.push(this.renderVideo(videos[i]));
     }
     return (
@@ -115,7 +108,7 @@ export default class Videos extends Component {
   render() {
     let videos = this.props.videos;
     let rows = [];
-    for (var i = 0; i < videos.length; i += videosPerRow) {
+    for (var i = 0; i < videos.length; i += getCardsPerRow()) {
       rows.push(this.renderRow(videos, i));
     }
     return (

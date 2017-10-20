@@ -1,14 +1,14 @@
 export const CATEGORIES_INDEX = {
   "categories": [
     {
-      "name_es": "EL ALFABETO",
-      "icon": require("./../../res/icon/el-alfabeto.png"),
+      "name_es": "ALFABETO DACTILOLÓGICO",
+      "icon": require("./../../res/icon/alfabeto-dactilologico.png"),
       "videos": [
         {
           "name_es": "ALFABETO DACTILOLÓGICO",
           "search_name_es": "ALFABETO DACTILOLOGICO",
           "image": require("./../../res/image/alfabeto-dactilologico.png"),
-          "video": require("./../../res/video/control_remoto.mp4")
+          "video": require("./../../res/video/alfabeto-dactilologico.mp4")
         },
         {
           "name_es": "Aa",
