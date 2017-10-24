@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import Categories from './../categories/categories';
 
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
+import {deviceIsInLandscapeMode} from './../../util/deviceUtil';
 
 export default class Home extends Component {
 
@@ -18,11 +20,17 @@ export default class Home extends Component {
     }
   });
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
     return (
-      <Categories
-        navigation={this.props.navigation}
-      />
+      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
+        <Categories
+          navigation={this.props.navigation}
+        />
+      </View>
     );
   }
 

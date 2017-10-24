@@ -1,10 +1,7 @@
 import {Dimensions} from 'react-native';
 
-const windowsWidth = Dimensions.get('window').width;
-const windowsHeight = Dimensions.get('window').height;
-
 export const deviceIsInLandscapeMode = () => {
-  return windowsWidth > windowsHeight;
+  return Dimensions.get('window').width > Dimensions.get('window').height;
 };
 
 export const deviceIsTablet = () => {

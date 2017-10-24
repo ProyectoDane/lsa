@@ -9,7 +9,8 @@ import {
   Dimensions,
   Platform,
   View,
-  Image
+  Image,
+  ScrollView
 } from 'react-native';
 
 import Video from 'react-native-video';
@@ -43,7 +44,9 @@ export default class VideoPlayer extends Component {
     headerTintColor: Colors.THEME_SECONDARY,
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0
+      elevation: 0,
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON
     }
   });
 
@@ -63,47 +66,47 @@ export default class VideoPlayer extends Component {
         imageStyle={styles.backgroundImageStyle}
         source={require('./../../res/background/fondo-amarillo.jpg')}
       >
-        <TouchableOpacity
-          style={[styles.videoContainer,
-            {
-              marginHorizontal: deviceIsInLandscapeMode() ? (windowWidth - this.videoWidth) / 2 : margin,
-              width: this.videoWidth,
-              height: this.videoHeight
-            }
-          ]}
-          onPress={() => {
-            this.video.seek(0);
-            this.setState({paused: !this.state.paused});
-          }}
-        >
-          <Video
-            ref={(ref: Video) => { this.video = ref; }}
-            source={video.video}
-            style={[styles.video,
+        <ScrollView>
+          <TouchableOpacity
+            style={[styles.videoContainer,
               {
+                marginHorizontal: deviceIsInLandscapeMode() ? (windowWidth - this.videoWidth) / 2 : margin,
                 width: this.videoWidth,
                 height: this.videoHeight
               }
             ]}
-            rate={1}
-            paused={this.state.paused}
-            muted={true}
-            resizeMode={'contain'}
-            onEnd={this.onEnd}
-          />
-        </TouchableOpacity>
-
-        {deviceIsInLandscapeMode() ? null :
-          (
-            <View style={styles.cardContainer}>
-              <Image
-                style={styles.cardImage}
-                source={video.image}
-              />
-            </View>
-          )
-        }
-
+            onPress={() => {
+              this.video.seek(0);
+              this.setState({paused: !this.state.paused});
+            }}
+          >
+            <Video
+              ref={(ref: Video) => { this.video = ref; }}
+              source={video.video}
+              style={[styles.video,
+                {
+                  width: this.videoWidth,
+                  height: this.videoHeight
+                }
+              ]}
+              rate={1}
+              paused={this.state.paused}
+              muted={true}
+              resizeMode={'contain'}
+              onEnd={this.onEnd}
+            />
+          </TouchableOpacity>
+          {deviceIsInLandscapeMode() ? null :
+            (
+              <View style={styles.cardContainer}>
+                <Image
+                  style={styles.cardImage}
+                  source={video.image}
+                />
+              </View>
+            )
+          }
+          </ScrollView>
       </ImageBackground>
     );
   }
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     marginTop: margin,
-    marginBottom: margin * 3,
+    marginBottom: margin,
     backgroundColor: 'white'
   },
   video: {

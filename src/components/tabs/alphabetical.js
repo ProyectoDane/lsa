@@ -20,6 +20,7 @@ export default class Alphabetical extends Component {
   static navigationOptions = ({navigation, screenProps}) => ({
     title: I18n.t('alphabetical_tab_title'),
     headerTintColor: Colors.THEME_SECONDARY,
+    headerBackTitle: null,
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,

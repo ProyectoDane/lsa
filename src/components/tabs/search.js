@@ -6,7 +6,9 @@ import {
   Platform,
   View,
   Text,
-  ImageBackground
+  ImageBackground,
+  TouchableWithoutFeedback,
+  Keyboard
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -36,13 +38,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'whitesmoke'
   },
   noVideosFoundContainer: {
-    flex:           1,
+    flex: 1,
     justifyContent: 'center',
-    alignItems:     'center'
+    alignItems: 'center',
+    backgroundColor: 'transparent'
   },
   noVideosFoundMessage: {
     fontSize:    20,
     fontWeight:  'bold',
+    color: Colors.THEME_PRIMARY,
     marginLeft:  noGrouponsMessageHorizontalMargin,
     marginRight: noGrouponsMessageHorizontalMargin
   },
@@ -102,7 +106,10 @@ export default class Search extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <TouchableWithoutFeedback
+        style={{flex: 1}}
+        onPressIn={() => Keyboard.dismiss()}
+      >
         {this.state.query !== "" && this.state.videos.length > 0 ?
           <Videos
             navigation={this.props.navigation}
@@ -115,14 +122,19 @@ export default class Search extends Component {
             imageStyle={[styles.backgroundImageStyle]}
             source={require('./../../res/background/fondo-verde.jpg')}
           >
-            {this.state.query !== "" && this.state.videos.length === 0 ?
-              <View style={styles.noVideosFoundContainer}>
-                <Text style={styles.noVideosFoundMessage}>{I18n.t('no_videos_found')}</Text>
+            {
+              this.state.query.length < 1 ?
+                <View style={styles.noVideosFoundContainer}>
+                  <Text style={styles.noVideosFoundMessage}>{I18n.t('find_a_video')}</Text>
+                </View> :
+              this.state.query.length > 1 && this.state.videos.length === 0 ?
+                <View style={styles.noVideosFoundContainer}>
+                  <Text style={styles.noVideosFoundMessage}>{I18n.t('no_videos_found')}</Text>
                 </View> : null
             }
           </ImageBackground>
         }
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 
@@ -144,7 +156,7 @@ export default class Search extends Component {
       }
       this.setState({query: searchString, videos: foundVideos});
     } else {
-      this.setState({query: "", videos: []});
+      this.setState({query: searchString, videos: []});
     }
   }
 

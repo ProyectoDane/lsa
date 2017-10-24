@@ -15,34 +15,22 @@ import {PAGES} from './../../constants/';
 import Colors from './../../res/colors';
 import {getCardWidth, getCardsPerRow, getCardPadding} from './../../util/layoutUtil';
 
-const imagePaddingHorizontal = getCardPadding() * 2;
-const imagePaddingVertical = getCardPadding() * 2;
-
 const styles = StyleSheet.create({
   videoContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
-    width: getCardWidth(),
-    paddingVertical: getCardPadding(),
-    paddingHorizontal: getCardPadding()
+    justifyContent: 'center'
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    width: getCardWidth() - 2 * getCardPadding(),
-    height: getCardWidth() - 4 * getCardPadding(),
     backgroundColor: 'white'
   },
   videoIcon: {
-    width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
-    height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
     backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
   },
   videoNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: getCardWidth() - 2 * getCardPadding(),
-    paddingHorizontal: imagePaddingHorizontal,
     backgroundColor: 'white',
     height: 50
   },
@@ -52,15 +40,14 @@ const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: "row"
   },
+  lastRowContainer: {
+    flexDirection: "row"
+  },
   backgroundImageStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
   },
   videosScrollView: {
-    flex: 1,
-    paddingVertical: getCardPadding(),
-    paddingHorizontal: getCardPadding()
+    flex: 1
   }
 });
 
@@ -70,55 +57,92 @@ export default class Videos extends Component {
     this.props.navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: video});
   }
 
-  renderVideo(video) {
+  renderVideo(video, imagePaddingHorizontal, imagePaddingVertical) {
     return (
       <TouchableOpacity
         onPress={() => this.navigateToVideo(video)}
         key={video.name_es}
-        style={styles.videoContainer}
+        style={[styles.videoContainer,
+          {
+            width: getCardWidth(),
+            paddingVertical: getCardPadding(),
+            paddingHorizontal: getCardPadding()
+          }
+        ]}
       >
-        <View style={styles.imageContainer} >
+        <View style={[styles.imageContainer,
+          {
+            width: getCardWidth() - 2 * getCardPadding(),
+            height: getCardWidth() - 4 * getCardPadding()
+          }]}
+        >
           <Image
-            style={styles.videoIcon}
+            style={[styles.videoIcon,
+              {
+                width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
+                height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical)
+              }
+            ]}
             source={video.image}
           />
         </View>
-        <View style={styles.videoNameContainer}>
+        <View style={[styles.videoNameContainer,
+          {
+            width: getCardWidth() - 2 * getCardPadding(),
+            paddingHorizontal: imagePaddingHorizontal
+          }]}
+        >
           <Text style={styles.videoName}>{video.name_es}</Text>
         </View>
       </TouchableOpacity>
     );
   }
 
-  renderRow(videos, index) {
+  renderRow(videos, index, imagePaddingHorizontal, imagePaddingVertical) {
     let videosRow = [];
     for (var i = index; i < videos.length && i - index < getCardsPerRow(); i++) {
-      videosRow.push(this.renderVideo(videos[i]));
+      videosRow.push(this.renderVideo(videos[i], imagePaddingHorizontal, imagePaddingVertical));
     }
     return (
       <View
         key={i}
-        style={styles.rowContainer}
+        style={i === videos.length ? [styles.lastRowContainer, {marginBottom: getCardPadding()}] : styles.rowContainer}
       >
         {videosRow}
       </View>
     );
   }
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
+    const imagePaddingHorizontal = getCardPadding() * 2;
+    const imagePaddingVertical = getCardPadding() * 2;
     let videos = this.props.videos;
     let rows = [];
     for (var i = 0; i < videos.length; i += getCardsPerRow()) {
-      rows.push(this.renderRow(videos, i));
+      rows.push(this.renderRow(videos, i, imagePaddingHorizontal, imagePaddingVertical));
     }
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
         <ImageBackground
           style={{flex: 1}}
-          imageStyle={styles.backgroundImageStyle}
+          imageStyle={[styles.backgroundImageStyle,
+            {
+              width: Dimensions.get('window').width,
+              height: Dimensions.get('window').height
+            }
+          ]}
           source={this.props.background}
         >
-          <ScrollView style={styles.videosScrollView}>
+          <ScrollView style={[styles.videosScrollView,
+            {
+              paddingVertical: getCardPadding(),
+              paddingHorizontal: getCardPadding()
+            }]}
+          >
             {rows}
           </ScrollView>
         </ImageBackground>
