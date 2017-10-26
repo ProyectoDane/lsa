@@ -106,7 +106,7 @@ export default class Videos extends Component {
     return (
       <View
         key={i}
-        style={i === videos.length ? [styles.lastRowContainer, {marginBottom: getCardPadding()}] : styles.rowContainer}
+        style={i === videos.length ? [styles.lastRowContainer, {marginBottom: getCardPadding() * 2}] : styles.rowContainer}
       >
         {videosRow}
       </View>

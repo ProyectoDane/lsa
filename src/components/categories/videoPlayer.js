@@ -19,9 +19,6 @@ import {deviceIsInLandscapeMode} from './../../util/deviceUtil';
 import {getCardWidth, getTabNavigatorBarHeight} from './../../util/layoutUtil';
 
 const margin = 12;
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height - getTabNavigatorBarHeight();
-const cardSize = getCardWidth();
 const cardPadding = 6;
 const videoRatio = 352 / 288;
 
@@ -29,13 +26,6 @@ export default class VideoPlayer extends Component {
 
   constructor(props) {
     super(props);
-    if (deviceIsInLandscapeMode()) {
-      this.videoHeight = windowHeight - 2 * margin;
-      this.videoWidth = Math.round(this.videoHeight * videoRatio);
-    } else {
-      this.videoWidth = windowWidth - 2 * margin;
-      this.videoHeight = Math.round(this.videoWidth / videoRatio);
-    }
     this.onEnd = this.onEnd.bind(this);
   }
 
@@ -56,58 +46,88 @@ export default class VideoPlayer extends Component {
     this.setState({ paused: true});
   };
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
+    let videoHeight, videoWidth;
+    if (deviceIsInLandscapeMode()) {
+      videoHeight = Dimensions.get('window').height - getTabNavigatorBarHeight() - 2 * margin;
+      videoWidth = Math.round(videoHeight * videoRatio);
+    } else {
+      videoWidth = Dimensions.get('window').width - 2 * margin;
+      videoHeight = Math.round(videoWidth / videoRatio);
+    }
     const {params} = this.props.navigation.state;
     let video = params.video;
-
     return (
-      <ImageBackground
+      <View
+        onLayout={this.onLayout.bind(this)}
         style={{flex: 1}}
-        imageStyle={styles.backgroundImageStyle}
-        source={require('./../../res/background/fondo-amarillo.jpg')}
       >
-        <ScrollView>
-          <TouchableOpacity
-            style={[styles.videoContainer,
-              {
-                marginHorizontal: deviceIsInLandscapeMode() ? (windowWidth - this.videoWidth) / 2 : margin,
-                width: this.videoWidth,
-                height: this.videoHeight
-              }
-            ]}
-            onPress={() => {
-              this.video.seek(0);
-              this.setState({paused: !this.state.paused});
-            }}
-          >
-            <Video
-              ref={(ref: Video) => { this.video = ref; }}
-              source={video.video}
-              style={[styles.video,
+        <ImageBackground
+          style={{flex: 1}}
+          imageStyle={[styles.backgroundImageStyle,
+            {
+              width: Dimensions.get('window').width,
+              height: Dimensions.get('window').height - getTabNavigatorBarHeight()
+            }]}
+          source={require('./../../res/background/fondo-amarillo.jpg')}
+        >
+          <ScrollView>
+            <TouchableOpacity
+              style={[styles.videoContainer,
                 {
-                  width: this.videoWidth,
-                  height: this.videoHeight
+                  marginHorizontal: deviceIsInLandscapeMode() ? (Dimensions.get('window').width - videoWidth) / 2 : margin,
+                  width: videoWidth,
+                  height: videoHeight
                 }
               ]}
-              rate={1}
-              paused={this.state.paused}
-              muted={true}
-              resizeMode={'contain'}
-              onEnd={this.onEnd}
-            />
-          </TouchableOpacity>
-          {deviceIsInLandscapeMode() ? null :
-            (
-              <View style={styles.cardContainer}>
-                <Image
-                  style={styles.cardImage}
-                  source={video.image}
-                />
-              </View>
-            )
-          }
-          </ScrollView>
-      </ImageBackground>
+              onPress={() => {
+                this.video.seek(0);
+                this.setState({paused: !this.state.paused});
+              }}
+            >
+              <Video
+                ref={(ref: Video) => { this.video = ref; }}
+                source={video.video}
+                style={[styles.video,
+                  {
+                    width: videoWidth,
+                    height: videoHeight
+                  }
+                ]}
+                rate={1}
+                paused={this.state.paused}
+                muted={true}
+                resizeMode={'contain'}
+                onEnd={this.onEnd}
+              />
+            </TouchableOpacity>
+            {deviceIsInLandscapeMode() ? null :
+              (
+                <View style={[styles.cardContainer,
+                  {
+                    width: getCardWidth(),
+                    height: getCardWidth(),
+                    marginLeft: (Dimensions.get('window').width - getCardWidth()) / 2
+                  }]}
+                >
+                  <Image
+                    style={[styles.cardImage,
+                      {
+                        width: getCardWidth() - 2 * cardPadding,
+                        height: getCardWidth() - 2 * cardPadding
+                      }]}
+                    source={video.image}
+                  />
+                </View>
+              )
+            }
+            </ScrollView>
+        </ImageBackground>
+      </View>
     );
   }
 
@@ -115,8 +135,6 @@ export default class VideoPlayer extends Component {
 
 const styles = StyleSheet.create({
   backgroundImageStyle: {
-    width: windowWidth,
-    height: windowHeight,
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
   },
   videoContainer: {
@@ -130,16 +148,11 @@ const styles = StyleSheet.create({
   cardContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: cardSize,
-    height: cardSize,
     padding: cardPadding,
-    backgroundColor: 'white',
-    marginLeft: (windowWidth - cardSize) / 2
+    backgroundColor: 'white'
   },
   cardImage: {
     alignItems: 'center',
-    justifyContent: 'flex-end',
-    width: cardSize - 2 * cardPadding,
-    height: cardSize - 2 * cardPadding
+    justifyContent: 'flex-end'
   }
 });

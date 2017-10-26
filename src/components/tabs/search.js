@@ -25,25 +25,27 @@ const noGrouponsMessageHorizontalMargin = 30;
 const searchVideosBackground = require('./../../res/background/fondo-verde.jpg');
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1
+  },
   searchInput: {
     marginVertical: 10,
     marginLeft: searchInputMaginLeft,
     marginRight: searchInputMaginRight,
     height: 30,
-    width: Dimensions.get('window').width - searchInputMaginLeft - searchInputMaginRight,
     paddingBottom: (Platform.OS === 'android') ? 6 : 0,
     paddingHorizontal: 5,
     fontSize: 14,
     color: 'black',
     backgroundColor: 'whitesmoke'
   },
-  noVideosFoundContainer: {
+  videosMessageContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent'
   },
-  noVideosFoundMessage: {
+  videosFoundMessage: {
     fontSize:    20,
     fontWeight:  'bold',
     color: Colors.THEME_PRIMARY,
@@ -51,8 +53,6 @@ const styles = StyleSheet.create({
     marginRight: noGrouponsMessageHorizontalMargin
   },
   backgroundImageStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
   },
   searchIcon: {
@@ -82,7 +82,11 @@ export default class Search extends Component {
     headerLeft: (
       <TextInput
         ref={r => this.searchInputRef = r}
-        style={styles.searchInput}
+        style={[styles.searchInput,
+          {
+            width: Dimensions.get('window').width - searchInputMaginLeft - searchInputMaginRight
+          }
+        ]}
         autoCapitalize={'characters'}
         underlineColorAndroid={'transparent'}
         placeholder={I18n.t('search_video')}
@@ -107,7 +111,7 @@ export default class Search extends Component {
   render() {
     return (
       <TouchableWithoutFeedback
-        style={{flex: 1}}
+        style={styles.mainContainer}
         onPressIn={() => Keyboard.dismiss()}
       >
         {this.state.query !== "" && this.state.videos.length > 0 ?
@@ -119,17 +123,28 @@ export default class Search extends Component {
           :
           <ImageBackground
             style={{flex: 1}}
-            imageStyle={[styles.backgroundImageStyle]}
+            imageStyle={[styles.backgroundImageStyle,
+              {
+                width: Dimensions.get('window').width,
+                height: Dimensions.get('window').height
+              }
+            ]}
             source={require('./../../res/background/fondo-verde.jpg')}
           >
             {
               this.state.query.length < 1 ?
-                <View style={styles.noVideosFoundContainer}>
-                  <Text style={styles.noVideosFoundMessage}>{I18n.t('find_a_video')}</Text>
+                <View
+                  pointerEvents="none"
+                  style={styles.videosMessageContainer}
+                >
+                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video')}</Text>
                 </View> :
               this.state.query.length > 1 && this.state.videos.length === 0 ?
-                <View style={styles.noVideosFoundContainer}>
-                  <Text style={styles.noVideosFoundMessage}>{I18n.t('no_videos_found')}</Text>
+                <View
+                  pointerEvents="none"
+                  style={styles.videosMessageContainer}
+                >
+                  <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found')}</Text>
                 </View> : null
             }
           </ImageBackground>
