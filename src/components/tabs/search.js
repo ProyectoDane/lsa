@@ -93,19 +93,21 @@ export default class Search extends Component {
         placeholderTextColor={Colors.THEME_SECONDARY}
         autoFocus={false}
         onChangeText={(text) => navigation.setParams({searchQuery: text})}
+        value={navigation.state.params ? navigation.state.params.searchQuery : ''}
       />
     ),
     headerRight: (
       <Ionicons
-        name={'ios-search-outline'}
+        name={navigation.state.params ? navigation.state.params.searchQuery ? 'ios-close-circle-outline' : 'ios-search-outline' : 'ios-search-outline'}
         size={26}
         style={styles.searchIcon}
+        onPress={() => navigation.setParams({searchQuery: ''})}
       />
     )
   });
 
   componentWillReceiveProps(nextProps) {
-    this.searchVideos(nextProps.navigation.state.params.searchQuery);
+    this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
   }
 
   render() {

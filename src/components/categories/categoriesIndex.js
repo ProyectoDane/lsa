@@ -12,175 +12,175 @@ export const CATEGORIES_INDEX = {
         },
         {
           "name_es": "Aa",
-          "search_name_es": "Aa",
+          "search_name_es": "AA",
           "image": require("./../../res/image/a.png"),
           "video": require("./../../res/video/a.mp4")
         },
         {
           "name_es": "Bb",
-          "search_name_es": "Bb",
+          "search_name_es": "BB",
           "image": require("./../../res/image/b.png"),
           "video": require("./../../res/video/b.mp4")
         },
         {
           "name_es": "Cc",
-          "search_name_es": "Cc",
+          "search_name_es": "CC",
           "image": require("./../../res/image/c.png"),
           "video": require("./../../res/video/c.mp4")
         },
         {
           "name_es": "CHch",
-          "search_name_es": "CHch",
+          "search_name_es": "CHCH",
           "image": require("./../../res/image/ch.png"),
           "video": require("./../../res/video/ch.mp4")
         },
         {
           "name_es": "Dd",
-          "search_name_es": "Dd",
+          "search_name_es": "DD",
           "image": require("./../../res/image/d.png"),
           "video": require("./../../res/video/d.mp4")
         },
         {
           "name_es": "Ee",
-          "search_name_es": "Ee",
+          "search_name_es": "EE",
           "image": require("./../../res/image/e.png"),
           "video": require("./../../res/video/e.mp4")
         },
         {
           "name_es": "Ff",
-          "search_name_es": "Ff",
+          "search_name_es": "FF",
           "image": require("./../../res/image/f.png"),
           "video": require("./../../res/video/f.mp4")
         },
         {
           "name_es": "Gg",
-          "search_name_es": "Gg",
+          "search_name_es": "GG",
           "image": require("./../../res/image/g.png"),
           "video": require("./../../res/video/g.mp4")
         },
         {
           "name_es": "Hh",
-          "search_name_es": "Hh",
+          "search_name_es": "HH",
           "image": require("./../../res/image/h.png"),
           "video": require("./../../res/video/h.mp4")
         },
         {
           "name_es": "Ii",
-          "search_name_es": "Ii",
+          "search_name_es": "II",
           "image": require("./../../res/image/i.png"),
           "video": require("./../../res/video/i.mp4")
         },
         {
           "name_es": "Jj",
-          "search_name_es": "Jj",
+          "search_name_es": "JJ",
           "image": require("./../../res/image/j.png"),
           "video": require("./../../res/video/j.mp4")
         },
         {
           "name_es": "Kk",
-          "search_name_es": "Kk",
+          "search_name_es": "KK",
           "image": require("./../../res/image/k.png"),
           "video": require("./../../res/video/k.mp4")
         },
         {
           "name_es": "Ll",
-          "search_name_es": "Ll",
+          "search_name_es": "LL",
           "image": require("./../../res/image/l.png"),
           "video": require("./../../res/video/l.mp4")
         },
         {
           "name_es": "LLll",
-          "search_name_es": "LLll",
+          "search_name_es": "LLLL",
           "image": require("./../../res/image/ll.png"),
           "video": require("./../../res/video/ll.mp4")
         },
         {
           "name_es": "Mm",
-          "search_name_es": "Mm",
+          "search_name_es": "MM",
           "image": require("./../../res/image/m.png"),
           "video": require("./../../res/video/m.mp4")
         },
         {
           "name_es": "Nn",
-          "search_name_es": "Nn",
+          "search_name_es": "NN",
           "image": require("./../../res/image/n.png"),
           "video": require("./../../res/video/n.mp4")
         },
         {
           "name_es": "Ññ",
-          "search_name_es": "Ññ",
+          "search_name_es": "ÑÑ",
           "image": require("./../../res/image/enie.png"),
           "video": require("./../../res/video/enie.mp4")
         },
         {
           "name_es": "Oo",
-          "search_name_es": "Oo",
+          "search_name_es": "OO",
           "image": require("./../../res/image/o.png"),
           "video": require("./../../res/video/o.mp4")
         },
         {
           "name_es": "Pp",
-          "search_name_es": "Pp",
+          "search_name_es": "PP",
           "image": require("./../../res/image/p.png"),
           "video": require("./../../res/video/p.mp4")
         },
         {
           "name_es": "Qq",
-          "search_name_es": "Qq",
+          "search_name_es": "QQ",
           "image": require("./../../res/image/q.png"),
           "video": require("./../../res/video/q.mp4")
         },
         {
           "name_es": "Rr",
-          "search_name_es": "Rr",
+          "search_name_es": "RR",
           "image": require("./../../res/image/r.png"),
           "video": require("./../../res/video/r.mp4")
         },
         {
           "name_es": "Ss",
-          "search_name_es": "Ss",
+          "search_name_es": "SS",
           "image": require("./../../res/image/s.png"),
           "video": require("./../../res/video/s.mp4")
         },
         {
           "name_es": "Tt",
-          "search_name_es": "Tt",
+          "search_name_es": "TT",
           "image": require("./../../res/image/t.png"),
           "video": require("./../../res/video/t.mp4")
         },
         {
           "name_es": "Uu",
-          "search_name_es": "Uu",
+          "search_name_es": "UU",
           "image": require("./../../res/image/u.png"),
           "video": require("./../../res/video/u.mp4")
         },
         {
           "name_es": "Vv",
-          "search_name_es": "Vv",
+          "search_name_es": "VV",
           "image": require("./../../res/image/v.png"),
           "video": require("./../../res/video/v.mp4")
         },
         {
           "name_es": "Ww",
-          "search_name_es": "Ww",
+          "search_name_es": "WW",
           "image": require("./../../res/image/w.png"),
           "video": require("./../../res/video/w.mp4")
         },
         {
           "name_es": "Xx",
-          "search_name_es": "Xx",
+          "search_name_es": "XX",
           "image": require("./../../res/image/x.png"),
           "video": require("./../../res/video/x.mp4")
         },
         {
           "name_es": "Yy",
-          "search_name_es": "Yy",
+          "search_name_es": "YY",
           "image": require("./../../res/image/y.png"),
           "video": require("./../../res/video/y.mp4")
         },
         {
           "name_es": "Zz",
-          "search_name_es": "Zz",
+          "search_name_es": "ZZ",
           "image": require("./../../res/image/z.png"),
           "video": require("./../../res/video/z.mp4")
         }
@@ -236,13 +236,13 @@ export const CATEGORIES_INDEX = {
           "name_es": "¿CÓMO ESTÁS?",
           "search_name_es": "¿COMO ESTAS?",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/como.mp4")
+          "video": require("./../../res/video/como-estas.mp4")
         },
         {
-          "name_es": "BUEN",
-          "search_name_es": "BUEN",
+          "name_es": "BIEN",
+          "search_name_es": "BIEN",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/bueno.mp4")
+          "video": require("./../../res/video/bien.mp4")
         },
         {
           "name_es": "MAL",
@@ -386,7 +386,7 @@ export const CATEGORIES_INDEX = {
           "name_es": "¿CÓMO?",
           "search_name_es": "¿COMO?",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/por-favor.mp4")
+          "video": require("./../../res/video/como.mp4")
         },
         {
           "name_es": "¿CUÁNDO?",
@@ -773,14 +773,14 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/otono.mp4")
         },
         {
-          "name_es": "VIENTO ",
-          "search_name_es": "VIENTO ",
+          "name_es": "VIENTO",
+          "search_name_es": "VIENTO",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/viento.mp4")
         },
         {
-          "name_es": "INVIERNO ",
-          "search_name_es": "INVIERNO ",
+          "name_es": "INVIERNO",
+          "search_name_es": "INVIERNO",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/invierno.mp4")
         },
@@ -905,8 +905,8 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/minuto.mp4")
         },
         {
-          "name_es": "SEGUNDO ",
-          "search_name_es": "SEGUNDO ",
+          "name_es": "SEGUNDO",
+          "search_name_es": "SEGUNDO",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/segundo.mp4")
         },
@@ -1358,7 +1358,7 @@ export const CATEGORIES_INDEX = {
           "name_es": "CONSERVAR",
           "search_name_es": "CONSERVAR",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/conversar.mp4")
+          "video": require("./../../res/video/conservar.mp4")
         },
         {
           "name_es": "ME GUSTA",
@@ -1436,7 +1436,7 @@ export const CATEGORIES_INDEX = {
           "name_es": "COCINA",
           "search_name_es": "COCINA",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/la-cocina.mp4")
+          "video": require("./../../res/video/cocina.mp4")
         },
         {
           "name_es": "VASO",
@@ -1889,8 +1889,8 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/aplaudir-(oyentes).mp4")
         },
         {
-          "name_es": "AMIGOS ",
-          "search_name_es": "AMIGOS ",
+          "name_es": "AMIGOS",
+          "search_name_es": "AMIGOS",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/amigos.mp4")
         },
@@ -1937,10 +1937,10 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/la-escuela.mp4")
         },
         {
-          "name_es": "AULA",
-          "search_name_es": "AULA",
+          "name_es": "MI AULA",
+          "search_name_es": "MI AULA",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/ellos.mp4")
+          "video": require("./../../res/video/mi-aula.mp4")
         },
         {
           "name_es": "EXPLICAR",
@@ -2060,7 +2060,7 @@ export const CATEGORIES_INDEX = {
           "name_es": "TIZA",
           "search_name_es": "TIZA",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/toalla.mp4")
+          "video": require("./../../res/video/t.mp4")
         },
         {
           "name_es": "BORRADOR",
@@ -2105,8 +2105,8 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/inteligente.mp4")
         },
         {
-          "name_es": "ESTUDIAR ",
-          "search_name_es": "ESTUDIAR ",
+          "name_es": "ESTUDIAR",
+          "search_name_es": "ESTUDIAR",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/estudiar.mp4")
         },
@@ -2675,8 +2675,8 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/tres.mp4")
         },
         {
-          "name_es": "CUATRO ",
-          "search_name_es": "CUATRO ",
+          "name_es": "CUATRO",
+          "search_name_es": "CUATRO",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/cuatro.mp4")
         },
@@ -3572,7 +3572,7 @@ export const CATEGORIES_INDEX = {
           "name_es": "DEL CAMPO",
           "search_name_es": "DEL CAMPO",
           "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/campo.mp4")
+          "video": require("./../../res/video/del-campo.mp4")
         },
         {
           "name_es": "BURRO",
@@ -4331,8 +4331,8 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/provincias.mp4")
         },
         {
-          "name_es": "TIERRA DEL FUEGO ",
-          "search_name_es": "TIERRA DEL FUEGO ",
+          "name_es": "TIERRA DEL FUEGO",
+          "search_name_es": "TIERRA DEL FUEGO",
           "image": require("./../../res/image/video-icon.png"),
           "video": require("./../../res/video/tierra-del-fuego.mp4")
         },

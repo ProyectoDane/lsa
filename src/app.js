@@ -1,5 +1,5 @@
 import React from 'react';
-import {StackNavigator, TabNavigator} from 'react-navigation';
+import {StackNavigator, TabNavigator, TabBarBottom, NavigationActions} from 'react-navigation';
 import {AppRegistry} from 'react-native';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -98,6 +98,33 @@ const ProyectosSolidarios = TabNavigator(
     }
   },
   {
+    tabBarComponent: props => {
+      const {navigation, navigationState} = props;
+      const jumpToIndex = index => {
+        const tab = navigationState.routes[index];
+        if (navigationState.index !== index) {
+          navigation.dispatch(
+            {
+              type: "Navigation/NAVIGATE",
+              routeName: tab.routeName
+            }
+          );
+        } else {
+          if (tab.index > 0) {
+            navigation.goBack(tab.routes[1].key);
+          } else {
+            const resetAction = NavigationActions.reset({
+              index: 0,
+              actions: [
+                NavigationActions.navigate({ routeName: tab.routes[0].routeName})
+              ]
+            });
+            navigation.dispatch(resetAction);
+          }
+        }
+      };
+      return (<TabBarBottom {...props} jumpToIndex={jumpToIndex} />);
+    },
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,

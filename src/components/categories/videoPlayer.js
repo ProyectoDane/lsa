@@ -16,10 +16,9 @@ import {
 import Video from 'react-native-video';
 import Colors from './../../res/colors';
 import {deviceIsInLandscapeMode} from './../../util/deviceUtil';
-import {getCardWidth, getTabNavigatorBarHeight} from './../../util/layoutUtil';
+import {getCardWidth, getTabNavigatorBarHeight, getCardPadding} from './../../util/layoutUtil';
 
 const margin = 12;
-const cardPadding = 6;
 const videoRatio = 352 / 288;
 
 export default class VideoPlayer extends Component {
@@ -111,14 +110,16 @@ export default class VideoPlayer extends Component {
                   {
                     width: getCardWidth(),
                     height: getCardWidth(),
-                    marginLeft: (Dimensions.get('window').width - getCardWidth()) / 2
+                    padding: getCardPadding(),
+                    marginLeft: (Dimensions.get('window').width - getCardWidth()) / 2,
+                    marginBottom: getCardPadding() * 2
                   }]}
                 >
                   <Image
                     style={[styles.cardImage,
                       {
-                        width: getCardWidth() - 2 * cardPadding,
-                        height: getCardWidth() - 2 * cardPadding
+                        width: getCardWidth() - 2 * getCardPadding(),
+                        height: getCardWidth() - 2 * getCardPadding()
                       }]}
                     source={video.image}
                   />
@@ -148,7 +149,6 @@ const styles = StyleSheet.create({
   cardContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: cardPadding,
     backgroundColor: 'white'
   },
   cardImage: {
