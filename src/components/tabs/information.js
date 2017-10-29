@@ -4,7 +4,8 @@ import {
   ImageBackground,
   Dimensions,
   StyleSheet,
-  Platform
+  Platform,
+  View
 } from 'react-native';
 
 import Colors from './../../res/colors';
@@ -12,8 +13,6 @@ import I18n from './../../res/i18n/i18n';
 
 const styles = StyleSheet.create({
   backgroundImageStyle: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
   }
 });
@@ -31,15 +30,26 @@ export default class Information extends Component {
     }
   });
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
     return (
-      <ImageBackground
-        style={{flex: 1}}
-        imageStyle={styles.backgroundImageStyle}
-        source={require('./../../res/background/fondo-rojo.jpg')}
-      >
-        <Text style={{backgroundColor: 'transparent'}}>Information</Text>
-      </ImageBackground>
+      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
+        <ImageBackground
+          style={{flex: 1}}
+          imageStyle={[styles.backgroundImageStyle,
+            {
+              width: Dimensions.get('window').width,
+              height: Dimensions.get('window').height
+            }
+          ]}
+          source={require('./../../res/background/fondo-rojo.jpg')}
+        >
+          <Text style={{backgroundColor: 'transparent'}}>Information</Text>
+        </ImageBackground>
+      </View>
     );
   }
 

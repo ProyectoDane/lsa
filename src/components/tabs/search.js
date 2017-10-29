@@ -110,48 +110,54 @@ export default class Search extends Component {
     this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
   }
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
     return (
-      <TouchableWithoutFeedback
-        style={styles.mainContainer}
-        onPressIn={() => Keyboard.dismiss()}
-      >
-        {this.state.query !== "" && this.state.videos.length > 0 ?
-          <Videos
-            navigation={this.props.navigation}
-            videos={this.state.videos}
-            background={searchVideosBackground}
-          />
-          :
-          <ImageBackground
-            style={{flex: 1}}
-            imageStyle={[styles.backgroundImageStyle,
+      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
+        <TouchableWithoutFeedback
+          style={styles.mainContainer}
+          onPressIn={() => Keyboard.dismiss()}
+        >
+          {this.state.query !== "" && this.state.videos.length > 0 ?
+            <Videos
+              navigation={this.props.navigation}
+              videos={this.state.videos}
+              background={searchVideosBackground}
+            />
+            :
+            <ImageBackground
+              style={{flex: 1}}
+              imageStyle={[styles.backgroundImageStyle,
+                {
+                  width: Dimensions.get('window').width,
+                  height: Dimensions.get('window').height
+                }
+              ]}
+              source={require('./../../res/background/fondo-verde.jpg')}
+            >
               {
-                width: Dimensions.get('window').width,
-                height: Dimensions.get('window').height
+                this.state.query.length < 1 ?
+                  <View
+                    pointerEvents="none"
+                    style={styles.videosMessageContainer}
+                  >
+                    <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video')}</Text>
+                  </View> :
+                this.state.query.length > 1 && this.state.videos.length === 0 ?
+                  <View
+                    pointerEvents="none"
+                    style={styles.videosMessageContainer}
+                  >
+                    <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found')}</Text>
+                  </View> : null
               }
-            ]}
-            source={require('./../../res/background/fondo-verde.jpg')}
-          >
-            {
-              this.state.query.length < 1 ?
-                <View
-                  pointerEvents="none"
-                  style={styles.videosMessageContainer}
-                >
-                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video')}</Text>
-                </View> :
-              this.state.query.length > 1 && this.state.videos.length === 0 ?
-                <View
-                  pointerEvents="none"
-                  style={styles.videosMessageContainer}
-                >
-                  <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found')}</Text>
-                </View> : null
-            }
-          </ImageBackground>
-        }
-      </TouchableWithoutFeedback>
+            </ImageBackground>
+          }
+        </TouchableWithoutFeedback>
+      </View>
     );
   }
 
