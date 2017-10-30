@@ -20,6 +20,8 @@ import {getCardWidth, getTabNavigatorBarHeight, getCardPadding} from './../../ut
 
 const margin = 12;
 const videoRatio = 352 / 288;
+const playIconSize = 100;
+const playIcon = require('./../../res/icon/play-icon.png');
 
 export default class VideoPlayer extends Component {
 
@@ -84,25 +86,30 @@ export default class VideoPlayer extends Component {
                 }
               ]}
               onPress={() => {
-                this.video.seek(0);
+                if (this.video) {
+                  this.video.seek(0);
+                }
                 this.setState({paused: !this.state.paused});
               }}
             >
-              <Video
-                ref={(ref: Video) => { this.video = ref; }}
-                source={video.video}
-                style={[styles.video,
-                  {
-                    width: videoWidth,
-                    height: videoHeight
-                  }
-                ]}
-                rate={1}
-                paused={this.state.paused}
-                muted={true}
-                resizeMode={'contain'}
-                onEnd={this.onEnd}
-              />
+              {this.state.paused ?
+                <Image style={styles.playIcon} source={playIcon} /> :
+                <Video
+                  ref={(ref: Video) => { this.video = ref; }}
+                  source={video.video}
+                  style={[styles.video,
+                    {
+                      width: videoWidth,
+                      height: videoHeight
+                    }
+                  ]}
+                  rate={1}
+                  paused={this.state.paused}
+                  muted={true}
+                  resizeMode={'contain'}
+                  onEnd={this.onEnd}
+                />
+              }
             </TouchableOpacity>
             {deviceIsInLandscapeMode() ? null :
               (
@@ -139,6 +146,8 @@ const styles = StyleSheet.create({
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
   },
   videoContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: margin,
     marginBottom: margin,
     backgroundColor: 'white'
@@ -154,5 +163,9 @@ const styles = StyleSheet.create({
   cardImage: {
     alignItems: 'center',
     justifyContent: 'flex-end'
+  },
+  playIcon: {
+    height: playIconSize,
+    width: playIconSize
   }
 });
