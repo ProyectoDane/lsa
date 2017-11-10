@@ -570,6 +570,7 @@
 				00E356EF1AD99517003FC87E /* ProyectosSolidariosTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				960577B5EABD4F4DA845050A /* Resources */,
+				C3D189241FB4E87B00C14783 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -627,6 +628,16 @@
 				C370AD5C1F991CA10004FBBB /* libRNI18n-tvOS.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D189241FB4E87B00C14783 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				DE775D38A23B4B5FBD708F56 /* libRCTVideo.a */,
+				6F48265752CD48F4B04FE9A1 /* libRNVectorIcons.a */,
+				0CC85BEB22174E56891FB23E /* libRNI18n.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

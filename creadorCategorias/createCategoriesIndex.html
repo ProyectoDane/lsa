@@ -93,7 +93,7 @@ function createIndex() {
 "		Besar	\n"+
 "		Reir	\n"+
 "		Abrazar	\n"+
-"		Casado	\n"+
+"		Casados	\n"+
 "		Juntos	\n"+
 "		Separados	\n"+
 "		Tuyo	\n"+
@@ -827,7 +827,37 @@ function createIndex() {
         split("Í").join("I").
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
-      } else {
+      } else if (currentCategory.name_es === 'PRESENTÁNDONOS') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LA FAMILIA') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'TODOS LOS DÍAS') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      }  else {
         currentVideo.image = "require(\"./../../res/image/video-icon.png\")";
       }
 
@@ -839,12 +869,16 @@ function createIndex() {
         }
       } else if (currentVideo.name_es === 'MENOS...') {
         currentVideo.video = "require(\"./../../res/video/menos.mp4\")";
+      } else if (currentVideo.name_es === 'PAPÁ') {
+        currentVideo.video = "require(\"./../../res/video/papa-familiar.mp4\")";
       } else if (currentVideo.name_es === '... Y MEDIA') {
         currentVideo.video = "require(\"./../../res/video/y-media.mp4\")";
       } else if (currentVideo.name_es === 'ELLOS / ELLAS') {
-        currentVideo.video = "require(\"./../../res/video/ellos.mp4\")";
+        currentVideo.image = "require(\"./../../res/image/ellos-ellas.png\")";
+        currentVideo.video = "require(\"./../../res/video/ellos-ellas.mp4\")";
       } else if (currentVideo.name_es === 'ÉL / ELLA') {
-        currentVideo.video = "require(\"./../../res/video/el.mp4\")";
+        currentVideo.image = "require(\"./../../res/image/el-ella.png\")";
+        currentVideo.video = "require(\"./../../res/video/el-ella.mp4\")";
       } else if (currentCategory.name_es === 'ALFABETO DACTILOLÓGICO') {
         if (currentVideo.name_es === 'Ññ') {
           currentVideo.video = "require(\"./../../res/video/enie.mp4\")";

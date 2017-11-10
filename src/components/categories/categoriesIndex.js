@@ -7,8 +7,7 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "ALFABETO DACTILOLÓGICO",
           "search_name_es": "ALFABETO DACTILOLOGICO",
-          "image": require("./../../res/image/alfabeto-dactilologico.png"),
-          "video": require("./../../res/video/alfabeto-dactilologico.mp4")
+          "image": require("./../../res/image/alfabeto-dactilologico.png")
         },
         {
           "name_es": "Aa",
@@ -193,211 +192,211 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "PRESENTÁNDONOS",
           "search_name_es": "PRESENTANDONOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/presentandonos.png"),
           "video": require("./../../res/video/presentandonos.mp4")
         },
         {
           "name_es": "SORDO",
           "search_name_es": "SORDO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sordo.png"),
           "video": require("./../../res/video/sordo.mp4")
         },
         {
           "name_es": "OYENTE",
           "search_name_es": "OYENTE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/oyente.png"),
           "video": require("./../../res/video/oyente.mp4")
         },
         {
           "name_es": "SALUDOS",
           "search_name_es": "SALUDOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/saludos.png"),
           "video": require("./../../res/video/saludos.mp4")
         },
         {
           "name_es": "POR FAVOR",
           "search_name_es": "POR FAVOR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/por-favor.png"),
           "video": require("./../../res/video/por-favor.mp4")
         },
         {
           "name_es": "HOLA",
           "search_name_es": "HOLA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hola.png"),
           "video": require("./../../res/video/hola.mp4")
         },
         {
           "name_es": "CHAU",
           "search_name_es": "CHAU",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/chau.png"),
           "video": require("./../../res/video/chau.mp4")
         },
         {
           "name_es": "¿CÓMO ESTÁS?",
           "search_name_es": "¿COMO ESTAS?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/como-estas.png"),
           "video": require("./../../res/video/como-estas.mp4")
         },
         {
           "name_es": "BIEN",
           "search_name_es": "BIEN",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/bien.png"),
           "video": require("./../../res/video/bien.mp4")
         },
         {
           "name_es": "MAL",
           "search_name_es": "MAL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mal.png"),
           "video": require("./../../res/video/mal.mp4")
         },
         {
           "name_es": "BUENOS DÍAS",
           "search_name_es": "BUENOS DIAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/buenos-dias.png"),
           "video": require("./../../res/video/buenos-dias.mp4")
         },
         {
           "name_es": "BUENAS TARDES",
           "search_name_es": "BUENAS TARDES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/buenas-tardes.png"),
           "video": require("./../../res/video/buenas-tardes.mp4")
         },
         {
           "name_es": "BUENAS NOCHES",
           "search_name_es": "BUENAS NOCHES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/buenas-noches.png"),
           "video": require("./../../res/video/buenas-noches.mp4")
         },
         {
           "name_es": "PERDÓN",
           "search_name_es": "PERDON",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/perdon.png"),
           "video": require("./../../res/video/perdon.mp4")
         },
         {
           "name_es": "APODO",
           "search_name_es": "APODO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/apodo.png"),
           "video": require("./../../res/video/apodo.mp4")
         },
         {
           "name_es": "APELLIDO",
           "search_name_es": "APELLIDO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/apellido.png"),
           "video": require("./../../res/video/apellido.mp4")
         },
         {
           "name_es": "NOMBRE",
           "search_name_es": "NOMBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nombre.png"),
           "video": require("./../../res/video/nombre.mp4")
         },
         {
           "name_es": "SI",
           "search_name_es": "SI",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/si.png"),
           "video": require("./../../res/video/si.mp4")
         },
         {
           "name_es": "NO",
           "search_name_es": "NO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/no.png"),
           "video": require("./../../res/video/no.mp4")
         },
         {
           "name_es": "¿QUÉ DICE?",
           "search_name_es": "¿QUE DICE?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/que-dice.png"),
           "video": require("./../../res/video/que-dice.mp4")
         },
         {
           "name_es": "GRACIAS",
           "search_name_es": "GRACIAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gracias.png"),
           "video": require("./../../res/video/gracias.mp4")
         },
         {
           "name_es": "DE NADA",
           "search_name_es": "DE NADA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/de-nada.png"),
           "video": require("./../../res/video/de-nada.mp4")
         },
         {
           "name_es": "PERMISO",
           "search_name_es": "PERMISO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/permiso.png"),
           "video": require("./../../res/video/permiso.mp4")
         },
         {
           "name_es": "BASTA",
           "search_name_es": "BASTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/basta.png"),
           "video": require("./../../res/video/basta.mp4")
         },
         {
           "name_es": "¿CUÁNTOS AÑOS TENÉS?",
           "search_name_es": "¿CUANTOS AÑOS TENES?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cuantos-anos-tenes.png"),
           "video": require("./../../res/video/cuantos-anos-tenes.mp4")
         },
         {
           "name_es": "POR EJEMPLO",
           "search_name_es": "POR EJEMPLO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/por-ejemplo.png"),
           "video": require("./../../res/video/por-ejemplo.mp4")
         },
         {
           "name_es": "¿QUÉ?",
           "search_name_es": "¿QUE?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/que.png"),
           "video": require("./../../res/video/que.mp4")
         },
         {
           "name_es": "¿POR QUÉ?",
           "search_name_es": "¿POR QUE?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/por-que.png"),
           "video": require("./../../res/video/por-que.mp4")
         },
         {
           "name_es": "¿DÓNDE?",
           "search_name_es": "¿DONDE?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/donde.png"),
           "video": require("./../../res/video/donde.mp4")
         },
         {
           "name_es": "¿PARA QUÉ?",
           "search_name_es": "¿PARA QUE?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/para-que.png"),
           "video": require("./../../res/video/para-que.mp4")
         },
         {
           "name_es": "¿CUÁNTO?",
           "search_name_es": "¿CUANTO?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cuanto.png"),
           "video": require("./../../res/video/cuanto.mp4")
         },
         {
           "name_es": "¿QUIÉN?",
           "search_name_es": "¿QUIEN?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/quien.png"),
           "video": require("./../../res/video/quien.mp4")
         },
         {
           "name_es": "¿CÓMO?",
           "search_name_es": "¿COMO?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/como.png"),
           "video": require("./../../res/video/como.mp4")
         },
         {
           "name_es": "¿CUÁNDO?",
           "search_name_es": "¿CUANDO?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cuando.png"),
           "video": require("./../../res/video/cuando.mp4")
         },
         {
           "name_es": "¿CUÁL?",
           "search_name_es": "¿CUAL?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cual.png"),
           "video": require("./../../res/video/cual.mp4")
         }
       ]
@@ -409,163 +408,163 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "LA FAMILIA",
           "search_name_es": "LA FAMILIA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/la-familia.png"),
           "video": require("./../../res/video/la-familia.mp4")
         },
         {
           "name_es": "YO",
           "search_name_es": "YO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/yo.png"),
           "video": require("./../../res/video/yo.mp4")
         },
         {
           "name_es": "HERMANO",
           "search_name_es": "HERMANO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hermano.png"),
           "video": require("./../../res/video/hermano.mp4")
         },
         {
           "name_es": "HIJO",
           "search_name_es": "HIJO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hijo.png"),
           "video": require("./../../res/video/hijo.mp4")
         },
         {
           "name_es": "PAPÁ",
           "search_name_es": "PAPA",
-          "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/papa.mp4")
+          "image": require("./../../res/image/papa.png"),
+          "video": require("./../../res/video/papa-familiar.mp4")
         },
         {
           "name_es": "MAMÁ",
           "search_name_es": "MAMA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mama.png"),
           "video": require("./../../res/video/mama.mp4")
         },
         {
           "name_es": "PRIMO",
           "search_name_es": "PRIMO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/primo.png"),
           "video": require("./../../res/video/primo.mp4")
         },
         {
           "name_es": "ABUELO",
           "search_name_es": "ABUELO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/abuelo.png"),
           "video": require("./../../res/video/abuelo.mp4")
         },
         {
           "name_es": "TÍO",
           "search_name_es": "TIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tio.png"),
           "video": require("./../../res/video/tio.mp4")
         },
         {
           "name_es": "AMAR",
           "search_name_es": "AMAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/amar.png"),
           "video": require("./../../res/video/amar.mp4")
         },
         {
           "name_es": "BESAR",
           "search_name_es": "BESAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/besar.png"),
           "video": require("./../../res/video/besar.mp4")
         },
         {
           "name_es": "REIR",
           "search_name_es": "REIR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/reir.png"),
           "video": require("./../../res/video/reir.mp4")
         },
         {
           "name_es": "ABRAZAR",
           "search_name_es": "ABRAZAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/abrazar.png"),
           "video": require("./../../res/video/abrazar.mp4")
         },
         {
-          "name_es": "CASADO",
-          "search_name_es": "CASADO",
-          "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/casado.mp4")
+          "name_es": "CASADOS",
+          "search_name_es": "CASADOS",
+          "image": require("./../../res/image/casados.png"),
+          "video": require("./../../res/video/casados.mp4")
         },
         {
           "name_es": "JUNTOS",
           "search_name_es": "JUNTOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/juntos.png"),
           "video": require("./../../res/video/juntos.mp4")
         },
         {
           "name_es": "SEPARADOS",
           "search_name_es": "SEPARADOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/separados.png"),
           "video": require("./../../res/video/separados.mp4")
         },
         {
           "name_es": "TUYO",
           "search_name_es": "TUYO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tuyo.png"),
           "video": require("./../../res/video/tuyo.mp4")
         },
         {
           "name_es": "MÍO",
           "search_name_es": "MIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mio.png"),
           "video": require("./../../res/video/mio.mp4")
         },
         {
           "name_es": "ÉL / ELLA",
           "search_name_es": "EL / ELLA",
-          "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/el.mp4")
+          "image": require("./../../res/image/el-ella.png"),
+          "video": require("./../../res/video/el-ella.mp4")
         },
         {
           "name_es": "ELLOS / ELLAS",
           "search_name_es": "ELLOS / ELLAS",
-          "image": require("./../../res/image/video-icon.png"),
-          "video": require("./../../res/video/ellos.mp4")
+          "image": require("./../../res/image/ellos-ellas.png"),
+          "video": require("./../../res/video/ellos-ellas.mp4")
         },
         {
           "name_es": "VOS",
           "search_name_es": "VOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vos.png"),
           "video": require("./../../res/video/vos.mp4")
         },
         {
           "name_es": "NOSOTROS",
           "search_name_es": "NOSOTROS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nosotros.png"),
           "video": require("./../../res/video/nosotros.mp4")
         },
         {
           "name_es": "HABLAR ORAL",
           "search_name_es": "HABLAR ORAL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hablar-oral.png"),
           "video": require("./../../res/video/hablar-oral.mp4")
         },
         {
           "name_es": "SEÑAR",
           "search_name_es": "SEÑAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/senar.png"),
           "video": require("./../../res/video/senar.mp4")
         },
         {
           "name_es": "GRITAR",
           "search_name_es": "GRITAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gritar.png"),
           "video": require("./../../res/video/gritar.mp4")
         },
         {
           "name_es": "COMUNICAR",
           "search_name_es": "COMUNICAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/comunicar.png"),
           "video": require("./../../res/video/comunicar.mp4")
         },
         {
           "name_es": "LLAMAR",
           "search_name_es": "LLAMAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/llamar.png"),
           "video": require("./../../res/video/llamar.mp4")
         }
       ]
