@@ -58,7 +58,7 @@ function createIndex() {
 "		Buenas tardes	\n"+
 "		Buenas noches	\n"+
 "		Perdón	\n"+
-"		Apodo	\n"+
+"		Seña personal	\n"+
 "		Apellido	\n"+
 "		Nombre	\n"+
 "		Si	\n"+
@@ -847,7 +847,7 @@ function createIndex() {
         split("Í").join("I").
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
-      } else if (currentCategory.name_es === 'TODOS LOS DÍAS') {
+      } else if (currentCategory.name_es === 'EL CALENDARIO') {
         currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
@@ -870,6 +870,7 @@ function createIndex() {
       } else if (currentVideo.name_es === 'MENOS...') {
         currentVideo.video = "require(\"./../../res/video/menos.mp4\")";
       } else if (currentVideo.name_es === 'PAPÁ') {
+        currentVideo.image = "require(\"./../../res/image/papa-familiar.png\")";
         currentVideo.video = "require(\"./../../res/video/papa-familiar.mp4\")";
       } else if (currentVideo.name_es === '... Y MEDIA') {
         currentVideo.video = "require(\"./../../res/video/y-media.mp4\")";

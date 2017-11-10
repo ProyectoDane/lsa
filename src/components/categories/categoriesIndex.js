@@ -274,10 +274,10 @@ export const CATEGORIES_INDEX = {
           "video": require("./../../res/video/perdon.mp4")
         },
         {
-          "name_es": "APODO",
-          "search_name_es": "APODO",
-          "image": require("./../../res/image/apodo.png"),
-          "video": require("./../../res/video/apodo.mp4")
+          "name_es": "SEÑA PERSONAL",
+          "search_name_es": "SEÑA PERSONAL",
+          "image": require("./../../res/image/sena-personal.png"),
+          "video": require("./../../res/video/sena-personal.mp4")
         },
         {
           "name_es": "APELLIDO",
@@ -432,7 +432,7 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "PAPÁ",
           "search_name_es": "PAPA",
-          "image": require("./../../res/image/papa.png"),
+          "image": require("./../../res/image/papa-familiar.png"),
           "video": require("./../../res/video/papa-familiar.mp4")
         },
         {
@@ -576,253 +576,253 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "TODOS LOS DÍAS",
           "search_name_es": "TODOS LOS DIAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/todos-los-dias.png"),
           "video": require("./../../res/video/todos-los-dias.mp4")
         },
         {
           "name_es": "HOY",
           "search_name_es": "HOY",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hoy.png"),
           "video": require("./../../res/video/hoy.mp4")
         },
         {
           "name_es": "AYER",
           "search_name_es": "AYER",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ayer.png"),
           "video": require("./../../res/video/ayer.mp4")
         },
         {
           "name_es": "MAÑANA",
           "search_name_es": "MAÑANA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/manana.png"),
           "video": require("./../../res/video/manana.mp4")
         },
         {
           "name_es": "SEMANA",
           "search_name_es": "SEMANA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/semana.png"),
           "video": require("./../../res/video/semana.mp4")
         },
         {
           "name_es": "LUNES",
           "search_name_es": "LUNES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/lunes.png"),
           "video": require("./../../res/video/lunes.mp4")
         },
         {
           "name_es": "MARTES",
           "search_name_es": "MARTES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/martes.png"),
           "video": require("./../../res/video/martes.mp4")
         },
         {
           "name_es": "MIERCOLES",
           "search_name_es": "MIERCOLES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/miercoles.png"),
           "video": require("./../../res/video/miercoles.mp4")
         },
         {
           "name_es": "JUEVES",
           "search_name_es": "JUEVES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/jueves.png"),
           "video": require("./../../res/video/jueves.mp4")
         },
         {
           "name_es": "VIERNES",
           "search_name_es": "VIERNES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/viernes.png"),
           "video": require("./../../res/video/viernes.mp4")
         },
         {
           "name_es": "SÁBADO",
           "search_name_es": "SABADO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sabado.png"),
           "video": require("./../../res/video/sabado.mp4")
         },
         {
           "name_es": "DOMINGO",
           "search_name_es": "DOMINGO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/domingo.png"),
           "video": require("./../../res/video/domingo.mp4")
         },
         {
           "name_es": "DÍA",
           "search_name_es": "DIA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/dia.png"),
           "video": require("./../../res/video/dia.mp4")
         },
         {
           "name_es": "MES",
           "search_name_es": "MES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mes.png"),
           "video": require("./../../res/video/mes.mp4")
         },
         {
           "name_es": "AÑO",
           "search_name_es": "AÑO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ano.png"),
           "video": require("./../../res/video/ano.mp4")
         },
         {
           "name_es": "ENERO",
           "search_name_es": "ENERO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/enero.png"),
           "video": require("./../../res/video/enero.mp4")
         },
         {
           "name_es": "FEBRERO",
           "search_name_es": "FEBRERO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/febrero.png"),
           "video": require("./../../res/video/febrero.mp4")
         },
         {
           "name_es": "MARZO",
           "search_name_es": "MARZO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/marzo.png"),
           "video": require("./../../res/video/marzo.mp4")
         },
         {
           "name_es": "ABRIL",
           "search_name_es": "ABRIL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/abril.png"),
           "video": require("./../../res/video/abril.mp4")
         },
         {
           "name_es": "MAYO",
           "search_name_es": "MAYO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mayo.png"),
           "video": require("./../../res/video/mayo.mp4")
         },
         {
           "name_es": "JUNIO",
           "search_name_es": "JUNIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/junio.png"),
           "video": require("./../../res/video/junio.mp4")
         },
         {
           "name_es": "JULIO",
           "search_name_es": "JULIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/julio.png"),
           "video": require("./../../res/video/julio.mp4")
         },
         {
           "name_es": "AGOSTO",
           "search_name_es": "AGOSTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/agosto.png"),
           "video": require("./../../res/video/agosto.mp4")
         },
         {
           "name_es": "SEPTIEMBRE",
           "search_name_es": "SEPTIEMBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/septiembre.png"),
           "video": require("./../../res/video/septiembre.mp4")
         },
         {
           "name_es": "OCTUBRE",
           "search_name_es": "OCTUBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/octubre.png"),
           "video": require("./../../res/video/octubre.mp4")
         },
         {
           "name_es": "NOVIEMBRE",
           "search_name_es": "NOVIEMBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/noviembre.png"),
           "video": require("./../../res/video/noviembre.mp4")
         },
         {
           "name_es": "DICIEMBRE",
           "search_name_es": "DICIEMBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/diciembre.png"),
           "video": require("./../../res/video/diciembre.mp4")
         },
         {
           "name_es": "VERANO",
           "search_name_es": "VERANO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/verano.png"),
           "video": require("./../../res/video/verano.mp4")
         },
         {
           "name_es": "PILETA",
           "search_name_es": "PILETA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pileta.png"),
           "video": require("./../../res/video/pileta.mp4")
         },
         {
           "name_es": "CALOR",
           "search_name_es": "CALOR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/calor.png"),
           "video": require("./../../res/video/calor.mp4")
         },
         {
           "name_es": "SOL",
           "search_name_es": "SOL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sol.png"),
           "video": require("./../../res/video/sol.mp4")
         },
         {
           "name_es": "NADAR",
           "search_name_es": "NADAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nadar.png"),
           "video": require("./../../res/video/nadar.mp4")
         },
         {
           "name_es": "OTOÑO",
           "search_name_es": "OTOÑO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/otono.png"),
           "video": require("./../../res/video/otono.mp4")
         },
         {
           "name_es": "VIENTO",
           "search_name_es": "VIENTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/viento.png"),
           "video": require("./../../res/video/viento.mp4")
         },
         {
           "name_es": "INVIERNO",
           "search_name_es": "INVIERNO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/invierno.png"),
           "video": require("./../../res/video/invierno.mp4")
         },
         {
           "name_es": "NIEVE",
           "search_name_es": "NIEVE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nieve.png"),
           "video": require("./../../res/video/nieve.mp4")
         },
         {
           "name_es": "LLUVIA",
           "search_name_es": "LLUVIA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/lluvia.png"),
           "video": require("./../../res/video/lluvia.mp4")
         },
         {
           "name_es": "FRÍO",
           "search_name_es": "FRIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/frio.png"),
           "video": require("./../../res/video/frio.mp4")
         },
         {
           "name_es": "NUBLADO",
           "search_name_es": "NUBLADO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nublado.png"),
           "video": require("./../../res/video/nublado.mp4")
         },
         {
           "name_es": "PRIMAVERA",
           "search_name_es": "PRIMAVERA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/primavera.png"),
           "video": require("./../../res/video/primavera.mp4")
         },
         {
           "name_es": "JARDÍN",
           "search_name_es": "JARDIN",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/jardin.png"),
           "video": require("./../../res/video/jardin.mp4")
         },
         {
           "name_es": "FLOR",
           "search_name_es": "FLOR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/flor.png"),
           "video": require("./../../res/video/flor.mp4")
         }
       ]
