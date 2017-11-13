@@ -2,9 +2,8 @@ import React from 'react';
 import {
   AppRegistry
 } from 'react-native';
-import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
+import {StackNavigator, TabNavigator} from 'react-navigation';
 import { Provider } from 'react-redux';
-import { connect } from 'react-redux';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -17,7 +16,6 @@ import StartupVideo from './components/launcher/startupVideo';
 import Category from './components/categories/category';
 import VideoPlayer from './components/categories/videoPlayer';
 import Colors from './res/colors';
-import { restartCategories } from './actions/restartPage';
 import configureStore from './configureStore';
 import TabBarComponent from './tabBarComponent';
 

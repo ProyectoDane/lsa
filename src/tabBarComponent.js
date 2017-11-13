@@ -2,7 +2,11 @@ import React, { Component }  from 'react';
 import { TabBarBottom, NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
-import { restartCategories, restartAlphabeticalPage } from './actions/restartPage';
+import {
+  restartCategories,
+  restartAlphabeticalPage,
+  restartSearchPage
+} from './actions/restartPage';
 
 class TabBarComponent extends Component {
 
@@ -28,6 +32,9 @@ class TabBarComponent extends Component {
           case 'AlphabeticalTab':
             this.props.dispatchRestartAlphabeticalPage();
             break;
+          case 'SearchTab':
+            this.props.dispatchRestartSearchPage();
+            break;
           default:
             const resetAction = NavigationActions.reset({
               index: 0,
@@ -52,7 +59,8 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     dispatchRestartCategories: () => dispatch(restartCategories()),
-    dispatchRestartAlphabeticalPage: () => dispatch(restartAlphabeticalPage())
+    dispatchRestartAlphabeticalPage: () => dispatch(restartAlphabeticalPage()),
+    dispatchRestartSearchPage: () => dispatch(restartSearchPage())
   };
 }
 

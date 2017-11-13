@@ -11,11 +11,13 @@ import {
   Keyboard
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
 
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 import Videos from './../categories/videos';
 import {CATEGORIES_INDEX} from './../categories/categoriesIndex';
+import { searchPageRestarted } from './../../actions/restartPage';
 
 const searchInputMaginLeft = 10;
 const searchIconSize = 26;
@@ -61,7 +63,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Search extends Component {
+class Search extends Component {
 
   constructor(props) {
     super(props);
@@ -106,8 +108,21 @@ export default class Search extends Component {
     )
   });
 
+  shouldComponentUpdate(nextProps) {
+    if (this.props.navigation.state.params) {
+      return (this.props.navigation.state.params.searchQuery !==
+              nextProps.navigation.state.params.searchQuery);
+    }
+    return false;
+  }
+
   componentWillReceiveProps(nextProps) {
-    this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
+    if (nextProps.shouldRestartSearch) {
+      this.props.navigation.setParams({searchQuery: ""});
+      this.props.dispatchSearchPageRestarted();
+    } else {
+      this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
+    }
   }
 
   onLayout() {
@@ -184,3 +199,20 @@ export default class Search extends Component {
   }
 
 }
+
+function mapStateToProps (state) {
+  return {
+    shouldRestartSearch: state.restartPage.shouldRestartSearch
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchSearchPageRestarted: () => dispatch(searchPageRestarted())
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Search);
