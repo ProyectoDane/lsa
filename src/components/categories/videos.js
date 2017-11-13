@@ -57,6 +57,10 @@ export default class Videos extends Component {
     this.props.navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: video});
   }
 
+  scrollToTop() {
+    this.scrollView.scrollTo({x: 0, y: 0, animated: true});
+  }
+
   renderVideo(video, imagePaddingHorizontal, imagePaddingVertical) {
     return (
       <TouchableOpacity
@@ -137,11 +141,9 @@ export default class Videos extends Component {
           ]}
           source={this.props.background}
         >
-          <ScrollView style={[styles.videosScrollView,
-            {
-              paddingVertical: getCardPadding(),
-              paddingHorizontal: getCardPadding()
-            }]}
+          <ScrollView
+            ref={scrollView => this.scrollView = scrollView}
+            style={[styles.videosScrollView,{ paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding() }]}
           >
             {rows}
           </ScrollView>

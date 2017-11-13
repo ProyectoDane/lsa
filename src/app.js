@@ -1,6 +1,10 @@
 import React from 'react';
-import {StackNavigator, TabNavigator, TabBarBottom, NavigationActions} from 'react-navigation';
-import {AppRegistry} from 'react-native';
+import {
+  AppRegistry
+} from 'react-native';
+import {StackNavigator, TabNavigator, TabBarBottom} from 'react-navigation';
+import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -13,6 +17,11 @@ import StartupVideo from './components/launcher/startupVideo';
 import Category from './components/categories/category';
 import VideoPlayer from './components/categories/videoPlayer';
 import Colors from './res/colors';
+import { restartCategories } from './actions/restartPage';
+import configureStore from './configureStore';
+import TabBarComponent from './tabBarComponent';
+
+const store = configureStore();
 
 //Splash: { screen: Splash },
 //StartupVideo: {screen: StartupVideo},
@@ -98,33 +107,7 @@ const ProyectosSolidarios = TabNavigator(
     }
   },
   {
-    tabBarComponent: props => {
-      const {navigation, navigationState} = props;
-      const jumpToIndex = index => {
-        const tab = navigationState.routes[index];
-        if (navigationState.index !== index) {
-          navigation.dispatch(
-            {
-              type: "Navigation/NAVIGATE",
-              routeName: tab.routeName
-            }
-          );
-        } else {
-          if (tab.index > 0) {
-            navigation.goBack(tab.routes[1].key);
-          } else {
-            const resetAction = NavigationActions.reset({
-              index: 0,
-              actions: [
-                NavigationActions.navigate({ routeName: tab.routes[0].routeName})
-              ]
-            });
-            navigation.dispatch(resetAction);
-          }
-        }
-      };
-      return (<TabBarBottom {...props} jumpToIndex={jumpToIndex} />);
-    },
+    tabBarComponent: props => <TabBarComponent {...props} />,
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
@@ -141,4 +124,10 @@ const ProyectosSolidarios = TabNavigator(
   }
 );
 
-AppRegistry.registerComponent('ProyectosSolidarios', () => ProyectosSolidarios);
+const App = () => (
+  <Provider store={store}>
+    <ProyectosSolidarios />
+  </Provider>
+);
+
+AppRegistry.registerComponent('ProyectosSolidarios', () => App);

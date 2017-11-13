@@ -8,9 +8,11 @@ import Colors from './../../res/colors';
 import Videos from './../categories/videos';
 import I18n from './../../res/i18n/i18n';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { connect } from 'react-redux';
 
 import {CATEGORIES_INDEX} from './../categories/categoriesIndex';
 import {ALPHABETICAL_CATEGORY_NAME_ES} from './../../constants/';
+import { alphabeticalPageRestarted } from './../../actions/restartPage';
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 const infoIconMagin = 10;
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Alphabetical extends Component {
+class Alphabetical extends Component {
 
   constructor(props) {
     super(props);
@@ -50,11 +52,23 @@ export default class Alphabetical extends Component {
     )
   });
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.shouldRestartAlphabetical) {
+      this.videosComponent.scrollToTop();
+      this.props.dispatchAlphabeticalPageRestarted();
+    }
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     const {navigation} = this.props;
     return (
       <View style={{flex: 1}}>
         <Videos
+          ref={videosComponent => this.videosComponent = videosComponent}
           navigation={navigation}
           videos={this.state.videos}
           background={categoryVideosBackground}
@@ -74,3 +88,20 @@ export default class Alphabetical extends Component {
   }
 
 }
+
+function mapStateToProps (state) {
+  return {
+    shouldRestartAlphabetical: state.restartPage.shouldRestartAlphabetical
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchAlphabeticalPageRestarted: () => dispatch(alphabeticalPageRestarted())
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Alphabetical);

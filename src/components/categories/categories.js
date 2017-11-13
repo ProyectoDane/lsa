@@ -10,11 +10,13 @@ import {
   ImageBackground,
   Platform
 } from 'react-native';
+import { connect } from 'react-redux';
 
 import {CATEGORIES_INDEX} from './categoriesIndex';
 import {PAGES} from './../../constants/';
 import {getCardWidth, getCardsPerRow, getCardPadding} from './../../util/layoutUtil';
 import Colors from './../../res/colors';
+import { categoriesRestarted } from './../../actions/restartPage';
 
 const styles = StyleSheet.create({
   categoryContainer: {
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Categories extends Component {
+class Categories extends Component {
 
   navigateToCategory(category) {
     this.props.navigation.navigate(PAGES.PAGE_CATEGORY, {category: category});
@@ -114,6 +116,17 @@ export default class Categories extends Component {
     );
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.shouldRestartCategories) {
+      this.scrollView.scrollTo({x: 0, y: 0, animated: true});
+      this.props.dispatchCategoriesRestarted();
+    }
+  }
+
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     const imagePaddingHorizontal = getCardPadding() * 2;
     const imagePaddingVertical = getCardPadding() * 2;
@@ -129,7 +142,10 @@ export default class Categories extends Component {
           imageStyle={[styles.backgroundImageStyle, {width: Dimensions.get('window').width, height: Dimensions.get('window').height}]}
           source={require('./../../res/background/fondo-amarillo.jpg')}
         >
-          <ScrollView style={[styles.categoriesViewContainer, {paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding()}]}>
+          <ScrollView
+            ref={scrollView => this.scrollView = scrollView}
+            style={[styles.categoriesViewContainer, {paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding()}]}
+          >
             {rows}
           </ScrollView>
         </ImageBackground>
@@ -138,3 +154,20 @@ export default class Categories extends Component {
   }
 
 }
+
+function mapStateToProps (state) {
+  return {
+    shouldRestartCategories: state.restartPage.shouldRestartCategories
+  };
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchCategoriesRestarted: () => dispatch(categoriesRestarted())
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Categories);
