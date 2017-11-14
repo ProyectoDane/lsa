@@ -5,7 +5,6 @@
 	};
 	objectVersion = 47;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		005721F6FBBD44FB8C5E4B45 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2E84B5EB63644A7848C3E41 /* FontAwesome.ttf */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
@@ -49,6 +48,7 @@
 		A95DCF92862C442A9821EE93 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CE205397D584743967F3BBF /* MaterialIcons.ttf */; };
 		EE0F40C75A6149FB8C98BC2E /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B39684A15D34955AB4A291A /* Foundation.ttf */; };
 		F967E0A287C14320A5CF013A /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EFF7FDE04904CDBB0EC7E0F /* Entypo.ttf */; };
+		F0EF3FC61E50470EA8D09315 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A00C63A804E4A239485AA33 /* Nunito-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -347,6 +347,7 @@
 		DE775D38A23B4B5FBD708F56 /* libRCTVideo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTVideo.a; sourceTree = "<group>"; };
 		E459214D84D94B3F8B84CB83 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		F390E07759BA4FF2976E507B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		3A00C63A804E4A239485AA33 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; name = "Nunito-Regular.ttf"; path = "../assets/fonts/Nunito-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -600,6 +601,7 @@
 				1BBD36DD3578409988B91DB2 /* Octicons.ttf */,
 				00AFDE7967B74E0B941860B3 /* SimpleLineIcons.ttf */,
 				8C6F3B55D3FF4EEB817ED8C7 /* Zocial.ttf */,
+				3A00C63A804E4A239485AA33 /* Nunito-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1088,6 +1090,7 @@
 				87CB6C820497481BB176E5D2 /* Octicons.ttf in Resources */,
 				6BAEBB460BDA41F5849D6296 /* SimpleLineIcons.ttf in Resources */,
 				5EF021F5B12A4BFE978892A1 /* Zocial.ttf in Resources */,
+				F0EF3FC61E50470EA8D09315 /* Nunito-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

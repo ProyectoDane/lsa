@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
     height: 50
   },
   categoryName: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'nunito'
   },
   rowContainer: {
     flexDirection: "row"
@@ -121,10 +122,6 @@ class Categories extends Component {
       this.scrollView.scrollTo({x: 0, y: 0, animated: true});
       this.props.dispatchCategoriesRestarted();
     }
-  }
-
-  shouldComponentUpdate() {
-    return false;
   }
 
   render() {

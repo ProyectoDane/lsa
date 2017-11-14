@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
     height: 50
   },
   videoName: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'nunito'
   },
   rowContainer: {
     flexDirection: "row"

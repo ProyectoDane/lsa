@@ -36,6 +36,9 @@ class Alphabetical extends Component {
     title: I18n.t('alphabetical_tab_title'),
     headerTintColor: Colors.THEME_SECONDARY,
     headerBackTitle: null,
+    headerTitleStyle: {
+      fontFamily: 'nunito'
+    },
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,

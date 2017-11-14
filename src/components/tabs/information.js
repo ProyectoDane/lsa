@@ -22,6 +22,9 @@ export default class Information extends Component {
   static navigationOptions = ({navigation, screenProps}) => ({
     title: I18n.t('info_tab_title'),
     headerTintColor: Colors.THEME_SECONDARY,
+    headerTitleStyle: {
+      fontFamily: 'nunito'
+    },
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,

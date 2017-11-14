@@ -5,7 +5,7 @@ import {
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import { Provider } from 'react-redux';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Splash from './components/launcher/splash';
 import Home from './components/tabs/home';
@@ -52,8 +52,8 @@ const ProyectosSolidarios = TabNavigator(
       navigationOptions: {
         tabBarLabel: 'Home',
         tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons
-            name={focused ? 'ios-home' : 'ios-home-outline'}
+          <MaterialCommunityIcons
+            name={'home-outline'}
             size={26}
             style={{ color: tintColor }}
           />
@@ -66,8 +66,8 @@ const ProyectosSolidarios = TabNavigator(
       navigationOptions: {
         tabBarLabel: 'Alphabetical',
         tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons
-            name={focused ? 'ios-list' : 'ios-list-outline'}
+          <MaterialCommunityIcons
+            name={'alphabetical'}
             size={26}
             style={{ color: tintColor }}
           />
@@ -80,8 +80,8 @@ const ProyectosSolidarios = TabNavigator(
       navigationOptions: {
         tabBarLabel: 'Search',
         tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons
-            name={focused ? 'ios-search' : 'ios-search-outline'}
+          <MaterialCommunityIcons
+            name={'magnify'}
             size={26}
             style={{ color: tintColor }}
           />
@@ -95,8 +95,8 @@ const ProyectosSolidarios = TabNavigator(
       navigationOptions: {
         tabBarLabel: 'Information',
         tabBarIcon: ({ tintColor, focused }) => (
-          <Ionicons
-            name={focused ? 'ios-information-circle' : 'ios-information-circle-outline'}
+          <MaterialCommunityIcons
+            name={'information-outline'}
             size={26}
             style={{ color: tintColor }}
           />

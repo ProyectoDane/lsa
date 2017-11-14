@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
     fontWeight:  'bold',
     color: Colors.THEME_PRIMARY,
     marginLeft:  noGrouponsMessageHorizontalMargin,
-    marginRight: noGrouponsMessageHorizontalMargin
+    marginRight: noGrouponsMessageHorizontalMargin,
+    fontFamily: 'nunito'
   },
   backgroundImageStyle: {
     resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
