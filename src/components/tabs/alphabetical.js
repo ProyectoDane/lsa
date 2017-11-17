@@ -62,10 +62,6 @@ class Alphabetical extends Component {
     }
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   render() {
     const {navigation} = this.props;
     return (

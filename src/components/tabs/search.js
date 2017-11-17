@@ -122,7 +122,9 @@ class Search extends Component {
       this.props.navigation.setParams({searchQuery: ""});
       this.props.dispatchSearchPageRestarted();
     } else {
-      this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
+      if (nextProps.navigation.state.params) {
+        this.searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
+      }
     }
   }
 

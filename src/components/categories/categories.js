@@ -124,6 +124,10 @@ class Categories extends Component {
     }
   }
 
+  onLayout() {
+    this.forceUpdate();
+  }
+
   render() {
     const imagePaddingHorizontal = getCardPadding() * 2;
     const imagePaddingVertical = getCardPadding() * 2;
@@ -133,7 +137,7 @@ class Categories extends Component {
       rows.push(this.renderRow(categories, i, imagePaddingHorizontal, imagePaddingVertical));
     }
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
         <ImageBackground
           style={{flex: 1}}
           imageStyle={[styles.backgroundImageStyle, {width: Dimensions.get('window').width, height: Dimensions.get('window').height}]}

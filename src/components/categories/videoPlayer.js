@@ -33,6 +33,9 @@ export default class VideoPlayer extends Component {
   static navigationOptions = ({navigation, screenProps}) => ({
     title: navigation.state.params.video.name_es,
     headerTintColor: Colors.THEME_SECONDARY,
+    headerTitleStyle: {
+      fontFamily: 'nunito'
+    },
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,

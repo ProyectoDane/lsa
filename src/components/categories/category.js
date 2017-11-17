@@ -10,6 +10,9 @@ export default class Category extends Component {
     title: navigation.state.params.category.name_es,
     headerTintColor: Colors.THEME_SECONDARY,
     headerBackTitle: null,
+    headerTitleStyle: {
+      fontFamily: 'nunito'
+    },
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,

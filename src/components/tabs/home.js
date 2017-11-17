@@ -22,13 +22,9 @@ export default class Home extends Component {
     }
   });
 
-  onLayout() {
-    this.forceUpdate();
-  }
-
   render() {
     return (
-      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
+      <View style={{flex: 1}}>
         <Categories
           navigation={this.props.navigation}
         />
