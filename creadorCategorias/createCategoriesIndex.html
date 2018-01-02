@@ -857,7 +857,37 @@ function createIndex() {
         split("Í").join("I").
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
-      }  else {
+      } else if (currentCategory.name_es === 'EL CAMPAMENTO') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LOS ANIMALES') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LA PLAYA') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else {
         currentVideo.image = "require(\"./../../res/image/video-icon.png\")";
       }
 

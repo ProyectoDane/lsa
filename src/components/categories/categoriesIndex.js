@@ -3492,169 +3492,169 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "EL ZOOLÓGICO",
           "search_name_es": "EL ZOOLOGICO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/el-zoologico.png"),
           "video": require("./../../res/video/el-zoologico.mp4")
         },
         {
           "name_es": "OSO",
           "search_name_es": "OSO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/oso.png"),
           "video": require("./../../res/video/oso.mp4")
         },
         {
           "name_es": "FOCA",
           "search_name_es": "FOCA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/foca.png"),
           "video": require("./../../res/video/foca.mp4")
         },
         {
           "name_es": "TORTUGA",
           "search_name_es": "TORTUGA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tortuga.png"),
           "video": require("./../../res/video/tortuga.mp4")
         },
         {
           "name_es": "LORO",
           "search_name_es": "LORO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/loro.png"),
           "video": require("./../../res/video/loro.mp4")
         },
         {
           "name_es": "ELEFANTE",
           "search_name_es": "ELEFANTE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/elefante.png"),
           "video": require("./../../res/video/elefante.mp4")
         },
         {
           "name_es": "CIERVO",
           "search_name_es": "CIERVO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ciervo.png"),
           "video": require("./../../res/video/ciervo.mp4")
         },
         {
           "name_es": "LEÓN",
           "search_name_es": "LEON",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/leon.png"),
           "video": require("./../../res/video/leon.mp4")
         },
         {
           "name_es": "MONO",
           "search_name_es": "MONO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mono.png"),
           "video": require("./../../res/video/mono.mp4")
         },
         {
           "name_es": "VÍBORA",
           "search_name_es": "VIBORA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vibora.png"),
           "video": require("./../../res/video/vibora.mp4")
         },
         {
           "name_es": "COCODRILO",
           "search_name_es": "COCODRILO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cocodrilo.png"),
           "video": require("./../../res/video/cocodrilo.mp4")
         },
         {
           "name_es": "JIRAFA",
           "search_name_es": "JIRAFA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/jirafa.png"),
           "video": require("./../../res/video/jirafa.mp4")
         },
         {
           "name_es": "ANIMALES",
           "search_name_es": "ANIMALES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/animales.png"),
           "video": require("./../../res/video/animales.mp4")
         },
         {
           "name_es": "DEL CAMPO",
           "search_name_es": "DEL CAMPO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/del-campo.png"),
           "video": require("./../../res/video/del-campo.mp4")
         },
         {
           "name_es": "BURRO",
           "search_name_es": "BURRO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/burro.png"),
           "video": require("./../../res/video/burro.mp4")
         },
         {
           "name_es": "SAPO",
           "search_name_es": "SAPO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sapo.png"),
           "video": require("./../../res/video/sapo.mp4")
         },
         {
           "name_es": "GATO",
           "search_name_es": "GATO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gato.png"),
           "video": require("./../../res/video/gato.mp4")
         },
         {
           "name_es": "RATÓN",
           "search_name_es": "RATON",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/raton.png"),
           "video": require("./../../res/video/raton.mp4")
         },
         {
           "name_es": "ARAÑA",
           "search_name_es": "ARAÑA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/arana.png"),
           "video": require("./../../res/video/arana.mp4")
         },
         {
           "name_es": "VACA",
           "search_name_es": "VACA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vaca.png"),
           "video": require("./../../res/video/vaca.mp4")
         },
         {
           "name_es": "CABALLO",
           "search_name_es": "CABALLO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/caballo.png"),
           "video": require("./../../res/video/caballo.mp4")
         },
         {
           "name_es": "GALLINA",
           "search_name_es": "GALLINA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gallina.png"),
           "video": require("./../../res/video/gallina.mp4")
         },
         {
           "name_es": "CONEJO",
           "search_name_es": "CONEJO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/conejo.png"),
           "video": require("./../../res/video/conejo.mp4")
         },
         {
           "name_es": "LLAMA",
           "search_name_es": "LLAMA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/llama.png"),
           "video": require("./../../res/video/llama.mp4")
         },
         {
           "name_es": "CHANCHO",
           "search_name_es": "CHANCHO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/chancho.png"),
           "video": require("./../../res/video/chancho.mp4")
         },
         {
           "name_es": "CABRA",
           "search_name_es": "CABRA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cabra.png"),
           "video": require("./../../res/video/cabra.mp4")
         },
         {
           "name_es": "OVEJA",
           "search_name_es": "OVEJA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/oveja.png"),
           "video": require("./../../res/video/oveja.mp4")
         },
         {
           "name_es": "PATO",
           "search_name_es": "PATO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pato.png"),
           "video": require("./../../res/video/pato.mp4")
         }
       ]
@@ -3666,115 +3666,115 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "EL CAMPAMENTO",
           "search_name_es": "EL CAMPAMENTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/el-campamento.png"),
           "video": require("./../../res/video/el-campamento.mp4")
         },
         {
           "name_es": "PASTO",
           "search_name_es": "PASTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pasto.png"),
           "video": require("./../../res/video/pasto.mp4")
         },
         {
           "name_es": "TIERRA",
           "search_name_es": "TIERRA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tierra.png"),
           "video": require("./../../res/video/tierra.mp4")
         },
         {
           "name_es": "PEZ",
           "search_name_es": "PEZ",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pez.png"),
           "video": require("./../../res/video/pez.mp4")
         },
         {
           "name_es": "MARIPOSA",
           "search_name_es": "MARIPOSA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mariposa.png"),
           "video": require("./../../res/video/mariposa.mp4")
         },
         {
           "name_es": "PIEDRA",
           "search_name_es": "PIEDRA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/piedra.png"),
           "video": require("./../../res/video/piedra.mp4")
         },
         {
           "name_es": "CIELO",
           "search_name_es": "CIELO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cielo.png"),
           "video": require("./../../res/video/cielo.mp4")
         },
         {
           "name_es": "RÍO",
           "search_name_es": "RIO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/rio.png"),
           "video": require("./../../res/video/rio.mp4")
         },
         {
           "name_es": "PÁJARO",
           "search_name_es": "PAJARO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pajaro.png"),
           "video": require("./../../res/video/pajaro.mp4")
         },
         {
           "name_es": "LINTERNA",
           "search_name_es": "LINTERNA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/linterna.png"),
           "video": require("./../../res/video/linterna.mp4")
         },
         {
           "name_es": "LAGO",
           "search_name_es": "LAGO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/lago.png"),
           "video": require("./../../res/video/lago.mp4")
         },
         {
           "name_es": "MOSQUITO",
           "search_name_es": "MOSQUITO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mosquito.png"),
           "video": require("./../../res/video/mosquito.mp4")
         },
         {
           "name_es": "ÁRBOL",
           "search_name_es": "ARBOL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/arbol.png"),
           "video": require("./../../res/video/arbol.mp4")
         },
         {
           "name_es": "PERRO",
           "search_name_es": "PERRO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/perro.png"),
           "video": require("./../../res/video/perro.mp4")
         },
         {
           "name_es": "CARPA",
           "search_name_es": "CARPA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/carpa.png"),
           "video": require("./../../res/video/carpa.mp4")
         },
         {
           "name_es": "FUEGO",
           "search_name_es": "FUEGO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/fuego.png"),
           "video": require("./../../res/video/fuego.mp4")
         },
         {
           "name_es": "MONTAÑAS",
           "search_name_es": "MONTAÑAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/montanas.png"),
           "video": require("./../../res/video/montanas.mp4")
         },
         {
           "name_es": "PESCAR",
           "search_name_es": "PESCAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pescar.png"),
           "video": require("./../../res/video/pescar.mp4")
         },
         {
           "name_es": "BOTE",
           "search_name_es": "BOTE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/bote.png"),
           "video": require("./../../res/video/bote.mp4")
         }
       ]
@@ -3882,67 +3882,67 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "LA PLAYA",
           "search_name_es": "LA PLAYA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/la-playa.png"),
           "video": require("./../../res/video/la-playa.mp4")
         },
         {
           "name_es": "SOMBRILLA",
           "search_name_es": "SOMBRILLA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sombrilla.png"),
           "video": require("./../../res/video/sombrilla.mp4")
         },
         {
           "name_es": "GORRO",
           "search_name_es": "GORRO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gorro.png"),
           "video": require("./../../res/video/gorro.mp4")
         },
         {
           "name_es": "BALDE",
           "search_name_es": "BALDE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/balde.png"),
           "video": require("./../../res/video/balde.mp4")
         },
         {
           "name_es": "PALITA",
           "search_name_es": "PALITA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/palita.png"),
           "video": require("./../../res/video/palita.mp4")
         },
         {
           "name_es": "MALLA DE MUJER",
           "search_name_es": "MALLA DE MUJER",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/malla-de-mujer.png"),
           "video": require("./../../res/video/malla-de-mujer.mp4")
         },
         {
           "name_es": "MALLA DE HOMBRE",
           "search_name_es": "MALLA DE HOMBRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/malla-de-hombre.png"),
           "video": require("./../../res/video/malla-de-hombre.mp4")
         },
         {
           "name_es": "VACACIONES",
           "search_name_es": "VACACIONES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vacaciones.png"),
           "video": require("./../../res/video/vacaciones.mp4")
         },
         {
           "name_es": "MAR",
           "search_name_es": "MAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mar.png"),
           "video": require("./../../res/video/mar.mp4")
         },
         {
           "name_es": "ARENA",
           "search_name_es": "ARENA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/arena.png"),
           "video": require("./../../res/video/arena.mp4")
         },
         {
           "name_es": "BARCO",
           "search_name_es": "BARCO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/barco.png"),
           "video": require("./../../res/video/barco.mp4")
         }
       ]
