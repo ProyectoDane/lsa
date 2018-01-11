@@ -887,22 +887,76 @@ function createIndex() {
         split("Í").join("I").
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LOS NÚMEROS') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LA TECNOLOGÍA') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === '¿QUÉ HORA ES?') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LA ROPA') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
+      } else if (currentCategory.name_es === 'LOS COLORES') {
+        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        split("¿").join("").
+        split("?").join("").
+        split("Ñ").join("N").
+        split("Á").join("A").
+        split("É").join("E").
+        split("Í").join("I").
+        split("Ó").join("O").
+        split("Ú").join("U").toLowerCase() + ".png\")";
       } else {
         currentVideo.image = "require(\"./../../res/image/video-icon.png\")";
       }
 
       if (currentVideo.name_es === 'NARANJA') {
         if (currentCategory.name_es === 'LOS ALIMENTOS') {
+          currentVideo.image = "require(\"./../../res/image/naranja-fruta.png\")";
           currentVideo.video = "require(\"./../../res/video/naranja-fruta.mp4\")";
         } else {
+          currentVideo.image = "require(\"./../../res/image/naranja-color.png\")";
           currentVideo.video = "require(\"./../../res/video/naranja-color.mp4\")";
         }
       } else if (currentVideo.name_es === 'MENOS...') {
-        currentVideo.video = "require(\"./../../res/video/menos.mp4\")";
+          currentVideo.image = "require(\"./../../res/image/menos.png\")";
+          currentVideo.video = "require(\"./../../res/video/menos.mp4\")";
       } else if (currentVideo.name_es === 'PAPÁ') {
         currentVideo.image = "require(\"./../../res/image/papa-familiar.png\")";
         currentVideo.video = "require(\"./../../res/video/papa-familiar.mp4\")";
       } else if (currentVideo.name_es === '... Y MEDIA') {
+        currentVideo.image = "require(\"./../../res/image/y-media.png\")";
         currentVideo.video = "require(\"./../../res/video/y-media.mp4\")";
       } else if (currentVideo.name_es === 'ELLOS / ELLAS') {
         currentVideo.image = "require(\"./../../res/image/ellos-ellas.png\")";

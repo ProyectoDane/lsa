@@ -834,133 +834,133 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "¿QUÉ HORA ES?",
           "search_name_es": "¿QUE HORA ES?",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/que-hora-es.png"),
           "video": require("./../../res/video/que-hora-es.mp4")
         },
         {
           "name_es": "RELOJ",
           "search_name_es": "RELOJ",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/reloj.png"),
           "video": require("./../../res/video/reloj.mp4")
         },
         {
           "name_es": "EN PUNTO",
           "search_name_es": "EN PUNTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/en-punto.png"),
           "video": require("./../../res/video/en-punto.mp4")
         },
         {
           "name_es": "... Y MEDIA",
           "search_name_es": "... Y MEDIA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/y-media.png"),
           "video": require("./../../res/video/y-media.mp4")
         },
         {
           "name_es": "MENOS...",
           "search_name_es": "MENOS...",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/menos.png"),
           "video": require("./../../res/video/menos.mp4")
         },
         {
           "name_es": "A VECES",
           "search_name_es": "A VECES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/a-veces.png"),
           "video": require("./../../res/video/a-veces.mp4")
         },
         {
           "name_es": "SIEMPRE",
           "search_name_es": "SIEMPRE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/siempre.png"),
           "video": require("./../../res/video/siempre.mp4")
         },
         {
           "name_es": "DESPUÉS",
           "search_name_es": "DESPUES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/despues.png"),
           "video": require("./../../res/video/despues.mp4")
         },
         {
           "name_es": "A LA TARDE",
           "search_name_es": "A LA TARDE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/a-la-tarde.png"),
           "video": require("./../../res/video/a-la-tarde.mp4")
         },
         {
           "name_es": "A LA MAÑANA",
           "search_name_es": "A LA MAÑANA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/a-la-manana.png"),
           "video": require("./../../res/video/a-la-manana.mp4")
         },
         {
           "name_es": "HORA",
           "search_name_es": "HORA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/hora.png"),
           "video": require("./../../res/video/hora.mp4")
         },
         {
           "name_es": "MINUTO",
           "search_name_es": "MINUTO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/minuto.png"),
           "video": require("./../../res/video/minuto.mp4")
         },
         {
           "name_es": "SEGUNDO",
           "search_name_es": "SEGUNDO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/segundo.png"),
           "video": require("./../../res/video/segundo.mp4")
         },
         {
           "name_es": "TARDE",
           "search_name_es": "TARDE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tarde.png"),
           "video": require("./../../res/video/tarde.mp4")
         },
         {
           "name_es": "TEMPRANO",
           "search_name_es": "TEMPRANO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/temprano.png"),
           "video": require("./../../res/video/temprano.mp4")
         },
         {
           "name_es": "LUNA",
           "search_name_es": "LUNA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/luna.png"),
           "video": require("./../../res/video/luna.mp4")
         },
         {
           "name_es": "ESTRELLA",
           "search_name_es": "ESTRELLA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/estrella.png"),
           "video": require("./../../res/video/estrella.mp4")
         },
         {
           "name_es": "CAFÉ",
           "search_name_es": "CAFE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cafe.png"),
           "video": require("./../../res/video/cafe.mp4")
         },
         {
           "name_es": "DESAYUNO",
           "search_name_es": "DESAYUNO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/desayuno.png"),
           "video": require("./../../res/video/desayuno.mp4")
         },
         {
           "name_es": "ALMUERZO",
           "search_name_es": "ALMUERZO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/almuerzo.png"),
           "video": require("./../../res/video/almuerzo.mp4")
         },
         {
           "name_es": "MERIENDA",
           "search_name_es": "MERIENDA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/merienda.png"),
           "video": require("./../../res/video/merienda.mp4")
         },
         {
           "name_es": "CENA",
           "search_name_es": "CENA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cena.png"),
           "video": require("./../../res/video/cena.mp4")
         }
       ]
@@ -1182,7 +1182,7 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "NARANJA",
           "search_name_es": "NARANJA",
-          "image": require("./../../res/image/naranja.png"),
+          "image": require("./../../res/image/naranja-fruta.png"),
           "video": require("./../../res/video/naranja-fruta.mp4")
         },
         {
@@ -1680,109 +1680,109 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "VISTIÉNDOSE",
           "search_name_es": "VISTIENDOSE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vistiendose.png"),
           "video": require("./../../res/video/vistiendose.mp4")
         },
         {
           "name_es": "BOMBACHA",
           "search_name_es": "BOMBACHA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/bombacha.png"),
           "video": require("./../../res/video/bombacha.mp4")
         },
         {
           "name_es": "PAÑAL",
           "search_name_es": "PAÑAL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/panal.png"),
           "video": require("./../../res/video/panal.mp4")
         },
         {
           "name_es": "MEDIAS",
           "search_name_es": "MEDIAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/medias.png"),
           "video": require("./../../res/video/medias.mp4")
         },
         {
           "name_es": "CALZONCILLO",
           "search_name_es": "CALZONCILLO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/calzoncillo.png"),
           "video": require("./../../res/video/calzoncillo.mp4")
         },
         {
           "name_es": "ZAPATOS",
           "search_name_es": "ZAPATOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/zapatos.png"),
           "video": require("./../../res/video/zapatos.mp4")
         },
         {
           "name_es": "CAMBIARSE LA ROPA",
           "search_name_es": "CAMBIARSE LA ROPA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cambiarse-la-ropa.png"),
           "video": require("./../../res/video/cambiarse-la-ropa.mp4")
         },
         {
           "name_es": "GUARDAR LA ROPA",
           "search_name_es": "GUARDAR LA ROPA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/guardar-la-ropa.png"),
           "video": require("./../../res/video/guardar-la-ropa.mp4")
         },
         {
           "name_es": "PONERSE LA ROPA",
           "search_name_es": "PONERSE LA ROPA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ponerse-la-ropa.png"),
           "video": require("./../../res/video/ponerse-la-ropa.mp4")
         },
         {
           "name_es": "PANTALÓN",
           "search_name_es": "PANTALON",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pantalon.png"),
           "video": require("./../../res/video/pantalon.mp4")
         },
         {
           "name_es": "SHORT",
           "search_name_es": "SHORT",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/short.png"),
           "video": require("./../../res/video/short.mp4")
         },
         {
           "name_es": "PULLOVER",
           "search_name_es": "PULLOVER",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pullover.png"),
           "video": require("./../../res/video/pullover.mp4")
         },
         {
           "name_es": "CAMISA",
           "search_name_es": "CAMISA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/camisa.png"),
           "video": require("./../../res/video/camisa.mp4")
         },
         {
           "name_es": "REMERA",
           "search_name_es": "REMERA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/remera.png"),
           "video": require("./../../res/video/remera.mp4")
         },
         {
           "name_es": "POLLERA",
           "search_name_es": "POLLERA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pollera.png"),
           "video": require("./../../res/video/pollera.mp4")
         },
         {
           "name_es": "VESTIDO",
           "search_name_es": "VESTIDO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/vestido.png"),
           "video": require("./../../res/video/vestido.mp4")
         },
         {
           "name_es": "OJOTAS",
           "search_name_es": "OJOTAS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ojotas.png"),
           "video": require("./../../res/video/ojotas.mp4")
         },
         {
           "name_es": "CAMPERA",
           "search_name_es": "CAMPERA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/campera.png"),
           "video": require("./../../res/video/campera.mp4")
         }
       ]
@@ -2484,91 +2484,91 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "LOS COLORES",
           "search_name_es": "LOS COLORES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/los-colores.png"),
           "video": require("./../../res/video/los-colores.mp4")
         },
         {
           "name_es": "AZUL",
           "search_name_es": "AZUL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/azul.png"),
           "video": require("./../../res/video/azul.mp4")
         },
         {
           "name_es": "VERDE",
           "search_name_es": "VERDE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/verde.png"),
           "video": require("./../../res/video/verde.mp4")
         },
         {
           "name_es": "ROJO",
           "search_name_es": "ROJO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/rojo.png"),
           "video": require("./../../res/video/rojo.mp4")
         },
         {
           "name_es": "AMARILLO",
           "search_name_es": "AMARILLO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/amarillo.png"),
           "video": require("./../../res/video/amarillo.mp4")
         },
         {
           "name_es": "CELESTE",
           "search_name_es": "CELESTE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/celeste.png"),
           "video": require("./../../res/video/celeste.mp4")
         },
         {
           "name_es": "MARRÓN",
           "search_name_es": "MARRON",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/marron.png"),
           "video": require("./../../res/video/marron.mp4")
         },
         {
           "name_es": "ROSA",
           "search_name_es": "ROSA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/rosa.png"),
           "video": require("./../../res/video/rosa.mp4")
         },
         {
           "name_es": "NARANJA",
           "search_name_es": "NARANJA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/naranja-color.png"),
           "video": require("./../../res/video/naranja-color.mp4")
         },
         {
           "name_es": "VIOLETA",
           "search_name_es": "VIOLETA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/violeta.png"),
           "video": require("./../../res/video/violeta.mp4")
         },
         {
           "name_es": "GRIS",
           "search_name_es": "GRIS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/gris.png"),
           "video": require("./../../res/video/gris.mp4")
         },
         {
           "name_es": "NEGRO",
           "search_name_es": "NEGRO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/negro.png"),
           "video": require("./../../res/video/negro.mp4")
         },
         {
           "name_es": "CLARO",
           "search_name_es": "CLARO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/claro.png"),
           "video": require("./../../res/video/claro.mp4")
         },
         {
           "name_es": "OSCURO",
           "search_name_es": "OSCURO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/oscuro.png"),
           "video": require("./../../res/video/oscuro.mp4")
         },
         {
           "name_es": "BLANCO",
           "search_name_es": "BLANCO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/blanco.png"),
           "video": require("./../../res/video/blanco.mp4")
         }
       ]
@@ -2580,67 +2580,67 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "LA TECNOLOGÍA",
           "search_name_es": "LA TECNOLOGIA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/la-tecnologia.png"),
           "video": require("./../../res/video/la-tecnologia.mp4")
         },
         {
           "name_es": "COMPUTADORA",
           "search_name_es": "COMPUTADORA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/computadora.png"),
           "video": require("./../../res/video/computadora.mp4")
         },
         {
           "name_es": "CALCULADORA",
           "search_name_es": "CALCULADORA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/calculadora.png"),
           "video": require("./../../res/video/calculadora.mp4")
         },
         {
           "name_es": "IMPRESORA",
           "search_name_es": "IMPRESORA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/impresora.png"),
           "video": require("./../../res/video/impresora.mp4")
         },
         {
           "name_es": "MOUSE",
           "search_name_es": "MOUSE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mouse.png"),
           "video": require("./../../res/video/mouse.mp4")
         },
         {
           "name_es": "INTERNET",
           "search_name_es": "INTERNET",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/internet.png"),
           "video": require("./../../res/video/internet.mp4")
         },
         {
           "name_es": "CELULAR",
           "search_name_es": "CELULAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/celular.png"),
           "video": require("./../../res/video/celular.mp4")
         },
         {
           "name_es": "FOTOCOPIAR",
           "search_name_es": "FOTOCOPIAR",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/fotocopiar.png"),
           "video": require("./../../res/video/fotocopiar.mp4")
         },
         {
           "name_es": "TELÉFONO",
           "search_name_es": "TELEFONO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/telefono.png"),
           "video": require("./../../res/video/telefono.mp4")
         },
         {
           "name_es": "PELÍCULA",
           "search_name_es": "PELICULA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/pelicula.png"),
           "video": require("./../../res/video/pelicula.mp4")
         },
         {
           "name_es": "DVD",
           "search_name_es": "DVD",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/dvd.png"),
           "video": require("./../../res/video/dvd.mp4")
         }
       ]
@@ -2652,181 +2652,181 @@ export const CATEGORIES_INDEX = {
         {
           "name_es": "LOS NÚMEROS",
           "search_name_es": "LOS NUMEROS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/los-numeros.png"),
           "video": require("./../../res/video/los-numeros.mp4")
         },
         {
           "name_es": "UNO",
           "search_name_es": "UNO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/uno.png"),
           "video": require("./../../res/video/uno.mp4")
         },
         {
           "name_es": "DOS",
           "search_name_es": "DOS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/dos.png"),
           "video": require("./../../res/video/dos.mp4")
         },
         {
           "name_es": "TRES",
           "search_name_es": "TRES",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/tres.png"),
           "video": require("./../../res/video/tres.mp4")
         },
         {
           "name_es": "CUATRO",
           "search_name_es": "CUATRO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cuatro.png"),
           "video": require("./../../res/video/cuatro.mp4")
         },
         {
           "name_es": "CINCO",
           "search_name_es": "CINCO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cinco.png"),
           "video": require("./../../res/video/cinco.mp4")
         },
         {
           "name_es": "SEIS",
           "search_name_es": "SEIS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/seis.png"),
           "video": require("./../../res/video/seis.mp4")
         },
         {
           "name_es": "SIETE",
           "search_name_es": "SIETE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/siete.png"),
           "video": require("./../../res/video/siete.mp4")
         },
         {
           "name_es": "OCHO",
           "search_name_es": "OCHO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ocho.png"),
           "video": require("./../../res/video/ocho.mp4")
         },
         {
           "name_es": "NUEVE",
           "search_name_es": "NUEVE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/nueve.png"),
           "video": require("./../../res/video/nueve.mp4")
         },
         {
           "name_es": "DIEZ",
           "search_name_es": "DIEZ",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/diez.png"),
           "video": require("./../../res/video/diez.mp4")
         },
         {
           "name_es": "ONCE",
           "search_name_es": "ONCE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/once.png"),
           "video": require("./../../res/video/once.mp4")
         },
         {
           "name_es": "DOCE",
           "search_name_es": "DOCE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/doce.png"),
           "video": require("./../../res/video/doce.mp4")
         },
         {
           "name_es": "TRECE",
           "search_name_es": "TRECE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/trece.png"),
           "video": require("./../../res/video/trece.mp4")
         },
         {
           "name_es": "CATORCE",
           "search_name_es": "CATORCE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/catorce.png"),
           "video": require("./../../res/video/catorce.mp4")
         },
         {
           "name_es": "QUINCE",
           "search_name_es": "QUINCE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/quince.png"),
           "video": require("./../../res/video/quince.mp4")
         },
         {
           "name_es": "DIECISEIS",
           "search_name_es": "DIECISEIS",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/dieciseis.png"),
           "video": require("./../../res/video/dieciseis.mp4")
         },
         {
           "name_es": "DIECISIETE",
           "search_name_es": "DIECISIETE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/diecisiete.png"),
           "video": require("./../../res/video/diecisiete.mp4")
         },
         {
           "name_es": "DIECIOCHO",
           "search_name_es": "DIECIOCHO",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/dieciocho.png"),
           "video": require("./../../res/video/dieciocho.mp4")
         },
         {
           "name_es": "DIECINUEVE",
           "search_name_es": "DIECINUEVE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/diecinueve.png"),
           "video": require("./../../res/video/diecinueve.mp4")
         },
         {
           "name_es": "VEINTE",
           "search_name_es": "VEINTE",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/veinte.png"),
           "video": require("./../../res/video/veinte.mp4")
         },
         {
           "name_es": "TREINTA",
           "search_name_es": "TREINTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/treinta.png"),
           "video": require("./../../res/video/treinta.mp4")
         },
         {
           "name_es": "CUARENTA",
           "search_name_es": "CUARENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cuarenta.png"),
           "video": require("./../../res/video/cuarenta.mp4")
         },
         {
           "name_es": "CINCUENTA",
           "search_name_es": "CINCUENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cincuenta.png"),
           "video": require("./../../res/video/cincuenta.mp4")
         },
         {
           "name_es": "SESENTA",
           "search_name_es": "SESENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/sesenta.png"),
           "video": require("./../../res/video/sesenta.mp4")
         },
         {
           "name_es": "SETENTA",
           "search_name_es": "SETENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/setenta.png"),
           "video": require("./../../res/video/setenta.mp4")
         },
         {
           "name_es": "OCHENTA",
           "search_name_es": "OCHENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/ochenta.png"),
           "video": require("./../../res/video/ochenta.mp4")
         },
         {
           "name_es": "NOVENTA",
           "search_name_es": "NOVENTA",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/noventa.png"),
           "video": require("./../../res/video/noventa.mp4")
         },
         {
           "name_es": "CIEN",
           "search_name_es": "CIEN",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/cien.png"),
           "video": require("./../../res/video/cien.mp4")
         },
         {
           "name_es": "MIL",
           "search_name_es": "MIL",
-          "image": require("./../../res/image/video-icon.png"),
+          "image": require("./../../res/image/mil.png"),
           "video": require("./../../res/video/mil.mp4")
         }
       ]
