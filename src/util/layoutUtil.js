@@ -1,5 +1,5 @@
-import {Dimensions, Platform} from 'react-native';
-import {deviceIsInLandscapeMode} from './deviceUtil';
+import { Dimensions, Platform } from 'react-native';
+import { deviceIsInLandscapeMode } from './deviceUtil';
 
 export const getCardPadding = () => {
   return 6;

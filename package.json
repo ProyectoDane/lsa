@@ -9,12 +9,12 @@
     "precommit": "npm run eslint"
   },
   "dependencies": {
-    "react": "16.0.0-alpha.12",
-    "react-native": "0.46.1",
-    "react-native-i18n": "^2.0.5",
+    "react": "16.2.0",
+    "react-native": "0.51.0",
+    "react-native-i18n": "^2.0.10",
     "react-native-vector-icons": "^4.3.0",
-    "react-native-video": "^1.2.0",
-    "react-navigation": "^1.0.0-beta.11",
+    "react-native-video": "^2.0.0",
+    "react-navigation": "^1.0.0-beta.27",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2"
@@ -35,8 +35,8 @@
   },
   "rnpm": {
     "assets": [
-	     "./assets/fonts/"
-     ]
+      "./assets/fonts/"
+    ]
   },
   "jest": {
     "preset": "react-native"

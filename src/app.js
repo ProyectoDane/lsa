@@ -2,19 +2,16 @@ import React from 'react';
 import {
   AppRegistry
 } from 'react-native';
-import {StackNavigator, TabNavigator} from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Splash from './components/launcher/splash';
-import Home from './components/tabs/home';
-import Search from './components/tabs/search';
-import Alphabetical from './components/tabs/alphabetical';
-import Information from './components/tabs/information';
+import { Home, Search, Alphabetical, Information } from './components/tabs';
 import StartupVideo from './components/launcher/startupVideo';
-import Category from './components/categories/category';
-import VideoPlayer from './components/categories/videoPlayer';
+import Category from './components/Category';
+import VideoPlayer from './components/VideoPlayer';
 import Colors from './res/colors';
 import configureStore from './configureStore';
 import TabBarComponent from './tabBarComponent';
