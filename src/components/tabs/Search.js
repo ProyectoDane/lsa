@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 import { Videos } from './../Videos';
-import {CATEGORIES_INDEX} from './../categories/categoriesIndex';
+import CATEGORIES_INDEX from './../../categoriesIndex';
 import { searchPageRestarted } from './../../actions/restartPage';
 
 import { styles, searchInputMaginLeft, searchInputMaginRight } from './styles';

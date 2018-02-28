@@ -9,7 +9,7 @@ import I18n from './../../res/i18n/i18n';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { connect } from 'react-redux';
 
-import { CATEGORIES_INDEX } from './../categories/categoriesIndex';
+import CATEGORIES_INDEX from './../../categoriesIndex';
 import { ALPHABETICAL_CATEGORY_NAME_ES } from './../../constants/';
 import { alphabeticalPageRestarted } from './../../actions/restartPage';
 

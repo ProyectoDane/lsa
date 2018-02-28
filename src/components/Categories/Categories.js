@@ -3,14 +3,15 @@ import {
   Text,
   View,
   Image,
-  ScrollView,
+  FlatList,
   Dimensions,
   TouchableOpacity,
   ImageBackground
 } from 'react-native';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
-import { CATEGORIES_INDEX } from './categoriesIndex';
+import CATEGORIES_INDEX from './../../categoriesIndex';
 import { PAGES } from './../../constants/';
 import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layoutUtil';
 import { categoriesRestarted } from './../../actions/restartPage';
@@ -63,24 +64,26 @@ class Categories extends Component {
     );
   }
 
-  renderRow(categories, index, imagePaddingHorizontal, imagePaddingVertical) {
-    let categoriesRow = [];
-    for (var i = index; i < categories.length && i - index < getCardsPerRow(); i++) {
-      categoriesRow.push(this.renderCategory(categories[i], imagePaddingHorizontal, imagePaddingVertical));
-    }
+  _keyExtractor = (item, index) => `CATEGORY${this.props.albumId}ROW${index}`;
+
+  _renderItem = ({item, index}) => {
+    const isLastRow = index === this.rowsCount - 1;
     return (
       <View
-        key={i}
-        style={i === categories.length ? [styles.lastRowContainer, {marginBottom: getCardPadding() * 2}] : styles.rowContainer}
+        style={isLastRow ? [styles.lastRowContainer, {marginBottom: getCardPadding() * 2}] : styles.rowContainer}
       >
-        {categoriesRow}
+        {
+          item.map((item, index) => {
+            return this.renderCategory(item, this.imagePaddingHorizontal, this.imagePaddingVertical);
+          })
+        }
       </View>
     );
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.shouldRestartCategories) {
-      this.scrollView.scrollTo({x: 0, y: 0, animated: true});
+      this.list.scrollToOffset({offset: 0, animated: true});
       this.props.dispatchCategoriesRestarted();
     }
   }
@@ -90,13 +93,10 @@ class Categories extends Component {
   }
 
   render() {
-    const imagePaddingHorizontal = getCardPadding() * 2;
-    const imagePaddingVertical = getCardPadding() * 2;
-    let categories = CATEGORIES_INDEX.categories;
-    let rows = [];
-    for (var i = 0; i < categories.length; i += getCardsPerRow()) {
-      rows.push(this.renderRow(categories, i, imagePaddingHorizontal, imagePaddingVertical));
-    }
+    this.imagePaddingHorizontal = getCardPadding() * 2;
+    this.imagePaddingVertical = getCardPadding() * 2;
+    let categoriesChunks = _.chunk(CATEGORIES_INDEX.categories, getCardsPerRow());
+    this.rowsCount = categoriesChunks.length;
     return (
       <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
         <ImageBackground
@@ -104,12 +104,13 @@ class Categories extends Component {
           imageStyle={[styles.backgroundImageStyle, {width: Dimensions.get('window').width, height: Dimensions.get('window').height}]}
           source={require('./../../res/background/fondo-amarillo.jpg')}
         >
-          <ScrollView
-            ref={scrollView => this.scrollView = scrollView}
+          <FlatList
+            ref={list => this.list = list}
             style={[styles.categoriesViewContainer, {paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding()}]}
-          >
-            {rows}
-          </ScrollView>
+            data={categoriesChunks}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />
         </ImageBackground>
       </View>
     );

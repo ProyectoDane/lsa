@@ -770,7 +770,7 @@ function createIndex() {
     if (categoriesByLine[i][0] === '	' && categoriesByLine[i][1] !== '	') {
       currentCategory = {};
       currentCategory.name_es = categoriesByLine[i].split("\t").join("").toUpperCase();
-      currentCategory.icon = "require(\"./../../res/icon/" +
+      currentCategory.icon = "require(\"./res/icon/" +
         categoriesByLine[i].split("\t").join("").
         split(" ").join("-").
         split("¿").join("").
@@ -803,13 +803,13 @@ function createIndex() {
       split("Ú").join("U").toUpperCase();
       if (currentCategory.name_es === 'ALFABETO DACTILOLÓGICO') {
         if (currentVideo.name_es === 'Ññ') {
-          currentVideo.image = "require(\"./../../res/image/enie.png\")";
+          currentVideo.image = "require(\"./res/image/enie.png\")";
         } else if (currentVideo.name_es.length === 2) {
-          currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es[0].toLowerCase() + ".png\")";
+          currentVideo.image = "require(\"./res/image/" + currentVideo.name_es[0].toLowerCase() + ".png\")";
         } else if (currentVideo.name_es.length === 4) {
-          currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.substring(0, 2).toLowerCase() + ".png\")";
+          currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.substring(0, 2).toLowerCase() + ".png\")";
         } else {
-          currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+          currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
           split("Ñ").join("N").
           split("Á").join("A").
           split("É").join("E").
@@ -818,7 +818,7 @@ function createIndex() {
           split("Ú").join("U").toLowerCase() + ".png\")";
         }
       } else if (currentCategory.name_es === 'LOS ALIMENTOS') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -828,7 +828,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'PRESENTÁNDONOS') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -838,7 +838,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA FAMILIA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -848,7 +848,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'EL CALENDARIO') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -858,7 +858,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'EL CAMPAMENTO') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -868,7 +868,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LOS ANIMALES') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -878,7 +878,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA PLAYA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -888,7 +888,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LOS NÚMEROS') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -898,7 +898,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA TECNOLOGÍA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -908,7 +908,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === '¿QUÉ HORA ES?') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -918,7 +918,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA ROPA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -928,7 +928,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LOS COLORES') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -938,7 +938,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA CASA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -948,7 +948,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'PASEANDO') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -958,7 +958,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LA ESCUELA') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -968,7 +968,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'LAS PROFESIONES') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -978,7 +978,7 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else if (currentCategory.name_es === 'EL CUMPLEAÑOS') {
-        currentVideo.image = "require(\"./../../res/image/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.image = "require(\"./res/image/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").
@@ -988,42 +988,42 @@ function createIndex() {
         split("Ó").join("O").
         split("Ú").join("U").toLowerCase() + ".png\")";
       } else {
-        currentVideo.image = "require(\"./../../res/image/video-icon.png\")";
+        currentVideo.image = "require(\"./res/image/video-icon.png\")";
       }
 
       if (currentVideo.name_es === 'NARANJA') {
         if (currentCategory.name_es === 'LOS ALIMENTOS') {
-          currentVideo.image = "require(\"./../../res/image/naranja-fruta.png\")";
-          currentVideo.video = "require(\"./../../res/video/naranja-fruta.mp4\")";
+          currentVideo.image = "require(\"./res/image/naranja-fruta.png\")";
+          currentVideo.video = "require(\"./res/video/naranja-fruta.mp4\")";
         } else {
-          currentVideo.image = "require(\"./../../res/image/naranja-color.png\")";
-          currentVideo.video = "require(\"./../../res/video/naranja-color.mp4\")";
+          currentVideo.image = "require(\"./res/image/naranja-color.png\")";
+          currentVideo.video = "require(\"./res/video/naranja-color.mp4\")";
         }
       } else if (currentVideo.name_es === 'MENOS...') {
-          currentVideo.image = "require(\"./../../res/image/menos.png\")";
-          currentVideo.video = "require(\"./../../res/video/menos.mp4\")";
+          currentVideo.image = "require(\"./res/image/menos.png\")";
+          currentVideo.video = "require(\"./res/video/menos.mp4\")";
       } else if (currentVideo.name_es === 'PAPÁ') {
-        currentVideo.image = "require(\"./../../res/image/papa-familiar.png\")";
-        currentVideo.video = "require(\"./../../res/video/papa-familiar.mp4\")";
+        currentVideo.image = "require(\"./res/image/papa-familiar.png\")";
+        currentVideo.video = "require(\"./res/video/papa-familiar.mp4\")";
       } else if (currentVideo.name_es === '... Y MEDIA') {
-        currentVideo.image = "require(\"./../../res/image/y-media.png\")";
-        currentVideo.video = "require(\"./../../res/video/y-media.mp4\")";
+        currentVideo.image = "require(\"./res/image/y-media.png\")";
+        currentVideo.video = "require(\"./res/video/y-media.mp4\")";
       } else if (currentVideo.name_es === 'ELLOS / ELLAS') {
-        currentVideo.image = "require(\"./../../res/image/ellos-ellas.png\")";
-        currentVideo.video = "require(\"./../../res/video/ellos-ellas.mp4\")";
+        currentVideo.image = "require(\"./res/image/ellos-ellas.png\")";
+        currentVideo.video = "require(\"./res/video/ellos-ellas.mp4\")";
       } else if (currentVideo.name_es === 'ÉL / ELLA') {
-        currentVideo.image = "require(\"./../../res/image/el-ella.png\")";
-        currentVideo.video = "require(\"./../../res/video/el-ella.mp4\")";
+        currentVideo.image = "require(\"./res/image/el-ella.png\")";
+        currentVideo.video = "require(\"./res/video/el-ella.mp4\")";
       } else if (currentCategory.name_es === 'ALFABETO DACTILOLÓGICO') {
         if (currentVideo.name_es === 'Ññ') {
-          currentVideo.video = "require(\"./../../res/video/enie.mp4\")";
+          currentVideo.video = "require(\"./res/video/enie.mp4\")";
         } else if (currentVideo.name_es.length === 2) {
-          currentVideo.video = "require(\"./../../res/video/" + currentVideo.name_es[0].toLowerCase() + ".mp4\")";
+          currentVideo.video = "require(\"./res/video/" + currentVideo.name_es[0].toLowerCase() + ".mp4\")";
         } else if (currentVideo.name_es.length === 4) {
-          currentVideo.video = "require(\"./../../res/video/" + currentVideo.name_es.substring(0, 2).toLowerCase() + ".mp4\")";
+          currentVideo.video = "require(\"./res/video/" + currentVideo.name_es.substring(0, 2).toLowerCase() + ".mp4\")";
         }
       } else {
-        currentVideo.video = "require(\"./../../res/video/" + currentVideo.name_es.split(" ").join("-").
+        currentVideo.video = "require(\"./res/video/" + currentVideo.name_es.split(" ").join("-").
         split("¿").join("").
         split("?").join("").
         split("Ñ").join("N").

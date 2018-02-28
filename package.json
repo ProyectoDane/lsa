@@ -9,6 +9,7 @@
     "precommit": "npm run eslint"
   },
   "dependencies": {
+    "lodash": "^4.17.5",
     "react": "16.2.0",
     "react-native": "0.51.0",
     "react-native-i18n": "^2.0.10",

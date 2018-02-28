@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import Categories from './../categories/categories';
+import Categories from './../Categories';
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 
