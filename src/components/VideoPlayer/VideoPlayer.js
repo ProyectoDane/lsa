@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   TouchableOpacity,
   ImageBackground,
   Dimensions,
   View,
   Image,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 
 import Video from 'react-native-video';
 import Colors from './../../res/colors';
 import { deviceIsInLandscapeMode } from './../../util/deviceUtil';
-import {
-  getCardWidth,
-  getTabNavigatorBarHeight,
-  getCardPadding
-} from './../../util/layoutUtil';
+import { getCardWidth, getTabNavigatorBarHeight, getCardPadding } from './../../util/layoutUtil';
 import { styles, margin } from './styles';
 
 const background = require('./../../res/background/fondo-amarillo.jpg');
@@ -23,39 +19,30 @@ const background = require('./../../res/background/fondo-amarillo.jpg');
 const videoRatio = 352 / 288;
 const playIcon = require('./../../res/icon/play-icon.png');
 
-export default class VideoPlayer extends Component {
-
-  constructor(props) {
-    super(props);
-    this.onEnd = this.onEnd.bind(this);
-  }
-
-  static navigationOptions = ({navigation, screenProps}) => ({
+export class VideoPlayer extends PureComponent {
+  static navigationOptions = ({ navigation }) => ({
     title: navigation.state.params.video.name_es,
     headerTintColor: Colors.THEME_SECONDARY,
     headerTitleStyle: {
-      fontFamily: 'nunito'
+      fontFamily: 'nunito',
     },
     headerStyle: {
       backgroundColor: Colors.THEME_PRIMARY,
       elevation: 0,
       borderBottomWidth: 1,
-      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON
-    }
+      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
+    },
   });
 
   state = { paused: true };
 
-  onEnd() {
-    this.setState({ paused: true});
-  };
+  _onEnd = () => this.setState({ paused: true });
 
-  onLayout() {
-    this.forceUpdate();
-  }
+  _onLayout = () => this.forceUpdate();
 
   render() {
-    let videoHeight, videoWidth;
+    let videoHeight;
+    let videoWidth;
     if (deviceIsInLandscapeMode()) {
       videoHeight = Dimensions.get('window').height - getTabNavigatorBarHeight() - 2 * margin;
       videoWidth = Math.round(videoHeight * videoRatio);
@@ -63,83 +50,91 @@ export default class VideoPlayer extends Component {
       videoWidth = Dimensions.get('window').width - 2 * margin;
       videoHeight = Math.round(videoWidth / videoRatio);
     }
-    const {params} = this.props.navigation.state;
-    let video = params.video;
+    const { params } = this.props.navigation.state;
+    const { video } = params;
     return (
-      <View
-        onLayout={this.onLayout.bind(this)}
-        style={{flex: 1}}
-      >
+      <View onLayout={this._onLayout} style={styles.full}>
         <ImageBackground
-          style={{flex: 1}}
-          imageStyle={[styles.backgroundImageStyle,
+          style={styles.full}
+          imageStyle={[
+            styles.backgroundImageStyle,
             {
               width: Dimensions.get('window').width,
-              height: Dimensions.get('window').height - getTabNavigatorBarHeight()
-            }]}
+              height: Dimensions.get('window').height - getTabNavigatorBarHeight(),
+            },
+          ]}
           source={background}
         >
           <ScrollView>
             <TouchableOpacity
-              style={[styles.videoContainer,
+              style={[
+                styles.videoContainer,
                 {
-                  marginHorizontal: deviceIsInLandscapeMode() ? (Dimensions.get('window').width - videoWidth) / 2 : margin,
+                  marginHorizontal: deviceIsInLandscapeMode()
+                    ? (Dimensions.get('window').width - videoWidth) / 2
+                    : margin,
                   width: videoWidth,
-                  height: videoHeight
-                }
+                  height: videoHeight,
+                },
               ]}
               onPress={() => {
                 if (this.video) {
                   this.video.seek(0);
                 }
-                this.setState({paused: !this.state.paused});
+                this.setState({ paused: !this.state.paused });
               }}
             >
-              {this.state.paused ?
-                <Image style={styles.playIcon} source={playIcon} /> :
+              {this.state.paused ? (
+                <Image style={styles.playIcon} source={playIcon} />
+              ) : (
                 <Video
-                  ref={(ref: Video) => { this.video = ref; }}
+                  ref={ref => {
+                    this.video = ref;
+                  }}
                   source={video.video}
-                  style={[styles.video,
+                  style={[
+                    styles.video,
                     {
                       width: videoWidth,
-                      height: videoHeight
-                    }
+                      height: videoHeight,
+                    },
                   ]}
                   rate={1}
                   paused={this.state.paused}
-                  muted={true}
-                  resizeMode={'contain'}
-                  onEnd={this.onEnd}
+                  muted
+                  resizeMode="contain"
+                  onEnd={this._onEnd}
                 />
-              }
+              )}
             </TouchableOpacity>
-            {deviceIsInLandscapeMode() ? null :
-              (
-                <View style={[styles.cardContainer,
+            {deviceIsInLandscapeMode() ? null : (
+              <View
+                style={[
+                  styles.cardContainer,
                   {
                     width: getCardWidth(),
                     height: getCardWidth(),
                     padding: getCardPadding(),
                     marginLeft: (Dimensions.get('window').width - getCardWidth()) / 2,
-                    marginBottom: getCardPadding() * 2
-                  }]}
-                >
-                  <Image
-                    style={[styles.cardImage,
-                      {
-                        width: getCardWidth() - 2 * getCardPadding(),
-                        height: getCardWidth() - 2 * getCardPadding()
-                      }]}
-                    source={video.image}
-                  />
-                </View>
-              )
-            }
-            </ScrollView>
+                    marginBottom: getCardPadding() * 2,
+                  },
+                ]}
+              >
+                <Image
+                  style={[
+                    styles.cardImage,
+                    {
+                      width: getCardWidth() - 2 * getCardPadding(),
+                      height: getCardWidth() - 2 * getCardPadding(),
+                    },
+                  ]}
+                  source={video.image}
+                />
+              </View>
+            )}
+          </ScrollView>
         </ImageBackground>
       </View>
     );
   }
-
 }

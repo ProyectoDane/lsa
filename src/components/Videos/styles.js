@@ -4,36 +4,39 @@ import Colors from './../../res/colors';
 export default StyleSheet.create({
   videoContainer: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   videoIcon: {
-    backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
+    backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY,
   },
   videoNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    height: 50
+    height: 50,
   },
   videoName: {
     textAlign: 'center',
-    fontFamily: 'nunito'
+    fontFamily: 'nunito',
   },
   rowContainer: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   lastRowContainer: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   backgroundImageStyle: {
-    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
+    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch',
   },
-  videosScrollView: {
-    flex: 1
-  }
+  videosViewContainer: {
+    flex: 1,
+  },
+  full: {
+    flex: 1,
+  },
 });

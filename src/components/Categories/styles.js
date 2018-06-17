@@ -4,36 +4,39 @@ import Colors from './../../res/colors';
 export default StyleSheet.create({
   categoryContainer: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   categoryIcon: {
-    backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY
+    backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY,
   },
   categoryNameContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    height: 50
+    height: 50,
   },
   categoryName: {
     textAlign: 'center',
-    fontFamily: 'nunito'
+    fontFamily: 'nunito',
   },
   rowContainer: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   lastRowContainer: {
-    flexDirection: "row"
+    flexDirection: 'row',
   },
   backgroundImageStyle: {
-    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch'
+    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch',
   },
   categoriesViewContainer: {
-    flex: 1
-  }
+    flex: 1,
+  },
+  full: {
+    flex: 1,
+  },
 });

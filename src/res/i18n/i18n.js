@@ -6,8 +6,8 @@ I18n.fallbacks = true;
 I18n.defaultLocale = 'es';
 
 I18n.translations = {
-  es: es,
-  pt: pt
+  es,
+  pt,
 };
 
 module.exports = I18n;

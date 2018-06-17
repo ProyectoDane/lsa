@@ -1,122 +1,131 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Text,
   View,
   Image,
-  ScrollView,
   Dimensions,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  FlatList,
 } from 'react-native';
+import _ from 'lodash';
 
 import { PAGES } from './../../constants/';
-import {
-  getCardWidth,
-  getCardsPerRow,
-  getCardPadding
-} from './../../util/layoutUtil';
+import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layoutUtil';
 
-import styles from './styles.js';
+import styles from './styles';
 
-export default class Videos extends Component {
-
+export class Videos extends PureComponent {
   navigateToVideo(video) {
-    this.props.navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: video});
+    const { navigation } = this.props;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
   }
 
-  scrollToTop() {
-    this.scrollView.scrollTo({x: 0, y: 0, animated: true});
-  }
+  scrollToTop = () => this.list.scrollToOffset({ offset: 0, animated: true });
 
-  renderVideo(video, imagePaddingHorizontal, imagePaddingVertical) {
-    return (
-      <TouchableOpacity
-        onPress={() => this.navigateToVideo(video)}
-        key={video.name_es}
-        style={[styles.videoContainer,
+  _renderVideo = (video, imagePaddingHorizontal, imagePaddingVertical) => (
+    <TouchableOpacity
+      onPress={() => this.navigateToVideo(video)}
+      key={video.name_es}
+      style={[
+        styles.videoContainer,
+        {
+          width: getCardWidth(),
+          paddingVertical: getCardPadding(),
+          paddingHorizontal: getCardPadding(),
+        },
+      ]}
+    >
+      <View
+        style={[
+          styles.imageContainer,
           {
-            width: getCardWidth(),
-            paddingVertical: getCardPadding(),
-            paddingHorizontal: getCardPadding()
-          }
+            width: getCardWidth() - 2 * getCardPadding(),
+            height: getCardWidth() - 4 * getCardPadding(),
+          },
         ]}
       >
-        <View style={[styles.imageContainer,
+        <Image
+          style={[
+            styles.videoIcon,
+            {
+              width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
+              height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
+            },
+          ]}
+          source={video.image}
+        />
+      </View>
+      <View
+        style={[
+          styles.videoNameContainer,
           {
             width: getCardWidth() - 2 * getCardPadding(),
-            height: getCardWidth() - 4 * getCardPadding()
-          }]}
-        >
-          <Image
-            style={[styles.videoIcon,
-              {
-                width: getCardWidth() - 2 * (getCardPadding() + imagePaddingHorizontal),
-                height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical)
-              }
-            ]}
-            source={video.image}
-          />
-        </View>
-        <View style={[styles.videoNameContainer,
-          {
-            width: getCardWidth() - 2 * getCardPadding(),
-            paddingHorizontal: imagePaddingHorizontal
-          }]}
-        >
-          <Text style={styles.videoName}>{video.name_es}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+            paddingHorizontal: imagePaddingHorizontal,
+          },
+        ]}
+      >
+        <Text style={styles.videoName}>{video.name_es}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
-  renderRow(videos, index, imagePaddingHorizontal, imagePaddingVertical) {
-    let videosRow = [];
-    for (var i = index; i < videos.length && i - index < getCardsPerRow(); i++) {
-      videosRow.push(this.renderVideo(videos[i], imagePaddingHorizontal, imagePaddingVertical));
-    }
+  _renderItem = ({ item, index }) => {
+    const isLastRow = index === this.rowsCount - 1;
     return (
       <View
-        key={i}
-        style={i === videos.length ? [styles.lastRowContainer, {marginBottom: getCardPadding() * 2}] : styles.rowContainer}
+        style={
+          isLastRow
+            ? [styles.lastRowContainer, { marginBottom: getCardPadding() * 2 }]
+            : styles.rowContainer
+        }
       >
-        {videosRow}
+        {item.map(itemTwo => {
+          return this._renderVideo(itemTwo, this.imagePaddingHorizontal, this.imagePaddingVertical);
+        })}
       </View>
     );
-  }
+  };
 
-  onLayout() {
-    this.forceUpdate();
-  }
+  _onLayout = () => this.forceUpdate();
+
+  _keyExtractor = (item, index) => `VIDEO${this.props.albumId}ROW${index}`;
 
   render() {
-    const imagePaddingHorizontal = getCardPadding() * 2;
-    const imagePaddingVertical = getCardPadding() * 2;
-    let videos = this.props.videos;
-    let rows = [];
-    for (var i = 0; i < videos.length; i += getCardsPerRow()) {
-      rows.push(this.renderRow(videos, i, imagePaddingHorizontal, imagePaddingVertical));
-    }
+    const { videos, background } = this.props;
+    this.imagePaddingHorizontal = getCardPadding() * 2;
+    this.imagePaddingVertical = getCardPadding() * 2;
+
+    const videosChunks = _.chunk(videos, getCardsPerRow());
+    this.rowsCount = videosChunks.length;
+
     return (
-      <View style={{flex: 1}} onLayout={this.onLayout.bind(this)}>
+      <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground
-          style={{flex: 1}}
-          imageStyle={[styles.backgroundImageStyle,
+          style={styles.full}
+          imageStyle={[
+            styles.backgroundImageStyle,
             {
               width: Dimensions.get('window').width,
-              height: Dimensions.get('window').height
-            }
+              height: Dimensions.get('window').height,
+            },
           ]}
-          source={this.props.background}
+          source={background}
         >
-          <ScrollView
-            ref={scrollView => this.scrollView = scrollView}
-            style={[styles.videosScrollView,{ paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding() }]}
-          >
-            {rows}
-          </ScrollView>
+          <FlatList
+            ref={list => {
+              this.list = list;
+            }}
+            style={[
+              styles.videosViewContainer,
+              { paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding() },
+            ]}
+            data={videosChunks}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />
         </ImageBackground>
       </View>
     );
   }
-
 }

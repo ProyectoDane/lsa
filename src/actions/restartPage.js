@@ -4,41 +4,41 @@ import {
   RESTART_ALPHABETICAL_PAGE,
   ALPHABETICAL_PAGE_RESTARTED,
   RESTART_SEARCH_PAGE,
-  SEARCH_PAGE_RESTARTED
+  SEARCH_PAGE_RESTARTED,
 } from '../constants/';
 
-export function restartCategories() {
+export const restartCategories = () => {
   return {
-    type: RESTART_CATEGORIES
+    type: RESTART_CATEGORIES,
   };
 };
 
-export function categoriesRestarted() {
+export const categoriesRestarted = () => {
   return {
-    type: CATEGORIES_RESTARTED
+    type: CATEGORIES_RESTARTED,
   };
 };
 
-export function restartAlphabeticalPage() {
+export const restartAlphabeticalPage = () => {
   return {
-    type: RESTART_ALPHABETICAL_PAGE
+    type: RESTART_ALPHABETICAL_PAGE,
   };
 };
 
-export function alphabeticalPageRestarted() {
+export const alphabeticalPageRestarted = () => {
   return {
-    type: ALPHABETICAL_PAGE_RESTARTED
+    type: ALPHABETICAL_PAGE_RESTARTED,
   };
 };
 
-export function restartSearchPage() {
+export const restartSearchPage = () => {
   return {
-    type: RESTART_SEARCH_PAGE
+    type: RESTART_SEARCH_PAGE,
   };
 };
 
-export function searchPageRestarted() {
+export const searchPageRestarted = () => {
   return {
-    type: SEARCH_PAGE_RESTARTED
+    type: SEARCH_PAGE_RESTARTED,
   };
 };
