@@ -151,8 +151,8 @@ export class Search extends Component {
   _searchVideos = searchString => {
     if (searchString && searchString.length > 1) {
       searchString = this._removeAccents(searchString);
-      const { categories } = CATEGORIES_INDEX.categories;
-      const foundVideos = [];
+      const  { categories }  = CATEGORIES_INDEX;
+      const foundVideos = []; // eslint-disable-line prefer-destructuring
       for (let i = 0; i < categories.length; i++) {
         for (let j = 0; j < categories[i].videos.length; j++) {
           if (categories[i].videos[j].search_name_es.indexOf(searchString) !== -1) {
