@@ -1,5 +1,5 @@
-import React from 'react';
-import { AppRegistry } from 'react-native';
+import React, { PureComponent } from 'react';
+import { AppRegistry, AsyncStorage } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import { Provider } from 'react-redux';
 
@@ -16,6 +16,9 @@ import Alphabetical from './components/Tabs/Alphabetical';
 import Search from './components/Tabs/Search/';
 import Home from './components/Tabs/Home';
 import Information from './components/Tabs/Information';
+import SplashScreen from './components/Splash/main-splash';
+import DaneSplashScreen from './components/Splash/dane-splash';
+import VideoSplash from './components/Splash/video-splash';
 
 const store = configureStore();
 
@@ -40,6 +43,7 @@ const AlphabeticalTab = StackNavigator({
 
 const InformationTab = StackNavigator({
   Information: { screen: Information },
+  VideoPlayer: { screen: VideoPlayer }
 });
 
 const ProyectosSolidarios = TabNavigator(
@@ -77,7 +81,6 @@ const ProyectosSolidarios = TabNavigator(
     InformationTab: {
       screen: InformationTab,
       path: '/information',
-      style: { backgroundColor: 'red' },
       navigationOptions: {
         tabBarLabel: 'Information',
         tabBarIcon: ({ tintColor }) => (
@@ -111,10 +114,57 @@ const ProyectosSolidarios = TabNavigator(
   }
 );
 
-const App = () => (
-  <Provider store={store}>
-    <ProyectosSolidarios />
-  </Provider>
-);
+export class App extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      timePassed: false,
+      secondTimePassed: false,
+      viewedVideo: false
+    }
+  }
+
+  componentDidMount = async() => {
+    const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
+    hasViewedVideo === 'true' ? this.setState({viewedVideo: true}) : this.setState({viewedVideo: false})
+    setTimeout(() => {
+      this.setTimePassed();
+    }, 1000)
+  }
+
+  setTimePassed() {
+    this.setState({timePassed: true});
+    setTimeout(() => {
+      this.setSecondTimePassed()
+    }, 1000)
+  }
+
+  setSecondTimePassed() {
+    this.setState({secondTimePassed: true});
+  }
+
+  _endVideo = async() => {
+    await AsyncStorage.setItem('hasViewedVideo', 'true');
+    this.setState({viewedVideo: true});
+  }
+
+  render() {
+    if (!this.state.timePassed) {
+      return <SplashScreen />
+    } else if (!this.state.secondTimePassed) {
+      return <DaneSplashScreen />
+    } else if (!this.state.viewedVideo) {
+      return <VideoSplash onEnd={this._endVideo}/>
+    }
+      return <Provider store={store}>
+        <ProyectosSolidarios />
+      </Provider>
+    
+  }
+
+}
+
+export default App;
 
 AppRegistry.registerComponent('ProyectosSolidarios', () => App);

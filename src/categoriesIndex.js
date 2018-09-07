@@ -83,16 +83,16 @@ export default {
           video: require('./res/video/k.mp4'),
         },
         {
-          name_es: 'Ll',
-          search_name_es: 'LL',
-          image: require('./res/image/l.png'),
-          video: require('./res/video/l.mp4'),
-        },
-        {
           name_es: 'LLll',
           search_name_es: 'LLLL',
           image: require('./res/image/ll.png'),
           video: require('./res/video/ll.mp4'),
+        },
+        {
+          name_es: 'Ll',
+          search_name_es: 'LL',
+          image: require('./res/image/l.png'),
+          video: require('./res/video/l.mp4'),
         },
         {
           name_es: 'Mm',
@@ -3022,6 +3022,12 @@ export default {
           image: require('./res/image/restaurante.png'),
           video: require('./res/video/restaurante.mp4'),
         },
+        {
+          name_es: 'SEMÁFORO',
+          search_name_es: 'SEMAFORO',
+          image: require('./res/image/semaforo.png'),
+          video: require('./res/video/semaforo.mp4')
+        }
       ],
     },
     {
@@ -3205,8 +3211,8 @@ export default {
         {
           name_es: 'LENGUA',
           search_name_es: 'LENGUA',
-          image: require('./res/image/lengua.png'),
-          video: require('./res/video/lengua.mp4'),
+          image: require('./res/image/la-lengua.png'),
+          video: require('./res/video/la-lengua.mp4'),
         },
         {
           name_es: 'OREJA',
@@ -3959,6 +3965,12 @@ export default {
           video: require('./res/video/las-diferencias.mp4'),
         },
         {
+          name_es: 'SOBRE',
+          search_name_es: 'SOBRE',
+          image: require('./res/image/sobre.png'),
+          video: require('./res/video/sobre.mp4'),
+        },
+        {
           name_es: 'ADENTRO',
           search_name_es: 'ADENTRO',
           image: require('./res/image/adentro.png'),
@@ -4017,12 +4029,6 @@ export default {
           search_name_es: 'ARRIBA',
           image: require('./res/image/arriba.png'),
           video: require('./res/video/arriba.mp4'),
-        },
-        {
-          name_es: 'SOBRE',
-          search_name_es: 'SOBRE',
-          image: require('./res/image/sobre.png'),
-          video: require('./res/video/sobre.mp4'),
         },
         {
           name_es: 'APURADO',
