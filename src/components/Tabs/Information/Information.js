@@ -51,6 +51,27 @@ export class Information extends PureComponent {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ScrollView>
+        <View style={{marginHorizontal: margin}}>
+        <Image style={styles.daneImage}  source={require("../../../res/icon/dane_logo_transparencia.png")} />
+            <Text style={styles.title}>DANE</Text>
+            <Text style={styles.text}>El proyecto DANE propone llevar adelante una
+            revolución en la manera de enseñarles contenidos a personas con discapacidad. Creamos
+            aplicaciones móviles e integramos la tecnología informática a la educación, aportando con
+            tenidos académicos y de la vida cotidiana. El objetivo del proyecto es ayudar a la inclusión
+            de las personas con discapacidad y promover en la sociedad la cultura de inclusión.</Text>
+            <Text style={styles.coordinacionTitle}>Coordinación del Proyecto</Text>
+            <Image style={styles.tincImage} source={tincSource} />
+            <Text style={styles.title}>Idea y Contenido</Text>
+            <Image style={styles.tincImage} source={fundasorSource} />
+            <Text style={styles.title}>Desarrollo</Text>
+            <Image style={styles.tincImage} source={hexactaSource} />
+            <Text style={styles.title}>Agradecimientos</Text>
+            <Text style={styles.subtitle}>A quienes forman parte de Fundasor: </Text><Text>Anahí Alesso, Mariana Reuter, Patricio A. Cabezas y Cristina Alesso.</Text>
+            <Text>A Elisa Nudman.</Text>
+            <Text style={styles.subtitle}>A los señantes sordos: </Text><Text>Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil </Text>
+            <Text style={styles.subtitle}>Al staff de Hexacta: </Text><Text>Luis Broeders, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Diego Pedro, Jesica Taira y Verónica Vignoni.</Text>
+
+          </View>
           <TouchableOpacity
             style={[
               styles.videoContainer,
@@ -76,7 +97,7 @@ export class Information extends PureComponent {
                 ref={ref => {
                   this.video = ref;
                 }}
-                source={require("../../../res/video/presentacion_LSA.mp4")}
+                source={{uri: 'presentacion_LSA', mainVer: 1, patchVer: 0}}
                 style={[
                   styles.video,
                   {
@@ -92,26 +113,7 @@ export class Information extends PureComponent {
               />
             )}
           </TouchableOpacity>
-          <View style={{marginHorizontal: margin}}>
-            <Text style={styles.title}>DANE</Text>
-            <Text style={styles.text}>El proyecto DANE propone llevar adelante una
-            revolución en la manera de enseñarles contenidos a personas con discapacidad. Creamos
-            aplicaciones móviles e integramos la tecnología informática a la educación, aportando con
-            tenidos académicos y de la vida cotidiana. El objetivo del proyecto es ayudar a la inclusión
-            de las personas con discapacidad y promover en la sociedad la cultura de inclusión.</Text>
-            <Text style={styles.title}>Coordinación del Proyecto</Text>
-            <Image style={styles.tincImage} source={tincSource} />
-            <Text style={styles.title}>Idea y Contenido</Text>
-            <Image style={styles.tincImage} source={fundasorSource} />
-            <Text style={styles.title}>Desarrollo</Text>
-            <Image style={styles.tincImage} source={hexactaSource} />
-            <Text style={styles.title}>Agradecimientos</Text>
-            <Text style={styles.subtitle}>A quienes forman parte de Fundasor: </Text><Text>Anahí Alesso, Mariana Reuter, Patricio A. Cabezas y Cristina Alesso.</Text>
-            <Text>A Elisa Nudman.</Text>
-            <Text style={styles.subtitle}>A los señantes sordos: </Text><Text>Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil </Text>
-            <Text style={styles.subtitle}>Al staff de Hexacta: </Text><Text>Luis Broeders, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Diego Pedro, Jesica Taira y Verónica Vignoni.</Text>
-
-          </View>
+          
           
 
         </ScrollView>

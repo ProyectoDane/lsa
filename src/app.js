@@ -125,19 +125,19 @@ export class App extends PureComponent {
     }
   }
 
-  componentDidMount = async() => {
+  componentDidMount = async() =>   {
     const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
     hasViewedVideo === 'true' ? this.setState({viewedVideo: true}) : this.setState({viewedVideo: false})
     setTimeout(() => {
       this.setTimePassed();
-    }, 1000)
+    }, 1500)
   }
 
   setTimePassed() {
     this.setState({timePassed: true});
     setTimeout(() => {
       this.setSecondTimePassed()
-    }, 1000)
+    }, 2000)
   }
 
   setSecondTimePassed() {

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     logo: {
-        flex: 0.6
+        flex: 0.45
     }
 })
 

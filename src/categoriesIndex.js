@@ -1355,8 +1355,8 @@ export default {
           video: require('./res/video/esta-caliente.mp4'),
         },
         {
-          name_es: 'CONSERVAR',
-          search_name_es: 'CONSERVAR',
+          name_es: 'CONVERSAR',
+          search_name_es: 'CONVERSAR',
           image: require('./res/image/conservar.png'),
           video: require('./res/video/conservar.mp4'),
         },

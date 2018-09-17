@@ -1,5 +1,5 @@
 const pt = {
-  home_tab_title: 'LSA APP',
+  home_tab_title: 'LSA APP EN FAMILIA',
   alphabetical_tab_title: 'O ALFABETO',
   search_video: 'Procurar vídeo...',
   no_videos_found: 'Nenhum vídeo encontrado',
