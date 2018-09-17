@@ -67,7 +67,7 @@ export default function VideoSplash(props) {
                 ref={ref => {
                     this.video = ref;
                 }}
-                source={require("../../res/video/presentacion_LSA.mp4")}
+                source={{uri: 'presentacion_LSA', mainVer: 1, patchVer: 0}}
                 style={[
                     styles.video,
                     {

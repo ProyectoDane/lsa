@@ -91,7 +91,7 @@ export class VideoPlayer extends PureComponent {
                   ref={ref => {
                     this.video = ref;
                   }}
-                  source={video.video}
+                  source={{uri: video.video, mainVer: 1, patchVer: 0}}
                   style={[
                     styles.video,
                     {
