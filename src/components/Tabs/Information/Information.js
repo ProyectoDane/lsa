@@ -97,7 +97,7 @@ export class Information extends PureComponent {
                 ref={ref => {
                   this.video = ref;
                 }}
-                source={{uri: 'presentacion_LSA', mainVer: 1, patchVer: 0}}
+                source={require("../../../res/video/presentacion_LSA.mp4")}
                 style={[
                   styles.video,
                   {
