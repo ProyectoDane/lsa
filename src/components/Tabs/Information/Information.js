@@ -97,7 +97,7 @@ export class Information extends PureComponent {
                 ref={ref => {
                   this.video = ref;
                 }}
-                source={require("../../../res/video/presentacion_LSA.mp4")}
+                source={{uri: 'https://dane-videos.s3.us-east-2.amazonaws.com/presentacion_LSA.mp4'}}
                 style={[
                   styles.video,
                   {
