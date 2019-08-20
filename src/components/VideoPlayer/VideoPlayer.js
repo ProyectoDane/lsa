@@ -7,7 +7,7 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-
+import RNFS from 'react-native-fs';
 import Video from 'react-native-video';
 import Colors from './../../res/colors';
 import { deviceIsInLandscapeMode } from './../../util/deviceUtil';
@@ -34,11 +34,27 @@ export class VideoPlayer extends PureComponent {
     },
   });
 
-  state = { paused: true };
+  state = { paused: true, show: false };
 
   _onEnd = () => this.setState({ paused: true });
 
   _onLayout = () => this.forceUpdate();
+
+  componentDidMount() {
+    const { params } = this.props.navigation.state;
+    const { video } = params;
+    const videoName = video.video.split('/').pop();
+    const path = `${RNFS.DocumentDirectoryPath}/${videoName}`;
+    RNFS.exists(path).then(existingFile => {
+      if (!existingFile) {
+        RNFS.downloadFile({
+          fromUrl: video.video,
+          toFile: `${RNFS.DocumentDirectoryPath}/${videoName}`
+        }).promise.then(() => this.setState({show: true}));
+      }
+    });
+    
+  }
 
   render() {
     let videoHeight;
@@ -52,7 +68,10 @@ export class VideoPlayer extends PureComponent {
     }
     const { params } = this.props.navigation.state;
     const { video } = params;
-    return (
+    const videoName = video.video.split('/').pop();
+
+    return this.state.show && (
+    
       <View onLayout={this._onLayout} style={styles.full}>
         <ImageBackground
           style={styles.full}
@@ -91,7 +110,7 @@ export class VideoPlayer extends PureComponent {
                   ref={ref => {
                     this.video = ref;
                   }}
-                  source={video.video}
+                  source={{uri: `file://${RNFS.DocumentDirectoryPath}/${videoName}`}}
                   style={[
                     styles.video,
                     {
