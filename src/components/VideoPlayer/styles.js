@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
   full: {
     flex: 1,
   },
+  loader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
+  }
 });
 
 export { styles, margin };

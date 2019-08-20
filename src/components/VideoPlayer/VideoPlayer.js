@@ -1,3 +1,4 @@
+import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
 import {
   TouchableOpacity,
@@ -34,7 +35,7 @@ export class VideoPlayer extends PureComponent {
     },
   });
 
-  state = { paused: true, show: false };
+  state = { paused: true, show: false, progress: 0 };
 
   _onEnd = () => this.setState({ paused: true });
 
@@ -49,8 +50,15 @@ export class VideoPlayer extends PureComponent {
       if (!existingFile) {
         RNFS.downloadFile({
           fromUrl: video.video,
-          toFile: `${RNFS.DocumentDirectoryPath}/${videoName}`
-        }).promise.then(() => this.setState({show: true}));
+          toFile: `${RNFS.DocumentDirectoryPath}/${videoName}`,
+          progress: res => {
+            const percent = (res.bytesWritten / res.contentLength);
+            this.setState({progress: percent})
+          }
+        },
+       ).promise.then(() => this.setState({show: true, progress: 0}));
+      } else {
+        this.setState({show: true});
       }
     });
     
@@ -70,7 +78,7 @@ export class VideoPlayer extends PureComponent {
     const { video } = params;
     const videoName = video.video.split('/').pop();
 
-    return this.state.show && (
+    return this.state.show ? (
     
       <View onLayout={this._onLayout} style={styles.full}>
         <ImageBackground
@@ -153,6 +161,10 @@ export class VideoPlayer extends PureComponent {
             )}
           </ScrollView>
         </ImageBackground>
+      </View>
+    ) : (
+      <View style={styles.loader}>
+        <Progress.Circle progress={this.state.progress} size={150} showsText/>
       </View>
     );
   }
