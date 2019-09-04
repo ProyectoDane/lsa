@@ -164,7 +164,7 @@ export class VideoPlayer extends PureComponent {
       </View>
     ) : (
       <View style={styles.loader}>
-        <Progress.Circle progress={this.state.progress} size={150} showsText/>
+        <Progress.Circle color='green' progress={this.state.progress} size={150} showsText/>
       </View>
     );
   }
