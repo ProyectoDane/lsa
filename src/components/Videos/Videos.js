@@ -9,7 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 import _ from 'lodash';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { PAGES } from './../../constants/';
 import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layoutUtil';
 
@@ -36,6 +36,7 @@ export class Videos extends PureComponent {
         },
       ]}
     >
+     
       <View
         style={[
           styles.imageContainer,
@@ -45,6 +46,15 @@ export class Videos extends PureComponent {
           },
         ]}
       >
+         {
+      video.downloaded &&
+      <Ionicons
+      name="ios-arrow-dropdown-circle"
+      size={26}
+      style={styles.videoIconDownload}
+      color='green'
+    />
+    }
         <Image
           style={[
             styles.videoIcon,
@@ -98,7 +108,6 @@ export class Videos extends PureComponent {
 
     const videosChunks = _.chunk(videos, getCardsPerRow());
     this.rowsCount = videosChunks.length;
-
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground

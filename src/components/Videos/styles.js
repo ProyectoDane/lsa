@@ -39,4 +39,7 @@ export default StyleSheet.create({
   full: {
     flex: 1,
   },
+  videoIconDownload: {
+    position: 'absolute', top: 0, left: 0, zIndex: 100
+  }
 });
