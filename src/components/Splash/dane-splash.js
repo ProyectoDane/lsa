@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { StyleSheet,ImageBackground } from 'react-native';
 
 const styles = StyleSheet.create({
     containterTop: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        width: "100%"
+        width: "100%",
+        height: "100%"
     },
     logoTransferencia: {
         flex: 2,
@@ -38,29 +39,6 @@ const styles = StyleSheet.create({
 
 export default function DaneSplashScreen() {
     return (
-        <View style={styles.containterTop}>
-                <Image
-                    style={styles.logoTransferencia}
-                    source={require("../../res/icon/dane_logo_transparencia.png")}
-                    resizeMode="contain"
-                />
-                <Text style={styles.proyecto}>UN PROYECTO DE</Text>
-                <Image style={styles.logoTINC} 
-                    source={require("../../res/image/tinc.png")}
-                    resizeMode="contain"
-                />
-                <Text>CON LA COLABORACIÓN DE</Text>
-                <View style={styles.imageContainer}>
-                    <Image style={styles.fundasor}
-                        source={require("../../res/image/fundasor.png")}
-                        resizeMode="contain"
-                    />
-                    <Image style={styles.hexacta}
-                        source={require("../../res/image/hexacta.png")}
-                        resizeMode="contain"
-                    />
-                </View>
-           
-        </View>
+        <ImageBackground source={require("../../res/image/dane-splash.png")} style={styles.containterTop} />
     )
 }   
