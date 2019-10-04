@@ -10,10 +10,11 @@ const styles = StyleSheet.create({
     downloadIcon: {
         color: Colors.THEME_SECONDARY,
         marginRight: downloadIconMaginRight,
+        fontWeight: 'bold'
     },
     downloadText: {
         textAlign: 'center',
-        fontFamily: 'nunito'
+        fontFamily: 'nunito',
     }
 })
 

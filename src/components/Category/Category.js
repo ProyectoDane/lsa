@@ -25,8 +25,8 @@ export class Category extends PureComponent {
     },
     headerRight: (
       <Ionicons
-        name="ios-download-outline"
-        size={26}
+        name="ios-download"
+        size={30}
         style={styles.downloadIcon}
         onPress={() => navigation.setParams({ showDialog: true })}
       />
