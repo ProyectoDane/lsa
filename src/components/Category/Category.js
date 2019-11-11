@@ -1,6 +1,13 @@
 import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
-import { View, Alert, ScrollView, Text } from 'react-native';
+import { 
+  View,
+  Alert,
+  ScrollView,
+  Text, 
+  Dimensions,
+  ImageBackground 
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFS from 'react-native-fs';
 import Videos from './../Videos';
@@ -73,11 +80,18 @@ export class Category extends PureComponent {
     const { params } = navigation.state;
     return (
       <View style={styles.full}>
+        <ImageBackground
+          style={styles.full}
+          imageStyle={[
+            styles.backgroundImageStyle,
+            { width: Dimensions.get('window').width, height: Dimensions.get('window').height },
+          ]}
+          source={categoryVideosBackground}
+        >
         <ScrollView >
           <Videos
             navigation={navigation}
             videos={this.state.videos}
-            background={categoryVideosBackground}
           />{
             navigation.state.params &&
             navigation.state.params.showDialog &&
@@ -95,7 +109,7 @@ export class Category extends PureComponent {
            <Progress.Bar color='green' width={null} progress={this.state.downloadedVideos / params.category.videos.length}/>
            <Text style={styles.downloadText}>{`${this.state.downloadedVideos} de ${this.state.initialAmount}`}</Text>
          </View>
-        }
+        }</ImageBackground>
       </View>
     );
   }

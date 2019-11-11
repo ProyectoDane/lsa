@@ -3,9 +3,7 @@ import {
   Text,
   View,
   Image,
-  Dimensions,
   TouchableOpacity,
-  ImageBackground,
   FlatList,
 } from 'react-native';
 import _ from 'lodash';
@@ -110,17 +108,6 @@ export class Videos extends PureComponent {
     this.rowsCount = videosChunks.length;
     return (
       <View style={styles.full} onLayout={this._onLayout}>
-        <ImageBackground
-          style={styles.full}
-          imageStyle={[
-            styles.backgroundImageStyle,
-            {
-              width: Dimensions.get('window').width,
-              height: Dimensions.get('window').height,
-            },
-          ]}
-          source={background}
-        >
           <FlatList
             ref={list => {
               this.list = list;
@@ -133,7 +120,6 @@ export class Videos extends PureComponent {
             keyExtractor={this._keyExtractor}
             renderItem={this._renderItem}
           />
-        </ImageBackground>
       </View>
     );
   }
