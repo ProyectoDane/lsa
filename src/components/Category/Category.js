@@ -96,8 +96,8 @@ export class Category extends PureComponent {
             navigation.state.params &&
             navigation.state.params.showDialog &&
             Alert.alert(
-              'Descarga videos',
-              `Vas a descargar ${this.state.initialAmount} videos. Esta acción puede demorar un poco.`,
+              'DESCARGA VIDEOS',
+              `VAS A DESCARGAR ${this.state.initialAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
               [{ text: 'CANCELAR', onPress: () => navigation.setParams({ showDialog: false }) }, { text: 'OK', onPress: () => { navigation.setParams({ showDialog: false }); this._downloadVideos(); }}],
               { cancelable: false }
             )
