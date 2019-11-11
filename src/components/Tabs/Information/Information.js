@@ -17,7 +17,7 @@ const hexactaSource = require('../../../res/image/hexacta.png');
 
 export class Information extends PureComponent {
   static navigationOptions = () => ({
-    title: I18n.t('info_tab_title'),
+    title: I18n.t('info_tab_title').toUpperCase(),
     headerTintColor: Colors.THEME_SECONDARY,
     headerTitleStyle: {
       fontFamily: 'nunito',
