@@ -49,7 +49,7 @@ export class Search extends Component {
         ]}
         autoCapitalize="characters"
         underlineColorAndroid="transparent"
-        placeholder={I18n.t('search_video')}
+        placeholder={I18n.t('search_video').toUpperCase()}
         placeholderTextColor={Colors.THEME_SECONDARY}
         autoFocus={false}
         onChangeText={text => navigation.setParams({ searchQuery: text })}
@@ -117,13 +117,13 @@ export class Search extends Component {
             >
               {this.state.query.length < 1 ? (
                 <View pointerEvents="none" style={styles.videosMessageContainer}>
-                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video')}</Text>
+                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video').toUpperCase()}</Text>
                 </View>
               ) : (
                 this.state.query.length > 1 &&
                 this.state.videos.length === 0 && (
                   <View pointerEvents="none" style={styles.videosMessageContainer}>
-                    <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found')}</Text>
+                    <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found').toUpperCase()}</Text>
                   </View>
                 )
               )}

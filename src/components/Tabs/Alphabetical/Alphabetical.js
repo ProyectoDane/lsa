@@ -68,8 +68,8 @@ export class Alphabetical extends PureComponent {
         {navigation.state.params &&
           navigation.state.params.showDialog &&
           Alert.alert(
-            I18n.t('alphabetical_tab_title'),
-            I18n.t('alphabetical_dialog_description'),
+            I18n.t('alphabetical_tab_title').toUpperCase(),
+            I18n.t('alphabetical_dialog_description').toUpperCase(),
             [{ text: 'OK', onPress: () => navigation.setParams({ showDialog: false }) }],
             { cancelable: false }
           )}
