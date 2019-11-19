@@ -65,13 +65,14 @@ export default class Register extends Component {
       age: " "
     };
   }
-  _loadTersm(){
+  _loadTerms(){
     const url = 'https://tinc.org.ar/terminos/';
     Linking.openURL(url)
     //  .catch(err => console.error("NO SE PUDO CARGAR LA PÁGINA", err));
   }
   _register(){
     const bdata = { ...this.state};
+    console.log(bdata);
     fetch('https://ux2i5nx836.execute-api.us-east-2.amazonaws.com/production/register', {
       method: 'POST',
       headers: {
@@ -92,8 +93,8 @@ export default class Register extends Component {
     return (
       <View style={styles.container}>
         <ScrollView 
-        keyboardShouldPersistTaps='always'
-        contentContainerStyle={styles.scrollStyle}
+          keyboardShouldPersistTaps='always'
+          contentContainerStyle={styles.scrollStyle}
         >
           <View style={styles.formContainer}>
             <Text style={
@@ -104,7 +105,7 @@ export default class Register extends Component {
             <Text style={styles.labelText}>
               NOMBRE Y APELLIDO
             </Text>
-            <TextInput
+            <TextInput 
               style={styles.tinput}
               onChangeText={(text) => this.setState({name: text})}
             />
@@ -148,14 +149,14 @@ export default class Register extends Component {
             </Picker>
           </View>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={this._register()}>
+            <TouchableOpacity style={styles.button} onPress={this._register.bind(this)}>
               <Text>REGISTRAR</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={this.props.onEnd}>
               <Text>OMITIR</Text>
             </TouchableOpacity>
         </View>
-        <Button title="POLÍTICA DE PRIVACIDAD" onPress={this._loadTersm} />
+        <Button title="POLÍTICA DE PRIVACIDAD" onPress={this._loadTerms} />
         </ScrollView>
         
       </View>
