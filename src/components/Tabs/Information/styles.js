@@ -3,7 +3,7 @@ import { StyleSheet, Platform } from 'react-native';
 const margin = 12;
 const playIconSize = 100;
 
-const styles =  StyleSheet.create({
+const styles = StyleSheet.create({
   full: {
     flex: 1,
   },
@@ -39,25 +39,28 @@ const styles =  StyleSheet.create({
     resizeMode: 'contain',
     marginBottom: 10
   },
-   title: {
-    fontSize: 17, 
-    marginBottom: 10, 
+  title: {
+    fontSize: 17,
+    marginBottom: 10,
     fontWeight: "bold"
-   },
-   coordinacionTitle: {
-    fontSize: 17, 
+  },
+  coordinacionTitle: {
+    fontSize: 17,
     fontWeight: "bold",
-      marginBottom: 10,
-      marginTop: 10
-   },
-   subtitle: {
-     fontSize: 15,
-     marginBottom: 2,
-     fontWeight: "bold"
-   },
-   text: {
-     marginBottom: 10
-   }
+    marginBottom: 10,
+    marginTop: 10
+  },
+  subtitle: {
+    fontSize: 15,
+    marginBottom: 2,
+    fontWeight: "bold"
+  },
+  text: {
+    marginBottom: 10
+  },
+  textLink: {
+    color: 'blue'
+  }
 });
 
 export { styles, margin };
