@@ -127,7 +127,11 @@ export class App extends PureComponent {
     }
   }
 
-  componentDidMount = async() =>   {
+  componentDidMount = () =>   {
+    this._start();
+  }
+  
+  _start = async () =>   {
     const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
     hasViewedVideo === 'true' ? this.setState({viewedVideo: true}) : this.setState({viewedVideo: false})
     const hasRegistred = await AsyncStorage.getItem('hasRegistred');
@@ -135,7 +139,7 @@ export class App extends PureComponent {
     setTimeout(() => {
       this.setTimePassed();
     }, 1500)
-  }
+  };
 
   setTimePassed() {
     this.setState({timePassed: true});
@@ -157,7 +161,13 @@ export class App extends PureComponent {
     await AsyncStorage.setItem('hasRegistred', 'true');
     this.setState({registered: true});
   }
-
+  _registered = async() => {
+    await AsyncStorage.setItem('hasRegistred', 'true');
+    this.setState({registered: true});
+  }
+  _notRegistered = async() => {
+    this.setState({registered: true});
+  }
   render() {
     if (!this.state.timePassed) {
       return <SplashScreen />
@@ -166,7 +176,7 @@ export class App extends PureComponent {
     } else if (!this.state.viewedVideo) {
       return <VideoSplash onEnd={this._endVideo}/>
     } else if (!this.state.registered) {
-      return <Register onEnd={this._registered}/>
+      return <Register onRegister={this._registered} onEnd={this._notRegistered}/>
     }
       return <Provider store={store}>
         <ProyectosSolidarios />
