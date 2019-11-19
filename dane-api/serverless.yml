@@ -1,0 +1,47 @@
+service: dane-api
+
+custom:
+  settings:
+    REGISTER_TABLE: register
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  environment: ${self:custom.settings}
+  region: us-east-2
+  profile: dane
+  iamRoleStateMents:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - "arn:aws:dynamodb:${self:provider.region}:*:table/${self:custom.settings.REGISTER_TABLE}"
+
+functions:
+  createRegister:
+    handler: handler.register
+    events:
+    - http:
+        path: /register
+        method: post
+
+resources:
+  Resources:
+    RegistrationTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.settings.REGISTER_TABLE}
