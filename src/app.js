@@ -19,6 +19,7 @@ import Information from './components/Tabs/Information';
 import SplashScreen from './components/Splash/main-splash';
 import DaneSplashScreen from './components/Splash/dane-splash';
 import VideoSplash from './components/Splash/video-splash';
+import Register from './components/Splash/register';
 
 const store = configureStore();
 
@@ -121,17 +122,24 @@ export class App extends PureComponent {
     this.state = {
       timePassed: false,
       secondTimePassed: false,
-      viewedVideo: false
+      viewedVideo: false,
+      registered: false
     }
   }
 
-  componentDidMount = async() =>   {
+  componentDidMount = () =>   {
+    this._start();
+  }
+  
+  _start = async () =>   {
     const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
     hasViewedVideo === 'true' ? this.setState({viewedVideo: true}) : this.setState({viewedVideo: false})
+    const hasRegistred = await AsyncStorage.getItem('hasRegistred');
+    hasRegistred === 'true' ? this.setState({registered: true}) : this.setState({registered: false})
     setTimeout(() => {
       this.setTimePassed();
     }, 1500)
-  }
+  };
 
   setTimePassed() {
     this.setState({timePassed: true});
@@ -148,7 +156,18 @@ export class App extends PureComponent {
     await AsyncStorage.setItem('hasViewedVideo', 'true');
     this.setState({viewedVideo: true});
   }
-
+  
+  _registered = async() => {
+    await AsyncStorage.setItem('hasRegistred', 'true');
+    this.setState({registered: true});
+  }
+  _registered = async() => {
+    await AsyncStorage.setItem('hasRegistred', 'true');
+    this.setState({registered: true});
+  }
+  _notRegistered = async() => {
+    this.setState({registered: true});
+  }
   render() {
     if (!this.state.timePassed) {
       return <SplashScreen />
@@ -156,6 +175,8 @@ export class App extends PureComponent {
       return <DaneSplashScreen />
     } else if (!this.state.viewedVideo) {
       return <VideoSplash onEnd={this._endVideo}/>
+    } else if (!this.state.registered) {
+      return <Register onRegister={this._registered} onEnd={this._notRegistered}/>
     }
       return <Provider store={store}>
         <ProyectosSolidarios />
