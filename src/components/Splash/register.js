@@ -72,7 +72,6 @@ export default class Register extends Component {
   }
   _register(){
     const bdata = { ...this.state};
-    console.log(bdata);
     fetch('https://ux2i5nx836.execute-api.us-east-2.amazonaws.com/production/register', {
       method: 'POST',
       headers: {
@@ -85,16 +84,16 @@ export default class Register extends Component {
     .then(() => {
       this.props.onRegister();
     })
-    .catch((error) => {
-      console.error(error);
+    .catch(( error ) => {
+      // console.error(error);
     });
   }
   render() {
     return (
       <View style={styles.container}>
         <ScrollView 
-          keyboardShouldPersistTaps='always'
-          contentContainerStyle={styles.scrollStyle}
+        keyboardShouldPersistTaps='always'
+        contentContainerStyle={styles.scrollStyle}
         >
           <View style={styles.formContainer}>
             <Text style={
@@ -107,7 +106,7 @@ export default class Register extends Component {
             </Text>
             <TextInput 
               style={styles.tinput}
-              onChangeText={(text) => this.setState({name: text})}
+              onChangeText={( text ) => this.setState({name: text})}
             />
             <Text style={styles.labelText}
             >
