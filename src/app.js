@@ -21,7 +21,11 @@ import DaneSplashScreen from './components/Splash/dane-splash';
 import VideoSplash from './components/Splash/video-splash';
 import Register from './components/Splash/register';
 
+// Analytics
+import firebase from 'react-native-firebase';
+
 const store = configureStore();
+const Analytics = firebase.analytics();
 
 // Splash: { screen: Splash },
 // StartupVideo: {screen: StartupVideo},
@@ -129,6 +133,7 @@ export class App extends PureComponent {
 
   componentDidMount = () =>   {
     this._start();
+    Analytics.logEvent("app_started");
   }
   
   _start = async () =>   {
@@ -162,10 +167,12 @@ export class App extends PureComponent {
     this.setState({registered: true});
   }
   _registered = async() => {
+    Analytics.logEvent("registered");
     await AsyncStorage.setItem('hasRegistred', 'true');
     this.setState({registered: true});
   }
   _notRegistered = async() => {
+    Analytics.logEvent("skip_register");
     this.setState({registered: true});
   }
   render() {

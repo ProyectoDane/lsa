@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Alert } from 'react-native';
+import { View, Alert, ImageBackground, Dimensions } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../../../res/colors';
 import Videos from '../../Videos/index';
@@ -57,13 +57,20 @@ export class Alphabetical extends PureComponent {
     const { navigation } = this.props;
     return (
       <View style={styles.full}>
+         <ImageBackground
+          style={styles.full}
+          imageStyle={[
+            styles.backgroundImageStyle,
+            { width: Dimensions.get('window').width, height: Dimensions.get('window').height },
+          ]}
+          source={categoryVideosBackground}
+        >
         <Videos
           ref={videosComponent => {
             this.videosComponent = videosComponent;
           }}
           navigation={navigation}
           videos={this.state.videos}
-          background={categoryVideosBackground}
         />
         {navigation.state.params &&
           navigation.state.params.showDialog &&
@@ -73,6 +80,7 @@ export class Alphabetical extends PureComponent {
             [{ text: 'OK', onPress: () => navigation.setParams({ showDialog: false }) }],
             { cancelable: false }
           )}
+          </ImageBackground>
       </View>
     );
   }
