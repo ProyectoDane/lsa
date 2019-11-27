@@ -7,7 +7,8 @@
     "test": "jest",
     "eslint": "eslint src/ *.js",
     "precommit": "npm run eslint",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "bundle:ios": "react-native bundle --entry-file index.ios.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios"
   },
   "dependencies": {
     "lodash": "^4.17.5",
