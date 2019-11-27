@@ -98,11 +98,19 @@ export class Search extends Component {
       <View style={styles.full} onLayout={this._onLayout}>
         <TouchableWithoutFeedback style={styles.mainContainer} onPressIn={() => Keyboard.dismiss()}>
           {this.state.query !== '' && this.state.videos.length > 0 ? (
-            <Videos
-              navigation={navigation}
-              videos={this.state.videos}
-              background={searchVideosBackground}
-            />
+            <ImageBackground
+              style={styles.full}
+              imageStyle={[
+                styles.backgroundImageStyle,
+                { width: Dimensions.get('window').width, height: Dimensions.get('window').height },
+              ]}
+              source={searchVideosBackground}
+            >
+              <Videos
+                navigation={navigation}
+                videos={this.state.videos}
+              />
+            </ImageBackground>
           ) : (
             <ImageBackground
               style={styles.full}
@@ -113,7 +121,7 @@ export class Search extends Component {
                   height: Dimensions.get('window').height,
                 },
               ]}
-              source={require('../../../res/background/fondo-verde.jpg')}
+              source={searchVideosBackground}
             >
               {this.state.query.length < 1 ? (
                 <View pointerEvents="none" style={styles.videosMessageContainer}>
