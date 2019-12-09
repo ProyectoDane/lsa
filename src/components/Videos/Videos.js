@@ -52,9 +52,9 @@ export class Videos extends PureComponent {
       video.downloaded &&
       <Ionicons
       name="ios-arrow-dropdown-circle"
-      size={26}
+      size={40}
       style={styles.videoIconDownload}
-      color='green'
+      color='#1AA299'
     />
     }
         <Image
