@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     video: {
-        backgroundColor: 'transparent'
+        //backgroundColor: 'transparent'
     },
     videoContainer: {
         alignItems: 'center',

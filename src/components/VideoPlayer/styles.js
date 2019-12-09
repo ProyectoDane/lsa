@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   video: {
-    backgroundColor: 'transparent',
+    //backgroundColor: 'transparent',
   },
   cardContainer: {
     alignItems: 'center',

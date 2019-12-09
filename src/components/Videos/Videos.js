@@ -14,6 +14,11 @@ import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layou
 import styles from './styles';
 
 export class Videos extends PureComponent {
+
+  componentDidMount (){
+    const { navigation } = this.props;
+    this.navigateToVideo= _.debounce(this.navigateToVideo.bind(this), 500);
+  }
   navigateToVideo(video) {
     const { navigation } = this.props;
     navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
@@ -34,7 +39,6 @@ export class Videos extends PureComponent {
         },
       ]}
     >
-     
       <View
         style={[
           styles.imageContainer,
@@ -61,6 +65,7 @@ export class Videos extends PureComponent {
               height: getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
             },
           ]}
+          resizeMethod={"scale"}
           source={video.image}
         />
       </View>
@@ -91,6 +96,7 @@ export class Videos extends PureComponent {
         {item.map(itemTwo => {
           return this._renderVideo(itemTwo, this.imagePaddingHorizontal, this.imagePaddingVertical);
         })}
+
       </View>
     );
   };
@@ -98,14 +104,15 @@ export class Videos extends PureComponent {
   _onLayout = () => this.forceUpdate();
 
   _keyExtractor = (item, index) => `VIDEO${this.props.albumId}ROW${index}`;
-
+ 
   render() {
-    const { videos, background } = this.props;
+    const { videos, navigation } = this.props;
     this.imagePaddingHorizontal = getCardPadding() * 2;
     this.imagePaddingVertical = getCardPadding() * 2;
 
     const videosChunks = _.chunk(videos, getCardsPerRow());
     this.rowsCount = videosChunks.length;
+
     return (
       <View style={styles.full} onLayout={this._onLayout}>
           <FlatList
@@ -117,7 +124,11 @@ export class Videos extends PureComponent {
               { paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding() },
             ]}
             data={videosChunks}
+            extraData={videosChunks}
             keyExtractor={this._keyExtractor}
+            removeClippedSubviews={true}
+            initialNumToRender={8}
+            maxToRenderPerBatch={2}
             renderItem={this._renderItem}
           />
       </View>

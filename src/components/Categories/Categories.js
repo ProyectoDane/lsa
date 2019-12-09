@@ -14,10 +14,18 @@ import CATEGORIES_INDEX from './../../categoriesIndex';
 import { PAGES } from './../../constants/';
 import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layoutUtil';
 import styles from './styles';
+// Analytics
+import firebase from 'react-native-firebase';
+
+const Analytics = firebase.analytics();
 
 export class Categories extends PureComponent {
+  componentDidMount (){
+    this._navigateToCategory= _.debounce(this._navigateToCategory.bind(this), 500);
+  }
   _navigateToCategory = category => {
     const { navigation } = this.props;
+    Analytics.logEvent("category_view", {category:category.name_es});
     navigation.navigate(PAGES.PAGE_CATEGORY, { category });
   };
 
@@ -126,6 +134,7 @@ export class Categories extends PureComponent {
               styles.categoriesViewContainer,
               { paddingVertical: getCardPadding(), paddingHorizontal: getCardPadding() },
             ]}
+            removeClippedSubviews={true}
             data={categoriesChunks}
             keyExtractor={this._keyExtractor}
             renderItem={this._renderItem}

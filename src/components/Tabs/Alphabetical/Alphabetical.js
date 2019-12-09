@@ -52,11 +52,14 @@ export class Alphabetical extends PureComponent {
       dispatchAlphabeticalPageRestarted();
     }
   }
+  _onLayout = () => {
+    this.forceUpdate();
+  };
 
   render() {
     const { navigation } = this.props;
     return (
-      <View style={styles.full}>
+      <View style={styles.full} onLayout={this._onLayout}>
          <ImageBackground
           style={styles.full}
           imageStyle={[

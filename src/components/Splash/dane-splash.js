@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
 
 export default function DaneSplashScreen() {
     return (
-        <ImageBackground source={require("../../res/image/dane-splash.png")} style={styles.containterTop} />
+        <ImageBackground 
+        source={require("../../res/image/dane-splash.png")} 
+        resizeMode="contain"
+        style={styles.containterTop} />
     )
 }   

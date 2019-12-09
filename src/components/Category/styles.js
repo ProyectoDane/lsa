@@ -7,6 +7,15 @@ const styles = StyleSheet.create({
     full: {
         flex: 1,
     },
+    headerText:{
+        flex:1,
+        position:'absolute',
+        zIndex: 100,
+        fontFamily: 'nunito',
+        color: Colors.THEME_SECONDARY,
+        backgroundColor:'white',
+        paddingHorizontal: 10
+    },
     downloadIcon: {
         color: Colors.THEME_SECONDARY,
         marginRight: downloadIconMaginRight,

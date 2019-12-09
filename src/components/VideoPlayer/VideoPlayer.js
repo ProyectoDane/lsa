@@ -15,10 +15,17 @@ import { deviceIsInLandscapeMode } from './../../util/deviceUtil';
 import { getCardWidth, getTabNavigatorBarHeight, getCardPadding } from './../../util/layoutUtil';
 import { styles, margin } from './styles';
 
+// Analytics
+import firebase from 'react-native-firebase';
+
+const Analytics = firebase.analytics();
+
+
 const background = require('./../../res/background/fondo-amarillo.jpg');
 
 const videoRatio = 352 / 288;
 const playIcon = require('./../../res/icon/play-icon.png');
+const videoName = "";
 
 export class VideoPlayer extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -37,14 +44,19 @@ export class VideoPlayer extends PureComponent {
 
   state = { paused: true, show: false, progress: 0 };
 
-  _onEnd = () => this.setState({ paused: true });
+  _onEnd = () => {
+    Analytics.logEvent("video_played", {video:videoName});
+    this.setState({ paused: true })
+  };
 
-  _onLayout = () => this.forceUpdate();
-
+  _onLayout = () => {
+    this.forceUpdate();
+  };
   componentDidMount() {
     const { params } = this.props.navigation.state;
     const { video } = params;
-    const videoName = video.video.split('/').pop();
+  
+    videoName = video.video.split('/').pop();
     const path = `${RNFS.DocumentDirectoryPath}/${videoName}`;
     RNFS.exists(path).then(existingFile => {
       if (!existingFile) {
@@ -53,7 +65,7 @@ export class VideoPlayer extends PureComponent {
           toFile: `${RNFS.DocumentDirectoryPath}/${videoName}`,
           progress: res => {
             const percent = (res.bytesWritten / res.contentLength);
-            this.setState({progress: percent})
+            this.setState({progress: percent});
           }
         },
        ).promise.then(() => this.setState({show: true, progress: 0}));
@@ -76,10 +88,9 @@ export class VideoPlayer extends PureComponent {
     }
     const { params } = this.props.navigation.state;
     const { video } = params;
-    const videoName = video.video.split('/').pop();
-
+    videoName = video.video.split('/').pop();
+   
     return this.state.show ? (
-    
       <View onLayout={this._onLayout} style={styles.full}>
         <ImageBackground
           style={styles.full}

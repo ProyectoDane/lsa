@@ -69,7 +69,7 @@ const ProyectosSolidarios = TabNavigator(
       navigationOptions: {
         tabBarLabel: 'Alphabetical',
         tabBarIcon: ({ tintColor }) => (
-          <Text style={{ fontWeight: 'bold' }}>ABC</Text>
+          <Text style={{ fontWeight: 'bold', color: tintColor }}>ABC</Text>
           // <MaterialCommunityIcons name="alphabetical" size={26} style={{ color: tintColor }} />
         ),
       },
@@ -139,9 +139,10 @@ export class App extends PureComponent {
 
   _start = async () => {
     const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
-    hasViewedVideo === 'true' ? this.setState({ viewedVideo: true }) : this.setState({ viewedVideo: false })
+    hasViewedVideo === 'true' ? this.setState({ viewedVideo: true }) : this.setState({ viewedVideo: false });
     const hasRegistred = await AsyncStorage.getItem('hasRegistred');
-    hasRegistred === 'true' ? this.setState({ registered: true }) : this.setState({ registered: false })
+    hasRegistred === 'true' ? this.setState({ registered: true }) : this.setState({ registered: false });
+    
     setTimeout(() => {
       this.setTimePassed();
     }, 1500)
@@ -151,7 +152,7 @@ export class App extends PureComponent {
     this.setState({ timePassed: true });
     setTimeout(() => {
       this.setSecondTimePassed()
-    }, 2000)
+    }, 5000); 
   }
 
   setSecondTimePassed() {
@@ -162,20 +163,19 @@ export class App extends PureComponent {
     await AsyncStorage.setItem('hasViewedVideo', 'true');
     this.setState({ viewedVideo: true });
   }
-
-  _registered = async () => {
-    await AsyncStorage.setItem('hasRegistred', 'true');
-    this.setState({ registered: true });
-  }
-  _registered = async () => {
+  
+  _registered = async() => {
     Analytics.logEvent("registered");
     await AsyncStorage.setItem('hasRegistred', 'true');
     this.setState({ registered: true });
   }
-  _notRegistered = async () => {
+  
+  _notRegistered = async() => {
     Analytics.logEvent("skip_register");
-    this.setState({ registered: true });
+    await AsyncStorage.setItem('hasRegistred', 'false');
+    this.setState({registered: true});
   }
+
   render() {
     if (!this.state.timePassed) {
       return <SplashScreen />
@@ -184,12 +184,12 @@ export class App extends PureComponent {
     } else if (!this.state.viewedVideo) {
       return <VideoSplash onEnd={this._endVideo} />
     } else if (!this.state.registered) {
-      return <Register onRegister={this._registered} onEnd={this._notRegistered} />
+      return <Register onRegister={this._registered} onNotRegistered={this._notRegistered}/>
+    } else if (this.state.registered) {
+      return <Provider store={store}>
+        <ProyectosSolidarios />
+      </Provider>
     }
-    return <Provider store={store}>
-      <ProyectosSolidarios />
-    </Provider>
-
   }
 
 }
