@@ -40,12 +40,10 @@ export default StyleSheet.create({
     flex: 1,
   },
   videoIconDownload: {
-    borderWidth: 3,
+    borderWidth: 2,
     height:40,
-    width: 38,
-    paddingHorizontal:3,
-    paddingTop:0,
-    borderRadius: 20,
+    width: 40,
+    borderRadius: 40,
     borderColor: 'white',
     backgroundColor: 'white',
     position: 'absolute', top: 12, right: 12, zIndex: 100

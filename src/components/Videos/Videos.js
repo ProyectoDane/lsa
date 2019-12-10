@@ -7,7 +7,7 @@ import {
   FlatList,
 } from 'react-native';
 import _ from 'lodash';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { PAGES } from './../../constants/';
 import { getCardWidth, getCardsPerRow, getCardPadding } from './../../util/layoutUtil';
 
@@ -50,8 +50,8 @@ export class Videos extends PureComponent {
       >
          {
       video.downloaded &&
-      <Ionicons
-      name="ios-arrow-dropdown-circle"
+      <MaterialIcons
+      name="check-circle"
       size={40}
       style={styles.videoIconDownload}
       color='#1AA299'
