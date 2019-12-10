@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     headerText:{
-        flex:1,
-        position:'absolute',
         zIndex: 100,
         fontFamily: 'nunito',
         color: Colors.THEME_SECONDARY,
         backgroundColor:'white',
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        textAlign:'center', 
     },
     downloadIcon: {
         color: Colors.THEME_SECONDARY,

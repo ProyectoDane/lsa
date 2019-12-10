@@ -40,6 +40,14 @@ export default StyleSheet.create({
     flex: 1,
   },
   videoIconDownload: {
-    position: 'absolute', top: 5, right: 5, zIndex: 100
+    borderWidth: 3,
+    height:40,
+    width: 38,
+    paddingHorizontal:3,
+    paddingTop:0,
+    borderRadius: 20,
+    borderColor: 'white',
+    backgroundColor: 'white',
+    position: 'absolute', top: 12, right: 12, zIndex: 100
   }
 });
