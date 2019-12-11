@@ -41,7 +41,7 @@ export default function DaneSplashScreen() {
     return (
         <ImageBackground 
         source={require("../../res/image/dane-splash.png")} 
-        resizeMode="contain"
+        resizeMode="cover"
         style={styles.containterTop} />
     )
 }   

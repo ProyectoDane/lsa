@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   labelText: {
     flex: 1,
     fontFamily: 'nunito',
+    marginBottom: 5
   },
   tinput: {
     height: 40,
@@ -181,7 +182,7 @@ export default class Register extends Component {
                 onChangeText={text => this.setState({ email: text })}
               />
               <Text style={styles.labelText}>
-                ¿QUIÉN ESTÁ DESCARGANDO LA APP (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE IDENTIFIQUES)
+                ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE IDENTIFIQUES)
               </Text>
               <View style={styles.pinputContainer}>
                 <Picker

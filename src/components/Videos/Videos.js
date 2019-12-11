@@ -127,8 +127,8 @@ export class Videos extends PureComponent {
             extraData={videosChunks}
             keyExtractor={this._keyExtractor}
             removeClippedSubviews={true}
-            initialNumToRender={8}
-            maxToRenderPerBatch={2}
+            initialNumToRender={6}
+            maxToRenderPerBatch={10}
             renderItem={this._renderItem}
           />
       </View>

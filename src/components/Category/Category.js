@@ -1,7 +1,7 @@
 import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
 import { View, Alert, ScrollView, Text, Dimensions, ImageBackground } from 'react-native';
-import Ionicons from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNFS from 'react-native-fs';
 import Videos from './../Videos';
 import Colors from './../../res/colors';
@@ -23,14 +23,20 @@ export class Category extends PureComponent {
       borderBottomWidth: 1,
       borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
     },
-    headerRight: (
-      <Ionicons
+    headerRight: 
+      (!navigation.state.params.categoryFull || navigation.state.params.categoryFull == undefined)?
+      <MaterialIcons
         name="cloud-download"
         size={30}
         style={styles.downloadIcon}
         onPress={() => navigation.setParams({ showDialog: true })}
-      />
-    ),
+      />: 
+      <MaterialIcons
+        name="delete"
+        size={30}
+        style={styles.downloadIcon}
+        onPress={() => navigation.setParams({ deleteDialog: true })}
+      />,
   });
 
   state = { downloadedVideos: 0, showBar: false, videos: [], initialAmount: 0, refresh: false };
@@ -55,7 +61,10 @@ export class Category extends PureComponent {
     Promise.all(this._checkVideos(videos)).then(result => {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
-      // console.log(downloaded, amount);
+      console.log(downloaded, amount, videos.length);
+      if(videos.length === downloaded){
+        navigation.setParams({ categoryFull: true })
+      }
       this.setState({ videos: result, initialAmount: amount, downloadedVideos: downloaded });
     });
   }
@@ -67,7 +76,22 @@ export class Category extends PureComponent {
     });
   }
 
+  _deleteVideos = () => {
+    const { navigation } = this.props;
+    this.state.videos.forEach((video, index) => {
+      if (video.downloaded) {
+        let videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
+        //console.log(videoFile)
+        RNFS.unlink(videoFile)
+      }
+    });
+    navigation.setParams({ categoryFull: false })
+    this.setState({ initialAmount: 0, downloadedVideos: 0 });
+    this.reload();
+  }
+
   _downloadVideos = () => {
+    const { navigation } = this.props;
     this.setState({ showBar: true });
     this.state.videos.forEach((video, index) => {
       if (!video.downloaded) {
@@ -79,8 +103,11 @@ export class Category extends PureComponent {
           changingVideos[index].downloaded = true;
           this.setState(prevState => {
             console.log(prevState.downloadedVideos, prevState.initialAmount);
-            if (prevState.initialAmount == 0) {
-              return { showBar: false };
+            if (prevState.initialAmount == 0 && changingVideos.length == prevState.downloadedVideos) {
+              navigation.setParams({ categoryFull: true })
+              return {
+                showBar: false
+               };
             }
             return {
               downloadedVideos: prevState.downloadedVideos + 1,
@@ -91,7 +118,7 @@ export class Category extends PureComponent {
         });
       } else {
         this.setState(prevState => ({
-          downloadedVideos: prevState.downloadedVideos,
+          downloadedVideos: prevState.downloadedVideos+1,
           initialAmount: prevState.initialAmount - 1,
         }));
       }
@@ -135,6 +162,23 @@ export class Category extends PureComponent {
                     onPress: () => {
                       navigation.setParams({ showDialog: false });
                       this._downloadVideos();
+                    },
+                  },
+                ],
+                { cancelable: false }
+              )}
+              {navigation.state.params &&
+              navigation.state.params.deleteDialog &&
+              Alert.alert(
+                'BORRAR VIDEOS DE LA CATEGORÍA',
+                `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
+                [
+                  { text: 'CANCELAR', onPress: () => navigation.setParams({ deleteDialog: false }) },
+                  {
+                    text: 'OK',
+                    onPress: () => {
+                      navigation.setParams({ deleteDialog: false });
+                      this._deleteVideos();
                     },
                   },
                 ],
