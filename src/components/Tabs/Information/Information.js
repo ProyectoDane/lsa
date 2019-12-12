@@ -3,6 +3,7 @@ import Video from 'react-native-video';
 import { Text, Image, TouchableOpacity, Dimensions, View, ScrollView, Linking } from 'react-native';
 import Colors from '../../../res/colors';
 import I18n from '../../../res/i18n/i18n';
+import TextEs from '../../../res/i18n/es';
 import { styles, margin } from './styles';
 import { deviceIsInLandscapeMode } from '../../../util/deviceUtil';
 import { getTabNavigatorBarHeight } from '../../../util/layoutUtil';
@@ -48,29 +49,29 @@ export class Information extends PureComponent {
       videoWidth = Dimensions.get('window').width - 2 * margin;
       videoHeight = Math.round(videoWidth / videoRatio);
     }
+
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ScrollView>
           <View style={{ marginHorizontal: margin }}>
             <Image style={styles.daneImage} source={require("../../../res/icon/dane_logo_transparencia.png")} />
             <Text style={styles.title}>DANE</Text>
-            <Text style={styles.text}>El proyecto DANE propone llevar adelante una
-            revolución en la manera de enseñarles contenidos a personas con discapacidad. Creamos
-            aplicaciones móviles e integramos la tecnología informática a la educación, aportando con
-            tenidos académicos y de la vida cotidiana. El objetivo del proyecto es ayudar a la inclusión
-            de las personas con discapacidad y promover en la sociedad la cultura de inclusión.</Text>
-            <Text style={styles.coordinacionTitle}>Coordinación del Proyecto</Text>
+            <Text style={styles.text}>{TextEs.info_description.toUpperCase()}</Text>
+            <Text style={styles.coordinacionTitle}>COORDINACIÓN DEL PROYECTO</Text>
             <Image style={styles.tincImage} source={tincSource} />
-            <Text style={styles.title}>Idea y Contenido</Text>
+            <Text style={styles.title}>IDEA Y CONTENIDO</Text>
             <Image style={styles.tincImage} source={fundasorSource} />
-            <Text style={styles.title}>Desarrollo</Text>
+            <Text style={styles.title}>DESARROLLO</Text>
             <Image style={styles.tincImage} source={hexactaSource} />
-            <Text style={styles.title}>Agradecimientos</Text>
-            <Text style={styles.subtitle}>A quienes forman parte de Fundasor: </Text><Text>Anahí Alesso, Mariana Reuter, Patricio A. Cabezas y Cristina Alesso.</Text>
-            <Text>A Elisa Nudman.</Text>
-            <Text style={styles.subtitle}>A los señantes sordos: </Text><Text>Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil </Text>
-            <Text style={styles.subtitle}>Al staff de Hexacta: </Text><Text>Luis Broeders, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Diego Pedro, Jesica Taira y Verónica Vignoni.</Text>
-            <Text style={styles.title}>Licencia GNU v3</Text>
+            <Text style={styles.title}>AGRADECIMIENTOS</Text>
+            <Text style={styles.subtitle}>{'A quienes forman parte de Fundasor: '.toUpperCase()}</Text>
+            <Text>{'Anahí Alesso, Mariana Reuter, Patricio A. Cabezas y Cristina Alesso.'.toUpperCase()}</Text>
+            <Text>{'A Elisa Nudman.'.toUpperCase()}</Text>
+            <Text style={styles.subtitle}>{'A los señantes sordos: '.toUpperCase()}</Text>
+            <Text>{'Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil '.toUpperCase()}</Text>
+            <Text style={styles.subtitle}>{'Al staff de Hexacta: '.toUpperCase()}</Text>
+            <Text>{'Luis Broeders, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Diego Pedro, Jesica Taira y Verónica Vignoni.'.toUpperCase()}</Text>
+            <Text style={styles.title}>LICENCIA GNU V3</Text>
             <Text style={styles.textLink}
               onPress={() => Linking.openURL('https://tinc.org.ar/licencias/')}>
               https://tinc.org.ar/licencias/
