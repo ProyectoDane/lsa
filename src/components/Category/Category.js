@@ -43,12 +43,11 @@ export class Category extends PureComponent {
 
   componentDidMount() {
     const { navigation } = this.props;
-    const listener = navigation.addListener('didFocus', payload => {
+    navigation.addListener('didFocus', payload => {
       this.setState(prevState => {
         this.reload();
       });
     });
-    listener.remove();
     this.reload();
   }
 

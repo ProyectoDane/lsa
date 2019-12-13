@@ -20,7 +20,7 @@ import {
 
 export class CategoriesDownload extends PureComponent {
 
-    state = { amountSelected: 0, categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})), showDownloadDialog: false, initialAmount: 0, modifiedAmount: 0, videosToModify: [], showBar: false, showDeleteAlert: false };
+    state = { amountSelected: 0, categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})), showDownloadDialog: false, initialAmount: 0, modifiedAmount: 0, videosToModify: [], showBar: false, showDeleteAlert: false, showDeleteBar: false };
 
 
     _selectCategory = category => {
@@ -134,13 +134,14 @@ export class CategoriesDownload extends PureComponent {
         const selectedCategories = this.state.categories.filter(c => c.selected);
         const videos = _.flatten(selectedCategories.map(c => c.videos).map(video => video.map((v => ({...v, name: v.video.split('/').pop()})))))
         Promise.all(this._checkVideos(videos)).then(result => {
-            this.setState({ showDeleteAlert: true, videosToModify: result.filter(v => v.downloaded)})
+            const amount = result.filter(v => v.downloaded).length;
+            this.setState({initialAmount: amount, showDeleteAlert: true, videosToModify: result.filter(v => v.downloaded)})
         })
       }
 
       _downloadVideos = () => {
-        this.state.videosToModify.forEach((video, index) => {
-            RNFS.downloadFile({
+        Promise.all(this.state.videosToModify.map((video, index) => {
+            return RNFS.downloadFile({
                 fromUrl: video.video,
                 toFile: `${RNFS.DocumentDirectoryPath}/${video.name}`,
             }).promise.then(() => {
@@ -151,15 +152,29 @@ export class CategoriesDownload extends PureComponent {
                             videosToModify: changingVideos  
                 }))
             })
+        })).then(() => {
+            if (this.state.videosToModify.every(v => v.downloaded)) {
+                this.setState(prevState => ({showBar: false, categories: prevState.categories.map(c => ({...c, selected: false})) }))
+            }
         });
-        this.setState({showBar: false})
       }
 
       _deleteVideos = () => {
-          this.state.videosToModify.forEach(video => {
-            const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
-            RNFS.unlink(videoFile)
-          });
+              Promise.all(this.state.videosToModify.map((video, index) => {
+                const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
+                return RNFS.unlink(videoFile).then(() =>  {
+                    const changingVideos = [...this.state.videosToModify];
+                    changingVideos[index].downloaded = false;
+                    this.setState(prevState =>  ({
+                        initialAmount: prevState.initialAmount - 1,
+                        videosToModify: changingVideos  
+                    }))
+                })
+              })).then(() => {
+                  if (this.state.videosToModify.every(v => !v.downloaded)) {
+                      this.setState(prevState => ({showDeleteBar: false, categories: prevState.categories.map(c => ({...c, selected: false}))}))
+                  }
+              })
       }
     
       render() {
@@ -220,8 +235,12 @@ export class CategoriesDownload extends PureComponent {
                       {
                         text: 'OK',
                         onPress: () => {
-                            this.setState({ showDownloadDialog: false, showBar: true });
-                          this._downloadVideos();
+                            if (this.state.videosToModify.length) {
+                                this.setState({ showDownloadDialog: false, showBar: true });
+                              this._downloadVideos();
+                            } else {
+                                this.setState(prevState => ({ showDownloadDialog: false, categories: prevState.categories.map(c => ({...c, selected: false})) }));
+                            }
                         },
                       },
                     ],
@@ -238,8 +257,12 @@ export class CategoriesDownload extends PureComponent {
                       {
                         text: 'OK',
                         onPress: () => {
-                            this.setState({ showDeleteAlert: false }) ;
-                          this._deleteVideos();
+                            if (this.state.videosToModify.length) {
+                                this.setState({ showDeleteAlert: false, showDeleteBar: true });
+                              this._deleteVideos();
+                            } else {
+                                this.setState(prevState => ({ showDeleteAlert: false, categories: prevState.categories.map(c => ({...c, selected: false})) }));
+                            }
                         },
                       },
                     ],
@@ -258,6 +281,20 @@ export class CategoriesDownload extends PureComponent {
               } de ${this.state.videosToModify.length}`}</Text>
             </View>
           )}
+          {
+              this.state.showDeleteBar && (
+                <View style={styles.headerText}>
+                <Progress.Bar
+                  color="red"
+                  width={null}
+                  progress={this.state.videosToModify.filter(v => !v.downloaded).length / this.state.videosToModify.length}
+                />
+                <Text style={styles.downloadText}>{`${
+                  this.state.videosToModify.filter(v => !v.downloaded).length
+                } de ${this.state.videosToModify.length}`}</Text>
+              </View>
+              )
+          }
           </View>
         );
       }
