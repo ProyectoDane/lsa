@@ -20,6 +20,7 @@ import SplashScreen from './components/Splash/main-splash';
 import DaneSplashScreen from './components/Splash/dane-splash';
 import VideoSplash from './components/Splash/video-splash';
 import Register from './components/Splash/register';
+import Download from './components/Tabs/Download';
 
 // Analytics
 import firebase from 'react-native-firebase';
@@ -51,6 +52,10 @@ const InformationTab = StackNavigator({
   VideoPlayer: { screen: VideoPlayer }
 });
 
+const DownloadTab = StackNavigator({
+  Download: { screen: Download }
+})
+
 const ProyectosSolidarios = TabNavigator(
   {
     HomeTab: {
@@ -62,6 +67,16 @@ const ProyectosSolidarios = TabNavigator(
           <MaterialCommunityIcons name="home-outline" size={26} style={{ color: tintColor }} />
         ),
       },
+    },
+    DownloadTab: {
+      screen: DownloadTab,
+      path: '/download',
+      navigationOptions: {
+        tabBarLabel: 'Download',
+        tabBarIcon: ({tintColor}) => (
+          <MaterialCommunityIcons name="download" size={26} style={{color: tintColor}} />
+        )
+      }
     },
     AlphabeticalTab: {
       screen: AlphabeticalTab,

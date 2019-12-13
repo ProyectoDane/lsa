@@ -19,6 +19,7 @@ const es = {
   from_16_to_30: "DE 16 A 30 AÑOS",
   from_31_to_55: "DE 31 A 55 AÑOS",
   more_than_55: "MAYOR DE 55 AÑOS",
+  download_tab_title: 'DESCARGAR O BORRAR'
 };
 
 export default es;
