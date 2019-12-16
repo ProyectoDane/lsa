@@ -61,7 +61,6 @@ export class Category extends PureComponent {
     Promise.all(this._checkVideos(videos)).then(result => {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
-      console.log(downloaded, amount, videos.length);
       if(videos.length === downloaded){
         navigation.setParams({ categoryFull: true })
       }
@@ -78,10 +77,9 @@ export class Category extends PureComponent {
 
   _deleteVideos = () => {
     const { navigation } = this.props;
-    this.state.videos.forEach((video, index) => {
+    this.state.videos.forEach(video => {
       if (video.downloaded) {
-        let videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
-        //console.log(videoFile)
+        const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
         RNFS.unlink(videoFile)
       }
     });
@@ -102,7 +100,6 @@ export class Category extends PureComponent {
           const changingVideos = [...this.state.videos];
           changingVideos[index].downloaded = true;
           this.setState(prevState => {
-            console.log(prevState.downloadedVideos, prevState.initialAmount);
             if (prevState.initialAmount == 0 && changingVideos.length == prevState.downloadedVideos) {
               navigation.setParams({ categoryFull: true })
               return {
