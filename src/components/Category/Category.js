@@ -6,6 +6,10 @@ import RNFS from 'react-native-fs';
 import Videos from './../Videos';
 import Colors from './../../res/colors';
 import { styles } from './styles';
+// Analytics
+import firebase from 'react-native-firebase';
+
+const Analytics = firebase.analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 
@@ -23,20 +27,22 @@ export class Category extends PureComponent {
       borderBottomWidth: 1,
       borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
     },
-    headerRight: 
-      (!navigation.state.params.categoryFull || navigation.state.params.categoryFull == undefined)?
-      <MaterialIcons
-        name="cloud-download"
-        size={30}
-        style={styles.downloadIcon}
-        onPress={() => navigation.setParams({ showDialog: true })}
-      />: 
-      <MaterialIcons
-        name="delete"
-        size={30}
-        style={styles.downloadIcon}
-        onPress={() => navigation.setParams({ deleteDialog: true })}
-      />,
+    headerRight:
+      !navigation.state.params.categoryFull || navigation.state.params.categoryFull == undefined ? (
+        <MaterialIcons
+          name="cloud-download"
+          size={30}
+          style={styles.downloadIcon}
+          onPress={() => navigation.setParams({ showDialog: true })}
+        />
+      ) : (
+        <MaterialIcons
+          name="delete"
+          size={30}
+          style={styles.downloadIcon}
+          onPress={() => navigation.setParams({ deleteDialog: true })}
+        />
+      ),
   });
 
   state = { downloadedVideos: 0, showBar: false, videos: [], initialAmount: 0, refresh: false };
@@ -61,8 +67,8 @@ export class Category extends PureComponent {
     Promise.all(this._checkVideos(videos)).then(result => {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
-      if(videos.length === downloaded){
-        navigation.setParams({ categoryFull: true })
+      if (videos.length === downloaded) {
+        navigation.setParams({ categoryFull: true });
       }
       this.setState({ videos: result, initialAmount: amount, downloadedVideos: downloaded });
     });
@@ -77,20 +83,25 @@ export class Category extends PureComponent {
 
   _deleteVideos = () => {
     const { navigation } = this.props;
+    const { name_es } = navigation.state.params.category;
     this.state.videos.forEach(video => {
       if (video.downloaded) {
-        const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`
-        RNFS.unlink(videoFile)
+        const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`;
+        RNFS.unlink(videoFile);
       }
     });
-    navigation.setParams({ categoryFull: false })
+    navigation.setParams({ categoryFull: false });
+
     this.setState({ initialAmount: 0, downloadedVideos: 0 });
+
     this.reload();
-  }
+  };
 
   _downloadVideos = () => {
     const { navigation } = this.props;
+    const { name_es } = navigation.state.params.category;
     this.setState({ showBar: true });
+
     this.state.videos.forEach((video, index) => {
       if (!video.downloaded) {
         RNFS.downloadFile({
@@ -100,11 +111,19 @@ export class Category extends PureComponent {
           const changingVideos = [...this.state.videos];
           changingVideos[index].downloaded = true;
           this.setState(prevState => {
-            if (prevState.initialAmount == 0 && changingVideos.length == prevState.downloadedVideos) {
-              navigation.setParams({ categoryFull: true })
+            if (
+              (prevState.initialAmount == 0 &&
+                changingVideos.length == prevState.downloadedVideos ||
+                prevState.initialAmount == 1 &&
+                changingVideos.length == prevState.downloadedVideos+prevState.initialAmount)
+            ) {
+              navigation.setParams({ categoryFull: true });
+              Analytics.logEvent('category_download', { category: name_es });
               return {
-                showBar: false
-               };
+                downloadedVideos: changingVideos.length,
+                initialAmount: 0,
+                showBar: false,
+              };
             }
             return {
               downloadedVideos: prevState.downloadedVideos + 1,
@@ -115,7 +134,7 @@ export class Category extends PureComponent {
         });
       } else {
         this.setState(prevState => ({
-          downloadedVideos: prevState.downloadedVideos+1,
+          downloadedVideos: prevState.downloadedVideos + 1,
           initialAmount: prevState.initialAmount - 1,
         }));
       }
@@ -138,7 +157,7 @@ export class Category extends PureComponent {
           ]}
           source={categoryVideosBackground}
         >
-          <View style={{borderBottomWidth:1,borderBottomColor:Colors.TAB_BAR_ACTIVE_ICON}}>
+          <View style={{ borderBottomWidth: 1, borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON }}>
             <Text style={styles.headerText}>
               {amount} VIDEOS DESCARGADOS DE {videosAmount}
             </Text>
@@ -164,13 +183,16 @@ export class Category extends PureComponent {
                 ],
                 { cancelable: false }
               )}
-              {navigation.state.params &&
+            {navigation.state.params &&
               navigation.state.params.deleteDialog &&
               Alert.alert(
                 'BORRAR VIDEOS DE LA CATEGORÍA',
                 `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
                 [
-                  { text: 'CANCELAR', onPress: () => navigation.setParams({ deleteDialog: false }) },
+                  {
+                    text: 'CANCELAR',
+                    onPress: () => navigation.setParams({ deleteDialog: false }),
+                  },
                   {
                     text: 'OK',
                     onPress: () => {

@@ -70,7 +70,7 @@ export class Information extends PureComponent {
             <Text style={styles.subtitle}>{'A los señantes sordos: '.toUpperCase()}</Text>
             <Text>{'Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil '.toUpperCase()}</Text>
             <Text style={styles.subtitle}>{'Al staff de Hexacta: '.toUpperCase()}</Text>
-            <Text>{'Luis Broeders, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Diego Pedro, Jesica Taira y Verónica Vignoni.'.toUpperCase()}</Text>
+            <Text>{'Luis Broeders, Esteban Sopetto, Verónica Vignoni, Javier Ocampo, Diego Pedro, Jesica Taira, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil y Mariela Morel.'.toUpperCase()}</Text>
             <Text style={styles.title}>LICENCIA GNU V3</Text>
             <Text style={styles.textLink}
               onPress={() => Linking.openURL('https://tinc.org.ar/licencias/')}>

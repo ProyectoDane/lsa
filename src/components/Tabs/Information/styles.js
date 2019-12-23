@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   video: {
-    backgroundColor: 'transparent',
+    //backgroundColor: 'transparent',
   },
   playIcon: {
     height: playIconSize,

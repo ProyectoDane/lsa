@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   Platform,
   Text,
+  Alert,
   TouchableOpacity,
   View,
   StyleSheet,
@@ -13,6 +14,8 @@ import {
   Dimensions,
 } from 'react-native';
 import I18n from '../../res/i18n/i18n';
+
+const pkg = require('../../../app.json');
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
   labelText: {
     flex: 1,
     fontFamily: 'nunito',
-    marginBottom: 5
+    marginBottom: 5,
   },
   tinput: {
     height: 40,
@@ -119,10 +122,12 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ' ',
-      email: ' ',
-      app_user: ' ',
-      age: ' ',
+      name: '',
+      email: '',
+      app_user: '',
+      age: '',
+      app_name: pkg.name,
+      showRegister: false,
     };
   }
   _loadTerms() {
@@ -131,26 +136,37 @@ export default class Register extends Component {
     //  .catch(err => console.error("NO SE PUDO CARGAR LA PÁGINA", err));
   }
   _register() {
-    const bdata = { ...this.state };
-    fetch('https://ux2i5nx836.execute-api.us-east-2.amazonaws.com/production/register', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'x-api-key': 'BjiDNiFwFv7VnroObnPHv9X6Ic3RsSqQaFd4fjNV',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bdata),
-    })
-      .then(() => {
-        this.props.onRegister();
+    const { name, email, app_user, age,app_name } = this.state;
+    if (name === '' || email === '' || app_user === '' || age === '') {
+      this.setState({ showRegister: true });
+    } else {
+      const bdata = {
+        name,
+        email,
+        app_user,
+        age,
+        app_name
+      };
+      fetch('https://ux2i5nx836.execute-api.us-east-2.amazonaws.com/production/register', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'x-api-key': 'BjiDNiFwFv7VnroObnPHv9X6Ic3RsSqQaFd4fjNV',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bdata),
       })
-      .catch(error => {
-        // console.error(error);
-      });
+        .then(() => {
+          this.props.onRegister();
+        })
+        .catch(error => {
+          // console.error(error);
+        });
+    }
   }
   onChangeText(text) {}
   render() {
-    const { typography } = this.state;
+    const { showRegister } = this.state;
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -162,6 +178,13 @@ export default class Register extends Component {
           source={categoryVideosBackground}
         >
           <ScrollView keyboardShouldPersistTaps="always" contentContainerStyle={styles.scrollStyle}>
+            {showRegister &&
+              Alert.alert(
+                'REGISTRAR',
+                `PARA FINALIZAR EL REGISTRO DEBES COMPLETAR TODOS LOS CAMPOS.`,
+                [{ text: 'OK', onPress: () => this.setState({ showRegister: false }) }],
+                { cancelable: false }
+              )}
             <View style={styles.formContainer}>
               <Text style={styles.headerText}>
                 {
@@ -182,7 +205,8 @@ export default class Register extends Component {
                 onChangeText={text => this.setState({ email: text })}
               />
               <Text style={styles.labelText}>
-                ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE IDENTIFIQUES)
+                ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE
+                IDENTIFIQUES)
               </Text>
               <View style={styles.pinputContainer}>
                 <Picker
@@ -190,6 +214,7 @@ export default class Register extends Component {
                   style={styles.pinput}
                   onValueChange={itemValue => this.setState({ app_user: itemValue })}
                 >
+                  <Picker.Item label={I18n.t('select')} value="" />
                   <Picker.Item label={I18n.t('deaf_person')} value="PERSONA_SORDA" />
                   <Picker.Item label={I18n.t('family')} value="FAMILIAR" />
                   <Picker.Item label={I18n.t('teacher')} value="DOCENTE" />
@@ -205,6 +230,7 @@ export default class Register extends Component {
                   style={styles.pinput}
                   onValueChange={itemValue => this.setState({ age: itemValue })}
                 >
+                  <Picker.Item label={I18n.t('select')} value="" />
                   <Picker.Item label={I18n.t('up_to_7')} value="HASTA_7" />
                   <Picker.Item label={I18n.t('from_8_to_15')} value="8_A_15" />
                   <Picker.Item label={I18n.t('from_16_to_30')} value="16_A_30" />
@@ -215,22 +241,22 @@ export default class Register extends Component {
             </View>
           </ScrollView>
           <View style={styles.buttonContainer}>
-              <TouchableOpacity
-                style={[styles.button, styles.redButton]}
-                onPress={this.props.onNotRegistered}
-              >
-                <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.button, styles.greenButton]}
-                onPress={this._register.bind(this)}
-              >
-                <Text style={[styles.textColor, styles.buttonText]}>REGISTRAR</Text>
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity style={styles.blueButton} onPress={this._loadTerms}>
-              <Text style={[styles.textColor, styles.blueButtonText]}>POLÍTICA DE PRIVACIDAD</Text>
+            <TouchableOpacity
+              style={[styles.button, styles.redButton]}
+              onPress={this.props.onNotRegistered}
+            >
+              <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.button, styles.greenButton]}
+              onPress={this._register.bind(this)}
+            >
+              <Text style={[styles.textColor, styles.buttonText]}>REGISTRAR</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity style={styles.blueButton} onPress={this._loadTerms}>
+            <Text style={[styles.textColor, styles.blueButtonText]}>POLÍTICA DE PRIVACIDAD</Text>
+          </TouchableOpacity>
         </ImageBackground>
       </View>
     );
