@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import Colors from './../../res/colors';
 
 const downloadIconMaginRight = 10;
@@ -24,7 +24,40 @@ const styles = StyleSheet.create({
     downloadText: {
         textAlign: 'center',
         fontFamily: 'nunito',
+    },
+    image: {
+        flex: 1,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
+    },
+    
+    inactiveCircle: {
+        fontSize: (Dimensions.get('window').width / 20),
+        color: '#FFF',
+        margin: 3
+    },
+    activeCircle: {
+        fontSize: (Dimensions.get('window').width / 20),
+        color: '#FFB54C',
+        margin: 3
+    },
+    buttonModal: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingVertical: 10,
+        height: 60,
+        position: 'absolute',
+        bottom: 0,
+        width: Dimensions.get('window').width,
+        backgroundColor: '#E0E0E0',
+    },
+    iconStyle: {
+        position: 'absolute',
+        right: 30,
+        top: 4
     }
+    
 })
 
 export { styles };

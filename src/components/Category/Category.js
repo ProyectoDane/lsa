@@ -1,7 +1,10 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/no-array-index-key */
 import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
-import { View, Alert, ScrollView, Text, Dimensions, ImageBackground } from 'react-native';
+import { AsyncStorage, View, Alert, ScrollView, Text, Dimensions, ImageBackground, Image, Modal } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFS from 'react-native-fs';
 import Videos from './../Videos';
 import Colors from './../../res/colors';
@@ -45,10 +48,16 @@ export class Category extends PureComponent {
       ),
   });
 
-  state = { downloadedVideos: 0, showBar: false, videos: [], initialAmount: 0, refresh: false };
+  state = { activeSlide: 0, downloadedVideos: 0, showBar: false, videos: [], initialAmount: 0, refresh: false, firstCategory: false };
+
+  _isFirstCategory = async() => {
+    const isFirstCategory = await AsyncStorage.getItem('firstCategory');
+    isFirstCategory === 'false' ? this.setState({firstCategory: false }) : this.setState({firstCategory: true});
+  }
 
   componentDidMount() {
     const { navigation } = this.props;
+    this._isFirstCategory();
     navigation.addListener('didFocus', payload => {
       this.setState(prevState => {
         this.reload();
@@ -112,10 +121,10 @@ export class Category extends PureComponent {
           changingVideos[index].downloaded = true;
           this.setState(prevState => {
             if (
-              (prevState.initialAmount == 0 &&
-                changingVideos.length == prevState.downloadedVideos ||
-                prevState.initialAmount == 1 &&
-                changingVideos.length == prevState.downloadedVideos+prevState.initialAmount)
+              (prevState.initialAmount === 0 &&
+                changingVideos.length === prevState.downloadedVideos ||
+                prevState.initialAmount === 1 &&
+                changingVideos.length === prevState.downloadedVideos+prevState.initialAmount)
             ) {
               navigation.setParams({ categoryFull: true });
               Analytics.logEvent('category_download', { category: name_es });
@@ -141,6 +150,55 @@ export class Category extends PureComponent {
     });
   };
   _onLayout = () => this.forceUpdate();
+  _onChangeSlide = ({nativeEvent}) => {
+    const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
+    if (slide !== this.state.activeSlide) {
+      this.setState({activeSlide: slide})
+    } 
+  }
+  _onCloseModal = async() => {
+    await AsyncStorage.setItem('firstCategory', 'false');
+    this.setState({firstCategory: false});
+  }  
+  _getTutorialLayout = () => {
+    return (
+      <View style={styles.full} onLayout={this._onLayout}>
+        <Modal
+          visible={this.state.firstCategory}
+          onRequestClose={this._onCloseModal}
+        >
+        <ScrollView
+          horizontal
+          pagingEnabled
+          onScroll={this._onChangeSlide}
+          showsHorizontalScrollIndicator={false}
+          style={styles.image}
+        >
+          {
+            [categoryVideosBackground, categoryVideosBackground, categoryVideosBackground].map((i, k) => (
+                  <ImageBackground source={i}
+                  style={styles.image}
+                  key={k}
+              />
+            ))
+          }
+          
+        </ScrollView>
+        <View style={styles.iconStyle}>
+          <Ionicons name='ios-close-outline' size={70}  style={{color: '#fff'}} onPress={this._onCloseModal}/>
+          </View>
+        <View style={styles.buttonModal}>
+          {
+            [categoryVideosBackground, categoryVideosBackground, categoryVideosBackground].map((i, k) => (
+              <Text style={k === this.state.activeSlide ? styles.activeCircle : styles.inactiveCircle} key={k}>⬤</Text>
+            ))
+          }
+          
+        </View>
+        </Modal>
+      </View>
+    )
+  }
 
   render() {
     const { navigation } = this.props;
@@ -148,6 +206,7 @@ export class Category extends PureComponent {
     const videosAmount = params.category.videos.length;
     const amount = videosAmount - this.state.initialAmount;
     return (
+      this.state.firstCategory ? this._getTutorialLayout() : 
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground
           style={styles.full}

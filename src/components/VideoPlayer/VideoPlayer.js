@@ -7,6 +7,7 @@ import {
   View,
   Image,
   ScrollView,
+  Text
 } from 'react-native';
 import RNFS from 'react-native-fs';
 import Video from 'react-native-video';
@@ -14,9 +15,12 @@ import Colors from './../../res/colors';
 import { deviceIsInLandscapeMode } from './../../util/deviceUtil';
 import { getCardWidth, getTabNavigatorBarHeight, getCardPadding } from './../../util/layoutUtil';
 import { styles, margin } from './styles';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { PAGES } from './../../constants/';
 
 // Analytics
 import firebase from 'react-native-firebase';
+import categoriesIndex from './../../categoriesIndex';
 
 const Analytics = firebase.analytics();
 
@@ -28,21 +32,23 @@ const playIcon = require('./../../res/icon/play-icon.png');
 const videoName = "";
 
 export class VideoPlayer extends PureComponent {
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.video.name_es,
-    headerTintColor: Colors.THEME_SECONDARY,
-    headerTitleStyle: {
-      fontFamily: 'nunito',
-    },
-    headerStyle: {
-      backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0,
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-    },
-  });
+  static navigationOptions = ({ navigation }) => {
+    return ({
+      title: navigation.state.params.video.name_es,
+      headerTintColor: Colors.THEME_SECONDARY,
+      headerTitleStyle: {
+        fontFamily: 'nunito',
+      },
+      headerStyle: {
+        backgroundColor: Colors.THEME_PRIMARY,
+        elevation: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
+      },
+    });
+  } 
 
-  state = { paused: true, show: false, progress: 0 };
+  state = { paused: true, show: false, progress: 0, indexVideo: 0 };
 
   _onEnd = () => {
     Analytics.logEvent("video_played", {video:videoName});
@@ -55,8 +61,11 @@ export class VideoPlayer extends PureComponent {
   componentDidMount() {
     const { params } = this.props.navigation.state;
     const { video } = params;
-  
+    
     videoName = video.video.split('/').pop();
+    const firstVideo = categoriesIndex.categories.find(cat => cat.videos.some(cvideo => cvideo.video === video.video));
+    const indexVideo = firstVideo.videos.findIndex(v => v.video === video.video);
+    this.setState({indexVideo: indexVideo});
     const path = `${RNFS.DocumentDirectoryPath}/${videoName}`;
     RNFS.exists(path).then(existingFile => {
       if (!existingFile) {
@@ -74,6 +83,27 @@ export class VideoPlayer extends PureComponent {
       }
     });
     
+  }
+
+  _goToPreviousVideo = () => {
+    const { navigation } = this.props;
+    const videoA = categoriesIndex.categories.find(cat => cat.videos.some(cvideo => cvideo.video === navigation.state.params.video.video));
+    const prevVideo = videoA.videos[this.state.indexVideo-1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: prevVideo });
+  }
+
+  _goToNextVideo = () => {
+    const { navigation } = this.props;
+    const videoA = categoriesIndex.categories.find(cat => cat.videos.some(cvideo => cvideo.video === navigation.state.params.video.video));
+    const nextVideo = videoA.videos[this.state.indexVideo+1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: nextVideo });
+  }
+
+  _checkIfLastVideo = () => {
+    const { navigation } = this.props;
+    const videoA = categoriesIndex.categories.find(cat => cat.videos.some(cvideo => cvideo.video === navigation.state.params.video.video));
+    const postVideo = videoA.videos[this.state.indexVideo+1];
+    return postVideo !== undefined;
   }
 
   render() {
@@ -146,7 +176,9 @@ export class VideoPlayer extends PureComponent {
               )}
             </TouchableOpacity>
             {deviceIsInLandscapeMode() ? null : (
-              <View
+              <View style={{alignContent: 'space-between'}}>
+                <View style={{position:'absolute', bottom: 40, left: 30}}>{this.state.indexVideo !== 0 && <MaterialCommunityIcons name="arrow-left-bold-circle" size={60} style={{color: '#5D5D5D'}} onPress={this._goToPreviousVideo}/>}</View>
+                <View
                 style={[
                   styles.cardContainer,
                   {
@@ -169,6 +201,10 @@ export class VideoPlayer extends PureComponent {
                   source={video.image}
                 />
               </View>
+              <View style={{position:'absolute', bottom: 40, right: 30}}>{this._checkIfLastVideo() && <MaterialCommunityIcons name="arrow-right-bold-circle" size={60} style={{color: '#5D5D5D'}} onPress={this._goToNextVideo}/>}</View>
+
+              </View>
+              
             )}
           </ScrollView>
         </ImageBackground>
