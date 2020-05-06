@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height
+        height: Dimensions.get('window').height - 60
     },
     
     inactiveCircle: {

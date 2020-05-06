@@ -15,6 +15,13 @@ import firebase from 'react-native-firebase';
 const Analytics = firebase.analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
+const comoSeUsa1 = require('./../../res/image/1-como-se-usa.png');
+const comoSeUsa2 = require('./../../res/image/2-como-se-usa.png');
+const comoSeUsa3 = require('./../../res/image/3-como-se-usa.png');
+const comoSeUsa4 = require('./../../res/image/4-como-se-usa.png');
+const comoSeUsa5 = require('./../../res/image/5-como-se-usa.png');
+const comoSeUsa6 = require('./../../res/image/6-como-se-usa.png');
+const listaSlider = [comoSeUsa1, comoSeUsa2, comoSeUsa3, comoSeUsa4, comoSeUsa5, comoSeUsa6];
 
 export class Category extends PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -175,7 +182,7 @@ export class Category extends PureComponent {
           style={styles.image}
         >
           {
-            [categoryVideosBackground, categoryVideosBackground, categoryVideosBackground].map((i, k) => (
+            listaSlider.map((i, k) => (
                   <ImageBackground source={i}
                   style={styles.image}
                   key={k}
@@ -189,7 +196,7 @@ export class Category extends PureComponent {
           </View>
         <View style={styles.buttonModal}>
           {
-            [categoryVideosBackground, categoryVideosBackground, categoryVideosBackground].map((i, k) => (
+            listaSlider.map((i, k) => (
               <Text style={k === this.state.activeSlide ? styles.activeCircle : styles.inactiveCircle} key={k}>⬤</Text>
             ))
           }
