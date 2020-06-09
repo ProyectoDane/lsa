@@ -236,7 +236,7 @@ export class Category extends PureComponent {
                 'DESCARGA VIDEOS',
                 `VAS A DESCARGAR ${
                   this.state.initialAmount
-                } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
+                } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
                 [
                   { text: 'CANCELAR', onPress: () => navigation.setParams({ showDialog: false }) },
                   {
@@ -253,7 +253,7 @@ export class Category extends PureComponent {
               navigation.state.params.deleteDialog &&
               Alert.alert(
                 'BORRAR VIDEOS DE LA CATEGORÍA',
-                `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
+                `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.`,
                 [
                   {
                     text: 'CANCELAR',
