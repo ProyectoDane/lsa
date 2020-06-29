@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   scrollStyle: {
     flexGrow: 1,
   },
+  scrollParentContainer: {
+    height: Dimensions.get('window').height - 130
+  },
   video: {
     backgroundColor: 'transparent',
   },
@@ -177,69 +180,71 @@ export default class Register extends Component {
           ]}
           source={categoryVideosBackground}
         >
-          <ScrollView keyboardShouldPersistTaps="always" contentContainerStyle={styles.scrollStyle}>
-            {showRegister &&
-              Alert.alert(
-                'REGISTRAR',
-                `PARA FINALIZAR EL REGISTRO DEBES COMPLETAR TODOS LOS CAMPOS.`,
-                [{ text: 'OK', onPress: () => this.setState({ showRegister: false }) }],
-                { cancelable: false }
-              )}
-            <View style={styles.formContainer}>
-              <Text style={styles.headerText}>
-                {
-                  'PARA MEJORAR LAS APPS Y SEGUIR DESARROLLANDO OTRAS NOS AYUDARIA QUE CONTESTES ESTAS CUATRO PREGUNTAS. \n\nES MUY IMPORTANTE PARA NOSOTROS. ¡GRACIAS!'
-                }
-              </Text>
-              <Text style={styles.labelText}>NOMBRE Y APELLIDO</Text>
-              <TextInput
-                style={styles.tinput}
-                underlineColorAndroid="transparent"
-                onChangeText={text => this.setState({ name: text })}
-              />
-              <Text style={styles.labelText}>EMAIL</Text>
-              <TextInput
-                style={styles.tinput}
-                keyboardType="email-address"
-                underlineColorAndroid="transparent"
-                onChangeText={text => this.setState({ email: text })}
-              />
-              <Text style={styles.labelText}>
-                ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE
-                IDENTIFIQUES)
-              </Text>
-              <View style={styles.pinputContainer}>
-                <Picker
-                  selectedValue={this.state.app_user}
-                  style={styles.pinput}
-                  onValueChange={itemValue => this.setState({ app_user: itemValue })}
-                >
-                  <Picker.Item label={I18n.t('select')} value="" />
-                  <Picker.Item label={I18n.t('deaf_person')} value="PERSONA_SORDA" />
-                  <Picker.Item label={I18n.t('family')} value="FAMILIAR" />
-                  <Picker.Item label={I18n.t('teacher')} value="DOCENTE" />
-                  <Picker.Item label={I18n.t('interpreter')} value="INTERPRETE" />
-                  <Picker.Item label={I18n.t('profesional')} value="PROFESIONAL" />
-                  <Picker.Item label={I18n.t('other')} value="OTRO" />
-                </Picker>
+          <View style={styles.scrollParentContainer}>
+            <ScrollView keyboardShouldPersistTaps="always" contentContainerStyle={styles.scrollStyle}>
+              {showRegister &&
+                Alert.alert(
+                  'REGISTRAR',
+                  `PARA FINALIZAR EL REGISTRO DEBES COMPLETAR TODOS LOS CAMPOS.`,
+                  [{ text: 'OK', onPress: () => this.setState({ showRegister: false }) }],
+                  { cancelable: false }
+                )}
+              <View style={styles.formContainer}>
+                <Text style={styles.headerText}>
+                  {
+                    'PARA MEJORAR LAS APPS Y SEGUIR DESARROLLANDO OTRAS NOS AYUDARIA QUE CONTESTES ESTAS CUATRO PREGUNTAS. \n\nES MUY IMPORTANTE PARA NOSOTROS. ¡GRACIAS!'
+                  }
+                </Text>
+                <Text style={styles.labelText}>NOMBRE Y APELLIDO</Text>
+                <TextInput
+                  style={styles.tinput}
+                  underlineColorAndroid="transparent"
+                  onChangeText={text => this.setState({ name: text })}
+                />
+                <Text style={styles.labelText}>EMAIL</Text>
+                <TextInput
+                  style={styles.tinput}
+                  keyboardType="email-address"
+                  underlineColorAndroid="transparent"
+                  onChangeText={text => this.setState({ email: text })}
+                />
+                <Text style={styles.labelText}>
+                  ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE
+                  IDENTIFIQUES)
+                </Text>
+                <View style={styles.pinputContainer}>
+                  <Picker
+                    selectedValue={this.state.app_user}
+                    style={styles.pinput}
+                    onValueChange={itemValue => this.setState({ app_user: itemValue })}
+                  >
+                    <Picker.Item label={I18n.t('select')} value="" />
+                    <Picker.Item label={I18n.t('deaf_person')} value="PERSONA_SORDA" />
+                    <Picker.Item label={I18n.t('family')} value="FAMILIAR" />
+                    <Picker.Item label={I18n.t('teacher')} value="DOCENTE" />
+                    <Picker.Item label={I18n.t('interpreter')} value="INTERPRETE" />
+                    <Picker.Item label={I18n.t('profesional')} value="PROFESIONAL" />
+                    <Picker.Item label={I18n.t('other')} value="OTRO" />
+                  </Picker>
+                </View>
+                <Text style={styles.labelText}>TU EDAD</Text>
+                <View style={styles.pinputContainer}>
+                  <Picker
+                    selectedValue={this.state.age}
+                    style={styles.pinput}
+                    onValueChange={itemValue => this.setState({ age: itemValue })}
+                  >
+                    <Picker.Item label={I18n.t('select')} value="" />
+                    <Picker.Item label={I18n.t('up_to_7')} value="HASTA_7" />
+                    <Picker.Item label={I18n.t('from_8_to_15')} value="8_A_15" />
+                    <Picker.Item label={I18n.t('from_16_to_30')} value="16_A_30" />
+                    <Picker.Item label={I18n.t('from_31_to_55')} value="31_A_55" />
+                    <Picker.Item label={I18n.t('more_than_55')} value="MAYOR_55" />
+                  </Picker>
+                </View>
               </View>
-              <Text style={styles.labelText}>TU EDAD</Text>
-              <View style={styles.pinputContainer}>
-                <Picker
-                  selectedValue={this.state.age}
-                  style={styles.pinput}
-                  onValueChange={itemValue => this.setState({ age: itemValue })}
-                >
-                  <Picker.Item label={I18n.t('select')} value="" />
-                  <Picker.Item label={I18n.t('up_to_7')} value="HASTA_7" />
-                  <Picker.Item label={I18n.t('from_8_to_15')} value="8_A_15" />
-                  <Picker.Item label={I18n.t('from_16_to_30')} value="16_A_30" />
-                  <Picker.Item label={I18n.t('from_31_to_55')} value="31_A_55" />
-                  <Picker.Item label={I18n.t('more_than_55')} value="MAYOR_55" />
-                </Picker>
-              </View>
-            </View>
-          </ScrollView>
+            </ScrollView>
+          </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={[styles.button, styles.redButton]}

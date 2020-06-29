@@ -245,7 +245,7 @@ export class CategoriesDownload extends PureComponent {
                     'DESCARGA VIDEOS',
                     `VAS A DESCARGAR ${
                       this.state.initialAmount
-                    } DE ${this.state.modifiedAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
+                    } DE ${this.state.modifiedAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
                     [
                       { text: 'CANCELAR', onPress: () => this.setState({ showDownloadDialog: false }) },
                       {
@@ -269,7 +269,7 @@ export class CategoriesDownload extends PureComponent {
                 this.state.showDeleteAlert &&
                 Alert.alert(
                     'BORRAR VIDEOS DE LA CATEGORÍA',
-                    `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR UN POCO.`,
+                    `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.`,
                     [
                       { text: 'CANCELAR', onPress: () => this.setState({ showDeleteAlert: false }) },
                       {
