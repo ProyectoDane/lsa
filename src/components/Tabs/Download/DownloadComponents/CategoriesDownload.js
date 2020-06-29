@@ -292,7 +292,7 @@ export class CategoriesDownload extends PureComponent {
               <Progress.Bar
                 color="green"
                 width={null}
-                progress={ this.state.videosToModify.filter(v => v.downloaded).length / this.state.videosToModify.length }
+                progress={ this.state.videosToModify.filter(v => v.downloaded).length / this.state.modifiedAmount }
               />
               <Text style={styles.downloadText}>{`${
                 this.state.videosToModify.filter(v => v.downloaded).length
