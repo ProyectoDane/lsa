@@ -97,17 +97,17 @@ downloaded: false
 downloaded: false
         },
         {
-          name_es: 'LLll',
-          search_name_es: 'LLLL',
-          image: require('./res/image/ll.png'),
-          video: `${uri}/ll.mp4`,
-downloaded: false
-        },
-        {
           name_es: 'Ll',
           search_name_es: 'LL',
           image: require('./res/image/l.png'),
           video: `${uri}/l.mp4`,
+downloaded: false
+        },
+        {
+          name_es: 'LLll',
+          search_name_es: 'LLLL',
+          image: require('./res/image/ll.png'),
+          video: `${uri}/ll.mp4`,
 downloaded: false
         },
         {
