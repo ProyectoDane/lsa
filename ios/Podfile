@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'ProyectosSolidarios' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for ProyectosSolidarios
+  # Required by RNFirebase
+  pod 'Firebase/Core', '~> 4.7.0'
+
+  target 'ProyectosSolidariosTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'ProyectosSolidarios-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ProyectosSolidarios-tvOS
+
+  target 'ProyectosSolidarios-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
