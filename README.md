@@ -16,3 +16,7 @@ Usar YARN, NO usar NPM
 8. bootear el simulador con xcrun simctl boot "id del simulador" (xcrun simctl boot "iPhone X")
 9. abrir la app simulator
 10. ejecutar npx react-native run-ios --simulator="nombre del simulador" (npx react-native run-ios --simulator="iPhone X")
+
+# IMPORTANTE
+El script rmuiwebview.sh se debe correr una vez instalado el proyecto para borrar referencias a UIWebView en el root del proyecto
+Ver https://medium.com/@ivanpagac_5657/how-to-solve-itms-90809-deprecated-api-usage-with-reactnative-0-60-in-ci-pipeline-132ca60dcf60
