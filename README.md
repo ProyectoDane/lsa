@@ -1,7 +1,11 @@
 # ATENCION
-Usar YARN, NO usar NPM
+Usar YARN, NO usar NPM  
 
-# instrucciones para poder hacer build y deploy en simulador
+# ATENCION (ios)
+1. El proyecto ahora usa pods en ios para la dependecia de react native firebase, es necesario hacer pod install en la carpeta de ios
+2. abrir el proyecto con el archivo .xcworkspace dentro de la carpeta ios.
+
+# instrucciones para poder hacer build y deploy en simulador (ios)
 1. yarn
 2. pararse en node_modules/react-native/ y ejecutar ./scripts/ios-install-third-party.sh
 3. pararse en node_modules/react-native/trird-party/glog-0.3.4 y ejecutar ../../scripts/ios-configure-glog.sh
