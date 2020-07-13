@@ -1,4 +1,4 @@
-const YouTubeUri = 'https://dane-videos.s3.us-east-2.amazonaws.com';
+const YouTubeUri = 'https://youtu.be';
 export default {
   categories: [
     {
