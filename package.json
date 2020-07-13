@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "ios-setup": "sh ios-setup.sh",
     "test": "jest",
     "eslint": "eslint src/ *.js",
     "precommit": "npm run eslint",
