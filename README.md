@@ -11,7 +11,7 @@ Ver https://medium.com/@ivanpagac_5657/how-to-solve-itms-90809-deprecated-api-us
 
 ## Instrucciones para poder hacer build y deploy en simulador (ios):
 
-  #### OPCION 1 🛠 (Manual):
+#### OPCION 1 🛠 (Manual):
   1. **yarn**
   2. Pararse en **node_modules/react-native/** y ejecutar **./scripts/ios-install-third-party.sh**
   3. Pararse en **node_modules/react-native/trird-party/glog-0.3.4** y ejecutar **../../scripts/ios-configure-glog.sh**
@@ -23,6 +23,6 @@ Ver https://medium.com/@ivanpagac_5657/how-to-solve-itms-90809-deprecated-api-us
   9. Abrir la app simulator
   10. Ejecutar **npx react-native run-ios --simulator="nombre del simulador"** (por ej: npx react-native run-ios --simulator="iPhone X")
 
-  #### OPCION 2 🚀 (Automática):
+#### OPCION 2 🚀 (Automática):
   1. sh ios-setup.sh (corre todos los pasos mencionados en la **OPCION 1**)
 
