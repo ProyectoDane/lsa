@@ -17,11 +17,11 @@ import {
   import { getCardWidth, getCardsPerRow, getCardPadding } from './../../../../util/layoutUtil';
   import styles from './styles';
 
+const COUNT_DOWNLOAD_VIDEOS = 120;
 
 export class CategoriesDownload extends PureComponent {
 
-    state = { amountSelected: 0, categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})), showDownloadDialog: false, initialAmount: 0, modifiedAmount: 0, videosToModify: [], showBar: false, showDeleteAlert: false, showDeleteBar: false };
-
+    state = { amountSelected: 0, categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})), showDownloadDialog: false, initialAmount: 0, modifiedAmount: 0, videosToModify: [], videosToDownload: [], showBar: false, showDeleteAlert: false, showDeleteBar: false };
 
     _selectCategory = category => {
         const categories = [...this.state.categories];
@@ -126,7 +126,7 @@ export class CategoriesDownload extends PureComponent {
         const videos = _.flatten(selectedCategories.map(c => c.videos).map(video => video.map((v => ({...v, name: v.video.split('/').pop()})))))
         Promise.all(this._checkVideos(videos)).then(result => {
             const amount = result.filter(v => !v.downloaded).length;
-            this.setState({initialAmount: amount, modifiedAmount: result.length, showDownloadDialog: true, videosToModify: result.filter(v => !v.downloaded)})
+            this.setState({initialAmount: amount, modifiedAmount: result.length, showDownloadDialog: true, videosToModify: result.filter(v => !v.downloaded), videosToDownload: result.filter(v => !v.downloaded)})
         })
       }
       //TODO: Refactor this in order to not repete logic
@@ -135,28 +135,44 @@ export class CategoriesDownload extends PureComponent {
         const videos = _.flatten(selectedCategories.map(c => c.videos).map(video => video.map((v => ({...v, name: v.video.split('/').pop()})))))
         Promise.all(this._checkVideos(videos)).then(result => {
             const amount = result.filter(v => v.downloaded).length;
-            this.setState({initialAmount: amount, showDeleteAlert: true, videosToModify: result.filter(v => v.downloaded)})
+            this.setState({initialAmount: amount, showDeleteAlert: true, videosToModify: result.filter(v => v.downloaded), videosToDownload: result.filter(v => v.downloaded)})
         })
       }
 
-      _downloadVideos = () => {
-        Promise.all(this.state.videosToModify.map((video, index) => {
+      _downloadVideos = (start, end) => {
+        const downloading = this.state.videosToDownload.slice(start, end);
+        const downloadPending = this.state.videosToDownload.slice(end);
+        const downloaded = this.state.videosToModify.filter(v => v.downloaded);
+
+        Promise.all(
+          downloading.map((video, index) => {
             return RNFS.downloadFile({
-                fromUrl: video.video,
-                toFile: `${RNFS.DocumentDirectoryPath}/${video.name}`,
-            }).promise.then(() => {
-                const changingVideos = [...this.state.videosToModify];
-                changingVideos[index].downloaded = true;
-                this.setState(prevState =>  ({
-                            initialAmount: prevState.initialAmount - 1,
-                            videosToModify: changingVideos  
-                }))
-            })
+              fromUrl: video.video,
+              toFile: `${RNFS.DocumentDirectoryPath}/${video.name}`,
+          }).promise.then(() => {
+            downloading[index].downloaded = true;
+
+            const totalVideos = [...downloading, ...downloadPending, ...downloaded];
+              
+            this.setState(prevState =>  ({
+              initialAmount: prevState.initialAmount - 1,
+              videosToModify: totalVideos
+            }))
+          }).catch(() => {});
         })).then(() => {
-            if (this.state.videosToModify.every(v => v.downloaded)) {
+            start = end;
+            end = this.state.videosToDownload.length < end + COUNT_DOWNLOAD_VIDEOS ? this.state.videosToDownload.length : end + COUNT_DOWNLOAD_VIDEOS;
+
+            if (start === end) {
+              if (this.state.videosToModify.every(v => v.downloaded)) {
                 this.setState(prevState => ({showBar: false, categories: prevState.categories.map(c => ({...c, selected: false})) }))
+              }
+            } else {
+              setTimeout(()=>{
+                this._downloadVideos(start, end);
+              }, 1000);
             }
-        });
+        }).catch(() => {});
       }
 
       _deleteVideos = () => {
@@ -236,8 +252,10 @@ export class CategoriesDownload extends PureComponent {
                         text: 'OK',
                         onPress: () => {
                             if (this.state.videosToModify.length) {
-                                this.setState({ showDownloadDialog: false, showBar: true });
-                              this._downloadVideos();
+                              this.setState({ showDownloadDialog: false, showBar: true });
+                              const start = 0;
+                              const end = this.state.videosToDownload.length < COUNT_DOWNLOAD_VIDEOS ? this.state.videosToDownload.length : COUNT_DOWNLOAD_VIDEOS;
+                              this._downloadVideos(start, end);
                             } else {
                                 this.setState(prevState => ({ showDownloadDialog: false, categories: prevState.categories.map(c => ({...c, selected: false})) }));
                             }
@@ -274,11 +292,11 @@ export class CategoriesDownload extends PureComponent {
               <Progress.Bar
                 color="green"
                 width={null}
-                progress={this.state.videosToModify.filter(v => v.downloaded).length / this.state.videosToModify.length}
+                progress={ this.state.videosToModify.filter(v => v.downloaded).length / this.state.modifiedAmount }
               />
               <Text style={styles.downloadText}>{`${
                 this.state.videosToModify.filter(v => v.downloaded).length
-              } de ${this.state.videosToModify.length}`}</Text>
+              } de ${this.state.modifiedAmount}`}</Text>
             </View>
           )}
           {
