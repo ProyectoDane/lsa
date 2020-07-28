@@ -106,10 +106,7 @@ export class Search extends Component {
               ]}
               source={searchVideosBackground}
             >
-              <Videos
-                navigation={navigation}
-                videos={this.state.videos}
-              />
+              <Videos navigation={navigation} videos={this.state.videos} />
             </ImageBackground>
           ) : (
             <ImageBackground
@@ -125,13 +122,17 @@ export class Search extends Component {
             >
               {this.state.query.length < 1 ? (
                 <View pointerEvents="none" style={styles.videosMessageContainer}>
-                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video').toUpperCase()}</Text>
+                  <Text style={styles.videosFoundMessage}>
+                    {I18n.t('find_a_video').toUpperCase()}
+                  </Text>
                 </View>
               ) : (
                 this.state.query.length > 1 &&
                 this.state.videos.length === 0 && (
                   <View pointerEvents="none" style={styles.videosMessageContainer}>
-                    <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found').toUpperCase()}</Text>
+                    <Text style={styles.videosFoundMessage}>
+                      {I18n.t('no_videos_found').toUpperCase()}
+                    </Text>
                   </View>
                 )
               )}
@@ -159,10 +160,11 @@ export class Search extends Component {
   _searchVideos = searchString => {
     if (searchString && searchString.length > 1) {
       searchString = this._removeAccents(searchString);
-      const  { categories }  = CATEGORIES_INDEX;
+      const { categories } = CATEGORIES_INDEX;
       const foundVideos = []; // eslint-disable-line prefer-destructuring
       for (let i = 0; i < categories.length; i++) {
         for (let j = 0; j < categories[i].videos.length; j++) {
+          console.log(i, j, categories[i].videos[j]);
           if (categories[i].videos[j].search_name_es.indexOf(searchString) !== -1) {
             foundVideos.push(categories[i].videos[j]);
           }
