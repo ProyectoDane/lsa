@@ -23,16 +23,16 @@ import configureStore from './configureStore';
 import {
   Alphabetical,
   NavigationOptions as AlphaNavOpts,
-} from './components/Tabs/Alphabetical';
+} from './components/Alphabetical';
 import {
   Search,
   NavigationOptions as SearchNavOpts,
-} from './components/Tabs/Search/';
-import {Home, NavigationOptions as HomeNavOpts} from './components/Tabs/Home';
+} from './components/Search';
+import {Home, NavigationOptions as HomeNavOpts} from './components/Home';
 import {
   Information,
   NavigationOptions as InfoNavOpts,
-} from './components/Tabs/Information';
+} from './components/Information';
 import SplashScreen from './components/Splash/main-splash';
 import DaneSplashScreen from './components/Splash/dane-splash';
 import VideoSplash from './components/Splash/video-splash';
@@ -40,16 +40,13 @@ import Register from './components/Splash/register';
 import {
   Download,
   NavigationOptions as DownloadNavOpts,
-} from './components/Tabs/Download';
+} from './components/Download';
 
 // Analytics
 import analytics from '@react-native-firebase/analytics';
 const Analytics = analytics();
 
 const store = configureStore();
-
-// Splash: { screen: Splash },
-// StartupVideo: {screen: StartupVideo},
 
 const HomeStack = createStackNavigator();
 function HomeStackScreen() {

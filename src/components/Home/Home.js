@@ -1,13 +1,13 @@
 import React, {useRef} from 'react';
 import {View} from 'react-native';
 import {useScrollToTop} from '@react-navigation/native';
-import ImageBackground from '../../shared/ImageBackground';
-import {Card} from '../../shared/Card';
-import List from '../../shared/List';
-import CATEGORIES_INDEX from './../../../categoriesIndex';
-import {PAGES} from './../../../constants/';
-import Colors from '../../../res/colors';
-import I18n from '../../../res/i18n/i18n';
+import ImageBackground from '../shared/ImageBackground';
+import {Card} from '../shared/Card';
+import List from '../shared/List';
+import CATEGORIES_INDEX from '../../categoriesIndex';
+import {PAGES} from '../../constants/';
+import Colors from '../../res/colors';
+import I18n from '../../res/i18n/i18n';
 import styles from './styles';
 
 // Analytics
@@ -51,7 +51,7 @@ export function Home({navigation}) {
   return (
     <View style={styles.full}>
       <ImageBackground
-        src={require('./../../../res/background/fondo-amarillo.jpg')}>
+        src={require('../../res/background/fondo-amarillo.jpg')}>
         <List
           data={CATEGORIES_INDEX.categories}
           scrollRef={scrollRef}

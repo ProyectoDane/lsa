@@ -1,7 +1,6 @@
 import {StyleSheet, Platform} from 'react-native';
 import Colors from './../../res/colors';
 
-const infoIconMagin = 10;
 const searchInputMaginLeft = 10;
 const searchIconSize = 26;
 const searchIconMaginRight = searchInputMaginLeft;
@@ -10,10 +9,6 @@ const searchInputMaginRight =
 const noResultsMessageHorizontalMargin = 30;
 
 const styles = StyleSheet.create({
-  infoIcon: {
-    color: Colors.THEME_SECONDARY,
-    margin: infoIconMagin,
-  },
   mainContainer: {
     flex: 1,
   },

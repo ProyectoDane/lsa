@@ -1,15 +1,15 @@
 import React, {useRef} from 'react';
-import Video from '../../shared/Video';
+import Video from '../shared/Video';
 import {Text, Image, View, ScrollView, Linking} from 'react-native';
 import {useScrollToTop} from '@react-navigation/native';
-import Colors from '../../../res/colors';
-import I18n from '../../../res/i18n/i18n';
-import TextEs from '../../../res/i18n/es';
+import Colors from '../../res/colors';
+import I18n from '../../res/i18n/i18n';
+import TextEs from '../../res/i18n/es';
 import {styles, margin} from './styles';
 
-const tincSource = require('../../../res/image/tinc.png');
-const fundasorSource = require('../../../res/image/fundasor.png');
-const hexactaSource = require('../../../res/image/hexacta.png');
+const tincSource = require('../../res/image/tinc.png');
+const fundasorSource = require('../../res/image/fundasor.png');
+const hexactaSource = require('../../res/image/hexacta.png');
 
 export const NavigationOptions = {
   title: I18n.t('info_tab_title').toUpperCase(),
@@ -35,7 +35,7 @@ export function Information() {
       <View style={{marginHorizontal: margin}}>
         <Image
           style={styles.daneImage}
-          source={require('../../../res/icon/dane_logo_transparencia.png')}
+          source={require('../../res/icon/dane_logo_transparencia.png')}
         />
         <Text style={styles.title}>DANE</Text>
         <Text style={styles.text}>{TextEs.info_description.toUpperCase()}</Text>

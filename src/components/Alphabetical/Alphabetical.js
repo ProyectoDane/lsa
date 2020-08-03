@@ -1,18 +1,18 @@
 import React, {useRef} from 'react';
 import {View, Alert} from 'react-native';
 import {useScrollToTop} from '@react-navigation/native';
-import ImageBackground from '../../shared/ImageBackground';
-import {Card} from '../../shared/Card';
-import List from '../../shared/List';
+import ImageBackground from '../shared/ImageBackground';
+import {Card} from '../shared/Card';
+import List from '../shared/List';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {PAGES} from './../../../constants/';
-import Colors from '../../../res/colors';
-import I18n from '../../../res/i18n/i18n';
+import {PAGES} from '../../constants/';
+import Colors from '../../res/colors';
+import I18n from '../../res/i18n/i18n';
 
-import CATEGORIES_INDEX from '../../../categoriesIndex';
-import {ALPHABETICAL_CATEGORY_NAME_ES} from '../../../constants/index';
+import CATEGORIES_INDEX from '../../categoriesIndex';
+import {ALPHABETICAL_CATEGORY_NAME_ES} from '../../constants/index';
 
-import {styles} from '../styles';
+import styles from './styles';
 
 export const NavigationOptions = ({navigation}) => ({
   title: I18n.t('alphabetical_tab_title'),
@@ -62,7 +62,7 @@ export function Alphabetical({navigation, route}) {
   return (
     <View style={styles.full}>
       <ImageBackground
-        src={require('../../../res/background/fondo-amarillo.jpg')}>
+        src={require('../../res/background/fondo-amarillo.jpg')}>
         <List data={videos} scrollRef={scrollRef} renderItem={renderItem} />
         {route.params?.showDialog &&
           Alert.alert(

@@ -10,16 +10,16 @@ import {
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {PAGES} from './../../../constants/';
-import Colors from '../../../res/colors';
-import I18n from '../../../res/i18n/i18n';
-import CATEGORIES_INDEX from '../../../categoriesIndex';
+import {PAGES} from './../../constants/';
+import Colors from '../../res/colors';
+import I18n from '../../res/i18n/i18n';
+import CATEGORIES_INDEX from '../../categoriesIndex';
 
-import {styles, searchInputMaginLeft, searchInputMaginRight} from '../styles';
-import ImageBackground from '../../shared/ImageBackground';
-import {Card} from '../../shared/Card';
-import List from '../../shared/List';
-const searchVideosBackground = require('../../../res/background/fondo-verde.jpg');
+import {styles, searchInputMaginLeft, searchInputMaginRight} from './styles';
+import ImageBackground from '../shared/ImageBackground';
+import {Card} from '../shared/Card';
+import List from '../shared/List';
+const searchVideosBackground = require('../../res/background/fondo-verde.jpg');
 
 export const NavigationOptions = ({navigation, route}) => ({
   title: '',

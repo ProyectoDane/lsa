@@ -1,12 +1,12 @@
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
 import {Alert, Text, View, TouchableOpacity} from 'react-native';
-import ImageBackground from '../../../shared/ImageBackground';
-import {SelectableCard} from '../../../shared/Card';
-import List from '../../../shared/List';
+import ImageBackground from '../../shared/ImageBackground';
+import {SelectableCard} from '../../shared/Card';
+import List from '../../shared/List';
 import _ from 'lodash';
 import RNFS from 'react-native-fs';
-import CATEGORIES_INDEX from './../../../../categoriesIndex';
+import CATEGORIES_INDEX from '../../../categoriesIndex';
 import styles from './styles';
 
 export class CategoriesDownload extends PureComponent {
@@ -145,7 +145,7 @@ export class CategoriesDownload extends PureComponent {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground
-          src={require('./../../../../res/background/fondo-amarillo.jpg')}>
+          src={require('../../../res/background/fondo-amarillo.jpg')}>
           <List
             data={this.state.categories}
             renderItem={this._renderCategory}

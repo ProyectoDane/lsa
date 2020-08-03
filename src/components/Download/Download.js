@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import {View} from 'react-native';
 import CategoriesDownload from './DownloadComponents';
-import Colors from '../../../res/colors';
-import I18n from '../../../res/i18n/i18n';
+import Colors from '../../res/colors';
+import I18n from '../../res/i18n/i18n';
 import styles from './styles';
 
 export const NavigationOptions = {
