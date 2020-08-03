@@ -1,22 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
-
-const margin = 12;
-const playIconSize = 100;
+import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  backgroundImageStyle: {
-    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch',
-  },
-  videoContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: margin,
-    marginBottom: margin,
-    backgroundColor: 'white',
-  },
-  video: {
-    //backgroundColor: 'transparent',
-  },
   cardContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -26,18 +10,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  playIcon: {
-    height: playIconSize,
-    width: playIconSize,
-  },
   full: {
     flex: 1,
+  },
+  content: {
+    alignContent: 'space-between',
+  },
+  arrow: {
+    position: 'absolute',
+    bottom: 40,
+  },
+  arrowLeft: {
+    left: 30,
+  },
+  arrowRight: {
+    right: 30,
+  },
+  arrowColor: {
+    color: '#5D5D5D',
   },
   loader: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
-export { styles, margin };
+export {styles};

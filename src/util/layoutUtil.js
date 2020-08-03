@@ -1,5 +1,5 @@
-import { Dimensions, Platform } from 'react-native';
-import { deviceIsInLandscapeMode } from './deviceUtil';
+import {Dimensions, Platform} from 'react-native';
+import {deviceIsInLandscapeMode} from './deviceUtil';
 
 export const getCardPadding = () => {
   return 6;
@@ -13,7 +13,9 @@ export const getCardsPerRow = () => {
 };
 
 export const getCardWidth = () => {
-  return (Dimensions.get('window').width - 2 * getCardPadding()) / getCardsPerRow();
+  return (
+    (Dimensions.get('window').width - 2 * getCardPadding()) / getCardsPerRow()
+  );
 };
 
 export const getStackNavigatorBarHeight = () => {

@@ -1,3 +1,1 @@
-import { VideoPlayer } from './VideoPlayer';
-
-export default VideoPlayer;
+export {VideoPlayer, NavigationOptions} from './VideoPlayer';

@@ -1,11 +1,12 @@
-import { StyleSheet, Platform } from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import Colors from './../../res/colors';
 
 const infoIconMagin = 10;
 const searchInputMaginLeft = 10;
 const searchIconSize = 26;
 const searchIconMaginRight = searchInputMaginLeft;
-const searchInputMaginRight = searchIconMaginRight + searchIconSize + searchInputMaginLeft;
+const searchInputMaginRight =
+  searchIconMaginRight + searchIconSize + searchInputMaginLeft;
 const noResultsMessageHorizontalMargin = 30;
 
 const styles = StyleSheet.create({
@@ -41,9 +42,6 @@ const styles = StyleSheet.create({
     marginRight: noResultsMessageHorizontalMargin,
     fontFamily: 'nunito',
   },
-  backgroundImageStyle: {
-    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch',
-  },
   searchIcon: {
     color: Colors.THEME_SECONDARY,
     marginRight: searchIconMaginRight,
@@ -53,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { styles, searchInputMaginLeft, searchInputMaginRight };
+export {styles, searchInputMaginLeft, searchInputMaginRight};

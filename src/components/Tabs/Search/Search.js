@@ -1,176 +1,161 @@
-import React, { Component } from 'react';
+import React, {useState, useRef} from 'react';
+import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
 import {
   Dimensions,
   TextInput,
   View,
   Text,
-  ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import {PAGES} from './../../../constants/';
 import Colors from '../../../res/colors';
 import I18n from '../../../res/i18n/i18n';
 import CATEGORIES_INDEX from '../../../categoriesIndex';
 
-import { styles, searchInputMaginLeft, searchInputMaginRight } from '../styles';
-import Videos from '../../Videos/index';
-
+import {styles, searchInputMaginLeft, searchInputMaginRight} from '../styles';
+import ImageBackground from '../../shared/ImageBackground';
+import {Card} from '../../shared/Card';
+import List from '../../shared/List';
 const searchVideosBackground = require('../../../res/background/fondo-verde.jpg');
 
-export class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-      videos: [],
-    };
-  }
+export const NavigationOptions = ({navigation, route}) => ({
+  title: '',
+  headerTintColor: Colors.THEME_SECONDARY,
+  headerStyle: {
+    backgroundColor: Colors.THEME_PRIMARY,
+    elevation: 0,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
+  },
+  headerLeft: () => (
+    <TextInput
+      style={[
+        styles.searchInput,
+        {
+          width:
+            Dimensions.get('window').width -
+            searchInputMaginLeft -
+            searchInputMaginRight,
+        },
+      ]}
+      autoCapitalize="characters"
+      underlineColorAndroid="transparent"
+      placeholder={I18n.t('search_video').toUpperCase()}
+      placeholderTextColor={Colors.THEME_SECONDARY}
+      autoFocus={false}
+      onChangeText={text => navigation.setParams({searchQuery: text})}
+      value={route.params?.searchQuery || ''}
+    />
+  ),
+  headerRight: () => (
+    <Ionicons
+      name={
+        route.params?.searchQuery
+          ? 'ios-close-circle-outline'
+          : 'ios-search-outline'
+      }
+      size={26}
+      style={styles.searchIcon}
+      onPress={() => navigation.setParams({searchQuery: ''})}
+    />
+  ),
+});
 
-  static navigationOptions = ({ navigation }) => ({
-    headerTintColor: Colors.THEME_SECONDARY,
-    headerStyle: {
-      backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0,
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-    },
-    headerLeft: (
-      <TextInput
-        ref={r => {
-          this.searchInputRef = r;
-        }}
-        style={[
-          styles.searchInput,
-          {
-            width: Dimensions.get('window').width - searchInputMaginLeft - searchInputMaginRight,
-          },
-        ]}
-        autoCapitalize="characters"
-        underlineColorAndroid="transparent"
-        placeholder={I18n.t('search_video').toUpperCase()}
-        placeholderTextColor={Colors.THEME_SECONDARY}
-        autoFocus={false}
-        onChangeText={text => navigation.setParams({ searchQuery: text })}
-        value={navigation.state.params ? navigation.state.params.searchQuery : ''}
-      />
-    ),
-    headerRight: (
-      <Ionicons
-        name={
-          navigation.state.params && navigation.state.params.searchQuery
-            ? 'ios-close-circle-outline'
-            : 'ios-search-outline'
-        }
-        size={26}
-        style={styles.searchIcon}
-        onPress={() => navigation.setParams({ searchQuery: '' })}
-      />
-    ),
-  });
+export function Search({navigation, route}) {
+  const [query, setQuery] = useState('');
+  const [videos, setVideos] = useState([]);
+  const scrollRef = useRef(null);
 
-  shouldComponentUpdate(nextProps) {
-    const { navigation } = this.props;
-    if (navigation.state.params) {
-      return navigation.state.params.searchQuery !== nextProps.navigation.state.params.searchQuery;
-    }
-    return false;
-  }
+  useScrollToTop(scrollRef);
 
-  componentWillReceiveProps(nextProps) {
-    const { navigation, dispatchSearchPageRestarted } = this.props;
-    if (nextProps.shouldRestartSearch) {
-      navigation.setParams({ searchQuery: '' });
-      dispatchSearchPageRestarted();
-    } else if (nextProps.navigation.state.params) {
-      this._searchVideos(nextProps.navigation.state.params.searchQuery.toUpperCase());
-    }
-  }
+  useFocusEffect(
+    React.useCallback(() => {
+      const searchQuery = (route.params?.searchQuery || '').toUpperCase();
+      setQuery(searchQuery);
+      setVideos(searchVideos(searchQuery));
+    }, [route.params]),
+  );
 
-  _onLayout = () => {
-    this.forceUpdate();
+  const _navigateToVideo = video => {
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
   };
 
-  render() {
-    const { navigation } = this.props;
-    return (
-      <View style={styles.full} onLayout={this._onLayout}>
-        <TouchableWithoutFeedback style={styles.mainContainer} onPressIn={() => Keyboard.dismiss()}>
-          {this.state.query !== '' && this.state.videos.length > 0 ? (
-            <ImageBackground
-              style={styles.full}
-              imageStyle={[
-                styles.backgroundImageStyle,
-                { width: Dimensions.get('window').width, height: Dimensions.get('window').height },
-              ]}
-              source={searchVideosBackground}
-            >
-              <Videos
-                navigation={navigation}
-                videos={this.state.videos}
-              />
-            </ImageBackground>
-          ) : (
-            <ImageBackground
-              style={styles.full}
-              imageStyle={[
-                styles.backgroundImageStyle,
-                {
-                  width: Dimensions.get('window').width,
-                  height: Dimensions.get('window').height,
-                },
-              ]}
-              source={searchVideosBackground}
-            >
-              {this.state.query.length < 1 ? (
-                <View pointerEvents="none" style={styles.videosMessageContainer}>
-                  <Text style={styles.videosFoundMessage}>{I18n.t('find_a_video').toUpperCase()}</Text>
-                </View>
-              ) : (
-                this.state.query.length > 1 &&
-                this.state.videos.length === 0 && (
-                  <View pointerEvents="none" style={styles.videosMessageContainer}>
-                    <Text style={styles.videosFoundMessage}>{I18n.t('no_videos_found').toUpperCase()}</Text>
-                  </View>
-                )
-              )}
-            </ImageBackground>
-          )}
-        </TouchableWithoutFeedback>
-      </View>
-    );
-  }
+  const renderItem = ({item}) => (
+    <Card
+      key={item.name_es}
+      src={item.image}
+      onPress={() => _navigateToVideo(item)}
+      name={item.name_es}
+    />
+  );
 
-  _removeAccents = string => {
-    return string
-      .split('Á')
-      .join('A')
-      .split('É')
-      .join('E')
-      .split('Í')
-      .join('I')
-      .split('Ó')
-      .join('O')
-      .split('Ú')
-      .join('U');
-  };
+  return (
+    <View style={styles.full}>
+      <TouchableWithoutFeedback
+        style={styles.mainContainer}
+        onPressIn={() => Keyboard.dismiss()}>
+        {query !== '' && videos.length > 0 ? (
+          <ImageBackground src={searchVideosBackground}>
+            <List data={videos} scrollRef={scrollRef} renderItem={renderItem} />
+          </ImageBackground>
+        ) : (
+          <ImageBackground src={searchVideosBackground}>
+            {query.length < 1 ? (
+              <Message>{I18n.t('find_a_video').toUpperCase()}</Message>
+            ) : (
+              query.length > 1 &&
+              videos.length === 0 && (
+                <Message>{I18n.t('no_videos_found').toUpperCase()}</Message>
+              )
+            )}
+          </ImageBackground>
+        )}
+      </TouchableWithoutFeedback>
+    </View>
+  );
+}
 
-  _searchVideos = searchString => {
-    if (searchString && searchString.length > 1) {
-      searchString = this._removeAccents(searchString);
-      const  { categories }  = CATEGORIES_INDEX;
-      const foundVideos = []; // eslint-disable-line prefer-destructuring
-      for (let i = 0; i < categories.length; i++) {
-        for (let j = 0; j < categories[i].videos.length; j++) {
-          if (categories[i].videos[j].search_name_es.indexOf(searchString) !== -1) {
-            foundVideos.push(categories[i].videos[j]);
-          }
+function Message(props) {
+  return (
+    <View pointerEvents="none" style={styles.videosMessageContainer}>
+      <Text style={styles.videosFoundMessage}>{props.children}</Text>
+    </View>
+  );
+}
+
+const removeAccents = string => {
+  return string
+    .split('Á')
+    .join('A')
+    .split('É')
+    .join('E')
+    .split('Í')
+    .join('I')
+    .split('Ó')
+    .join('O')
+    .split('Ú')
+    .join('U');
+};
+
+const searchVideos = searchString => {
+  if (searchString && searchString.length > 1) {
+    searchString = removeAccents(searchString);
+    const {categories} = CATEGORIES_INDEX;
+    const foundVideos = [];
+    for (let i = 0; i < categories.length; i++) {
+      for (let j = 0; j < categories[i].videos.length; j++) {
+        if (
+          categories[i].videos[j].search_name_es.indexOf(searchString) !== -1
+        ) {
+          foundVideos.push(categories[i].videos[j]);
         }
       }
-      this.setState({ query: searchString, videos: foundVideos });
-    } else {
-      this.setState({ query: searchString, videos: [] });
     }
-  };
-}
+    return foundVideos;
+  } else {
+    return [];
+  }
+};

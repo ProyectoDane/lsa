@@ -1,7 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 const margin = 12;
-const playIconSize = 100;
 
 const styles = StyleSheet.create({
   full: {
@@ -10,57 +9,40 @@ const styles = StyleSheet.create({
   transparent: {
     backgroundColor: 'transparent',
   },
-  backgroundImageStyle: {
-    resizeMode: Platform.OS === 'ios' ? 'repeat' : 'stretch',
-  },
-  videoContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: margin,
-    marginBottom: margin,
-    backgroundColor: 'white',
-  },
-  video: {
-    //backgroundColor: 'transparent',
-  },
-  playIcon: {
-    height: playIconSize,
-    width: playIconSize,
-  },
   tincImage: {
     height: 100,
     width: 300,
     resizeMode: 'contain',
-    marginBottom: 10
+    marginBottom: 10,
   },
   daneImage: {
     height: 150,
     width: 300,
     resizeMode: 'contain',
-    marginBottom: 10
+    marginBottom: 10,
   },
   title: {
     fontSize: 17,
     marginBottom: 10,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   coordinacionTitle: {
     fontSize: 17,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
-    marginTop: 10
+    marginTop: 10,
   },
   subtitle: {
     fontSize: 15,
     marginBottom: 2,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   text: {
-    marginBottom: 10
+    marginBottom: 10,
   },
   textLink: {
-    color: 'blue'
-  }
+    color: 'blue',
+  },
 });
 
-export { styles, margin };
+export {styles, margin};

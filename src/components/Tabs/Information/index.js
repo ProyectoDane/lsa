@@ -1,3 +1,1 @@
-import { Information } from './Information';
-
-export default Information;
+export {Information, NavigationOptions} from './Information';

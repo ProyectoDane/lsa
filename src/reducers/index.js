@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import restartPage from './restartPage';
 
 const rootReducer = combineReducers({
-  restartPage
+  restartPage,
 });
 
 export default rootReducer;

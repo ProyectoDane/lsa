@@ -1,3 +1,1 @@
-import { Download } from './Download';
-
-export default Download;
+export {Download, NavigationOptions} from './Download';

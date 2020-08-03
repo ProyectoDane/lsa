@@ -1,10 +1,9 @@
-/* eslint-disable no-case-declarations */
-import React, { Component } from 'react';
-import { TabBarBottom, NavigationActions } from 'react-navigation';
+import React, {Component} from 'react';
+import {TabBarBottom, NavigationActions} from 'react-navigation';
 
 export class TabBarComponent extends Component {
   _jumpToIndex = index => {
-    const { navigation, navigationState } = this.props;
+    const {navigation, navigationState} = this.props;
     const tab = navigationState.routes[index];
     if (navigationState.index !== index) {
       navigation.dispatch({
@@ -27,7 +26,9 @@ export class TabBarComponent extends Component {
         default:
           const resetAction = NavigationActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({ routeName: tab.routes[0].routeName })],
+            actions: [
+              NavigationActions.navigate({routeName: tab.routes[0].routeName}),
+            ],
           });
           navigation.dispatch(resetAction);
       }

@@ -1,33 +1,37 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/no-array-index-key */
 import * as Progress from 'react-native-progress';
-import React, { PureComponent } from 'react';
-import { AsyncStorage, View, Alert, ScrollView, Text, Dimensions, ImageBackground, Image, Modal } from 'react-native';
+import React, {PureComponent} from 'react';
+import {View, Alert, ScrollView, Text, Modal} from 'react-native';
+import ImageBackground from '../shared/ImageBackground';
+import {SelectableCard} from '../shared/Card';
+import List from '../shared/List';
+import AsyncStorage from '@react-native-community/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFS from 'react-native-fs';
-import Videos from './../Videos';
+import {PAGES} from './../../constants';
 import Colors from './../../res/colors';
-import { styles } from './styles';
+import I18n from './../../res/i18n/i18n';
+import {styles} from './styles';
 // Analytics
-import firebase from 'react-native-firebase';
-
-const Analytics = firebase.analytics();
+import analytics from '@react-native-firebase/analytics';
+const Analytics = analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
-const comoSeUsa1 = require('./../../res/image/1-como-se-usa.png');
-const comoSeUsa2 = require('./../../res/image/2-como-se-usa.png');
-const comoSeUsa3 = require('./../../res/image/3-como-se-usa.png');
-const comoSeUsa4 = require('./../../res/image/4-como-se-usa.png');
-const comoSeUsa5 = require('./../../res/image/5-como-se-usa.png');
-const comoSeUsa6 = require('./../../res/image/6-como-se-usa.png');
-const listaSlider = [comoSeUsa1, comoSeUsa2, comoSeUsa3, comoSeUsa4, comoSeUsa5, comoSeUsa6];
+const listaSlider = [
+  require('./../../res/image/1-como-se-usa.png'),
+  require('./../../res/image/2-como-se-usa.png'),
+  require('./../../res/image/3-como-se-usa.png'),
+  require('./../../res/image/4-como-se-usa.png'),
+  require('./../../res/image/5-como-se-usa.png'),
+  require('./../../res/image/6-como-se-usa.png'),
+];
 
 export class Category extends PureComponent {
-  static navigationOptions = ({ navigation }) => ({
-    title: navigation.state.params.category.name_es,
+  static navigationOptions = ({navigation, route}) => ({
+    title: route.params.category.name_es,
     headerTintColor: Colors.THEME_SECONDARY,
-    headerBackTitle: null,
+    headerTruncatedBackTitle: I18n.t('back'),
     headerTitleStyle: {
       fontFamily: 'nunito',
     },
@@ -37,33 +41,43 @@ export class Category extends PureComponent {
       borderBottomWidth: 1,
       borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
     },
-    headerRight:
-      !navigation.state.params.categoryFull || navigation.state.params.categoryFull == undefined ? (
+    headerRight: () =>
+      !route.params.categoryFull ? (
         <MaterialIcons
           name="cloud-download"
           size={30}
           style={styles.downloadIcon}
-          onPress={() => navigation.setParams({ showDialog: true })}
+          onPress={() => navigation.setParams({showDialog: true})}
         />
       ) : (
         <MaterialIcons
           name="delete"
           size={30}
           style={styles.downloadIcon}
-          onPress={() => navigation.setParams({ deleteDialog: true })}
+          onPress={() => navigation.setParams({deleteDialog: true})}
         />
       ),
   });
 
-  state = { activeSlide: 0, downloadedVideos: 0, showBar: false, videos: [], initialAmount: 0, refresh: false, firstCategory: false };
+  state = {
+    activeSlide: 0,
+    downloadedVideos: 0,
+    showBar: false,
+    videos: [],
+    initialAmount: 0,
+    refresh: false,
+    firstCategory: false,
+  };
 
-  _isFirstCategory = async() => {
+  _isFirstCategory = async () => {
     const isFirstCategory = await AsyncStorage.getItem('firstCategory');
-    isFirstCategory === 'false' ? this.setState({firstCategory: false }) : this.setState({firstCategory: true});
-  }
+    isFirstCategory === 'false'
+      ? this.setState({firstCategory: false})
+      : this.setState({firstCategory: true});
+  };
 
   componentDidMount() {
-    const { navigation } = this.props;
+    const {navigation} = this.props;
     this._isFirstCategory();
     navigation.addListener('didFocus', payload => {
       this.setState(prevState => {
@@ -74,49 +88,54 @@ export class Category extends PureComponent {
   }
 
   reload() {
-    const { navigation } = this.props;
-    const videos = navigation.state.params.category.videos.map(video => ({
+    const {navigation, route} = this.props;
+    const videos = route.params.category.videos.map(video => ({
       ...video,
       name: video.video.split('/').pop(),
     }));
-    // RNFS.getFSInfo().then(result => console.log(result));
     Promise.all(this._checkVideos(videos)).then(result => {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
       if (videos.length === downloaded) {
-        navigation.setParams({ categoryFull: true });
+        navigation.setParams({categoryFull: true});
       }
-      this.setState({ videos: result, initialAmount: amount, downloadedVideos: downloaded });
+      this.setState({
+        videos: result,
+        initialAmount: amount,
+        downloadedVideos: downloaded,
+      });
     });
   }
 
   _checkVideos(videos) {
     return videos.map(video => {
       const path = `${RNFS.DocumentDirectoryPath}/${video.name}`;
-      return RNFS.exists(path).then(existingFile => ({ ...video, downloaded: existingFile }));
+      return RNFS.exists(path).then(existingFile => ({
+        ...video,
+        downloaded: existingFile,
+      }));
     });
   }
 
   _deleteVideos = () => {
-    const { navigation } = this.props;
-    const { name_es } = navigation.state.params.category;
+    const {navigation} = this.props;
     this.state.videos.forEach(video => {
       if (video.downloaded) {
         const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`;
         RNFS.unlink(videoFile);
       }
     });
-    navigation.setParams({ categoryFull: false });
+    navigation.setParams({categoryFull: false});
 
-    this.setState({ initialAmount: 0, downloadedVideos: 0 });
+    this.setState({initialAmount: 0, downloadedVideos: 0});
 
     this.reload();
   };
 
   _downloadVideos = () => {
-    const { navigation } = this.props;
-    const { name_es } = navigation.state.params.category;
-    this.setState({ showBar: true });
+    const {navigation, route} = this.props;
+    const {name_es} = route.params.category;
+    this.setState({showBar: true});
 
     this.state.videos.forEach((video, index) => {
       if (!video.downloaded) {
@@ -129,12 +148,13 @@ export class Category extends PureComponent {
           this.setState(prevState => {
             if (
               (prevState.initialAmount === 0 &&
-                changingVideos.length === prevState.downloadedVideos ||
-                prevState.initialAmount === 1 &&
-                changingVideos.length === prevState.downloadedVideos+prevState.initialAmount)
+                changingVideos.length === prevState.downloadedVideos) ||
+              (prevState.initialAmount === 1 &&
+                changingVideos.length ===
+                  prevState.downloadedVideos + prevState.initialAmount)
             ) {
-              navigation.setParams({ categoryFull: true });
-              Analytics.logEvent('category_download', { category: name_es });
+              navigation.setParams({categoryFull: true});
+              Analytics.logEvent('category_download', {category: name_es});
               return {
                 downloadedVideos: changingVideos.length,
                 initialAmount: 0,
@@ -158,116 +178,135 @@ export class Category extends PureComponent {
   };
   _onLayout = () => this.forceUpdate();
   _onChangeSlide = ({nativeEvent}) => {
-    const slide = Math.ceil(nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width);
+    const slide = Math.ceil(
+      nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
+    );
     if (slide !== this.state.activeSlide) {
-      this.setState({activeSlide: slide})
-    } 
-  }
-  _onCloseModal = async() => {
+      this.setState({activeSlide: slide});
+    }
+  };
+  _onCloseModal = async () => {
     await AsyncStorage.setItem('firstCategory', 'false');
     this.setState({firstCategory: false});
-  }  
+  };
   _getTutorialLayout = () => {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <Modal
           visible={this.state.firstCategory}
-          onRequestClose={this._onCloseModal}
-        >
-        <ScrollView
-          horizontal
-          pagingEnabled
-          onScroll={this._onChangeSlide}
-          showsHorizontalScrollIndicator={false}
-          style={styles.image}
-        >
-          {
-            listaSlider.map((i, k) => (
-                  <ImageBackground source={i}
-                  style={styles.image}
-                  key={k}
-              />
-            ))
-          }
-          
-        </ScrollView>
-        <View style={styles.iconStyle}>
-          <Ionicons name='ios-close-outline' size={70}  style={{color: '#fff'}} onPress={this._onCloseModal}/>
+          onRequestClose={this._onCloseModal}>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            onScroll={this._onChangeSlide}
+            showsHorizontalScrollIndicator={false}
+            style={styles.image}>
+            {listaSlider.map((i, k) => (
+              <ImageBackground src={i} style={styles.image} key={k} />
+            ))}
+          </ScrollView>
+          <View style={styles.iconStyle}>
+            <Ionicons
+              name="ios-close-outline"
+              size={70}
+              style={{color: '#fff'}}
+              onPress={this._onCloseModal}
+            />
           </View>
-        <View style={styles.buttonModal}>
-          {
-            listaSlider.map((i, k) => (
-              <Text style={k === this.state.activeSlide ? styles.activeCircle : styles.inactiveCircle} key={k}>⬤</Text>
-            ))
-          }
-          
-        </View>
+          <View style={styles.buttonModal}>
+            {listaSlider.map((i, k) => (
+              <Text
+                style={
+                  k === this.state.activeSlide
+                    ? styles.activeCircle
+                    : styles.inactiveCircle
+                }
+                key={k}>
+                ⬤
+              </Text>
+            ))}
+          </View>
         </Modal>
       </View>
-    )
+    );
+  };
+
+  _navigateToVideo(video) {
+    const {navigation} = this.props;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
   }
 
+  _renderVideo = ({item}) => (
+    <SelectableCard
+      key={item.name_es}
+      onPress={() => this._navigateToVideo(item)}
+      src={item.image}
+      name={item.name_es}
+      selected={item.downloaded}
+      color={'#1AA299'}
+    />
+  );
+
   render() {
-    const { navigation } = this.props;
-    const { params } = navigation.state;
+    const {navigation, route} = this.props;
+    const params = route.params;
     const videosAmount = params.category.videos.length;
     const amount = videosAmount - this.state.initialAmount;
-    return (
-      this.state.firstCategory ? this._getTutorialLayout() : 
+    return this.state.firstCategory ? (
+      this._getTutorialLayout()
+    ) : (
       <View style={styles.full} onLayout={this._onLayout}>
-        <ImageBackground
-          style={styles.full}
-          imageStyle={[
-            styles.backgroundImageStyle,
-            { width: Dimensions.get('window').width, height: Dimensions.get('window').height },
-          ]}
-          source={categoryVideosBackground}
-        >
-          <View style={{ borderBottomWidth: 1, borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON }}>
+        <ImageBackground src={categoryVideosBackground}>
+          <View
+            style={{
+              borderBottomWidth: 1,
+              borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
+            }}>
             <Text style={styles.headerText}>
               {amount} VIDEOS DESCARGADOS DE {videosAmount}
             </Text>
           </View>
           <ScrollView>
-            <Videos navigation={navigation} videos={this.state.videos} />
-            {navigation.state.params &&
-              navigation.state.params.showDialog &&
+            <List renderItem={this._renderVideo} data={this.state.videos} />
+            {params.showDialog &&
               Alert.alert(
                 'DESCARGA VIDEOS',
                 `VAS A DESCARGAR ${
                   this.state.initialAmount
                 } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
                 [
-                  { text: 'CANCELAR', onPress: () => navigation.setParams({ showDialog: false }) },
+                  {
+                    text: 'CANCELAR',
+                    onPress: () => navigation.setParams({showDialog: false}),
+                  },
                   {
                     text: 'OK',
                     onPress: () => {
-                      navigation.setParams({ showDialog: false });
+                      navigation.setParams({showDialog: false});
                       this._downloadVideos();
                     },
                   },
                 ],
-                { cancelable: false }
+                {cancelable: false},
               )}
-            {navigation.state.params &&
-              navigation.state.params.deleteDialog &&
+            {params.deleteDialog &&
               Alert.alert(
                 'BORRAR VIDEOS DE LA CATEGORÍA',
-                `VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.`,
+                'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
                 [
                   {
                     text: 'CANCELAR',
-                    onPress: () => navigation.setParams({ deleteDialog: false }),
+                    onPress: () => navigation.setParams({deleteDialog: false}),
                   },
                   {
                     text: 'OK',
                     onPress: () => {
-                      navigation.setParams({ deleteDialog: false });
+                      navigation.setParams({deleteDialog: false});
                       this._deleteVideos();
                     },
                   },
                 ],
-                { cancelable: false }
+                {cancelable: false},
               )}
           </ScrollView>
           {this.state.showBar && (
