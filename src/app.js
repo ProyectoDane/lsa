@@ -19,7 +19,7 @@ import {
 } from './components/VideoPlayer';
 import Colors from './res/colors';
 import configureStore from './configureStore';
-// import TabBarComponent from './components/TabBarComponent/';
+
 import {
   Alphabetical,
   NavigationOptions as AlphaNavOpts,
@@ -190,14 +190,6 @@ function ProyectosSolidariosTabScreen() {
     </ProyectosSolidariosTab.Navigator>
   );
 }
-//   {
-//     // tabBarComponent: props => <TabBarComponent {...props} />,
-//     // tabBarPosition: 'bottom',
-//     navigationOptions: () => ({
-//       tabBarOnPress: ({ scene, jumpToIndex }) => jumpToIndex(scene.index),
-//     }),
-//   }
-// );
 
 export class App extends PureComponent {
   constructor(props) {
