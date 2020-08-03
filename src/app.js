@@ -10,8 +10,6 @@ import {Provider} from 'react-redux';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// import Splash from './components/launcher/splash';
-// import StartupVideo from './components/launcher/startupVideo';
 import Category from './components/Category';
 import {
   VideoPlayer,
@@ -24,10 +22,7 @@ import {
   Alphabetical,
   NavigationOptions as AlphaNavOpts,
 } from './components/Alphabetical';
-import {
-  Search,
-  NavigationOptions as SearchNavOpts,
-} from './components/Search';
+import {Search, NavigationOptions as SearchNavOpts} from './components/Search';
 import {Home, NavigationOptions as HomeNavOpts} from './components/Home';
 import {
   Information,

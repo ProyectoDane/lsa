@@ -61,8 +61,7 @@ export function Alphabetical({navigation, route}) {
 
   return (
     <View style={styles.full}>
-      <ImageBackground
-        src={require('../../res/background/fondo-amarillo.jpg')}>
+      <ImageBackground src={require('../../res/background/fondo-amarillo.jpg')}>
         <List data={videos} scrollRef={scrollRef} renderItem={renderItem} />
         {route.params?.showDialog &&
           Alert.alert(
