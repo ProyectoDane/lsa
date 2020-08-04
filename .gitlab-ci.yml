@@ -1,0 +1,6 @@
+before_script:
+  - yarn
+
+lint:
+  script:
+    - npm run lint
