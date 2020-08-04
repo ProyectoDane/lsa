@@ -2,5 +2,7 @@ before_script:
   - yarn
 
 lint:
+  tags:
+    - node
   script:
     - npm run lint
