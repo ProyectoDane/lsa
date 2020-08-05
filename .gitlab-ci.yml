@@ -6,3 +6,9 @@ lint:
     - node
   script:
     - npm run lint
+
+test:
+  tags:
+    - node
+  script:
+    - npm test
