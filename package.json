@@ -43,6 +43,7 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "@testing-library/jest-native": "^3.3.0",
     "@testing-library/react-native": "^7.0.1",
+    "@types/jest": "^26.0.8",
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
@@ -51,6 +52,8 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFilesAfterEnv": ["@testing-library/jest-native/extend-expect"]
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   }
 }
