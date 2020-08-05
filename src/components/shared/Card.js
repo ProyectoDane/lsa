@@ -41,13 +41,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Card(props) {
+export function Card({name, children, onPress, src}) {
   const imagePaddingHorizontal = getCardPadding() * 2;
   const imagePaddingVertical = getCardPadding() * 2;
 
   return (
     <TouchableOpacity
-      onPress={props.onPress}
+      onPress={onPress}
       style={[
         styles.cardContainer,
         {
@@ -64,7 +64,7 @@ export function Card(props) {
             height: getCardWidth() - 4 * getCardPadding(),
           },
         ]}>
-        {props.children}
+        {children}
         <Image
           style={[
             styles.image,
@@ -76,7 +76,7 @@ export function Card(props) {
                 getCardWidth() - 2 * (getCardPadding() + imagePaddingVertical),
             },
           ]}
-          source={props.src}
+          source={src}
         />
       </View>
       <View
@@ -87,7 +87,7 @@ export function Card(props) {
             paddingHorizontal: imagePaddingHorizontal,
           },
         ]}>
-        <Text style={styles.name}>{props.name}</Text>
+        <Text style={styles.name}>{name}</Text>
       </View>
     </TouchableOpacity>
   );
