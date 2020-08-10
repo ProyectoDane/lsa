@@ -4,9 +4,9 @@ import {useScrollToTop} from '@react-navigation/native';
 import ImageBackground from '../shared/ImageBackground';
 import {Card} from '../shared/Card';
 import List from '../shared/List';
+import {BaseHeader} from '../shared/BaseHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {PAGES} from '../../constants/';
-import Colors from '../../res/colors';
 import I18n from '../../res/i18n/i18n';
 
 import CATEGORIES_INDEX from '../../categoriesIndex';
@@ -15,18 +15,8 @@ import {ALPHABETICAL_CATEGORY_NAME_ES} from '../../constants/index';
 import styles from './styles';
 
 export const NavigationOptions = ({navigation}) => ({
+  ...BaseHeader,
   title: I18n.t('alphabetical_tab_title'),
-  headerTintColor: Colors.THEME_SECONDARY,
-  headerBackTitle: null,
-  headerTitleStyle: {
-    fontFamily: 'nunito',
-  },
-  headerStyle: {
-    backgroundColor: Colors.THEME_PRIMARY,
-    elevation: 0,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-  },
   headerRight: () => (
     <Ionicons
       name="ios-help-circle-outline"

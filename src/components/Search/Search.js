@@ -19,17 +19,11 @@ import {styles, searchInputMaginLeft, searchInputMaginRight} from './styles';
 import ImageBackground from '../shared/ImageBackground';
 import {Card} from '../shared/Card';
 import List from '../shared/List';
+import {BaseHeader} from '../shared/BaseHeader';
 const searchVideosBackground = require('../../res/background/fondo-verde.jpg');
 
 export const NavigationOptions = ({navigation, route}) => ({
-  title: '',
-  headerTintColor: Colors.THEME_SECONDARY,
-  headerStyle: {
-    backgroundColor: Colors.THEME_PRIMARY,
-    elevation: 0,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-  },
+  ...BaseHeader,
   headerLeft: () => (
     <TextInput
       style={[

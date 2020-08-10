@@ -16,21 +16,12 @@ import categoriesIndex from './../../categoriesIndex';
 
 // Analytics
 import analytics from '@react-native-firebase/analytics';
+import {BaseHeader} from '../shared/BaseHeader';
 const Analytics = analytics();
 
 export const NavigationOptions = {
-  title: '',
+  ...BaseHeader,
   headerTruncatedBackTitle: I18n.t('back'), //https://github.com/react-navigation/react-navigation/issues/8594
-  headerTintColor: Colors.THEME_SECONDARY,
-  headerTitleStyle: {
-    fontFamily: 'nunito',
-  },
-  headerStyle: {
-    backgroundColor: Colors.THEME_PRIMARY,
-    elevation: 0,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-  },
 };
 
 export function VideoPlayer({navigation, route}) {
