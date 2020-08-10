@@ -1,4 +1,4 @@
-const uri = 'https://dane-videos.s3.us-east-2.amazonaws.com';
+const uri = 'https://lsa-argentina-videos.s3-sa-east-1.amazonaws.com';
 export default {
   categories: [
     {
