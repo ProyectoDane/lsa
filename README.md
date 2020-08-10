@@ -20,7 +20,6 @@
 
 # TODO
 
-1. Dedup base header props scattered among all the components
-2. Add tests
-3. Remove CategoriesDownload comp and move code to Downloads comp
-4. Remove old redux code (redux is not being used now. it was used to control page scroll)
+* Add tests
+* Remove CategoriesDownload comp and move code to Downloads comp
+* Remove old redux code (redux is not being used now. it was used to control page scroll)

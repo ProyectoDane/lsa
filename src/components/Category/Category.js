@@ -5,6 +5,7 @@ import {View, Alert, ScrollView, Text, Modal} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {SelectableCard} from '../shared/Card';
 import List from '../shared/List';
+import {BaseHeader} from '../shared/BaseHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -29,18 +30,9 @@ const listaSlider = [
 
 export class Category extends PureComponent {
   static navigationOptions = ({navigation, route}) => ({
+    ...BaseHeader,
     title: route.params.category.name_es,
-    headerTintColor: Colors.THEME_SECONDARY,
     headerTruncatedBackTitle: I18n.t('back'),
-    headerTitleStyle: {
-      fontFamily: 'nunito',
-    },
-    headerStyle: {
-      backgroundColor: Colors.THEME_PRIMARY,
-      elevation: 0,
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-    },
     headerRight: () =>
       !route.params.categoryFull ? (
         <MaterialIcons
