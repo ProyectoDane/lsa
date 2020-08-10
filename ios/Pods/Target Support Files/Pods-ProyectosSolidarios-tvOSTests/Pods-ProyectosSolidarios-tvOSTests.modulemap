@@ -1,6 +1,0 @@
-framework module Pods_ProyectosSolidarios_tvOSTests {
-  umbrella header "Pods-ProyectosSolidarios-tvOSTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
