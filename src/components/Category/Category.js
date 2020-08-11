@@ -258,49 +258,47 @@ export class Category extends PureComponent {
               {amount} VIDEOS DESCARGADOS DE {videosAmount}
             </Text>
           </View>
-          <ScrollView>
-            <List renderItem={this._renderVideo} data={this.state.videos} />
-            {params.showDialog &&
-              Alert.alert(
-                'DESCARGA VIDEOS',
-                `VAS A DESCARGAR ${
-                  this.state.initialAmount
-                } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
-                [
-                  {
-                    text: 'CANCELAR',
-                    onPress: () => navigation.setParams({showDialog: false}),
+          <List renderItem={this._renderVideo} data={this.state.videos} />
+          {params.showDialog &&
+            Alert.alert(
+              'DESCARGA VIDEOS',
+              `VAS A DESCARGAR ${
+                this.state.initialAmount
+              } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
+              [
+                {
+                  text: 'CANCELAR',
+                  onPress: () => navigation.setParams({showDialog: false}),
+                },
+                {
+                  text: 'OK',
+                  onPress: () => {
+                    navigation.setParams({showDialog: false});
+                    this._downloadVideos();
                   },
-                  {
-                    text: 'OK',
-                    onPress: () => {
-                      navigation.setParams({showDialog: false});
-                      this._downloadVideos();
-                    },
+                },
+              ],
+              {cancelable: false},
+            )}
+          {params.deleteDialog &&
+            Alert.alert(
+              'BORRAR VIDEOS DE LA CATEGORÍA',
+              'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
+              [
+                {
+                  text: 'CANCELAR',
+                  onPress: () => navigation.setParams({deleteDialog: false}),
+                },
+                {
+                  text: 'OK',
+                  onPress: () => {
+                    navigation.setParams({deleteDialog: false});
+                    this._deleteVideos();
                   },
-                ],
-                {cancelable: false},
-              )}
-            {params.deleteDialog &&
-              Alert.alert(
-                'BORRAR VIDEOS DE LA CATEGORÍA',
-                'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
-                [
-                  {
-                    text: 'CANCELAR',
-                    onPress: () => navigation.setParams({deleteDialog: false}),
-                  },
-                  {
-                    text: 'OK',
-                    onPress: () => {
-                      navigation.setParams({deleteDialog: false});
-                      this._deleteVideos();
-                    },
-                  },
-                ],
-                {cancelable: false},
-              )}
-          </ScrollView>
+                },
+              ],
+              {cancelable: false},
+            )}
           {this.state.showBar && (
             <View>
               <Progress.Bar
