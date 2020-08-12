@@ -9,6 +9,7 @@ import {
   Linking,
   ScrollView,
   Dimensions,
+  SafeAreaView,
 } from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {Picker} from '@react-native-community/picker';
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 6,
     marginBottom: 10,
+    paddingLeft: 10,
   },
   pinputContainer: {
     backgroundColor: 'white',
@@ -55,9 +57,6 @@ const styles = StyleSheet.create({
     borderColor: '#bdc3c7',
     overflow: 'hidden',
     marginBottom: 10,
-  },
-  pinput: {
-    height: 40,
   },
   formContainer: {
     justifyContent: 'flex-start',
@@ -165,7 +164,7 @@ export default class Register extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground src={categoryVideosBackground}>
-          <View style={styles.scrollParentContainer}>
+          <SafeAreaView style={styles.scrollParentContainer}>
             <ScrollView
               keyboardShouldPersistTaps="always"
               contentContainerStyle={styles.scrollStyle}>
@@ -207,7 +206,6 @@ export default class Register extends Component {
                 <View style={styles.pinputContainer}>
                   <Picker
                     selectedValue={this.state.app_user}
-                    style={styles.pinput}
                     onValueChange={itemValue =>
                       this.setState({app_user: itemValue})
                     }>
@@ -233,7 +231,6 @@ export default class Register extends Component {
                 <View style={styles.pinputContainer}>
                   <Picker
                     selectedValue={this.state.age}
-                    style={styles.pinput}
                     onValueChange={itemValue =>
                       this.setState({age: itemValue})
                     }>
@@ -259,7 +256,7 @@ export default class Register extends Component {
                 </View>
               </View>
             </ScrollView>
-          </View>
+          </SafeAreaView>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={[styles.button, styles.redButton]}
