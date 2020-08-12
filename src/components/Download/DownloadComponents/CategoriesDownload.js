@@ -151,22 +151,26 @@ export class CategoriesDownload extends PureComponent {
             renderItem={this._renderCategory}
           />
         </ImageBackground>
-        {this.state.categories.some(c => c.selected) && (
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={[styles.button, styles.redButton]}
-              onPress={this._onPressDeleteVideos}>
-              <Text style={[styles.textColor, styles.buttonText]}>BORRAR</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.button, styles.greenButton]}
-              onPress={this._onPressDownloadVideos}>
-              <Text style={[styles.textColor, styles.buttonText]}>
-                DESCARGAR
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
+        {this.state.categories.some(c => c.selected) &&
+          !this.state.showBar &&
+          !this.state.showDeleteBar && (
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity
+                style={[styles.button, styles.redButton]}
+                onPress={this._onPressDeleteVideos}>
+                <Text style={[styles.textColor, styles.buttonText]}>
+                  BORRAR
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.button, styles.greenButton]}
+                onPress={this._onPressDownloadVideos}>
+                <Text style={[styles.textColor, styles.buttonText]}>
+                  DESCARGAR
+                </Text>
+              </TouchableOpacity>
+            </View>
+          )}
         {this.state.showDownloadDialog &&
           Alert.alert(
             'DESCARGA VIDEOS',
@@ -253,7 +257,7 @@ function ProgressBar({videos, color, predicate}) {
   const current = videos.filter(predicate).length;
   const total = videos.length;
   return (
-    <View style={styles.headerText}>
+    <View style={styles.progressBar}>
       <Progress.Bar color={color} width={null} progress={current / total} />
       <Text style={styles.downloadText}>{`${current} de ${total}`}</Text>
     </View>

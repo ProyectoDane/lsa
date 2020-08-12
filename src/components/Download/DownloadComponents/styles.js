@@ -35,11 +35,11 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'nunito',
   },
-  headerText: {
+  progressBar: {
     zIndex: 100,
     backgroundColor: 'white',
     paddingHorizontal: 10,
     paddingVertical: 8,
-    bottom: 55,
+    bottom: 0,
   },
 });
