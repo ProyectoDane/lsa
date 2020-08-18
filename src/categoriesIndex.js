@@ -1225,13 +1225,6 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'DENTISTA',
-          search_name_es: 'DENTISTA',
-          image: require('./res/image/dentista.png'),
-          video: `${uri}/dentista.mp4`,
-          downloaded: false,
-        },
-        {
           name_es: 'DOLOR',
           search_name_es: 'DOLOR',
           image: require('./res/image/dolor.png'),
@@ -1397,13 +1390,6 @@ export default {
           search_name_es: 'OBRA SOCIAL',
           image: require('./res/image/obra-social.png'),
           video: `${uri}/obra-social.mp4`,
-          downloaded: false,
-        },
-        {
-          name_es: 'OCULISTA',
-          search_name_es: 'OCULISTA',
-          image: require('./res/image/oculista.png'),
-          video: `${uri}/oculista.mp4`,
           downloaded: false,
         },
         {
