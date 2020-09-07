@@ -139,12 +139,12 @@ export default class Register extends Component {
         app_name,
       };
       fetch(
-        'https://ux2i5nx836.execute-api.us-east-2.amazonaws.com/production/register',
+        'https://w33g97vrag.execute-api.sa-east-1.amazonaws.com/production/register',
         {
           method: 'POST',
           headers: {
             Accept: 'application/json',
-            'x-api-key': 'BjiDNiFwFv7VnroObnPHv9X6Ic3RsSqQaFd4fjNV',
+            'x-api-key': 'fKPYI3tpakaIUOpQGaXHM1blfpcLbb5Z7aFqGAtQ',
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(bdata),
