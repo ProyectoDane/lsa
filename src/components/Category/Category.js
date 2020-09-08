@@ -32,7 +32,8 @@ export class Category extends PureComponent {
   static navigationOptions = ({navigation, route}) => ({
     ...BaseHeader,
     title: route.params.category.name_es,
-    headerTruncatedBackTitle: I18n.t('back'),
+    headerTruncatedBackTitle: '',
+    //headerTruncatedBackTitle: I18n.t('back'),
     headerRight: () =>
       !route.params.categoryFull ? (
         <MaterialIcons

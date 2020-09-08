@@ -3,7 +3,7 @@ import Colors from '../../res/colors';
 export const BaseHeader = {
   title: '',
   headerTintColor: Colors.THEME_SECONDARY,
-  headerBackTitle: null,
+  headerBackTitle: '',
   headerTitleStyle: {
     fontFamily: 'nunito',
   },
