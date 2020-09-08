@@ -1,7 +1,7 @@
 import * as Progress from 'react-native-progress';
 import {useFocusEffect} from '@react-navigation/native';
-import React, {useState} from 'react';
-import {Dimensions, View, Image, ScrollView} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Dimensions, View, Text, Image, ScrollView} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import RNFS from 'react-native-fs';
 import Video from '../shared/Video';
@@ -22,6 +22,7 @@ const Analytics = analytics();
 export const NavigationOptions = {
   ...BaseHeader,
   headerTruncatedBackTitle: I18n.t('back'), //https://github.com/react-navigation/react-navigation/issues/8594
+  title: 'Testing',
 };
 
 export function VideoPlayer({navigation, route}) {
@@ -41,6 +42,10 @@ export function VideoPlayer({navigation, route}) {
   const _onEnd = () => {
     Analytics.logEvent('video_played', {video: videoName});
   };
+
+  useEffect(() => {
+    navigation.setOptions({title: video.name_es});
+  }, [navigation, video.name_es]);
 
   useFocusEffect(
     React.useCallback(() => {
