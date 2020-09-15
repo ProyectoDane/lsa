@@ -192,8 +192,7 @@ export class Category extends PureComponent {
             horizontal
             pagingEnabled
             onScroll={this._onChangeSlide}
-            showsHorizontalScrollIndicator={false}
-            style={styles.image}>
+            showsHorizontalScrollIndicator={false}>
             {listaSlider.map((i, k) => (
               <ImageBackground src={i} style={styles.image} key={k} />
             ))}

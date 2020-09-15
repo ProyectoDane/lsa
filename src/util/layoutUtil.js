@@ -1,4 +1,4 @@
-import {Dimensions, Platform} from 'react-native';
+import {Dimensions, Platform, StatusBar} from 'react-native';
 import {deviceIsInLandscapeMode} from './deviceUtil';
 
 export const getCardPadding = () => {
@@ -30,4 +30,14 @@ export const getTabNavigatorBarHeight = () => {
     return 113;
   }
   return 129;
+};
+
+export const getScreenHeight = () => {
+  if (Platform.OS === 'android') {
+    return Dimensions.get('screen').height !==
+      Dimensions.get('window').height && StatusBar.currentHeight > 24
+      ? Dimensions.get('screen').height - StatusBar.currentHeight
+      : Dimensions.get('window').height;
+  }
+  return Dimensions.get('window').height;
 };

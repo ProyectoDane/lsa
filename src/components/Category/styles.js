@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './../../res/colors';
+import {getScreenHeight} from '../../util/layoutUtil';
 
 const downloadIconMaginRight = 10;
 
@@ -26,9 +27,8 @@ const styles = StyleSheet.create({
     fontFamily: 'nunito',
   },
   image: {
-    flex: 1,
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height - 60,
+    height: getScreenHeight() - 60,
   },
 
   inactiveCircle: {
