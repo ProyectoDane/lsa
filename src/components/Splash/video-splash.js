@@ -5,7 +5,15 @@ import Video from '../shared/Video';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    paddingTop: 100,
+  },
+  loaderContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 100,
+    backgroundColor: 'white',
   },
   button: {
     backgroundColor: '#FFB54C',
@@ -15,10 +23,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 20,
   },
-  loader: {
+  titleContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 'auto',
+  },
+  title: {
+    fontSize: 17,
     flexGrow: 1,
+    fontWeight: 'bold',
   },
 });
 
@@ -40,11 +52,15 @@ export default class VideoSplash extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>VIDEO DE BIENVENIDA</Text>
+        </View>
         {this.state.isLoading && (
-          <View style={styles.loader}>
+          <View style={styles.loaderContainer}>
             <Progress.Circle color="#FFB54C" indeterminate />
           </View>
         )}
+
         <Video
           uri={
             'https://dane-videos.s3.us-east-2.amazonaws.com/presentacion_LSA.mp4'
