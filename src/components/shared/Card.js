@@ -18,12 +18,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.CATEGORY_IMAGE_BACKGROUND_GREY,
   },
   selectable: {
-    borderWidth: 2,
     height: 40,
     width: 40,
-    borderRadius: 40,
-    borderColor: 'white',
-    backgroundColor: 'transparent',
     position: 'absolute',
     top: 12,
     right: 12,
