@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontFamily: 'nunito',
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
-    paddingHorizontal: 30,
+    paddingHorizontal: 10,
     marginVertical: 20,
   },
   labelText: {
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   tinput: {
-    height: 40,
+    height: 30,
     backgroundColor: 'white',
     borderRadius: 6,
-    marginBottom: 10,
+    margin: 5,
     paddingLeft: 10,
   },
   pinputContainer: {
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     borderColor: '#bdc3c7',
     overflow: 'hidden',
-    marginBottom: 10,
+    marginBottom: 30,
   },
   formContainer: {
     justifyContent: 'flex-start',
@@ -106,6 +106,10 @@ const styles = StyleSheet.create({
   },
   blueButtonText: {
     fontSize: 10,
+  },
+  formPicker: {
+    height: 100,
+    fontSize: 15,
   },
 });
 
@@ -187,24 +191,30 @@ export default class Register extends Component {
                   }
                 </Text>
                 <Text style={styles.labelText}>NOMBRE Y APELLIDO</Text>
-                <TextInput
-                  style={styles.tinput}
-                  underlineColorAndroid="transparent"
-                  onChangeText={text => this.setState({name: text})}
-                />
+                <View style={styles.pinputContainer}>
+                  <TextInput
+                    style={styles.tinput}
+                    underlineColorAndroid="transparent"
+                    onChangeText={text => this.setState({name: text})}
+                  />
+                </View>
                 <Text style={styles.labelText}>EMAIL</Text>
-                <TextInput
-                  style={styles.tinput}
-                  keyboardType="email-address"
-                  underlineColorAndroid="transparent"
-                  onChangeText={text => this.setState({email: text})}
-                />
+                <View style={styles.pinputContainer}>
+                  <TextInput
+                    style={styles.tinput}
+                    keyboardType="email-address"
+                    underlineColorAndroid="transparent"
+                    onChangeText={text => this.setState({email: text})}
+                  />
+                </View>
                 <Text style={styles.labelText}>
-                  ¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA
-                  QUE MÁS TE IDENTIFIQUES)
+                  {
+                    '¿QUIÉN ESTÁ DESCARGANDO LA APP ? (SELECCIONÁ LA OPCIÓN CON LA QUE MÁS TE IDENTIFIQUES)'
+                  }
                 </Text>
                 <View style={styles.pinputContainer}>
                   <Picker
+                    itemStyle={styles.formPicker}
                     selectedValue={this.state.app_user}
                     onValueChange={itemValue =>
                       this.setState({app_user: itemValue})
@@ -230,6 +240,7 @@ export default class Register extends Component {
                 <Text style={styles.labelText}>TU EDAD</Text>
                 <View style={styles.pinputContainer}>
                   <Picker
+                    itemStyle={styles.formPicker}
                     selectedValue={this.state.age}
                     onValueChange={itemValue =>
                       this.setState({age: itemValue})

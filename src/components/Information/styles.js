@@ -5,6 +5,7 @@ const margin = 12;
 const styles = StyleSheet.create({
   full: {
     flex: 1,
+    paddingVertical: 15,
   },
   transparent: {
     backgroundColor: 'transparent',

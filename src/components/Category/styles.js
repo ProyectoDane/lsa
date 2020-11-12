@@ -7,6 +7,7 @@ const downloadIconMaginRight = 10;
 const styles = StyleSheet.create({
   full: {
     flex: 1,
+    paddingVertical: 15,
   },
   headerText: {
     zIndex: 100,

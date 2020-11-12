@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   },
   full: {
     flex: 1,
+    paddingVertical: 15,
   },
   content: {
     alignContent: 'space-between',
