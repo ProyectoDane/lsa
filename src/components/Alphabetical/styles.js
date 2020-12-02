@@ -5,6 +5,7 @@ const infoIconMagin = 10;
 export default StyleSheet.create({
   full: {
     flex: 1,
+    paddingVertical: 15,
   },
   infoIcon: {
     color: Colors.THEME_SECONDARY,

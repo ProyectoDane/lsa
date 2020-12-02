@@ -11,6 +11,7 @@ const noResultsMessageHorizontalMargin = 30;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    paddingVertical: 15,
   },
   searchInput: {
     marginVertical: 10,
