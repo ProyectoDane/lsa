@@ -65,7 +65,7 @@ export class Category extends PureComponent {
   _isFirstCategory = async () => {
     const isFirstCategory = await AsyncStorage.getItem('firstCategory');
     isFirstCategory === 'false'
-      ? this.setState({firstCategory: false})
+      ? this.setState({firstCategory: true})
       : this.setState({firstCategory: true});
   };
 
@@ -194,7 +194,12 @@ export class Category extends PureComponent {
             onScroll={this._onChangeSlide}
             showsHorizontalScrollIndicator={false}>
             {listaSlider.map((i, k) => (
-              <ImageBackground src={i} style={styles.image} key={k} />
+              <ImageBackground
+                src={i}
+                style={styles.image}
+                key={k}
+                resizeMode="contain"
+              />
             ))}
           </ScrollView>
           <View style={styles.iconStyle}>
