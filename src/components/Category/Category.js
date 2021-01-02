@@ -65,7 +65,7 @@ export class Category extends PureComponent {
   _isFirstCategory = async () => {
     const isFirstCategory = await AsyncStorage.getItem('firstCategory');
     isFirstCategory === 'false'
-      ? this.setState({firstCategory: true})
+      ? this.setState({firstCategory: false})
       : this.setState({firstCategory: true});
   };
 
