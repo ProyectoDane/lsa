@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: Dimensions.get('window').width,
-    height: getScreenHeight(),
-    backgroundColor: '#606060',
+    height: getScreenHeight() - 40,
+    backgroundColor: 'white',
   },
 
   inactiveCircle: {

@@ -20,6 +20,7 @@ const Analytics = analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 const listaSlider = [
+  require('./../../res/wizard-ios/1.png'),
   require('./../../res/image/1-como-se-usa.png'),
   require('./../../res/image/2-como-se-usa.png'),
   require('./../../res/image/3-como-se-usa.png'),
