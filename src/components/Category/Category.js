@@ -20,13 +20,12 @@ const Analytics = analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 const listaSlider = [
-  require('./../../res/wizard-ios/1.png'),
-  require('./../../res/image/1-como-se-usa.png'),
-  require('./../../res/image/2-como-se-usa.png'),
-  require('./../../res/image/3-como-se-usa.png'),
-  require('./../../res/image/4-como-se-usa.png'),
-  require('./../../res/image/5-como-se-usa.png'),
-  require('./../../res/image/6-como-se-usa.png'),
+  require('./../../res/wizard-ios/1-text.jpg'),
+  require('./../../res/wizard-ios/2-text.jpg'),
+  require('./../../res/wizard-ios/3-text.jpg'),
+  require('./../../res/wizard-ios/4-text.jpg'),
+  require('./../../res/wizard-ios/5-text.jpg'),
+  require('./../../res/wizard-ios/6-text.jpg'),
 ];
 
 export class Category extends PureComponent {
