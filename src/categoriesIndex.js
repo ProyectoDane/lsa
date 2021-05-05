@@ -357,7 +357,7 @@ export default {
       ],
     },
     {
-      name_es: 'EL CALENDARIO',
+      name_es: 'CALENDARIO',
       icon: require('./res/icon/el-calendario.png'),
       videos: [
         {
@@ -657,7 +657,7 @@ export default {
       ],
     },
     {
-      name_es: 'EL CAMPAMENTO',
+      name_es: 'CAMPAMENTO',
       icon: require('./res/icon/el-campamento.png'),
       videos: [
         {
@@ -689,8 +689,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL CAMPAMENTO',
-          search_name_es: 'EL CAMPAMENTO',
+          name_es: 'CAMPAMENTO',
+          search_name_es: 'CAMPAMENTO',
           image: require('./res/image/el-campamento.png'),
           video: `${uri}/el-campamento.mp4`,
           downloaded: false,
@@ -796,7 +796,7 @@ export default {
       ],
     },
     {
-      name_es: 'EL CUERPO HUMANO',
+      name_es: 'CUERPO HUMANO',
       icon: require('./res/icon/el-cuerpo-humano.png'),
       videos: [
         {
@@ -870,8 +870,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL CUERPO HUMANO',
-          search_name_es: 'EL CUERPO HUMANO',
+          name_es: 'CUERPO HUMANO',
+          search_name_es: 'CUERPO HUMANO',
           image: require('./res/image/el-cuerpo-humano.png'),
           video: `${uri}/el-cuerpo-humano.mp4`,
           downloaded: false,
@@ -1019,7 +1019,7 @@ export default {
       ],
     },
     {
-      name_es: 'EL CUMPLEAÑOS',
+      name_es: 'CUMPLEAÑOS',
       icon: require('./res/icon/el-cumpleanos.png'),
       videos: [
         {
@@ -1107,8 +1107,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA FIESTA DE CUMPLEAÑOS',
-          search_name_es: 'LA FIESTA DE CUMPLEAÑOS',
+          name_es: 'FIESTA DE CUMPLEAÑOS',
+          search_name_es: 'FIESTA DE CUMPLEAÑOS',
           image: require('./res/image/la-fiesta-de-cumpleanos.png'),
           video: `${uri}/la-fiesta-de-cumpleanos.mp4`,
           downloaded: false,
@@ -1232,8 +1232,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL HOSPITAL',
-          search_name_es: 'EL HOSPITAL',
+          name_es: 'HOSPITAL',
+          search_name_es: 'HOSPITAL',
           image: require('./res/image/el-hospital.png'),
           video: `${uri}/el-hospital.mp4`,
           downloaded: false,
@@ -1316,8 +1316,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA SALUD',
-          search_name_es: 'LA SALUD',
+          name_es: 'SALUD',
+          search_name_es: 'SALUD',
           image: require('./res/image/la-salud.png'),
           video: `${uri}/la-salud.mp4`,
           downloaded: false,
@@ -1493,7 +1493,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA CASA',
+      name_es: 'CASA',
       icon: require('./res/icon/la-casa.png'),
       videos: [
         {
@@ -1623,15 +1623,15 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL BAÑO',
-          search_name_es: 'EL BAÑO',
+          name_es: 'BAÑO',
+          search_name_es: 'BAÑO',
           image: require('./res/image/el-bano.png'),
           video: `${uri}/el-bano.mp4`,
           downloaded: false,
         },
         {
-          name_es: 'EL DORMITORIO',
-          search_name_es: 'EL DORMITORIO',
+          name_es: 'DORMITORIO',
+          search_name_es: 'DORMITORIO',
           image: require('./res/image/el-dormitorio.png'),
           video: `${uri}/el-dormitorio.mp4`,
           downloaded: false,
@@ -1693,15 +1693,15 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA CASA',
-          search_name_es: 'LA CASA',
+          name_es: 'CASA',
+          search_name_es: 'CASA',
           image: require('./res/image/la-casa.png'),
           video: `${uri}/la-casa.mp4`,
           downloaded: false,
         },
         {
-          name_es: 'LA COCINA',
-          search_name_es: 'LA COCINA',
+          name_es: 'COCINA',
+          search_name_es: 'COCINA',
           image: require('./res/image/la-cocina.png'),
           video: `${uri}/la-cocina.mp4`,
           downloaded: false,
@@ -2024,7 +2024,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA ESCUELA',
+      name_es: 'ESCUELA',
       icon: require('./res/icon/la-escuela.png'),
       videos: [
         {
@@ -2203,8 +2203,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL RECREO',
-          search_name_es: 'EL RECREO',
+          name_es: 'RECREO',
+          search_name_es: 'RECREO',
           image: require('./res/image/el-recreo.png'),
           video: `${uri}/el-recreo.mp4`,
           downloaded: false,
@@ -2371,8 +2371,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA ESCUELA',
-          search_name_es: 'LA ESCUELA',
+          name_es: 'ESCUELA',
+          search_name_es: 'ESCUELA',
           image: require('./res/image/la-escuela.png'),
           video: `${uri}/la-escuela.mp4`,
           downloaded: false,
@@ -2385,8 +2385,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LAS MATERIAS',
-          search_name_es: 'LAS MATERIAS',
+          name_es: 'MATERIAS',
+          search_name_es: 'MATERIAS',
           image: require('./res/image/las-materias.png'),
           video: `${uri}/las-materias.mp4`,
           downloaded: false,
@@ -2667,7 +2667,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA FAMILIA',
+      name_es: 'FAMILIA',
       icon: require('./res/icon/la-familia.png'),
       videos: [
         {
@@ -2762,8 +2762,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA FAMILIA',
-          search_name_es: 'LA FAMILIA',
+          name_es: 'FAMILIA',
+          search_name_es: 'FAMILIA',
           image: require('./res/image/la-familia.png'),
           video: `${uri}/la-familia.mp4`,
           downloaded: false,
@@ -2862,7 +2862,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA PLAYA',
+      name_es: 'PLAYA',
       icon: require('./res/icon/la-playa.png'),
       videos: [
         {
@@ -2894,8 +2894,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA PLAYA',
-          search_name_es: 'LA PLAYA',
+          name_es: 'PLAYA',
+          search_name_es: 'PLAYA',
           image: require('./res/image/la-playa.png'),
           video: `${uri}/la-playa.mp4`,
           downloaded: false,
@@ -2945,7 +2945,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA ROPA',
+      name_es: 'ROPA',
       icon: require('./res/icon/la-ropa.png'),
       videos: [
         {
@@ -3077,7 +3077,7 @@ export default {
       ],
     },
     {
-      name_es: 'LA TECNOLOGÍA',
+      name_es: 'TECNOLOGÍA',
       icon: require('./res/icon/la-tecnologia.png'),
       videos: [
         {
@@ -3186,8 +3186,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LA TECNOLOGÍA',
-          search_name_es: 'LA TECNOLOGIA',
+          name_es: 'TECNOLOGÍA',
+          search_name_es: 'TECNOLOGIA',
           image: require('./res/image/la-tecnologia.png'),
           video: `${uri}/la-tecnologia.mp4`,
           downloaded: false,
@@ -3314,7 +3314,7 @@ export default {
       ],
     },
     {
-      name_es: 'LAS DIFERENCIAS',
+      name_es: 'DIFERENCIAS',
       icon: require('./res/icon/las-diferencias.png'),
       videos: [
         {
@@ -3528,8 +3528,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LAS DIFERENCIAS',
-          search_name_es: 'LAS DIFERENCIAS',
+          name_es: 'DIFERENCIAS',
+          search_name_es: 'DIFERENCIAS',
           image: require('./res/image/las-diferencias.png'),
           video: `${uri}/las-diferencias.mp4`,
           downloaded: false,
@@ -3642,7 +3642,7 @@ export default {
       ],
     },
     {
-      name_es: 'LAS PROFESIONES',
+      name_es: 'PROFESIONES',
       icon: require('./res/icon/las-profesiones.png'),
       videos: [
         {
@@ -3753,7 +3753,7 @@ export default {
       ],
     },
     {
-      name_es: 'LOS ALIMENTOS',
+      name_es: 'ALIMENTOS',
       icon: require('./res/icon/los-alimentos.png'),
       videos: [
         {
@@ -3897,8 +3897,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LOS ALIMENTOS',
-          search_name_es: 'LOS ALIMENTOS',
+          name_es: 'ALIMENTOS',
+          search_name_es: 'ALIMENTOS',
           image: require('./res/image/los-alimentos.png'),
           video: `${uri}/los-alimentos.mp4`,
           downloaded: false,
@@ -4046,7 +4046,7 @@ export default {
       ],
     },
     {
-      name_es: 'LOS ANIMALES',
+      name_es: 'ANIMALES',
       icon: require('./res/icon/los-animales.png'),
       videos: [
         {
@@ -4120,8 +4120,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'EL ZOOLÓGICO',
-          search_name_es: 'EL ZOOLOGICO',
+          name_es: 'ZOOLÓGICO',
+          search_name_es: 'ZOOLOGICO',
           image: require('./res/image/el-zoologico.png'),
           video: `${uri}/el-zoologico.mp4`,
           downloaded: false,
@@ -4248,7 +4248,7 @@ export default {
       ],
     },
     {
-      name_es: 'LOS COLORES',
+      name_es: 'COLORES',
       icon: require('./res/icon/los-colores.png'),
       videos: [
         {
@@ -4294,8 +4294,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LOS COLORES',
-          search_name_es: 'LOS COLORES',
+          name_es: 'COLORES',
+          search_name_es: 'COLORES',
           image: require('./res/image/los-colores.png'),
           video: `${uri}/los-colores.mp4`,
           downloaded: false,
@@ -4359,12 +4359,12 @@ export default {
       ],
     },
     {
-      name_es: 'LOS NÚMEROS',
+      name_es: 'NÚMEROS',
       icon: require('./res/icon/los-numeros.png'),
       videos: [
         {
-          name_es: 'LOS NÚMEROS',
-          search_name_es: 'LOS NUMEROS',
+          name_es: 'NÚMEROS',
+          search_name_es: 'NUMEROS',
           image: require('./res/image/los-numeros.png'),
           video: `${uri}/los-numeros.mp4`,
           downloaded: false,
@@ -4575,7 +4575,7 @@ export default {
       ],
     },
     {
-      name_es: 'LOS SENTIMIENTOS',
+      name_es: 'SENTIMIENTOS',
       icon: require('./res/icon/los-sentimientos.png'),
       videos: [
         {
@@ -4628,8 +4628,8 @@ export default {
           downloaded: false,
         },
         {
-          name_es: 'LOS SENTIMIENTOS',
-          search_name_es: 'LOS SENTIMIENTOS',
+          name_es: 'SENTIMIENTOS',
+          search_name_es: 'SENTIMIENTOS',
           image: require('./res/image/los-sentimientos.png'),
           video: `${uri}/los-sentimientos.mp4`,
           downloaded: false,
