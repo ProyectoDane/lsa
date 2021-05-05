@@ -29,7 +29,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: Dimensions.get('window').width,
-    height: getScreenHeight() - 60,
+    height: getScreenHeight() - 15,
+    backgroundColor: '#757575',
   },
 
   inactiveCircle: {
@@ -55,8 +56,8 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     position: 'absolute',
-    right: 30,
-    top: 4,
+    right: 15,
+    top: 40,
   },
 });
 

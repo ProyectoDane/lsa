@@ -1,20 +1,18 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useCallback} from 'react';
 import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
+import {searchVideos} from '../../util/searchUtil';
+import {Message} from '../Message/Message';
 import {
   Dimensions,
   TextInput,
   View,
-  Text,
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
 import {PAGES} from './../../constants/';
 import Colors from '../../res/colors';
 import I18n from '../../res/i18n/i18n';
-import CATEGORIES_INDEX from '../../categoriesIndex';
-
 import {styles, searchInputMaginLeft, searchInputMaginRight} from './styles';
 import ImageBackground from '../shared/ImageBackground';
 import {Card} from '../shared/Card';
@@ -65,26 +63,17 @@ export function Search({navigation, route}) {
 
   useScrollToTop(scrollRef);
 
-  useFocusEffect(
-    React.useCallback(() => {
-      const searchQuery = (route.params?.searchQuery || '').toUpperCase();
-      setQuery(searchQuery);
-      setVideos(searchVideos(searchQuery));
-    }, [route.params]),
-  );
+  const updateSearchQuery = useCallback(() => {
+    const searchQuery = (route.params?.searchQuery || '').toUpperCase();
+    setQuery(searchQuery);
+    setVideos(searchVideos(searchQuery));
+  }, [route.params]);
+
+  useFocusEffect(updateSearchQuery);
 
   const _navigateToVideo = video => {
     navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
   };
-
-  const renderItem = ({item}) => (
-    <Card
-      key={item.name_es}
-      src={item.image}
-      onPress={() => _navigateToVideo(item)}
-      name={item.name_es}
-    />
-  );
 
   return (
     <View style={styles.full}>
@@ -93,7 +82,18 @@ export function Search({navigation, route}) {
         onPressIn={() => Keyboard.dismiss()}>
         {query !== '' && videos.length > 0 ? (
           <ImageBackground src={searchVideosBackground}>
-            <List data={videos} scrollRef={scrollRef} renderItem={renderItem} />
+            <List
+              data={videos}
+              scrollRef={scrollRef}
+              renderItem={({item}) => (
+                <Card
+                  key={item.name_es}
+                  src={item.image}
+                  onPress={() => _navigateToVideo(item)}
+                  name={item.name_es}
+                />
+              )}
+            />
           </ImageBackground>
         ) : (
           <ImageBackground src={searchVideosBackground}>
@@ -112,29 +112,7 @@ export function Search({navigation, route}) {
   );
 }
 
-function Message(props) {
-  return (
-    <View pointerEvents="none" style={styles.videosMessageContainer}>
-      <Text style={styles.videosFoundMessage}>{props.children}</Text>
-    </View>
-  );
-}
-
-const removeAccents = string => {
-  return string
-    .split('Á')
-    .join('A')
-    .split('É')
-    .join('E')
-    .split('Í')
-    .join('I')
-    .split('Ó')
-    .join('O')
-    .split('Ú')
-    .join('U');
-};
-
-const searchVideos = searchString => {
+/*
   if (searchString && searchString.length > 1) {
     searchString = removeAccents(searchString);
     const {categories} = CATEGORIES_INDEX;
@@ -152,4 +130,4 @@ const searchVideos = searchString => {
   } else {
     return [];
   }
-};
+};*/
