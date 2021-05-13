@@ -249,6 +249,7 @@ export class Category extends PureComponent {
     const params = route.params;
     const videosAmount = params.category.videos.length;
     const amount = videosAmount - this.state.initialAmount;
+    this.reload();
     return this.state.firstCategory ? (
       this._getTutorialLayout()
     ) : (
