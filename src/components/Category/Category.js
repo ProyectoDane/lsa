@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
-import {View, Alert, ScrollView, Text, Modal} from 'react-native';
+import {View, Alert, ScrollView, Text, Modal,TouchableOpacity} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {SelectableCard} from '../shared/Card';
 import List from '../shared/List';
@@ -60,6 +60,7 @@ export class Category extends PureComponent {
     initialAmount: 0,
     refresh: false,
     firstCategory: false,
+    showDownloadModal: false
   };
 
   _isFirstCategory = async () => {
@@ -259,6 +260,29 @@ export class Category extends PureComponent {
             </Text>
           </View>
           <List renderItem={this._renderVideo} data={this.state.videos} />
+         
+          {this.state.showDownloadModal && (     
+          <Modal 
+          transparent ={true}
+          visible = {true}>
+            <View style = {{backgroundColor: 'rgba(0,0,0,0.7)',alignItems: 'center',
+              position: 'absolute',height: '100%', width: '100%',}}>
+              <View style = {{borderColor: '#000000', borderWidth: 1.5, borderStyle: 'solid',
+                backgroundColor: '#FFFFFF',marginTop:200,
+                marginLeft:20,marginRight:20,borderRadius:15}}>
+                <Text style = {{fontSize: 20,marginTop:20,
+                  color:'#000000',textAlign:'center',fontWeight:'100'}}>
+                    LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.
+                </Text>
+                <TouchableOpacity style = {{backgroundColor :'#FFFFFF',margin:5}} 
+                  onPress={()=>{this.setState({showDownloadModal:false})}}>
+                  <Text style = {{fontSize:20,textAlign:'center',color:'#1AA299',fontWeight:'bold'}}>OK</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Modal> 
+        )}
+
           {params.showDialog &&
             Alert.alert(
               'DESCARGA VIDEOS',
@@ -274,6 +298,7 @@ export class Category extends PureComponent {
                   text: 'OK',
                   onPress: () => {
                     navigation.setParams({showDialog: false});
+                    this.setState({showDownloadModal:true})
                     this._downloadVideos();
                   },
                 },
