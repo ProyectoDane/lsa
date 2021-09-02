@@ -266,81 +266,71 @@ export class Category extends PureComponent {
           </View>
           <List renderItem={this._renderVideo} data={this.state.videos} />
          
-          {this.state.showDownloadModal && (     
+          {params.showDialog && (     
           <Modal 
-          transparent ={true}
-          visible = {true}>
-            <View style = {{backgroundColor: 'rgba(0,0,0,0.7)',alignItems: 'center',
-              position: 'absolute',height: '100%', width: '100%',}}>
-              <View style = {{borderColor: '#000000', borderWidth: 1.5, borderStyle: 'solid',
-                backgroundColor: '#FFFFFF',marginTop:200,
-                marginLeft:20,marginRight:20,borderRadius:15}}>
-                <Text style = {{fontSize: 20,marginTop:20,
-                  color:'#000000',textAlign:'center',fontWeight:'100'}}>
-                    LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.
+            transparent ={true}
+            visible = {true}>
+            <View style = {styles.opacityModal}>
+              <View style = {styles.modalMessageDownload}>
+                <Text style = {styles.textBoldModal}>DESCARGA VIDEOS</Text>
+                <Text style = {styles.textNormalModal}>
+                    VAS A DESCARGAR {
+                    this.state.initialAmount
+                  } DE {videosAmount} VIDEOS.
                 </Text>
-                <TouchableOpacity style = {{backgroundColor :'#FFFFFF',margin:5}} 
-                  onPress={()=>{this.setState({showDownloadModal:false})}}>
-                  <Text style = {{fontSize:20,textAlign:'center',color:'#1AA299',fontWeight:'bold'}}>OK</Text>
-                </TouchableOpacity>
+                <Text style = {styles.textNormalModal}>ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.</Text>
+                <View style = {styles.buttonPosition}>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:70,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                      navigation.setParams({showDialog: false})
+                      }}>
+                    <Text style = {styles.textButton}>CANCEL</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:90,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                      navigation.setParams({showDialog: false})
+                      this._downloadVideos();
+                      }}>
+                    <Text style = {styles.textButton}>OK</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           </Modal> 
         )}
 
-          {params.showDialog &&
-            Alert.alert(
-              'DESCARGA VIDEOS',
-              `VAS A DESCARGAR ${
-                this.state.initialAmount
-              } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
-              [
-                {
-                  text: 'CANCELAR',
-                  onPress: () => navigation.setParams({showDialog: false}),
+        {params.deleteDialog &&
+          Alert.alert(
+            'BORRAR VIDEOS DE LA CATEGORÍA',
+            'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
+            [
+              {
+                text: 'CANCELAR',
+                onPress: () => navigation.setParams({deleteDialog: false}),
+              },
+              {
+                text: 'OK',
+                onPress: () => {
+                  navigation.setParams({deleteDialog: false});
+                  this._deleteVideos();
                 },
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    navigation.setParams({showDialog: false});
-                    this.setState({showDownloadModal:true})
-                    this._downloadVideos();
-                  },
-                },
-              ],
-              {cancelable: false},
-            )}
-          {params.deleteDialog &&
-            Alert.alert(
-              'BORRAR VIDEOS DE LA CATEGORÍA',
-              'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
-              [
-                {
-                  text: 'CANCELAR',
-                  onPress: () => navigation.setParams({deleteDialog: false}),
-                },
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    navigation.setParams({deleteDialog: false});
-                    this._deleteVideos();
-                  },
-                },
-              ],
-              {cancelable: false},
-            )}
-          {this.state.showBar && (
-            <View>
-              <Progress.Bar
-                color="green"
-                width={null}
-                progress={this.state.downloadedVideos / videosAmount}
-              />
-              <Text style={styles.downloadText}>{`${
-                this.state.downloadedVideos
-              } de ${videosAmount}`}</Text>
-            </View>
+              },
+            ],
+            {cancelable: false},
           )}
+        {this.state.showBar && (
+          <View>
+            <Progress.Bar
+              color="green"
+              width={null}
+              progress={this.state.downloadedVideos / videosAmount}
+            />
+            <Text style={styles.downloadText}>{`${
+              this.state.downloadedVideos
+            } de ${videosAmount}`}</Text>
+          </View>
+        )}
+        
         </ImageBackground>
       </View>
     );
