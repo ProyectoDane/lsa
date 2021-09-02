@@ -58,6 +58,44 @@ const styles = StyleSheet.create({
     right: 30,
     top: 4,
   },
+  buttonPosition: {
+    flexDirection: 'row', 
+    alignItems: 'center' 
+  },
+  modalMessageDownload: {
+    borderColor: '#000000', borderWidth: 1.5, borderStyle: 'solid',
+    backgroundColor: '#FFFFFF',marginTop:200,
+    marginLeft:10,marginRight:10,borderRadius:15
+  },
+  textBoldModal: {
+    fontSize: 20,
+    marginTop:20,
+    marginLeft:15,
+    color:'#000000',
+    textAlign:'left',
+    fontWeight:"bold"
+  },
+  textNormalModal:{
+    fontSize: 20,
+    marginTop:10,
+    marginLeft:15,
+    marginRight:15,
+    color:'#000000',
+    textAlign:'left',
+    fontWeight:'100'
+  },
+  opacityModal: {
+    backgroundColor: 'rgba(0,0,0,0.7)',
+    alignItems: 'center',
+    position: 'absolute',
+    height: '100%', 
+    width: '100%',
+  },
+  textButton: {
+    fontSize:20,
+    color:'#1AA299',
+    fontWeight:'bold'
+  },
 });
 
 export {styles};
