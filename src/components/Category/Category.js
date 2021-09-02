@@ -20,12 +20,12 @@ const Analytics = analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 const listaSlider = [
-  require('./../../res/image/1-como-se-usa.png'),
-  require('./../../res/image/2-como-se-usa.png'),
-  require('./../../res/image/3-como-se-usa.png'),
-  require('./../../res/image/4-como-se-usa.png'),
-  require('./../../res/image/5-como-se-usa.png'),
-  require('./../../res/image/6-como-se-usa.png'),
+  require('./../../res/wizard-ios/1-text.jpg'),
+  require('./../../res/wizard-ios/2-text.jpg'),
+  require('./../../res/wizard-ios/3-text.jpg'),
+  require('./../../res/wizard-ios/4-text.jpg'),
+  require('./../../res/wizard-ios/5-text.jpg'),
+  require('./../../res/wizard-ios/6-text.jpg'),
 ];
 
 export class Category extends PureComponent {
@@ -195,7 +195,12 @@ export class Category extends PureComponent {
             onScroll={this._onChangeSlide}
             showsHorizontalScrollIndicator={false}>
             {listaSlider.map((i, k) => (
-              <ImageBackground src={i} style={styles.image} key={k} />
+              <ImageBackground
+                src={i}
+                style={styles.image}
+                key={k}
+                resizeMode="contain"
+              />
             ))}
           </ScrollView>
           <View style={styles.iconStyle}>
@@ -245,6 +250,7 @@ export class Category extends PureComponent {
     const params = route.params;
     const videosAmount = params.category.videos.length;
     const amount = videosAmount - this.state.initialAmount;
+    this.reload();
     return this.state.firstCategory ? (
       this._getTutorialLayout()
     ) : (

@@ -10,13 +10,8 @@ export const NavigationOptions = {
   title: I18n.t('download_tab_title').toUpperCase(),
 };
 
-export class Download extends PureComponent {
-  render() {
-    const {navigation} = this.props;
-    return (
-      <View style={styles.full}>
-        <CategoriesDownload navigation={navigation} />
-      </View>
-    );
-  }
-}
+export const Download = ({navigation}) => (
+  <View style={styles.full}>
+    <CategoriesDownload navigation={navigation} />
+  </View>
+);
