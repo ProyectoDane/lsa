@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
-import {View, Alert, ScrollView, Text, Modal} from 'react-native';
+import {View, Alert, ScrollView, Text, Modal,TouchableOpacity} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {SelectableCard} from '../shared/Card';
 import List from '../shared/List';
@@ -60,6 +60,7 @@ export class Category extends PureComponent {
     initialAmount: 0,
     refresh: false,
     firstCategory: false,
+    showDownloadModal: false
   };
 
   _isFirstCategory = async () => {
@@ -265,58 +266,72 @@ export class Category extends PureComponent {
             </Text>
           </View>
           <List renderItem={this._renderVideo} data={this.state.videos} />
-          {params.showDialog &&
-            Alert.alert(
-              'DESCARGA VIDEOS',
-              `VAS A DESCARGAR ${
-                this.state.initialAmount
-              } DE ${videosAmount} VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
-              [
-                {
-                  text: 'CANCELAR',
-                  onPress: () => navigation.setParams({showDialog: false}),
-                },
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    navigation.setParams({showDialog: false});
-                    this._downloadVideos();
-                  },
-                },
-              ],
-              {cancelable: false},
-            )}
-          {params.deleteDialog &&
-            Alert.alert(
-              'BORRAR VIDEOS DE LA CATEGORÍA',
-              'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
-              [
-                {
-                  text: 'CANCELAR',
-                  onPress: () => navigation.setParams({deleteDialog: false}),
-                },
-                {
-                  text: 'OK',
-                  onPress: () => {
-                    navigation.setParams({deleteDialog: false});
-                    this._deleteVideos();
-                  },
-                },
-              ],
-              {cancelable: false},
-            )}
-          {this.state.showBar && (
-            <View>
-              <Progress.Bar
-                color="green"
-                width={null}
-                progress={this.state.downloadedVideos / videosAmount}
-              />
-              <Text style={styles.downloadText}>{`${
-                this.state.downloadedVideos
-              } de ${videosAmount}`}</Text>
+         
+          {params.showDialog && (     
+          <Modal 
+            transparent ={true}
+            visible = {true}>
+            <View style = {styles.opacityModal}>
+              <View style = {styles.modalMessageDownload}>
+                <Text style = {styles.textBoldModal}>DESCARGA VIDEOS</Text>
+                <Text style = {styles.textNormalModal}>
+                    VAS A DESCARGAR {
+                    this.state.initialAmount
+                  } DE {videosAmount} VIDEOS.
+                </Text>
+                <Text style = {styles.textNormalModal}>ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.</Text>
+                <View style = {styles.buttonPosition}>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:70,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                      navigation.setParams({showDialog: false})
+                      }}>
+                    <Text style = {styles.textButton}>CANCEL</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:90,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                      navigation.setParams({showDialog: false})
+                      this._downloadVideos();
+                      }}>
+                    <Text style = {styles.textButton}>OK</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
             </View>
+          </Modal> 
+        )}
+
+        {params.deleteDialog &&
+          Alert.alert(
+            'BORRAR VIDEOS DE LA CATEGORÍA',
+            'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
+            [
+              {
+                text: 'CANCELAR',
+                onPress: () => navigation.setParams({deleteDialog: false}),
+              },
+              {
+                text: 'OK',
+                onPress: () => {
+                  navigation.setParams({deleteDialog: false});
+                  this._deleteVideos();
+                },
+              },
+            ],
+            {cancelable: false},
           )}
+        {this.state.showBar && (
+          <View>
+            <Progress.Bar
+              color="green"
+              width={null}
+              progress={this.state.downloadedVideos / videosAmount}
+            />
+            <Text style={styles.downloadText}>{`${
+              this.state.downloadedVideos
+            } de ${videosAmount}`}</Text>
+          </View>
+        )}
+        
         </ImageBackground>
       </View>
     );

@@ -1,6 +1,6 @@
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
-import {Alert, Text, View, TouchableOpacity} from 'react-native';
+import {Alert, Text, View, TouchableOpacity,Modal} from 'react-native';
 import ImageBackground from '../../shared/ImageBackground';
 import {SelectableCard} from '../../shared/Card';
 import List from '../../shared/List';
@@ -14,6 +14,7 @@ export class CategoriesDownload extends PureComponent {
     amountSelected: 0,
     categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})),
     showDownloadDialog: false,
+    showDownloadModal: false,
     initialAmount: 0,
     modifiedAmount: 0,
     videosToModify: [],
@@ -171,37 +172,50 @@ export class CategoriesDownload extends PureComponent {
               </TouchableOpacity>
             </View>
           )}
-        {this.state.showDownloadDialog &&
-          Alert.alert(
-            'DESCARGA VIDEOS',
-            `VAS A DESCARGAR ${this.state.initialAmount} DE ${
-              this.state.modifiedAmount
-            } VIDEOS. ESTA ACCIÓN PUEDE DEMORAR.`,
-            [
-              {
-                text: 'CANCELAR',
-                onPress: () => this.setState({showDownloadDialog: false}),
-              },
-              {
-                text: 'OK',
-                onPress: () => {
-                  if (this.state.videosToModify.length) {
-                    this.setState({showDownloadDialog: false, showBar: true});
-                    this._downloadVideos();
-                  } else {
-                    this.setState(prevState => ({
-                      showDownloadDialog: false,
-                      categories: prevState.categories.map(c => ({
-                        ...c,
-                        selected: false,
-                      })),
-                    }));
-                  }
-                },
-              },
-            ],
-            {cancelable: false},
-          )}
+
+        {this.state.showDownloadDialog && (     
+          <Modal 
+            transparent ={true}
+            visible = {true}>
+            <View style = {styles.opacityModal}>
+              <View style = {styles.modalMessageDownload}>
+                <Text style = {styles.textBoldModal}>DESCARGA VIDEOS</Text>
+                <Text style = {styles.textNormalModal}>
+                    VAS A DESCARGAR {
+                    this.state.initialAmount
+                  } DE {this.state.modifiedAmount} VIDEOS.
+                </Text>
+                <Text style = {styles.textNormalModal}>ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.</Text>
+                <View style = {styles.buttonPosition}>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:70,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                      this.setState({showDownloadDialog: false})
+                      }}>
+                    <Text style = {styles.textButton}>CANCEL</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:90,marginBottom:10,marginTop:10}} 
+                    onPress= { () => {
+                        if (this.state.videosToModify.length) {
+                          this.setState({showDownloadDialog: false, showBar: true});
+                          this._downloadVideos();
+                        } else {
+                          this.setState(prevState => ({
+                            showDownloadDialog: false,
+                            categories: prevState.categories.map(c => ({
+                              ...c,
+                              selected: false,
+                            })),
+                          }));
+                        }
+                      }}>
+                    <Text style = {styles.textButton}>OK</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal> 
+        )}
+
         {this.state.showDeleteAlert &&
           Alert.alert(
             'BORRAR VIDEOS DE LA CATEGORÍA',
