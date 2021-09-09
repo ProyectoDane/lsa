@@ -5635,6 +5635,6 @@ export default {
         },
       ],
     },
-    ...sports,
+    sports(uri),
   ],
 };
