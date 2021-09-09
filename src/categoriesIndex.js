@@ -1,4 +1,7 @@
 import { sports } from './categories/sports';
+import { education } from './categories/education';
+import { games } from './categories/games';
+import { measurements } from './categories/measurements';
 
 const uri = 'https://lsa-argentina-videos.s3-sa-east-1.amazonaws.com';
 export default {
@@ -5636,5 +5639,8 @@ export default {
       ],
     },
     sports(uri),
+    education(uri),
+    games(uri),
+    measurements(uri),
   ],
 };
