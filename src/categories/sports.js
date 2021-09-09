@@ -1,4 +1,4 @@
-export const sports = {
+export const sports = (uri) => ({
     name_es: 'DEPORTES',
     icon: require('../res/icon/deportes.png'),
     videos: [
@@ -135,4 +135,4 @@ export const sports = {
             downloaded: false,
         },
     ]
-}
+})
