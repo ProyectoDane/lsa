@@ -1,3 +1,5 @@
+import { sports } from './categories/sports';
+
 const uri = 'https://lsa-argentina-videos.s3-sa-east-1.amazonaws.com';
 export default {
   categories: [
@@ -5633,5 +5635,6 @@ export default {
         },
       ],
     },
+    ...sports,
   ],
 };
