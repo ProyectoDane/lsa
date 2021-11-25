@@ -20,7 +20,7 @@ import List from '../shared/List';
 import {BaseHeader} from '../shared/BaseHeader';
 const searchVideosBackground = require('../../res/background/fondo-verde.jpg');
 
-export const NavigationOptions = ({navigation, route}) => ({
+export const NavigationOptions = ({navigation, route,ref}) => ({
   ...BaseHeader,
   headerLeft: () => (
     <TextInput
@@ -37,9 +37,10 @@ export const NavigationOptions = ({navigation, route}) => ({
       underlineColorAndroid="transparent"
       placeholder={I18n.t('search_video').toUpperCase()}
       placeholderTextColor={Colors.THEME_SECONDARY}
-      autoFocus={false}
+      autoFocus={true}
       onChangeText={text => navigation.setParams({searchQuery: text})}
       value={route.params?.searchQuery || ''}
+      ref = {(ref) => this.myTextInput = ref }
     />
   ),
   headerRight: () => (
@@ -52,6 +53,7 @@ export const NavigationOptions = ({navigation, route}) => ({
       size={26}
       style={styles.searchIcon}
       onPress={() => navigation.setParams({searchQuery: ''})}
+      onPress={() => this.myTextInput.focus}
     />
   ),
 });
