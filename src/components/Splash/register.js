@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   tinput: {
-    height: 30,
+    height: 37,
     backgroundColor: 'white',
     borderRadius: 6,
     margin: 5,
