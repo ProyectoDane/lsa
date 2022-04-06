@@ -71,12 +71,9 @@ export class Category extends PureComponent {
   };
 
   componentDidMount() {
-    const {navigation} = this.props;
     this._isFirstCategory();
-    navigation.addListener('didFocus', payload => {
-      this.setState(prevState => {
-        this.reload();
-      });
+    this.props.navigation.addListener('focus', payload => {
+      this.reload();
     });
     this.reload();
   }
@@ -249,7 +246,7 @@ export class Category extends PureComponent {
     const {navigation, route} = this.props;
     const params = route.params;
     const videosAmount = params.category.videos.length;
-    const amount = videosAmount - this.state.initialAmount;
+    const amount = this.state.downloadedVideos;
     return this.state.firstCategory ? (
       this._getTutorialLayout()
     ) : (
