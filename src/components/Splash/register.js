@@ -271,7 +271,7 @@ export default class Register extends Component {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={[styles.button, styles.redButton]}
-              onPress={this.props.onNotRegistered}>
+              onPress={this.props.onSkipped}>
               <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
             </TouchableOpacity>
             <TouchableOpacity
