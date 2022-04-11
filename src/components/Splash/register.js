@@ -203,7 +203,9 @@ export default class Register extends Component {
                   <TextInput
                     style={styles.tinput}
                     keyboardType="email-address"
+                    autoCapitalize='none'
                     underlineColorAndroid="transparent"
+
                     onChangeText={text => this.setState({email: text})}
                   />
                 </View>
