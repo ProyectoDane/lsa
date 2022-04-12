@@ -191,6 +191,7 @@ export class App extends PureComponent {
       secondTimePassed: false,
       viewedVideo: false,
       registered: false,
+      skipped: false
     };
   }
 
@@ -209,7 +210,12 @@ export class App extends PureComponent {
       ? this.setState({registered: true})
       : this.setState({registered: false});
 
-    setTimeout(() => {
+    const skipped = await AsyncStorage.getItem('skipped');
+    skipped === 'true'
+      ? this.setState({skipped: true})
+      : this.setState({skipped: false});
+
+      setTimeout(() => {
       this.setTimePassed();
     }, 1500);
   };
@@ -233,13 +239,13 @@ export class App extends PureComponent {
   _registered = async () => {
     Analytics.logEvent('registered');
     await AsyncStorage.setItem('hasRegistred', 'true');
-    this.setState({registered: true});
+    this.setState({registered: true, skipped: false});
   };
 
-  _notRegistered = async () => {
+  _skipped = async () => {
     Analytics.logEvent('skip_register');
-    await AsyncStorage.setItem('hasRegistred', 'false');
-    this.setState({registered: true});
+    await AsyncStorage.setItem('skipped', 'true');
+    this.setState({registered: false, skipped: true});
   };
 
   render() {
@@ -249,14 +255,14 @@ export class App extends PureComponent {
       return <DaneSplashScreen />;
     } else if (!this.state.viewedVideo) {
       return <VideoSplash onEnd={this._endVideo} />;
-    } else if (!this.state.registered) {
+    } else if (!this.state.registered && !this.state.skipped) {
       return (
         <Register
           onRegister={this._registered}
-          onNotRegistered={this._notRegistered}
+          onSkipped={this._skipped}
         />
       );
-    } else if (this.state.registered) {
+    } else if (this.state.registered || this.state.skipped) {
       return (
         <Provider store={store}>
           <NavigationContainer>
