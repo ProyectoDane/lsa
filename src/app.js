@@ -129,7 +129,10 @@ const getScreenOptions = (label, iconName) => ({
   tabBarIcon: ({color}) =>
     label === 'Alphabetical' ? (
       // eslint-disable-next-line react-native/no-inline-styles
-      <Text style={{fontWeight: 'bold', color: color}}>ABC</Text>
+        <Text 
+        style={{fontWeight: 'bold', color: color }} 
+        numberOfLines={1}
+        ellipsizeMode='clip'>ABC</Text>
     ) : (
       <MaterialCommunityIcons
         name={iconName}
