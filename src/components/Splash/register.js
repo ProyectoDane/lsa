@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   tinput: {
-    height: 30,
+    height: 37,
     backgroundColor: 'white',
     borderRadius: 6,
     margin: 5,
@@ -203,7 +203,9 @@ export default class Register extends Component {
                   <TextInput
                     style={styles.tinput}
                     keyboardType="email-address"
+                    autoCapitalize='none'
                     underlineColorAndroid="transparent"
+
                     onChangeText={text => this.setState({email: text})}
                   />
                 </View>
@@ -271,7 +273,7 @@ export default class Register extends Component {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={[styles.button, styles.redButton]}
-              onPress={this.props.onNotRegistered}>
+              onPress={this.props.onSkipped}>
               <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
             </TouchableOpacity>
             <TouchableOpacity

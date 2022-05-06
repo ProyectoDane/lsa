@@ -92,7 +92,7 @@ export function VideoPlayer({navigation, route}) {
       <ImageBackground
         src={require('./../../res/background/fondo-amarillo.jpg')}>
         <ScrollView>
-          <Video uri={`file://${videoPath}`} onEnd={_onEnd} />
+          <Video uri={`file://${videoPath}`} onEnd={_onEnd} autoPlay={true} />
           <View style={styles.content}>
             <View style={[styles.arrow, styles.arrowLeft]}>
               {videoIndex !== 0 && (

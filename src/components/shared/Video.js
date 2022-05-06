@@ -30,7 +30,6 @@ export default function Video({uri, onEnd, onLoadStart, onReady, autoPlay}) {
   const videoRef = null;
 
   const _onEnd = () => {
-    setPaused(true);
     onEnd && onEnd();
   };
 
@@ -76,6 +75,7 @@ export default function Video({uri, onEnd, onLoadStart, onReady, autoPlay}) {
           paused={paused}
           muted
           resizeMode="contain"
+          repeat={true}
           onEnd={_onEnd}
           onLoadStart={_onLoadStart}
           onReadyForDisplay={_onReady}
