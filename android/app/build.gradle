@@ -136,12 +136,13 @@ android {
         versionName "1.0"
         multiDexEnabled true // fix cannot fit classes in single dex file
     }
+    /* Habilitar los dos comentados para generar apks por arquitectura */
     splits {
         abi {
             reset()
-            enable enableSeparateBuildPerCPUArchitecture
-            universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+            /*enable enableSeparateBuildPerCPUArchitecture*/
+            universalApk true  // If true, also generate a universal APK
+            /*include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"*/
         }
     }
     signingConfigs {
