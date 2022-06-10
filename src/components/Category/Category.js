@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
-import {View, Alert, ScrollView, Text, Modal,TouchableOpacity,Button} from 'react-native';
+import {View, Alert, ScrollView, Text, Modal,TouchableOpacity} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {SelectableCard} from '../shared/Card';
 import List from '../shared/List';
