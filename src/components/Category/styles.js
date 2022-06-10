@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: Dimensions.get('window').width,
-    height: getScreenHeight() - 15,
+    height: getScreenHeight() - 150,
     backgroundColor: '#757575',
   },
 
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
   buttonModal: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-    height: 60,
+    alignItems: 'flex-start',
+    paddingVertical: 8,
+    height: 100,
     position: 'absolute',
     bottom: 0,
     width: Dimensions.get('window').width,

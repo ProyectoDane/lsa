@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import * as Progress from 'react-native-progress';
 import React, {PureComponent} from 'react';
-import {View, Alert, ScrollView, Text, Modal,TouchableOpacity} from 'react-native';
+import {View, Alert, ScrollView, Text, Modal,TouchableOpacity,Button} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import {SelectableCard} from '../shared/Card';
 import List from '../shared/List';
@@ -14,6 +14,7 @@ import {PAGES} from './../../constants';
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 import {styles} from './styles';
+import { CloseButton } from '../../util/Buttons';
 // Analytics
 import analytics from '@react-native-firebase/analytics';
 const Analytics = analytics();
@@ -200,14 +201,7 @@ export class Category extends PureComponent {
               />
             ))}
           </ScrollView>
-          <View style={styles.iconStyle}>
-            <Ionicons
-              name="ios-close-outline"
-              size={70}
-              style={{color: '#fff'}}
-              onPress={this._onCloseModal}
-            />
-          </View>
+          <CloseButton onPress = {this._onCloseModal} text = "Cerrar"/>
           <View style={styles.buttonModal}>
             {listaSlider.map((i, k) => (
               <Text
