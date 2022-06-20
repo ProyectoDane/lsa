@@ -29,11 +29,10 @@ export function CloseButton(props){
 const styles = StyleSheet.create({
 
     button: {
-        position: 'absolute',
-        bottom: 0,
+        flex: 1,
         width: Dimensions.get('window').width,
-        paddingVertical: 10,
         alignItems: 'center',
+        justifyContent: 'center',
         zIndex: 100,
     },
     buttonText:{

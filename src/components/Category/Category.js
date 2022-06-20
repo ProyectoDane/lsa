@@ -14,7 +14,7 @@ import {PAGES} from './../../constants';
 import Colors from './../../res/colors';
 import I18n from './../../res/i18n/i18n';
 import {styles} from './styles';
-import { CloseButton } from '../../util/Buttons';
+import { CloseButton } from '../shared/Buttons';
 // Analytics
 import analytics from '@react-native-firebase/analytics';
 const Analytics = analytics();
@@ -184,36 +184,42 @@ export class Category extends PureComponent {
   _getTutorialLayout = () => {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
-        <Modal
-          visible={this.state.firstCategory}
+        <Modal style={styles.categoryModal}
           onRequestClose={this._onCloseModal}>
+          <View style={styles.categoryScrollContainer}>
           <ScrollView
             horizontal
             pagingEnabled
             onScroll={this._onChangeSlide}
             showsHorizontalScrollIndicator={false}>
+
             {listaSlider.map((i, k) => (
               <ImageBackground
                 src={i}
-                style={styles.image}
+                style={styles.sliderImage}
                 key={k}
-                resizeMode="contain"
+                resizeMode="cover"
               />
             ))}
           </ScrollView>
-          <CloseButton onPress = {this._onCloseModal} text = "Cerrar"/>
-          <View style={styles.buttonModal}>
-            {listaSlider.map((i, k) => (
-              <Text
-                style={
-                  k === this.state.activeSlide
-                    ? styles.activeCircle
-                    : styles.inactiveCircle
-                }
-                key={k}>
-                ⬤
-              </Text>
-            ))}
+          </View>
+          <View style={styles.sliderButtonsContainer}>
+            <View style={styles.sliderButtons}>
+              {listaSlider.map((i, k) => (
+                <Text
+                  style={
+                    k === this.state.activeSlide
+                      ? styles.activeCircle
+                      : styles.inactiveCircle
+                  }
+                  key={k}>
+                  ⬤
+                </Text>
+              ))}
+            </View>
+          </View>
+          <View style={styles.categoryCloseButtonContainer}>
+            <CloseButton onPress = {this._onCloseModal} text = "Continuar"/>
           </View>
         </Modal>
       </View>
