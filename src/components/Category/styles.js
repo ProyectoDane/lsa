@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 15,
   },
+  categoryModal: {
+    flex: 1,
+  },
   headerText: {
     zIndex: 100,
     fontFamily: 'nunito',
@@ -29,10 +32,9 @@ const styles = StyleSheet.create({
   },
   image: {
     width: Dimensions.get('window').width,
-    height: getScreenHeight() - 15,
+    height: getScreenHeight() - 150,
     backgroundColor: '#757575',
   },
-
   inactiveCircle: {
     fontSize: Dimensions.get('window').width / 20,
     color: '#FFF',
@@ -43,16 +45,27 @@ const styles = StyleSheet.create({
     color: '#FFB54C',
     margin: 3,
   },
-  buttonModal: {
+  sliderButtons: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-    height: 60,
-    position: 'absolute',
-    bottom: 0,
+    alignItems: 'flex-start',
     width: Dimensions.get('window').width,
+  },
+  sliderButtonsContainer: {
+    flex: 1, 
+    justifyContent: 'center',
     backgroundColor: '#E0E0E0',
+  },
+  categoryScrollContainer: {
+    flex: 11
+  },
+  sliderImage: {
+    width: Dimensions.get('window').width,
+    backgroundColor: '#757575',
+    flex:1
+  },
+  categoryCloseButtonContainer :{
+    flex:1
   },
   iconStyle: {
     position: 'absolute',
