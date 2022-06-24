@@ -198,7 +198,7 @@ export class Category extends PureComponent {
                 src={i}
                 style={styles.sliderImage}
                 key={k}
-                resizeMode="cover"
+                resizeMode="contain"
               />
             ))}
           </ScrollView>
@@ -219,7 +219,7 @@ export class Category extends PureComponent {
             </View>
           </View>
           <View style={styles.categoryCloseButtonContainer}>
-            <CloseButton onPress = {this._onCloseModal} text = "Continuar"/>
+            <CloseButton onPress = {this._onCloseModal} text = "Saltar Intro"/>
           </View>
         </Modal>
       </View>
