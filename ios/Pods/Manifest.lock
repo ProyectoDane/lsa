@@ -328,8 +328,8 @@ PODS:
   - RNFBApp (8.0.1):
     - Firebase/CoreOnly (~> 6.25.0)
     - React
-  - RNFS (2.16.6):
-    - React
+  - RNFS (2.20.0):
+    - React-Core
   - RNGestureHandler (1.6.1):
     - React
   - RNI18n (2.0.15):
@@ -526,7 +526,7 @@ SPEC CHECKSUMS:
   RNCPicker: 55b9b4240d0a9eba8733d02616775d4040de2e7d
   RNFBAnalytics: 1c62751e65829a88ad23c4e2740610970372ccde
   RNFBApp: 49e1b8ce7e7d175b751c5b8568eafd51eac59b42
-  RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
+  RNFS: 4ac0f0ea233904cb798630b3c077808c06931688
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
@@ -534,6 +534,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
 
-PODFILE CHECKSUM: 63eb8102fbcd03a2ea6c3500994d4c7f35ac0b91
+PODFILE CHECKSUM: 2afabe074303a5ddb6695af1f61510d83a8575c3
 
 COCOAPODS: 1.11.3
