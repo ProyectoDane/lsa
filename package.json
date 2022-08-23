@@ -6,8 +6,9 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "build-ios": "npx react-native link && npx react-native-fix-image && npx pod-install",
-    "build-run-ios": "npm run build-ios && npm run ios",
+    "ios-build": "npx react-native link && npx react-native-fix-image && npx pod-install",
+    "ios-run": "npm run ios-build && npm run ios",
+    "ios-testflight": "npm run ios-build && cd ios && fastlane beta && cd ..",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
