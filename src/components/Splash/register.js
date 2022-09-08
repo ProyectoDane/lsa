@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 5,
     paddingLeft: 10,
+    color: '#000000',
   },
   pinputContainer: {
     backgroundColor: 'white',
