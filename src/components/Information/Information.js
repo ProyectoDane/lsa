@@ -54,7 +54,7 @@ export function Information() {
           {'Al staff de Hexacta: '.toUpperCase()}
         </Text>
         <Text>
-          {'Luis Broeders, Esteban Sopetto, Verónica Vignoni, Javier Ocampo, Diego Pedro, Jesica Taira, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Juan Ignacio Bernal, Julieta Juarez y Nicolas Gallinal.'.toUpperCase()}
+          {'Luis Broeders, Esteban Sopetto, Verónica Vignoni, Javier Ocampo, Diego Pedro, Jesica Taira, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Juan Ignacio Bernal, Julieta Juarez, Nicolas Gallinal, Marcos García, Luciano Faletti y Julián Bolaño.'.toUpperCase()}
         </Text>
         <Text style={styles.title}>LICENCIA GNU V3</Text>
         <Text
