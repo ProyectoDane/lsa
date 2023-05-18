@@ -1,19 +1,22 @@
-/* eslint-disable react-native/no-inline-styles */
 import * as Progress from 'react-native-progress';
-import React, {PureComponent} from 'react';
-import {View, Alert, ScrollView, Text, Modal,TouchableOpacity} from 'react-native';
+import React, { PureComponent } from 'react';
+import {
+  View,
+  Alert,
+  ScrollView,
+  Text,
+  Modal,
+  TouchableOpacity,
+} from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
-import {SelectableCard} from '../shared/Card';
+import { SelectableCard } from '../shared/Card';
 import List from '../shared/List';
-import {BaseHeader} from '../shared/BaseHeader';
+import { BaseHeader } from '../shared/BaseHeader';
 import AsyncStorage from '@react-native-community/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import RNFS from 'react-native-fs';
-import {PAGES} from './../../constants';
-import Colors from './../../res/colors';
-import I18n from './../../res/i18n/i18n';
-import {styles} from './styles';
+import { PAGES } from './../../constants';
+import { styles } from './styles';
 import { CloseButton } from '../shared/Buttons';
 // Analytics
 import analytics from '@react-native-firebase/analytics';
@@ -30,7 +33,7 @@ const listaSlider = [
 ];
 
 export class Category extends PureComponent {
-  static navigationOptions = ({navigation, route}) => ({
+  static navigationOptions = ({ navigation, route }) => ({
     ...BaseHeader,
     title: route.params.category.name_es,
     headerTruncatedBackTitle: '',
@@ -41,14 +44,14 @@ export class Category extends PureComponent {
           name="cloud-download"
           size={30}
           style={styles.downloadIcon}
-          onPress={() => navigation.setParams({showDialog: true})}
+          onPress={() => navigation.setParams({ showDialog: true })}
         />
       ) : (
         <MaterialIcons
           name="delete"
           size={30}
           style={styles.downloadIcon}
-          onPress={() => navigation.setParams({deleteDialog: true})}
+          onPress={() => navigation.setParams({ deleteDialog: true })}
         />
       ),
   });
@@ -61,14 +64,14 @@ export class Category extends PureComponent {
     initialAmount: 0,
     refresh: false,
     firstCategory: false,
-    showDownloadModal: false
+    showDownloadModal: false,
   };
 
   _isFirstCategory = async () => {
     const isFirstCategory = await AsyncStorage.getItem('firstCategory');
     isFirstCategory === 'false'
-      ? this.setState({firstCategory: false})
-      : this.setState({firstCategory: true});
+      ? this.setState({ firstCategory: false })
+      : this.setState({ firstCategory: true });
   };
 
   componentDidMount() {
@@ -80,7 +83,7 @@ export class Category extends PureComponent {
   }
 
   reload() {
-    const {navigation, route} = this.props;
+    const { navigation, route } = this.props;
     const videos = route.params.category.videos.map(video => ({
       ...video,
       name: video.video.split('/').pop(),
@@ -89,7 +92,7 @@ export class Category extends PureComponent {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
       if (videos.length === downloaded) {
-        navigation.setParams({categoryFull: true});
+        navigation.setParams({ categoryFull: true });
       }
       this.setState({
         videos: result,
@@ -110,24 +113,24 @@ export class Category extends PureComponent {
   }
 
   _deleteVideos = () => {
-    const {navigation} = this.props;
+    const { navigation } = this.props;
     this.state.videos.forEach(video => {
       if (video.downloaded) {
         const videoFile = `${RNFS.DocumentDirectoryPath}/${video.name}`;
         RNFS.unlink(videoFile);
       }
     });
-    navigation.setParams({categoryFull: false});
+    navigation.setParams({ categoryFull: false });
 
-    this.setState({initialAmount: 0, downloadedVideos: 0});
+    this.setState({ initialAmount: 0, downloadedVideos: 0 });
 
     this.reload();
   };
 
   _downloadVideos = () => {
-    const {navigation, route} = this.props;
-    const {name_es} = route.params.category;
-    this.setState({showBar: true});
+    const { navigation, route } = this.props;
+    const { name_es } = route.params.category;
+    this.setState({ showBar: true });
 
     this.state.videos.forEach((video, index) => {
       if (!video.downloaded) {
@@ -145,8 +148,8 @@ export class Category extends PureComponent {
                 changingVideos.length ===
                   prevState.downloadedVideos + prevState.initialAmount)
             ) {
-              navigation.setParams({categoryFull: true});
-              Analytics.logEvent('category_download', {category: name_es});
+              navigation.setParams({ categoryFull: true });
+              Analytics.logEvent('category_download', { category: name_es });
               return {
                 downloadedVideos: changingVideos.length,
                 initialAmount: 0,
@@ -169,39 +172,37 @@ export class Category extends PureComponent {
     });
   };
   _onLayout = () => this.forceUpdate();
-  _onChangeSlide = ({nativeEvent}) => {
+  _onChangeSlide = ({ nativeEvent }) => {
     const slide = Math.ceil(
       nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
     );
     if (slide !== this.state.activeSlide) {
-      this.setState({activeSlide: slide});
+      this.setState({ activeSlide: slide });
     }
   };
   _onCloseModal = async () => {
     await AsyncStorage.setItem('firstCategory', 'false');
-    this.setState({firstCategory: false});
+    this.setState({ firstCategory: false });
   };
   _getTutorialLayout = () => {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
-        <Modal style={styles.categoryModal}
-          onRequestClose={this._onCloseModal}>
+        <Modal style={styles.categoryModal} onRequestClose={this._onCloseModal}>
           <View style={styles.categoryScrollContainer}>
-          <ScrollView
-            horizontal
-            pagingEnabled
-            onScroll={this._onChangeSlide}
-            showsHorizontalScrollIndicator={false}>
-
-            {listaSlider.map((i, k) => (
-              <ImageBackground
-                src={i}
-                style={styles.sliderImage}
-                key={k}
-                resizeMode="contain"
-              />
-            ))}
-          </ScrollView>
+            <ScrollView
+              horizontal
+              pagingEnabled
+              onScroll={this._onChangeSlide}
+              showsHorizontalScrollIndicator={false}>
+              {listaSlider.map((i, k) => (
+                <ImageBackground
+                  src={i}
+                  style={styles.sliderImage}
+                  key={k}
+                  resizeMode="contain"
+                />
+              ))}
+            </ScrollView>
           </View>
           <View style={styles.sliderButtonsContainer}>
             <View style={styles.sliderButtons}>
@@ -219,7 +220,7 @@ export class Category extends PureComponent {
             </View>
           </View>
           <View style={styles.categoryCloseButtonContainer}>
-            <CloseButton onPress = {this._onCloseModal} text = "Saltar Intro"/>
+            <CloseButton onPress={this._onCloseModal} text="Saltar Intro" />
           </View>
         </Modal>
       </View>
@@ -227,11 +228,11 @@ export class Category extends PureComponent {
   };
 
   _navigateToVideo(video) {
-    const {navigation} = this.props;
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
+    const { navigation } = this.props;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
   }
 
-  _renderVideo = ({item}) => (
+  _renderVideo = ({ item }) => (
     <SelectableCard
       key={item.name_es}
       onPress={() => this._navigateToVideo(item)}
@@ -243,7 +244,7 @@ export class Category extends PureComponent {
   );
 
   render() {
-    const {navigation, route} = this.props;
+    const { navigation, route } = this.props;
     const params = route.params;
     const videosAmount = params.category.videos.length;
     const amount = this.state.downloadedVideos;
@@ -252,82 +253,79 @@ export class Category extends PureComponent {
     ) : (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground src={categoryVideosBackground}>
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.TAB_BAR_ACTIVE_ICON,
-            }}>
+          <View style={styles.headerContainer}>
             <Text style={styles.headerText}>
               {amount} VIDEOS DESCARGADOS DE {videosAmount}
             </Text>
           </View>
           <List renderItem={this._renderVideo} data={this.state.videos} />
-         
-          {params.showDialog && (     
-          <Modal 
-            transparent ={true}
-            visible = {true}>
-            <View style = {styles.opacityModal}>
-              <View style = {styles.modalMessageDownload}>
-                <Text style = {styles.textBoldModal}>DESCARGA VIDEOS</Text>
-                <Text style = {styles.textNormalModal}>
-                    VAS A DESCARGAR {
-                    this.state.initialAmount
-                  } DE {videosAmount} VIDEOS.
-                </Text>
-                <Text style = {styles.textNormalModal}>ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.</Text>
-                <View style = {styles.buttonPosition}>
-                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:70,marginBottom:10,marginTop:10}} 
-                    onPress= { () => {
-                      navigation.setParams({showDialog: false})
+
+          {params.showDialog && (
+            <Modal transparent={true} visible={true}>
+              <View style={styles.opacityModal}>
+                <View style={styles.modalMessageDownload}>
+                  <Text style={styles.textBoldModal}>DESCARGA VIDEOS</Text>
+                  <Text style={styles.textNormalModal}>
+                    VAS A DESCARGAR {this.state.initialAmount} DE {videosAmount}{' '}
+                    VIDEOS.
+                  </Text>
+                  <Text style={styles.textNormalModal}>
+                    ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ
+                    INTERRUMPIDA SI SE CIERRA LA APLICACION.
+                  </Text>
+                  <View style={styles.buttonPosition}>
+                    <TouchableOpacity
+                      style={styles.buttonCancel}
+                      onPress={() => {
+                        navigation.setParams({ showDialog: false });
                       }}>
-                    <Text style = {styles.textButton}>CANCEL</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:90,marginBottom:10,marginTop:10}} 
-                    onPress= { () => {
-                      navigation.setParams({showDialog: false})
-                      this._downloadVideos();
+                      <Text style={styles.textButton}>CANCEL</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.buttonOk}
+                      onPress={() => {
+                        navigation.setParams({ showDialog: false });
+                        this._downloadVideos();
                       }}>
-                    <Text style = {styles.textButton}>OK</Text>
-                  </TouchableOpacity>
+                      <Text style={styles.textButton}>OK</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
               </View>
-            </View>
-          </Modal> 
-        )}
-
-        {params.deleteDialog &&
-          Alert.alert(
-            'BORRAR VIDEOS DE LA CATEGORÍA',
-            'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
-            [
-              {
-                text: 'CANCELAR',
-                onPress: () => navigation.setParams({deleteDialog: false}),
-              },
-              {
-                text: 'OK',
-                onPress: () => {
-                  navigation.setParams({deleteDialog: false});
-                  this._deleteVideos();
-                },
-              },
-            ],
-            {cancelable: false},
+            </Modal>
           )}
-        {this.state.showBar && (
-          <View>
-            <Progress.Bar
-              color="green"
-              width={null}
-              progress={this.state.downloadedVideos / videosAmount}
-            />
-            <Text style={styles.downloadText}>{`${
-              this.state.downloadedVideos
-            } de ${videosAmount}`}</Text>
-          </View>
-        )}
-        
+
+          {params.deleteDialog &&
+            Alert.alert(
+              'BORRAR VIDEOS DE LA CATEGORÍA',
+              'VAS A BORRAR LOS VIDEOS DE ESTA CATEGORÍA. ESTA ACCIÓN PUEDE DEMORAR.',
+              [
+                {
+                  text: 'CANCELAR',
+                  onPress: () => navigation.setParams({ deleteDialog: false }),
+                },
+                {
+                  text: 'OK',
+                  onPress: () => {
+                    navigation.setParams({ deleteDialog: false });
+                    this._deleteVideos();
+                  },
+                },
+              ],
+              { cancelable: false },
+            )}
+          {this.state.showBar && (
+            <View>
+              <Progress.Bar
+                color="green"
+                width={null}
+                progress={this.state.downloadedVideos / videosAmount}
+              />
+              <Text style={styles.downloadText}>{`${
+                this.state.downloadedVideos
+              } de ${videosAmount}`}</Text>
+            </View>
+          )}
         </ImageBackground>
       </View>
     );

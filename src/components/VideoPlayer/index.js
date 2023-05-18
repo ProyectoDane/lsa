@@ -1,1 +1,1 @@
-export {VideoPlayer, NavigationOptions} from './VideoPlayer';
+export { VideoPlayer, NavigationOptions } from './VideoPlayer';

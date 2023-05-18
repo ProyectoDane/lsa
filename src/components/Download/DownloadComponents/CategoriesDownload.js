@@ -1,8 +1,8 @@
 import * as Progress from 'react-native-progress';
-import React, {PureComponent} from 'react';
-import {Alert, Text, View, TouchableOpacity,Modal} from 'react-native';
+import React, { PureComponent } from 'react';
+import { Alert, Text, View, TouchableOpacity, Modal } from 'react-native';
 import ImageBackground from '../../shared/ImageBackground';
-import {SelectableCard} from '../../shared/Card';
+import { SelectableCard } from '../../shared/Card';
 import List from '../../shared/List';
 import _ from 'lodash';
 import RNFS from 'react-native-fs';
@@ -12,7 +12,10 @@ import styles from './styles';
 export class CategoriesDownload extends PureComponent {
   state = {
     amountSelected: 0,
-    categories: CATEGORIES_INDEX.categories.map(c => ({...c, selected: false})),
+    categories: CATEGORIES_INDEX.categories.map(c => ({
+      ...c,
+      selected: false,
+    })),
     showDownloadDialog: false,
     showDownloadModal: false,
     initialAmount: 0,
@@ -41,7 +44,7 @@ export class CategoriesDownload extends PureComponent {
         }));
   };
 
-  _renderCategory = ({item}) => (
+  _renderCategory = ({ item }) => (
     <SelectableCard
       src={item.icon}
       name={item.name_es}
@@ -66,7 +69,9 @@ export class CategoriesDownload extends PureComponent {
     const videos = _.flatten(
       selectedCategories
         .map(c => c.videos)
-        .map(video => video.map(v => ({...v, name: v.video.split('/').pop()}))),
+        .map(video =>
+          video.map(v => ({ ...v, name: v.video.split('/').pop() })),
+        ),
     );
     return Promise.all(
       videos.map(video => {
@@ -122,7 +127,7 @@ export class CategoriesDownload extends PureComponent {
       this.setState(prevState => ({
         showBar: false,
         showDeleteBar: false,
-        categories: prevState.categories.map(c => ({...c, selected: false})),
+        categories: prevState.categories.map(c => ({ ...c, selected: false })),
       }));
     });
   };
@@ -173,47 +178,52 @@ export class CategoriesDownload extends PureComponent {
             </View>
           )}
 
-        {this.state.showDownloadDialog && (     
-          <Modal 
-            transparent ={true}
-            visible = {true}>
-            <View style = {styles.opacityModal}>
-              <View style = {styles.modalMessageDownload}>
-                <Text style = {styles.textBoldModal}>DESCARGA VIDEOS</Text>
-                <Text style = {styles.textNormalModal}>
-                    VAS A DESCARGAR {
-                    this.state.initialAmount
-                  } DE {this.state.modifiedAmount} VIDEOS.
+        {this.state.showDownloadDialog && (
+          <Modal transparent={true} visible={true}>
+            <View style={styles.opacityModal}>
+              <View style={styles.modalMessageDownload}>
+                <Text style={styles.textBoldModal}>DESCARGA VIDEOS</Text>
+                <Text style={styles.textNormalModal}>
+                  VAS A DESCARGAR {this.state.initialAmount} DE{' '}
+                  {this.state.modifiedAmount} VIDEOS.
                 </Text>
-                <Text style = {styles.textNormalModal}>ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ INTERRUMPIDA SI SE CIERRA LA APLICACION.</Text>
-                <View style = {styles.buttonPosition}>
-                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:70,marginBottom:10,marginTop:10}} 
-                    onPress= { () => {
-                      this.setState({showDownloadDialog: false})
-                      }}>
-                    <Text style = {styles.textButton}>CANCEL</Text>
+                <Text style={styles.textNormalModal}>
+                  ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ
+                  INTERRUMPIDA SI SE CIERRA LA APLICACION.
+                </Text>
+                <View style={styles.buttonPosition}>
+                  <TouchableOpacity
+                    style={styles.buttonCancel}
+                    onPress={() => {
+                      this.setState({ showDownloadDialog: false });
+                    }}>
+                    <Text style={styles.textButton}>CANCEL</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style = {{backgroundColor :'#FFFFFF',marginLeft:90,marginBottom:10,marginTop:10}} 
-                    onPress= { () => {
-                        if (this.state.videosToModify.length) {
-                          this.setState({showDownloadDialog: false, showBar: true});
-                          this._downloadVideos();
-                        } else {
-                          this.setState(prevState => ({
-                            showDownloadDialog: false,
-                            categories: prevState.categories.map(c => ({
-                              ...c,
-                              selected: false,
-                            })),
-                          }));
-                        }
-                      }}>
-                    <Text style = {styles.textButton}>OK</Text>
+                  <TouchableOpacity
+                    style={styles.buttonOk}
+                    onPress={() => {
+                      if (this.state.videosToModify.length) {
+                        this.setState({
+                          showDownloadDialog: false,
+                          showBar: true,
+                        });
+                        this._downloadVideos();
+                      } else {
+                        this.setState(prevState => ({
+                          showDownloadDialog: false,
+                          categories: prevState.categories.map(c => ({
+                            ...c,
+                            selected: false,
+                          })),
+                        }));
+                      }
+                    }}>
+                    <Text style={styles.textButton}>OK</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
-          </Modal> 
+          </Modal>
         )}
 
         {this.state.showDeleteAlert &&
@@ -223,7 +233,7 @@ export class CategoriesDownload extends PureComponent {
             [
               {
                 text: 'CANCELAR',
-                onPress: () => this.setState({showDeleteAlert: false}),
+                onPress: () => this.setState({ showDeleteAlert: false }),
               },
               {
                 text: 'OK',
@@ -246,7 +256,7 @@ export class CategoriesDownload extends PureComponent {
                 },
               },
             ],
-            {cancelable: false},
+            { cancelable: false },
           )}
         {this.state.showBar && (
           <ProgressBar
@@ -267,7 +277,7 @@ export class CategoriesDownload extends PureComponent {
   }
 }
 
-function ProgressBar({videos, color, predicate}) {
+function ProgressBar({ videos, color, predicate }) {
   const current = videos.filter(predicate).length;
   const total = videos.length;
   return (

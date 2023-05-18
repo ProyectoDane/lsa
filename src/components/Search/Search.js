@@ -1,7 +1,7 @@
-import React, {useState, useRef, useCallback} from 'react';
-import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
-import {searchVideos} from '../../util/searchUtil';
-import {Message} from '../Message/Message';
+import React, { useState, useRef, useCallback } from 'react';
+import { useFocusEffect, useScrollToTop } from '@react-navigation/native';
+import { searchVideos } from '../../util/searchUtil';
+import { Message } from '../Message/Message';
 import {
   Dimensions,
   TextInput,
@@ -10,17 +10,17 @@ import {
   Keyboard,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {PAGES} from './../../constants/';
+import { PAGES } from './../../constants/';
 import Colors from '../../res/colors';
 import I18n from '../../res/i18n/i18n';
-import {styles, searchInputMaginLeft, searchInputMaginRight} from './styles';
+import { styles, searchInputMaginLeft, searchInputMaginRight } from './styles';
 import ImageBackground from '../shared/ImageBackground';
-import {Card} from '../shared/Card';
+import { Card } from '../shared/Card';
 import List from '../shared/List';
-import {BaseHeader} from '../shared/BaseHeader';
+import { BaseHeader } from '../shared/BaseHeader';
 const searchVideosBackground = require('../../res/background/fondo-verde.jpg');
 
-export const NavigationOptions = ({navigation, route,ref}) => ({
+export const NavigationOptions = ({ navigation, route, ref }) => ({
   ...BaseHeader,
   headerLeft: () => (
     <TextInput
@@ -38,9 +38,9 @@ export const NavigationOptions = ({navigation, route,ref}) => ({
       placeholder={I18n.t('search_video').toUpperCase()}
       placeholderTextColor={Colors.THEME_SECONDARY}
       autoFocus={true}
-      onChangeText={text => navigation.setParams({searchQuery: text})}
+      onChangeText={text => navigation.setParams({ searchQuery: text })}
       value={route.params?.searchQuery || ''}
-      ref = {(ref) => this.myTextInput = ref }
+      ref={innerRef => (this.myTextInput = innerRef)}
     />
   ),
   headerRight: () => (
@@ -52,13 +52,15 @@ export const NavigationOptions = ({navigation, route,ref}) => ({
       }
       size={26}
       style={styles.searchIcon}
-      onPress={() => navigation.setParams({searchQuery: ''})}
-      onPress={() => this.myTextInput.focus}
+      onPress={() => {
+        navigation.setParams({ searchQuery: '' });
+        this.myTextInput.focus();
+      }}
     />
   ),
 });
 
-export function Search({navigation, route}) {
+export function Search({ navigation, route }) {
   const [query, setQuery] = useState('');
   const [videos, setVideos] = useState([]);
   const scrollRef = useRef(null);
@@ -74,7 +76,7 @@ export function Search({navigation, route}) {
   useFocusEffect(updateSearchQuery);
 
   const _navigateToVideo = video => {
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
   };
 
   return (
@@ -87,7 +89,7 @@ export function Search({navigation, route}) {
             <List
               data={videos}
               scrollRef={scrollRef}
-              renderItem={({item}) => (
+              renderItem={({ item }) => (
                 <Card
                   key={item.name_es}
                   src={item.image}

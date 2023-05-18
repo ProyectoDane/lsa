@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import Colors from './../../res/colors';
 
 const noResultsMessageHorizontalMargin = 30;
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {styles};
+export { styles };

@@ -11,7 +11,8 @@
     "ios-testflight": "npm run ios-build && cd ios && fastlane beta && cd ..",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
+    "format": "prettier --write '**/*.js{,x}' --loglevel warn",
+    "lint": "yarn format && yarn eslint . --fix",
     "commit": "cz"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "react-native-screens": "^2.9.0",
     "react-native-vector-icons": "^7.0.0",
     "react-native-video": "^4.4.5",
+    "react-native-webview": "^10.10.2",
     "react-redux": "5.0.7",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
@@ -67,5 +69,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": ">=14 <17",
+    "java": "^11"
   }
 }

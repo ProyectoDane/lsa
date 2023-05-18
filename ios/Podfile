@@ -81,6 +81,8 @@ target 'ProyectosSolidarios' do
 
 
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
   target 'ProyectosSolidariosTests' do
     inherit! :complete
     # Pods for testing

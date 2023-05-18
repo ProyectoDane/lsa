@@ -1,1 +1,1 @@
-export {Information, NavigationOptions} from './Information';
+export { Information, NavigationOptions } from './Information';

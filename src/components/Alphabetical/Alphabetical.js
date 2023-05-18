@@ -1,20 +1,20 @@
-import React, {useRef} from 'react';
-import {View, Alert} from 'react-native';
-import {useScrollToTop} from '@react-navigation/native';
+import React, { useRef } from 'react';
+import { View, Alert } from 'react-native';
+import { useScrollToTop } from '@react-navigation/native';
 import ImageBackground from '../shared/ImageBackground';
-import {Card} from '../shared/Card';
+import { Card } from '../shared/Card';
 import List from '../shared/List';
-import {BaseHeader} from '../shared/BaseHeader';
+import { BaseHeader } from '../shared/BaseHeader';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {PAGES} from '../../constants/';
+import { PAGES } from '../../constants/';
 import I18n from '../../res/i18n/i18n';
 
 import CATEGORIES_INDEX from '../../categoriesIndex';
-import {ALPHABETICAL_CATEGORY_NAME_ES} from '../../constants/index';
+import { ALPHABETICAL_CATEGORY_NAME_ES } from '../../constants/index';
 
 import styles from './styles';
 
-export const NavigationOptions = ({navigation}) => ({
+export const NavigationOptions = ({ navigation }) => ({
   ...BaseHeader,
   title: I18n.t('alphabetical_tab_title'),
   headerRight: () => (
@@ -22,12 +22,12 @@ export const NavigationOptions = ({navigation}) => ({
       name="ios-help-circle-outline"
       size={26}
       style={styles.infoIcon}
-      onPress={() => navigation.setParams({showDialog: true})}
+      onPress={() => navigation.setParams({ showDialog: true })}
     />
   ),
 });
 
-export function Alphabetical({navigation, route}) {
+export function Alphabetical({ navigation, route }) {
   const videos = CATEGORIES_INDEX.categories.find(category => {
     return category.name_es === ALPHABETICAL_CATEGORY_NAME_ES;
   }).videos;
@@ -37,10 +37,10 @@ export function Alphabetical({navigation, route}) {
   useScrollToTop(scrollRef);
 
   const _navigateToVideo = video => {
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video});
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
   };
 
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <Card
       key={item.name_es}
       src={item.image}
@@ -60,10 +60,10 @@ export function Alphabetical({navigation, route}) {
             [
               {
                 text: 'OK',
-                onPress: () => navigation.setParams({showDialog: false}),
+                onPress: () => navigation.setParams({ showDialog: false }),
               },
             ],
-            {cancelable: false},
+            { cancelable: false },
           )}
       </ImageBackground>
     </View>

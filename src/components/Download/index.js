@@ -1,1 +1,1 @@
-export {Download, NavigationOptions} from './Download';
+export { Download, NavigationOptions } from './Download';

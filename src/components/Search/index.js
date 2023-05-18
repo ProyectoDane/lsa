@@ -1,1 +1,1 @@
-export {Search, NavigationOptions} from './Search';
+export { Search, NavigationOptions } from './Search';

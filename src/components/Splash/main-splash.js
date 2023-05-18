@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 
 const styles = StyleSheet.create({

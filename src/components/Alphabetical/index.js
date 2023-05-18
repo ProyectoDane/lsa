@@ -1,1 +1,1 @@
-export {Alphabetical, NavigationOptions} from './Alphabetical';
+export { Alphabetical, NavigationOptions } from './Alphabetical';

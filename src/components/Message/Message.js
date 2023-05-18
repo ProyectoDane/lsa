@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from './styles';
+import { View, Text } from 'react-native';
+import { styles } from './styles';
 
 export const Message = props => (
   <View pointerEvents="none" style={styles.videosMessageContainer}>

@@ -1,11 +1,11 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import Video from '../shared/Video';
-import {Text, Image, View, ScrollView, Linking} from 'react-native';
-import {useScrollToTop} from '@react-navigation/native';
+import { Text, Image, View, ScrollView, Linking } from 'react-native';
+import { useScrollToTop } from '@react-navigation/native';
 import I18n from '../../res/i18n/i18n';
 import TextEs from '../../res/i18n/es';
-import {styles, margin} from './styles';
-import {BaseHeader} from '../shared/BaseHeader';
+import { styles, margin } from './styles';
+import { BaseHeader } from '../shared/BaseHeader';
 
 const tincSource = require('../../res/image/tinc.png');
 const fundasorSource = require('../../res/image/fundasor.png');
@@ -23,7 +23,7 @@ export function Information() {
 
   return (
     <ScrollView ref={scrollRef} style={styles.full}>
-      <View style={{marginHorizontal: margin}}>
+      <View style={{ marginHorizontal: margin }}>
         <Image
           style={styles.daneImage}
           source={require('../../res/icon/dane_logo_transparencia.png')}

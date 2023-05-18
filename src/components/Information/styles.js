@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const margin = 12;
 
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {styles, margin};
+export { styles, margin };

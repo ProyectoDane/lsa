@@ -1,15 +1,12 @@
 import 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
-
-import React, {PureComponent} from 'react';
-import {Text} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { PureComponent } from 'react';
+import { StyleSheet, Text } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
-import {Provider} from 'react-redux';
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import Category from './components/Category';
 import {
   VideoPlayer,
@@ -17,13 +14,15 @@ import {
 } from './components/VideoPlayer';
 import Colors from './res/colors';
 import configureStore from './configureStore';
-
 import {
   Alphabetical,
   NavigationOptions as AlphaNavOpts,
 } from './components/Alphabetical';
-import {Search, NavigationOptions as SearchNavOpts} from './components/Search';
-import {Home, NavigationOptions as HomeNavOpts} from './components/Home';
+import {
+  Search,
+  NavigationOptions as SearchNavOpts,
+} from './components/Search';
+import { Home, NavigationOptions as HomeNavOpts } from './components/Home';
 import {
   Information,
   NavigationOptions as InfoNavOpts,
@@ -124,20 +123,21 @@ function DownloadStackScreen() {
   );
 }
 
+const screenStyles = color =>
+  StyleSheet.create({ text: { fontWeight: 'bold', color: color } });
+
 const getScreenOptions = (label, iconName) => ({
   tabBarLabel: label,
-  tabBarIcon: ({color}) =>
+  tabBarIcon: ({ color }) =>
     label === 'Alphabetical' ? (
-      // eslint-disable-next-line react-native/no-inline-styles
-        <Text 
-        style={{fontWeight: 'bold', color: color }} 
-        numberOfLines={1}
-        ellipsizeMode='clip'>ABC</Text>
+      <Text style={screenStyles.text} numberOfLines={1} ellipsizeMode="clip">
+        ABC
+      </Text>
     ) : (
       <MaterialCommunityIcons
         name={iconName}
         size={26}
-        style={{color: color}}
+        style={{ color: color }}
       />
     ),
 });
@@ -147,8 +147,8 @@ const getTabNavigatorTabBarOptions = () => ({
   activeTintColor: Colors.TAB_BAR_ACTIVE_ICON,
   inactiveTintColor: Colors.THEME_SECONDARY,
   activeBackgroundColor: Colors.THEME_PRIMARY,
-  style: {backgroundColor: Colors.THEME_PRIMARY},
-  indicatorStyle: {backgroundColor: 'transparent'},
+  style: { backgroundColor: Colors.THEME_PRIMARY },
+  indicatorStyle: { backgroundColor: 'transparent' },
 });
 
 const ProyectosSolidariosTab = createBottomTabNavigator();
@@ -194,7 +194,7 @@ export class App extends PureComponent {
       secondTimePassed: false,
       viewedVideo: false,
       registered: false,
-      skipped: false
+      skipped: false,
     };
   }
 
@@ -206,49 +206,49 @@ export class App extends PureComponent {
   _start = async () => {
     const hasViewedVideo = await AsyncStorage.getItem('hasViewedVideo');
     hasViewedVideo === 'true'
-      ? this.setState({viewedVideo: true})
-      : this.setState({viewedVideo: false});
+      ? this.setState({ viewedVideo: true })
+      : this.setState({ viewedVideo: false });
     const hasRegistred = await AsyncStorage.getItem('hasRegistred');
     hasRegistred === 'true'
-      ? this.setState({registered: true})
-      : this.setState({registered: false});
+      ? this.setState({ registered: true })
+      : this.setState({ registered: false });
 
     const skipped = await AsyncStorage.getItem('skipped');
     skipped === 'true'
-      ? this.setState({skipped: true})
-      : this.setState({skipped: false});
+      ? this.setState({ skipped: true })
+      : this.setState({ skipped: false });
 
-      setTimeout(() => {
+    setTimeout(() => {
       this.setTimePassed();
     }, 1500);
   };
 
   setTimePassed() {
-    this.setState({timePassed: true});
+    this.setState({ timePassed: true });
     setTimeout(() => {
       this.setSecondTimePassed();
     }, 5000);
   }
 
   setSecondTimePassed() {
-    this.setState({secondTimePassed: true});
+    this.setState({ secondTimePassed: true });
   }
 
   _endVideo = async () => {
     await AsyncStorage.setItem('hasViewedVideo', 'true');
-    this.setState({viewedVideo: true});
+    this.setState({ viewedVideo: true });
   };
 
   _registered = async () => {
     Analytics.logEvent('registered');
     await AsyncStorage.setItem('hasRegistred', 'true');
-    this.setState({registered: true, skipped: false});
+    this.setState({ registered: true, skipped: false });
   };
 
   _skipped = async () => {
     Analytics.logEvent('skip_register');
     await AsyncStorage.setItem('skipped', 'true');
-    this.setState({registered: false, skipped: true});
+    this.setState({ registered: false, skipped: true });
   };
 
   render() {
@@ -260,10 +260,7 @@ export class App extends PureComponent {
       return <VideoSplash onEnd={this._endVideo} />;
     } else if (!this.state.registered && !this.state.skipped) {
       return (
-        <Register
-          onRegister={this._registered}
-          onSkipped={this._skipped}
-        />
+        <Register onRegister={this._registered} onSkipped={this._skipped} />
       );
     } else if (this.state.registered || this.state.skipped) {
       return (

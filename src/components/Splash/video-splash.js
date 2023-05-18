@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import * as Progress from 'react-native-progress';
-import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import Video from '../shared/Video';
 
 const styles = StyleSheet.create({
@@ -38,15 +38,15 @@ export default class VideoSplash extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {isLoading: false};
+    this.state = { isLoading: false };
   }
 
   onLoadStart = () => {
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
   };
 
   onReady = () => {
-    this.setState({isLoading: false});
+    this.setState({ isLoading: false });
   };
 
   render() {

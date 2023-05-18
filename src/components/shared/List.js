@@ -1,6 +1,6 @@
 import React from 'react';
-import {FlatList, StyleSheet} from 'react-native';
-import {getCardPadding} from './../../util/layoutUtil';
+import { FlatList, StyleSheet } from 'react-native';
+import { getCardPadding } from './../../util/layoutUtil';
 
 const styles = StyleSheet.create({
   viewContainer: {
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function List({data, scrollRef, renderItem}) {
+export default function List({ data, scrollRef, renderItem }) {
   return (
     <FlatList
       ref={scrollRef}

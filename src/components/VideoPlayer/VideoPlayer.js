@@ -1,22 +1,20 @@
 import * as Progress from 'react-native-progress';
-import {useFocusEffect} from '@react-navigation/native';
-import React, {useState, useEffect} from 'react';
-import {Dimensions, View, Text, Image, ScrollView} from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useState, useEffect } from 'react';
+import { Dimensions, View, Image, ScrollView } from 'react-native';
 import ImageBackground from '../shared/ImageBackground';
 import RNFS from 'react-native-fs';
 import Video from '../shared/Video';
-import Colors from './../../res/colors';
-import I18n from './../../res/i18n/i18n';
-import {getCardWidth, getCardPadding} from './../../util/layoutUtil';
-import {styles} from './styles';
+import { getCardWidth, getCardPadding } from './../../util/layoutUtil';
+import { styles } from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {PAGES} from './../../constants/';
+import { PAGES } from './../../constants/';
 
 import categoriesIndex from './../../categoriesIndex';
 
 // Analytics
 import analytics from '@react-native-firebase/analytics';
-import {BaseHeader} from '../shared/BaseHeader';
+import { BaseHeader } from '../shared/BaseHeader';
 const Analytics = analytics();
 
 export const NavigationOptions = {
@@ -26,7 +24,7 @@ export const NavigationOptions = {
   title: 'Testing',
 };
 
-export function VideoPlayer({navigation, route}) {
+export function VideoPlayer({ navigation, route }) {
   const video = route.params.video;
   const videoName = video.video.split('/').pop();
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
@@ -41,11 +39,11 @@ export function VideoPlayer({navigation, route}) {
   const [progress, setProgress] = useState(0);
 
   const _onEnd = () => {
-    Analytics.logEvent('video_played', {video: videoName});
+    Analytics.logEvent('video_played', { video: videoName });
   };
 
   useEffect(() => {
-    navigation.setOptions({title: video.name_es});
+    navigation.setOptions({ title: video.name_es });
   }, [navigation, video.name_es]);
 
   useFocusEffect(
@@ -74,12 +72,12 @@ export function VideoPlayer({navigation, route}) {
 
   const _goToPreviousVideo = () => {
     const prevVideo = videoCategory.videos[videoIndex - 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: prevVideo});
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: prevVideo });
   };
 
   const _goToNextVideo = () => {
     const nextVideo = videoCategory.videos[videoIndex + 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {video: nextVideo});
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: nextVideo });
   };
 
   const _checkIfLastVideo = () => {

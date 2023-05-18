@@ -1,4 +1,4 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import Colors from './../../res/colors';
 
 const searchInputMaginLeft = 10;
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export {styles, searchInputMaginLeft, searchInputMaginRight};
+export { styles, searchInputMaginLeft, searchInputMaginRight };

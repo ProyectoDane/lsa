@@ -1,8 +1,8 @@
 import React from 'react';
-import {TouchableOpacity, View, Image, Text, StyleSheet} from 'react-native';
+import { TouchableOpacity, View, Image, Text, StyleSheet } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Colors from './../../res/colors';
-import {getCardWidth, getCardPadding} from './../../util/layoutUtil';
+import { getCardWidth, getCardPadding } from './../../util/layoutUtil';
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export function Card({name, children, onPress, src}) {
+export function Card({ name, children, onPress, src }) {
   const imagePaddingHorizontal = getCardPadding() * 2;
   const imagePaddingVertical = getCardPadding() * 2;
 
@@ -89,7 +89,7 @@ export function Card({name, children, onPress, src}) {
   );
 }
 
-export function SelectableCard({selected, color, ...props}) {
+export function SelectableCard({ selected, color, ...props }) {
   return (
     <Card {...props}>
       {selected && (

@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {TouchableOpacity, Image, Dimensions, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { TouchableOpacity, Image, Dimensions, StyleSheet } from 'react-native';
 import NativeVideo from 'react-native-video';
 
 const margin = 12;
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 const playIcon = require('../../res/icon/play-icon.png');
 const videoRatio = 352 / 288;
 
-export default function Video({uri, onEnd, onLoadStart, onReady, autoPlay}) {
+export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
   const [paused, setPaused] = useState(!autoPlay);
   const videoRef = null;
 
@@ -63,7 +63,7 @@ export default function Video({uri, onEnd, onLoadStart, onReady, autoPlay}) {
       ) : (
         <NativeVideo
           ref={videoRef}
-          source={{uri}}
+          source={{ uri }}
           style={[
             styles.video,
             {
