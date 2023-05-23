@@ -10,8 +10,6 @@ import {
 import { WebView } from 'react-native-webview';
 import ImageBackground from '../shared/ImageBackground';
 
-const pkg = require('../../../app.json');
-
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
 
 const styles = StyleSheet.create({
@@ -113,19 +111,26 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      app_user: '',
-      age: '',
-      app_name: pkg.name,
       registered: false,
+      isFormView: true,
     };
     this.refWebView = React.createRef();
   }
 
-  _loadTerms() {
+  loadTerms() {
     const url = 'https://tinc.org.ar/terminos/';
     Linking.openURL(url);
+  }
+
+  checkWebViewNavigation(url) {
+    if (String(url).includes('viewform')) {
+      this.setState({ isFormView: true });
+    } else if (String(url).includes('formResponse')) {
+      this.setState({ isFormView: false });
+    } else {
+      this.refWebView.current.stopLoading();
+      this.props.onRegister();
+    }
   }
 
   render() {
@@ -141,20 +146,29 @@ export default class Register extends Component {
                 'https://docs.google.com/forms/d/e/1FAIpQLSfV52qo8PxuFiANDwTTfnCVe6G0fG81mzpDLvHdVp9LREVasw/viewform',
             }}
             onNavigationStateChange={navState => {
-              if (navState.canGoBack) {
-                this.refWebView.current.stopLoading();
-                this.props.onRegister();
-              }
+              this.checkWebViewNavigation(navState.url);
             }}
           />
           <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={[styles.button, styles.redButton]}
-              onPress={this.props.onSkipped}>
-              <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
-            </TouchableOpacity>
+            {this.state.isFormView === true ? (
+              <TouchableOpacity
+                style={[styles.button, styles.redButton]}
+                onPress={this.props.onSkipped}>
+                <Text style={[styles.textColor, styles.buttonText]}>
+                  OMITIR
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={[styles.button, styles.greenButton]}
+                onPress={this.props.onRegister}>
+                <Text style={[styles.textColor, styles.buttonText]}>
+                  FINALIZAR
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
-          <TouchableOpacity style={styles.blueButton} onPress={this._loadTerms}>
+          <TouchableOpacity style={styles.blueButton} onPress={this.loadTerms}>
             <Text style={[styles.textColor, styles.blueButtonText]}>
               POLÍTICA DE PRIVACIDAD
             </Text>
