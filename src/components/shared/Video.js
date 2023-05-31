@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import {TouchableOpacity, Image, Dimensions, StyleSheet, View, Text} from 'react-native';
+import {
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  StyleSheet,
+  View,
+} from 'react-native';
 import NativeVideo from 'react-native-video';
 
 const margin = 12;
@@ -25,8 +31,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     top: 20,
-    left: 20
-  }
+    left: 20,
+  },
 });
 
 const playIcon = require('../../res/icon/play-icon.png');
@@ -39,7 +45,7 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
   const videoRef = null;
   const [speed, setSpeed] = useState(1.0);
 
-  const handleSpeedChange = (newSpeed) => {
+  const handleSpeedChange = newSpeed => {
     setSpeed(newSpeed);
     videoRef?.current.setNativeProps({ rate: newSpeed });
   };
@@ -76,35 +82,35 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
       {paused ? (
         <Image style={styles.playIcon} source={playIcon} />
       ) : (
-      <>
-        <NativeVideo
-          ref={videoRef}
-          source={{ uri }}
-          style={[
-            styles.video,
-            {
-              width: videoWidth,
-              height: videoHeight,
-            },
-          ]}
-          rate={speed}
-          paused={paused}
-          muted
-          resizeMode="contain"
-          repeat={true}
-          onEnd={_onEnd}
-          onLoadStart={_onLoadStart}
-          onReadyForDisplay={_onReady}
-        />
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity onPress={() => handleSpeedChange(0.5)}>
-            <Image source={slowVelocityIcon}/>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => handleSpeedChange(1.0)}>
-            <Image source={normalVelocityIcon}/>
-          </TouchableOpacity>
-        </View>
-      </>
+        <>
+          <NativeVideo
+            ref={videoRef}
+            source={{ uri }}
+            style={[
+              styles.video,
+              {
+                width: videoWidth,
+                height: videoHeight,
+              },
+            ]}
+            rate={speed}
+            paused={paused}
+            muted
+            resizeMode="contain"
+            repeat={true}
+            onEnd={_onEnd}
+            onLoadStart={_onLoadStart}
+            onReadyForDisplay={_onReady}
+          />
+          <View style={styles.buttonsContainer}>
+            <TouchableOpacity onPress={() => handleSpeedChange(0.5)}>
+              <Image source={slowVelocityIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleSpeedChange(1.0)}>
+              <Image source={normalVelocityIcon} />
+            </TouchableOpacity>
+          </View>
+        </>
       )}
     </TouchableOpacity>
   );
