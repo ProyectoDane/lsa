@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Image, Dimensions, StyleSheet } from 'react-native';
+import {TouchableOpacity, Image, Dimensions, StyleSheet, View, Text} from 'react-native';
 import NativeVideo from 'react-native-video';
 
 const margin = 12;
@@ -20,14 +20,29 @@ const styles = StyleSheet.create({
     height: playIconSize,
     width: playIconSize,
   },
+  buttonsContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 20,
+    left: 20
+  }
 });
 
 const playIcon = require('../../res/icon/play-icon.png');
+const normalVelocityIcon = require('../../res/image/conejo_velocidad_normal.png');
+const slowVelocityIcon = require('../../res/image/tortuga_velocidad_lenta.png');
 const videoRatio = 352 / 288;
 
 export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
   const [paused, setPaused] = useState(!autoPlay);
   const videoRef = null;
+  const [speed, setSpeed] = useState(1.0);
+
+  const handleSpeedChange = (newSpeed) => {
+    setSpeed(newSpeed);
+    videoRef?.current.setNativeProps({ rate: newSpeed });
+  };
 
   const _onEnd = () => {
     onEnd && onEnd();
@@ -61,6 +76,7 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
       {paused ? (
         <Image style={styles.playIcon} source={playIcon} />
       ) : (
+      <>
         <NativeVideo
           ref={videoRef}
           source={{ uri }}
@@ -71,7 +87,7 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
               height: videoHeight,
             },
           ]}
-          rate={1}
+          rate={speed}
           paused={paused}
           muted
           resizeMode="contain"
@@ -80,6 +96,15 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
           onLoadStart={_onLoadStart}
           onReadyForDisplay={_onReady}
         />
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity onPress={() => handleSpeedChange(0.5)}>
+            <Image source={slowVelocityIcon}/>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => handleSpeedChange(1.0)}>
+            <Image source={normalVelocityIcon}/>
+          </TouchableOpacity>
+        </View>
+      </>
       )}
     </TouchableOpacity>
   );
