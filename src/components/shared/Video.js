@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
 });
 
 const playIcon = require('../../res/icon/play-icon.png');
-const normalVelocityIcon = require('../../res/image/conejo_velocidad_normal.png');
-const slowVelocityIcon = require('../../res/image/tortuga_velocidad_lenta.png');
+const normalVelocityIcon = require('../../res/image/conejo-velocidad-normal.png');
+const slowVelocityIcon = require('../../res/image/tortuga-velocidad-lenta.png');
 const videoRatio = 352 / 288;
 
 export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
