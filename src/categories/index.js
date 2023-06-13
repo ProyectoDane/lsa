@@ -27,3 +27,4 @@ export { walking } from './walking';
 export { where } from './where';
 export { sports } from './sports';
 export { measurements } from './measurements';
+export { geography } from './geography';

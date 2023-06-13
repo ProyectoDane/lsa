@@ -28,6 +28,7 @@ import {
   sports,
   measurements,
   associations,
+  geography,
 } from './categories';
 
 const uri = 'https://lsa-argentina-videos.s3-sa-east-1.amazonaws.com';
@@ -62,5 +63,6 @@ export default {
     games(uri),
     measurements(uri),
     associations(uri),
+    geography(uri),
   ],
 };
