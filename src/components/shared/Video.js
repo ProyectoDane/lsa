@@ -33,6 +33,19 @@ const styles = StyleSheet.create({
     top: 20,
     left: 20,
   },
+  button: {
+    marginBottom: 10,
+  },
+  slowButtonImage:{
+    width: 69,
+    height: 25,
+    resizeMode: 'contain',
+  },
+  normalButtonImage:{
+    width: 60,
+    height: 25,
+    resizeMode: 'contain',
+  },
 });
 
 const playIcon = require('../../res/icon/play-icon.png');
@@ -103,11 +116,11 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
             onReadyForDisplay={_onReady}
           />
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity onPress={() => handleSpeedChange(0.5)}>
-              <Image source={slowVelocityIcon} />
+            <TouchableOpacity style={styles.button} onPress={() => handleSpeedChange(0.5)}>
+              <Image style={styles.slowButtonImage} source={slowVelocityIcon} />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => handleSpeedChange(1.0)}>
-              <Image source={normalVelocityIcon} />
+            <TouchableOpacity style={styles.button} onPress={() => handleSpeedChange(1.0)}>
+              <Image style={styles.normalButtonImage} source={normalVelocityIcon} />
             </TouchableOpacity>
           </View>
         </>
