@@ -30,20 +30,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     position: 'absolute',
-    top: 20,
-    left: 20,
+    top: 10,
+    left: 10,
   },
   button: {
-    marginBottom: 10,
+    marginBottom: 5,
   },
   slowButtonImage:{
-    width: 69,
-    height: 25,
+    width: 109,
+    height: 40,
     resizeMode: 'contain',
   },
   normalButtonImage:{
-    width: 60,
-    height: 25,
+    width: 91,
+    height: 41,
     resizeMode: 'contain',
   },
 });
