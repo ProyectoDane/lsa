@@ -132,8 +132,8 @@ android {
         applicationId "com.proyectossolidarios"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 3145731
+        versionName "1.4.0"
         multiDexEnabled true // fix cannot fit classes in single dex file
     }
     /* Habilitar los dos comentados para generar apks por arquitectura */
