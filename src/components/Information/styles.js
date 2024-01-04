@@ -44,6 +44,11 @@ const styles = StyleSheet.create({
   textLink: {
     color: 'blue',
   },
+  video:{
+      marginHorizontal: margin,
+      width: '100%',
+      height: '100%',
+  },
 });
 
 export { styles, margin };

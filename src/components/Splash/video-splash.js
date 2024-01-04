@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    paddingTop: 100,
+    paddingTop: 40,
   },
   loaderContainer: {
     alignItems: 'center',
@@ -65,7 +65,7 @@ export default class VideoSplash extends Component {
                  alignItems: 'center',
              }}>
             <Video
-              style={{width:325, height:590, justifyContent:'center', alignItems:'center',}}
+              style={{width:350, height:625, justifyContent:'center', alignItems:'center',}}
               uri={
                 'https://lsa-argentina-videos.s3.sa-east-1.amazonaws.com/presentacion_LSA.mp4'
               }

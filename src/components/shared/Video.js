@@ -53,7 +53,7 @@ const normalVelocityIcon = require('../../res/image/conejo-velocidad-normal.png'
 const slowVelocityIcon = require('../../res/image/tortuga-velocidad-lenta.png');
 const videoRatio = 352 / 288;
 
-export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
+export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay, style}) {
   const [paused, setPaused] = useState(!autoPlay);
   const videoRef = null;
   const [speed, setSpeed] = useState(1.0);
@@ -80,14 +80,12 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
 
   return (
     <TouchableOpacity
-      style={[
-        styles.videoContainer,
-        {
-          marginHorizontal: margin,
-          width: videoWidth,
-          height: videoHeight,
-        },
-      ]}
+      style={{...styles.videoContainer,
+       marginHorizontal: margin,
+       width: videoWidth,
+       height: videoHeight,
+       ...style,
+        }}
       onPress={() => {
         videoRef?.seek(0);
         setPaused(!paused);
@@ -99,13 +97,12 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay }) {
           <NativeVideo
             ref={videoRef}
             source={{ uri }}
-            style={[
-              styles.video,
-              {
+
+            style={{...styles.video,
                 width: videoWidth,
                 height: videoHeight,
-              },
-            ]}
+                ...style,
+                }}
             rate={speed}
             paused={paused}
             muted
