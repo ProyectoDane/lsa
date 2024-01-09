@@ -5,6 +5,7 @@ export { alphabet } from './alphabet';
 export { animals } from './animals';
 export { beach } from './beach';
 export { birthday } from './birthday';
+export { cpcd } from './cpcd';
 export { body } from './body';
 export { calendar } from './calendar';
 export { camp } from './camp';
