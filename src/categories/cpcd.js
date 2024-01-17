@@ -1,6 +1,6 @@
 export const cpcd = uri => ({
-  name_es: 'CPCD',
-  icon: require('../res/icon/alfabeto-dactilologico.png'),
+  name_es: 'CONVENCIÓN (CPCD)',
+  icon: require('../res/image/mesa-de-trabajo132.png'),
   videos: [
     {
       name_es: 'ACCESIBILIDAD',
@@ -52,8 +52,8 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'CONVENCION INTERAMERICANA DE LAS PERSONAS CON DISCAPACIDAD',
-      search_name_es: 'CONVENCION INTERAMERICANA DE LAS PERSONAS CON DISCAPACIDAD',
+      name_es: 'CONVENCION (CPCD)',
+      search_name_es: 'CONVENCION (CPCD)',
       image: require('../res/image/mesa-de-trabajo132.png'),
       video: `${uri}/cpcd.mp4`,
       downloaded: false,
