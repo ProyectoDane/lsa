@@ -60,17 +60,22 @@ export default class VideoSplash extends Component {
             <Progress.Circle color="#FFB54C" indeterminate />
           </View>
         )}
-
-        <Video
-          uri={
-            'https://dane-videos.s3.us-east-2.amazonaws.com/presentacion_LSA.mp4'
-          }
-          onEnd={this.props.onEnd}
-          onLoadStart={this.onLoadStart}
-          onReady={this.onReady}
-          autoPlay={true}
-        />
-        <TouchableOpacity style={styles.button} onPress={this.props.onEnd}>
+        <View style={{
+                 justifyContent: 'center',
+                 alignItems: 'center',
+             }}>
+            <Video
+              style={{width:325, height:590, justifyContent:'center', alignItems:'center',}}
+              uri={
+                'https://lsa-argentina-videos.s3.sa-east-1.amazonaws.com/presentacion_LSA.mp4'
+              }
+              onEnd={this.props.onEnd}
+              onLoadStart={this.onLoadStart}
+              onReady={this.onReady}
+              autoPlay={true}
+            />
+        </View>
+        <TouchableOpacity style={styles.button} onPress={this.props.onOmit}>
           <Text>OMITIR</Text>
         </TouchableOpacity>
       </View>
