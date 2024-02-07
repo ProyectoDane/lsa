@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import Video from '../shared/Video';
-import { Text, Image, View, ScrollView, Linking } from 'react-native';
+import { Text, Image, View, ScrollView, Linking, Dimensions } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
-import { i18n } from '../../res/i18n/i18n.js';
+import i18n from '../../res/i18n/i18n';
 import TextEs from '../../res/i18n/es';
 import { styles, margin } from './styles';
 import { BaseHeader } from '../shared/BaseHeader';

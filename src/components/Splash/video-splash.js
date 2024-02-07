@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as Progress from 'react-native-progress';
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
 import Video from '../shared/Video';
 
 const styles = StyleSheet.create({
@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 export default class VideoSplash extends Component {
   constructor(props) {
     super(props);
@@ -50,6 +51,9 @@ export default class VideoSplash extends Component {
   };
 
   render() {
+      const videoRatio = 425 / 625;
+      const videoWidth = Dimensions.get('window').width;
+      const videoHeight = Math.round(videoWidth / videoRatio);
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -65,7 +69,7 @@ export default class VideoSplash extends Component {
                  alignItems: 'center',
              }}>
             <Video
-              style={{width:350, height:625, justifyContent:'center', alignItems:'center',}}
+              style={{width:videoWidth, height:videoHeight, justifyContent:'center', alignItems:'center',}}
               uri={
                 'https://lsa-argentina-videos.s3.sa-east-1.amazonaws.com/presentacion_LSA.mp4'
               }
@@ -75,7 +79,7 @@ export default class VideoSplash extends Component {
               autoPlay={true}
             />
         </View>
-        <TouchableOpacity style={styles.button} onPress={this.props.onOmit}>
+        <TouchableOpacity style={styles.button} onPress={this.props.onEnd}>
           <Text>OMITIR</Text>
         </TouchableOpacity>
       </View>
