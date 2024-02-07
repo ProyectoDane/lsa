@@ -1,9 +1,8 @@
-export { Information, NavigationOptions } from './Information';
 import React, { useRef } from 'react';
 import Video from '../shared/Video';
 import { Text, Image, View, ScrollView, Linking } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
-import { i18n } from '../../res/i18n';
+import { i18n } from '../../res/i18n/i18n.js';
 import TextEs from '../../res/i18n/es';
 import { styles, margin } from './styles';
 import { BaseHeader } from '../shared/BaseHeader';
@@ -20,9 +19,11 @@ export const InformationNavigationOptions = {
 export function Information() {
   const scrollRef = useRef(null);
 
+    const videoRatio = 350 / 625;
+    const videoWidth = Dimensions.get('window').width - 2 * margin;
+    const videoHeight = Math.round(videoWidth / videoRatio);
+
   useScrollToTop(scrollRef);
-
-
 
   return (
     <ScrollView ref={scrollRef} style={styles.full}>
@@ -32,7 +33,7 @@ export function Information() {
           source={require('../../res/icon/dane_logo_transparencia.png')}
         />
         <Text style={styles.title}>DANE</Text>
-        <Text style={styles.text}>{TextEs.info_description.toUpperCase()}</Text>
+        <Text style={styles.text}>{TextEs.info_description}</Text>
         <Text style={styles.coordinacionTitle}>COORDINACIÓN DEL PROYECTO</Text>
         <Image style={styles.tincImage} source={tincSource} />
         <Text style={styles.title}>IDEA Y CONTENIDO</Text>
@@ -41,23 +42,23 @@ export function Information() {
         <Image style={styles.tincImage} source={hexactaSource} />
         <Text style={styles.title}>AGRADECIMIENTOS</Text>
         <Text style={styles.subtitle}>
-          {'A quienes forman parte de Fundasor: '.toUpperCase()}
+          {'A QUIENES FORMAN PARTE DE FUNDASOR: '}
         </Text>
         <Text>
-          {'Anahí Alesso, Mariana Reuter, Patricio A. Cabezas y Cristina Alesso.'.toUpperCase()}
+          {'ANAHÍ ALESSO, MARIANA REUTER, PATRICIO A. CABEZAS Y CRISTINA ALESSO.'}
         </Text>
-        <Text>{'A Elisa Nudman.'.toUpperCase()}</Text>
+        <Text>{'A ELISA NUDMAN.'}</Text>
         <Text style={styles.subtitle}>
-          {'A los señantes sordos: '.toUpperCase()}
+          {'A LOS SEÑANTES SORDOS: '}
         </Text>
         <Text>
-          {'Lisandro Rodríguez, Mateo Rodríguez García, Olivia Rodríguez García, Lucía Fauve, Ivana Paola Navarro, Damián Alejandro Scigliano, Sebastián Ariel Cáceres, Rocío María Vidiella, Paula Silvina Costa Gil '.toUpperCase()}
+          {'LISANDRO RODRÍGUEZ, MATEO RODRÍGUEZ GARCÍA, OLIVIA RODRÍGUEZ GARCÍA, LUCÍA FAUVE, IVANA PAOLA NAVARRO, DAMIÁN ALEJANDRO SCIGLIANO, SEBASTIÁN ARIEL CÁCERES, ROCÍO MARÍA VIDIELLA, PAULA SILVINA COSTA GIL '}
         </Text>
         <Text style={styles.subtitle}>
-          {'Al staff de Hexacta: '.toUpperCase()}
+          {'AL STAFF DE HEXACTA: '}
         </Text>
         <Text>
-          {'Jesica Taira, Verónica Vignoni, Agustina Isla, Camila Mamani, Franklin Leal, Leandro Lopez, Luciano Faletti, Julián Bolaño, Luis Broeders, Esteban Sopetto, Javier Ocampo, Diego Pedro, Gerardo Cabrera, Javier Fernández, Julieta Fernández, Tomás Franco, Macarena Iriarte, Ezequiel Meijomil, Mariela Morel, Juan Ignacio Bernal, Julieta Juarez, Nicolas Gallinal y Marcos García.'.toUpperCase()}
+          {'JESICA TAIRA, VERÓNICA VIGNONI, AGUSTINA ISLA, CAMILA MAMANI, FRANKLIN LEAL, LEANDRO LOPEZ, LUCIANO FALETTI, JULIÁN BOLAÑO, LUIS BROEDERS, ESTEBAN SOPETTO, JAVIER OCAMPO, DIEGO PEDRO, GERARDO CABRERA, JAVIER FERNÁNDEZ, JULIETA FERNÁNDEZ, TOMÁS FRANCO, MACARENA IRIARTE, EZEQUIEL MEIJOMIL, MARIELA MOREL, JUAN IGNACIO BERNAL, JULIETA JUAREZ, NICOLAS GALLINAL, MARCOS GARCÍA Y DIEGO GAGLIARDI.'}
         </Text>
         <Text style={styles.title}>LICENCIA GNU V3</Text>
         <Text
@@ -68,7 +69,7 @@ export function Information() {
         </Text>
       </View>
         <Video
-            style={{width:350, height:625,}}
+            style={{width:videoWidth, height:videoHeight,}}
             uri={
               'https://lsa-argentina-videos.s3.sa-east-1.amazonaws.com/presentacion_LSA.mp4'
             }

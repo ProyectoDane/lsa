@@ -22,7 +22,7 @@ const es = {
   from_31_to_55: 'DE 31 A 55 AÑOS',
   more_than_55: 'MAYOR DE 55 AÑOS',
   info_description:
-    'El proyecto DANE propone llevar adelante una revolución en la manera de enseñarles contenidos a personas con discapacidad. Creamos aplicaciones móviles e integramos la tecnología informática a la educación, aportando con tenidos académicos y de la vida cotidiana. El objetivo del proyecto es ayudar a la inclusión de las personas con discapacidad y promover en la sociedad la cultura de inclusión',
+    'EL PROYECTO DANE PROPONE LLEVAR ADELANTE UNA REVOLUCIÓN EN LA MANERA DE ENSEÑARLES CONTENIDOS A PERSONAS CON DISCAPACIDAD. CREAMOS APLICACIONES MÓVILES E INTEGRAMOS LA TECNOLOGÍA INFORMÁTICA A LA EDUCACIÓN, APORTANDO CON TENIDOS ACADÉMICOS Y DE LA VIDA COTIDIANA. EL OBJETIVO DEL PROYECTO ES AYUDAR A LA INCLUSIÓN DE LAS PERSONAS CON DISCAPACIDAD Y PROMOVER EN LA SOCIEDAD LA CULTURA DE INCLUSIÓN',
   download_tab_title: 'DESCARGAR O BORRAR',
   back: 'Atras',
 };
