@@ -3,11 +3,18 @@ import * as Progress from 'react-native-progress';
 import { Text, TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
 import Video from '../shared/Video';
 
+
+  const videoRatio = 395/650;
+  const videoWidth = Dimensions.get('window').width;
+  const videoHeight = Math.round(videoWidth / videoRatio);
+
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    display:'flex',
     flexDirection: 'column',
+    flex:1,
     paddingTop: 40,
+    justifyContent:'flex-end',
   },
   loaderContainer: {
     alignItems: 'center',
@@ -22,6 +29,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 10,
     marginBottom: 20,
+    alignItems: 'center',
+    height: videoHeight * 0.1,
   },
   titleContainer: {
     alignItems: 'center',
@@ -31,6 +40,17 @@ const styles = StyleSheet.create({
     fontSize: 17,
     flexGrow: 1,
     fontWeight: 'bold',
+  },
+  video:{
+  justifyContent:'center',
+   alignItems:'center',
+   flexGrow:2,
+  },
+  videoContainer:{
+   justifyContent: 'center',
+   alignItems: 'center',
+   flex:1,
+   flexGrow:2,
   },
 });
 
@@ -51,9 +71,6 @@ export default class VideoSplash extends Component {
   };
 
   render() {
-      const videoRatio = 425 / 625;
-      const videoWidth = Dimensions.get('window').width;
-      const videoHeight = Math.round(videoWidth / videoRatio);
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
@@ -64,12 +81,9 @@ export default class VideoSplash extends Component {
             <Progress.Circle color="#FFB54C" indeterminate />
           </View>
         )}
-        <View style={{
-                 justifyContent: 'center',
-                 alignItems: 'center',
-             }}>
+        <View style={styles.videoContainer}>
             <Video
-              style={{width:videoWidth, height:videoHeight, justifyContent:'center', alignItems:'center',}}
+              style={styles.video}
               uri={
                 'https://lsa-argentina-videos.s3.sa-east-1.amazonaws.com/presentacion_LSA.mp4'
               }
