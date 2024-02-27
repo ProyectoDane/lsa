@@ -173,7 +173,7 @@ export class Category extends PureComponent {
   };
   _onLayout = () => this.forceUpdate();
   _onChangeSlide = ({ nativeEvent }) => {
-    const slide = Math.ceil(
+    const slide = Math.floor(
       nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
     );
     if (slide !== this.state.activeSlide) {
