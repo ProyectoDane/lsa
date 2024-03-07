@@ -44,10 +44,11 @@ const styles = StyleSheet.create({
   textLink: {
     color: 'blue',
   },
-  video:{
-      marginHorizontal: margin,
-      width: '100%',
-      height: '100%',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 40,
   },
 });
 
