@@ -102,7 +102,7 @@ function InformationStackScreen() {
   return (
     <InformationStack.Navigator>
       <InformationStack.Screen
-        name="Information"
+        name="Información"
         component={Information}
         options={InfoNavOpts}
       />
