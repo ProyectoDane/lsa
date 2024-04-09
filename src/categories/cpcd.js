@@ -39,10 +39,10 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'BARRERA',
-      search_name_es: 'BARRERA',
+      name_es: 'BARRERAS',
+      search_name_es: 'BARRERAS',
       image: require('../res/image/barrera.png'),
-      video: `${uri}/barrera.mp4`,
+      video: `${uri}/barreras.mp4`,
       downloaded: false,
     },
     {
@@ -221,10 +221,10 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'RECLAMO',
-      search_name_es: 'RECLAMO',
+      name_es: 'RECLAMAR',
+      search_name_es: 'RECLAMAR',
       image: require('../res/image/reclamo.png'),
-      video: `${uri}/reclamo.mp4`,
+      video: `${uri}/reclamar.mp4`,
       downloaded: false,
     },
     {
