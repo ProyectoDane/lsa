@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Text,
   TouchableOpacity,
@@ -107,74 +107,65 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      registered: false,
-      isFormView: true,
-    };
-    this.refWebView = React.createRef();
-  }
+export const Register = props => {
+  const [isFormView, setIsFormView] = useState(true);
+  const refWebView = useRef();
 
-  loadTerms() {
+  const loadTerms = () => {
     const url = 'https://tinc.org.ar/terminos/';
     Linking.openURL(url);
-  }
+  };
 
-  checkWebViewNavigation(url) {
+  const checkWebViewNavigation = url => {
     if (String(url).includes('viewform')) {
-      this.setState({ isFormView: true });
+      setIsFormView(true);
     } else if (String(url).includes('formResponse')) {
-      this.setState({ isFormView: false });
+      setIsFormView(false);
     } else {
-      this.refWebView.current.stopLoading();
-      this.props.onRegister();
+      refWebView.current.stopLoading();
+      props.onRegister();
     }
-  }
+  };
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <ImageBackground src={categoryVideosBackground}>
-          <WebView
-            style={styles.scrollParentContainer}
-            startInLoadingState={true}
-            ref={this.refWebView}
-            source={{
-              uri:
-                'https://docs.google.com/forms/d/e/1FAIpQLSfV52qo8PxuFiANDwTTfnCVe6G0fG81mzpDLvHdVp9LREVasw/viewform',
-            }}
-            onNavigationStateChange={navState => {
-              this.checkWebViewNavigation(navState.url);
-            }}
-          />
-          <View style={styles.buttonContainer}>
-            {this.state.isFormView === true ? (
-              <TouchableOpacity
-                style={[styles.button, styles.redButton]}
-                onPress={this.props.onSkipped}>
-                <Text style={[styles.textColor, styles.buttonText]}>
-                  OMITIR
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                style={[styles.button, styles.greenButton]}
-                onPress={this.props.onRegister}>
-                <Text style={[styles.textColor, styles.buttonText]}>
-                  FINALIZAR
-                </Text>
-              </TouchableOpacity>
-            )}
-          </View>
-          <TouchableOpacity style={styles.blueButton} onPress={this.loadTerms}>
-            <Text style={[styles.textColor, styles.blueButtonText]}>
-              POLÍTICA DE PRIVACIDAD
-            </Text>
-          </TouchableOpacity>
-        </ImageBackground>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.container}>
+      <ImageBackground src={categoryVideosBackground}>
+        <WebView
+          style={styles.scrollParentContainer}
+          startInLoadingState={true}
+          ref={this.refWebView}
+          source={{
+            uri: 'https://docs.google.com/forms/d/e/1FAIpQLSfV52qo8PxuFiANDwTTfnCVe6G0fG81mzpDLvHdVp9LREVasw/viewform',
+          }}
+          onNavigationStateChange={navState => {
+            checkWebViewNavigation(navState.url);
+          }}
+        />
+        <View style={styles.buttonContainer}>
+          {isFormView === true ? (
+            <TouchableOpacity
+              style={[styles.button, styles.redButton]}
+              onPress={props.onSkipped}
+            >
+              <Text style={[styles.textColor, styles.buttonText]}>OMITIR</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              style={[styles.button, styles.greenButton]}
+              onPress={props.onRegister}
+            >
+              <Text style={[styles.textColor, styles.buttonText]}>
+                FINALIZAR
+              </Text>
+            </TouchableOpacity>
+          )}
+        </View>
+        <TouchableOpacity style={styles.blueButton} onPress={loadTerms}>
+          <Text style={[styles.textColor, styles.blueButtonText]}>
+            POLÍTICA DE PRIVACIDAD
+          </Text>
+        </TouchableOpacity>
+      </ImageBackground>
+    </View>
+  );
+};

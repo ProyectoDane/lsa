@@ -19,7 +19,6 @@
 2. cd android/
 3. ./gradlew assembleDebug
 
-
 # Linting
 
 `npm run lint` for report.  
@@ -27,6 +26,5 @@
 
 # TODO
 
-* Add tests
-* Remove CategoriesDownload comp and move code to Downloads comp
-* Remove old redux code (redux is not being used now. it was used to control page scroll)
+- Add tests
+- Remove CategoriesDownload comp and move code to Downloads comp

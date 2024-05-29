@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
   button: {
     marginBottom: 5,
   },
-  slowButtonImage:{
+  slowButtonImage: {
     width: 109,
     height: 40,
     resizeMode: 'contain',
   },
-  normalButtonImage:{
+  normalButtonImage: {
     width: 91,
     height: 41,
     resizeMode: 'contain',
@@ -53,7 +53,14 @@ const normalVelocityIcon = require('../../res/image/conejo-velocidad-normal.png'
 const slowVelocityIcon = require('../../res/image/tortuga-velocidad-lenta.png');
 const videoRatio = 352 / 288;
 
-export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay, style}) {
+export default function Video({
+  uri,
+  onEnd,
+  onLoadStart,
+  onReady,
+  autoPlay,
+  style,
+}) {
   const [paused, setPaused] = useState(!autoPlay);
   const videoRef = null;
   const [speed, setSpeed] = useState(1.0);
@@ -80,16 +87,18 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay, styl
 
   return (
     <TouchableOpacity
-      style={{...styles.videoContainer,
-       marginHorizontal: margin,
-       width: videoWidth,
-       height: videoHeight,
-       ...style,
-        }}
+      style={{
+        ...styles.videoContainer,
+        marginHorizontal: margin,
+        width: videoWidth,
+        height: videoHeight,
+        ...style,
+      }}
       onPress={() => {
         videoRef?.seek(0);
         setPaused(!paused);
-      }}>
+      }}
+    >
       {paused ? (
         <Image style={styles.playIcon} source={playIcon} />
       ) : (
@@ -97,12 +106,12 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay, styl
           <NativeVideo
             ref={videoRef}
             source={{ uri }}
-
-            style={{...styles.video,
-                width: videoWidth,
-                height: videoHeight,
-                ...style,
-                }}
+            style={{
+              ...styles.video,
+              width: videoWidth,
+              height: videoHeight,
+              ...style,
+            }}
             rate={speed}
             paused={paused}
             muted
@@ -113,11 +122,20 @@ export default function Video({ uri, onEnd, onLoadStart, onReady, autoPlay, styl
             onReadyForDisplay={_onReady}
           />
           <View style={styles.buttonsContainer}>
-            <TouchableOpacity style={styles.button} onPress={() => handleSpeedChange(0.5)}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => handleSpeedChange(0.5)}
+            >
               <Image style={styles.slowButtonImage} source={slowVelocityIcon} />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => handleSpeedChange(1.0)}>
-              <Image style={styles.normalButtonImage} source={normalVelocityIcon} />
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => handleSpeedChange(1.0)}
+            >
+              <Image
+                style={styles.normalButtonImage}
+                source={normalVelocityIcon}
+              />
             </TouchableOpacity>
           </View>
         </>

@@ -32,30 +32,30 @@ const listaSlider = [
   require('./../../res/wizard-ios/6-text.jpg'),
 ];
 
-export class Category extends PureComponent {
-  static navigationOptions = ({ navigation, route }) => ({
-    ...BaseHeader,
-    title: route.params.category.name_es,
-    headerTruncatedBackTitle: '',
-    //headerTruncatedBackTitle: I18n.t('back'),
-    headerRight: () =>
-      !route.params.categoryFull ? (
-        <MaterialIcons
-          name="cloud-download"
-          size={30}
-          style={styles.downloadIcon}
-          onPress={() => navigation.setParams({ showDialog: true })}
-        />
-      ) : (
-        <MaterialIcons
-          name="delete"
-          size={30}
-          style={styles.downloadIcon}
-          onPress={() => navigation.setParams({ deleteDialog: true })}
-        />
-      ),
-  });
+Category.navigationOptions = ({ navigation, route }) => ({
+  ...BaseHeader,
+  title: route.params.category.name_es,
+  headerTruncatedBackTitle: '',
+  //headerTruncatedBackTitle: I18n.t('back'),
+  headerRight: () =>
+    !route.params.categoryFull ? (
+      <MaterialIcons
+        name="cloud-download"
+        size={30}
+        style={styles.downloadIcon}
+        onPress={() => navigation.setParams({ showDialog: true })}
+      />
+    ) : (
+      <MaterialIcons
+        name="delete"
+        size={30}
+        style={styles.downloadIcon}
+        onPress={() => navigation.setParams({ deleteDialog: true })}
+      />
+    ),
+});
 
+export class Category extends PureComponent {
   state = {
     activeSlide: 0,
     downloadedVideos: 0,
@@ -193,7 +193,8 @@ export class Category extends PureComponent {
               horizontal
               pagingEnabled
               onScroll={this._onChangeSlide}
-              showsHorizontalScrollIndicator={false}>
+              showsHorizontalScrollIndicator={false}
+            >
               {listaSlider.map((i, k) => (
                 <ImageBackground
                   src={i}
@@ -213,7 +214,8 @@ export class Category extends PureComponent {
                       ? styles.activeCircle
                       : styles.inactiveCircle
                   }
-                  key={k}>
+                  key={k}
+                >
                   ⬤
                 </Text>
               ))}
@@ -278,7 +280,8 @@ export class Category extends PureComponent {
                       style={styles.buttonCancel}
                       onPress={() => {
                         navigation.setParams({ showDialog: false });
-                      }}>
+                      }}
+                    >
                       <Text style={styles.textButton}>CANCEL</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -286,7 +289,8 @@ export class Category extends PureComponent {
                       onPress={() => {
                         navigation.setParams({ showDialog: false });
                         this._downloadVideos();
-                      }}>
+                      }}
+                    >
                       <Text style={styles.textButton}>OK</Text>
                     </TouchableOpacity>
                   </View>
@@ -321,9 +325,9 @@ export class Category extends PureComponent {
                 width={null}
                 progress={this.state.downloadedVideos / videosAmount}
               />
-              <Text style={styles.downloadText}>{`${
-                this.state.downloadedVideos
-              } de ${videosAmount}`}</Text>
+              <Text
+                style={styles.downloadText}
+              >{`${this.state.downloadedVideos} de ${videosAmount}`}</Text>
             </View>
           )}
         </ImageBackground>

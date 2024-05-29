@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function SplashScreen() {
+export function SplashScreen() {
   return (
     <ImageBackground
       src={require('../../res/background/fondo-amarillo.jpg')}
       style={styles.container}
-      resizeMode="cover">
+      resizeMode="cover"
+    >
       <Image
         style={styles.logo}
         source={require('../../res/icon/logo-app.png')}

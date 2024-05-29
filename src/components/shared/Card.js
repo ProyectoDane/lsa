@@ -51,7 +51,8 @@ export function Card({ name, children, onPress, src }) {
           paddingVertical: getCardPadding(),
           paddingHorizontal: getCardPadding(),
         },
-      ]}>
+      ]}
+    >
       <View
         style={[
           styles.imageContainer,
@@ -59,7 +60,8 @@ export function Card({ name, children, onPress, src }) {
             width: getCardWidth() - 2 * getCardPadding(),
             height: getCardWidth() - 4 * getCardPadding(),
           },
-        ]}>
+        ]}
+      >
         {children}
         <Image
           style={[
@@ -82,7 +84,8 @@ export function Card({ name, children, onPress, src }) {
             width: getCardWidth() - 2 * getCardPadding(),
             paddingHorizontal: imagePaddingHorizontal,
           },
-        ]}>
+        ]}
+      >
         <Text style={styles.name}>{name}</Text>
       </View>
     </TouchableOpacity>
