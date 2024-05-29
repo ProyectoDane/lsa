@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function DaneSplashScreen() {
+export function DaneSplashScreen() {
   return (
     <ImageBackground
       src={require('../../res/image/dane-splash.png')}

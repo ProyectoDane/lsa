@@ -7,9 +7,10 @@ import {
   ScrollView,
   Linking,
   Dimensions,
+  StyleSheet,
 } from 'react-native';
 import { useScrollToTop } from '@react-navigation/native';
-import i18n from '../../res/i18n/i18n';
+import { i18n } from '../../res/i18n';
 import TextEs from '../../res/i18n/es';
 import { styles, margin } from './styles';
 import { BaseHeader } from '../shared/BaseHeader';
@@ -23,20 +24,23 @@ export const InformationNavigationOptions = {
   title: i18n.t('info_tab_title').toUpperCase(),
 };
 
+const stylesIndexInformation = StyleSheet.create({
+  container: {
+    marginHorizontal: margin,
+    flex: 1,
+  },
+});
+
 export function Information() {
   const scrollRef = useRef(null);
 
   const { width, height } = Dimensions.get('window');
 
-  const videoRatio = 350 / 625;
-  const videoWidth = Dimensions.get('window').width - 2 * margin;
-  const videoHeight = Math.round(videoWidth / videoRatio);
-
   useScrollToTop(scrollRef);
 
   return (
     <ScrollView ref={scrollRef} style={styles.full}>
-      <View style={{ marginHorizontal: margin, flex: 1 }}>
+      <View style={stylesIndexInformation.container}>
         <Image
           style={styles.daneImage}
           source={require('../../res/icon/dane_logo_transparencia.png')}
@@ -74,7 +78,8 @@ export function Information() {
         <Text style={styles.title}>LICENCIA GNU V3</Text>
         <Text
           style={styles.textLink}
-          onPress={() => Linking.openURL('https://tinc.org.ar/licencias/')}>
+          onPress={() => Linking.openURL('https://tinc.org.ar/licencias/')}
+        >
           https://tinc.org.ar/licencias/
         </Text>
       </View>

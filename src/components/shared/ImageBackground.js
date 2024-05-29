@@ -31,7 +31,8 @@ export default function ImageBackground(props) {
             ]
       }
       resizeMode={props.resizeMode}
-      source={props.src}>
+      source={props.src}
+    >
       {props.children}
     </NatImgBack>
   );

@@ -151,7 +151,8 @@ export class CategoriesDownload extends PureComponent {
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground
-          src={require('../../../res/background/fondo-amarillo.jpg')}>
+          src={require('../../../res/background/fondo-amarillo.jpg')}
+        >
           <List
             data={this.state.categories}
             renderItem={this._renderCategory}
@@ -163,14 +164,16 @@ export class CategoriesDownload extends PureComponent {
             <View style={styles.buttonContainer}>
               <TouchableOpacity
                 style={[styles.button, styles.redButton]}
-                onPress={this._onPressDeleteVideos}>
+                onPress={this._onPressDeleteVideos}
+              >
                 <Text style={[styles.textColor, styles.buttonText]}>
                   BORRAR
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.button, styles.greenButton]}
-                onPress={this._onPressDownloadVideos}>
+                onPress={this._onPressDownloadVideos}
+              >
                 <Text style={[styles.textColor, styles.buttonText]}>
                   DESCARGAR
                 </Text>
@@ -196,7 +199,8 @@ export class CategoriesDownload extends PureComponent {
                     style={styles.buttonCancel}
                     onPress={() => {
                       this.setState({ showDownloadDialog: false });
-                    }}>
+                    }}
+                  >
                     <Text style={styles.textButton}>CANCEL</Text>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -217,7 +221,8 @@ export class CategoriesDownload extends PureComponent {
                           })),
                         }));
                       }
-                    }}>
+                    }}
+                  >
                     <Text style={styles.textButton}>OK</Text>
                   </TouchableOpacity>
                 </View>
