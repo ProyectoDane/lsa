@@ -1,7 +1,7 @@
 export const cpcd = uri => ({
   name_es: 'CONVENCIÓN (CPCD)',
   search_name_es: 'CONVENCIÓN (CPCD)',
-  icon: require('../res/image/mesa-de-trabajo132.png'),
+  icon: require('../res/icon/convencion.png'),
   videos: [
     {
       name_es: 'ACCESIBILIDAD',
