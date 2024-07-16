@@ -1,6 +1,6 @@
 export const associations = uri => ({
   name_es: 'ASOCIACIONES DE LA COMUNIDAD SORDA',
-  icon: require('../res/icon/asociacion.png'),
+  icon: require('../res/icon/asociaciones.png'),
   videos: [
     {
       name_es: 'AAS',
