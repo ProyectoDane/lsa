@@ -1,5 +1,5 @@
 export const introducing = uri => ({
-  name_es: 'PRESENTÁNDONOS',
+  name_es: 'COMUNICÁNDONOS',
   icon: require('../res/icon/presentandonos.png'),
   videos: [
     {

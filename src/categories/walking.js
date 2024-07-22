@@ -1,5 +1,5 @@
 export const walking = uri => ({
-  name_es: 'PASEANDO',
+  name_es: 'EN LA CALLE',
   icon: require('../res/icon/paseando.png'),
   videos: [
     {

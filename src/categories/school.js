@@ -367,8 +367,8 @@ export const school = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'LENGUA',
-      search_name_es: 'LENGUA',
+      name_es: 'MATERIA',
+      search_name_es: 'MATERIA',
       image: require('../res/image/lengua.png'),
       video: `${uri}/lengua.mp4`,
       downloaded: false,
@@ -381,8 +381,8 @@ export const school = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'MAESTRA',
-      search_name_es: 'MAESTRA',
+      name_es: 'PROFESOR',
+      search_name_es: 'PROFESOR',
       image: require('../res/image/maestra.png'),
       video: `${uri}/maestra.mp4`,
       downloaded: false,

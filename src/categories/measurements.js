@@ -10,6 +10,13 @@ export const measurements = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'DIFERENCIAS',
+      search_name_es: 'DIFERENCIAS',
+      image: require('../res/image/las-diferencias.png'),
+      video: `${uri}/las-diferencias.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'KILO',
       search_name_es: 'KILO',
       image: require('../res/image/kilo.png'),

@@ -111,13 +111,6 @@ export const clothes = uri => ({
       name_es: 'VESTIDO',
       search_name_es: 'VESTIDO',
       image: require('../res/image/vestido.png'),
-      video: `${uri}/vestido.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'VISTIÉNDOSE',
-      search_name_es: 'VISTIENDOSE',
-      image: require('../res/image/vistiendose.png'),
       video: `${uri}/vistiendose.mp4`,
       downloaded: false,
     },
