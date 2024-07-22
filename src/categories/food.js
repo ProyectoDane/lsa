@@ -17,6 +17,13 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'ALFAJOR',
+      search_name_es: 'ALFAJOR',
+      image: require('../res/image/alfajor.png'),
+      video: `${uri}/alfajor.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'ARROZ',
       search_name_es: 'ARROZ',
       image: require('../res/image/arroz.png'),
@@ -66,6 +73,13 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'CHOCLO',
+      search_name_es: 'CHOCLO',
+      image: require('../res/image/choclo.png'),
+      video: `${uri}/choclo.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'CHOCOLATE',
       search_name_es: 'CHOCOLATE',
       image: require('../res/image/chocolate.png'),
@@ -80,10 +94,31 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'ENSALADA',
+      search_name_es: 'ENSALADA',
+      image: require('../res/image/ensalada.png'),
+      video: `${uri}/ensalada.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'FIAMBRE',
+      search_name_es: 'FIAMBRE',
+      image: require('../res/image/fiambre.png'),
+      video: `${uri}/fiambre.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'FIDEOS',
       search_name_es: 'FIDEOS',
       image: require('../res/image/fideos.png'),
       video: `${uri}/fideos.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'FLAN',
+      search_name_es: 'FLAN',
+      image: require('../res/image/flan.png'),
+      video: `${uri}/flan.mp4`,
       downloaded: false,
     },
     {
@@ -94,10 +129,31 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'FRUTILLA',
+      search_name_es: 'FRUTILLA',
+      image: require('../res/image/frutilla.png'),
+      video: `${uri}/frutilla.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'GALLETITAS',
       search_name_es: 'GALLETITAS',
       image: require('../res/image/galletitas.png'),
       video: `${uri}/galletitas.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'GELATINA',
+      search_name_es: 'GELATINA ',
+      image: require('../res/image/gelatina.png'),
+      video: `${uri}/gelatina.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'GUISO',
+      search_name_es: 'GUISO ',
+      image: require('../res/image/guiso.png'),
+      video: `${uri}/guiso.mp4`,
       downloaded: false,
     },
     {
@@ -150,6 +206,13 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'MANDARINA',
+      search_name_es: 'MANDARINA',
+      image: require('../res/image/mandarina.png'),
+      video: `${uri}/mandarina.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'MANTECA',
       search_name_es: 'MANTECA',
       image: require('../res/image/manteca.png'),
@@ -171,6 +234,13 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'MEDIALUNA',
+      search_name_es: 'MEDIALUNA',
+      image: require('../res/image/medialuna.png'),
+      video: `${uri}/medialuna.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'MILANESA',
       search_name_es: 'MILANESA',
       image: require('../res/image/milanesa.png'),
@@ -185,10 +255,24 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'ÑOQUIS',
+      search_name_es: 'ÑOQUIS',
+      image: require('../res/image/noquis.png'),
+      video: `${uri}/noquis.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'PAN',
       search_name_es: 'PAN',
       image: require('../res/image/pan.png'),
       video: `${uri}/pan.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'PANCHO',
+      search_name_es: 'PANCHO',
+      image: require('../res/image/pancho.png'),
+      video: `${uri}/pancho.mp4`,
       downloaded: false,
     },
     {
@@ -220,6 +304,13 @@ export const food = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'POSTRE',
+      search_name_es: 'POSTRE',
+      image: require('../res/image/postre.png'),
+      video: `${uri}/postre.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'QUESO',
       search_name_es: 'QUESO',
       image: require('../res/image/queso.png'),
@@ -238,6 +329,13 @@ export const food = uri => ({
       search_name_es: 'SALCHICHA',
       image: require('../res/image/salchicha.png'),
       video: `${uri}/salchicha.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'SALSA',
+      search_name_es: 'SALSA',
+      image: require('../res/image/salsa.png'),
+      video: `${uri}/salsa.mp4`,
       downloaded: false,
     },
     {
@@ -280,6 +378,13 @@ export const food = uri => ({
       search_name_es: 'VERDURA',
       image: require('../res/image/verdura.png'),
       video: `${uri}/verdura.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'YOGUR',
+      search_name_es: 'YOGUR',
+      image: require('../res/image/yogur.png'),
+      video: `${uri}/yogur.mp4`,
       downloaded: false,
     },
     {
