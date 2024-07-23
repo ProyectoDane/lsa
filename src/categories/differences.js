@@ -1,5 +1,5 @@
 export const differences = uri => ({
-  name_es: 'DIFERENCIAS',
+  name_es: 'OPUESTOS',
   icon: require('../res/icon/las-diferencias.png'),
   videos: [
     {
@@ -24,7 +24,7 @@ export const differences = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'ATRAS',
+      name_es: 'ATRÁS',
       search_name_es: 'ATRAS',
       image: require('../res/image/atras.png'),
       video: `${uri}/atras.mp4`,
@@ -315,13 +315,6 @@ export const differences = uri => ({
       search_name_es: 'SOBRE',
       image: require('../res/image/sobre.png'),
       video: `${uri}/sobre.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'DIFERENCIAS',
-      search_name_es: 'DIFERENCIAS',
-      image: require('../res/image/las-diferencias.png'),
-      video: `${uri}/las-diferencias.mp4`,
       downloaded: false,
     },
   ],

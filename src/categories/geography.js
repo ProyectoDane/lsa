@@ -24,8 +24,8 @@ export const geography = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'LATINOAMERICA',
-      search_name_es: 'LATINOAMERICA',
+      name_es: 'AMÉRICA LATINA',
+      search_name_es: 'AMERICA LATINA',
       image: require('../res/image/latinoamerica.png'),
       video: `${uri}/latinoamerica.mp4`,
       downloaded: false,
