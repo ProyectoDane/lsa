@@ -11,9 +11,19 @@ export const searchVideos = searchString => {
   const withoutAccents = removeAccents(searchString);
   const { categories } = CATEGORIES_INDEX;
   return categories.reduce((accFound, category) => {
-    const foundVideos = category.videos.filter(video =>
-      video.search_name_es.includes(withoutAccents),
-    );
+    const foundVideos = [];
+    category.subcategories
+      ? category.subcategories.map(s =>
+          s.videos.map(video => {
+            if (video.search_name_es.includes(withoutAccents))
+              foundVideos.push(video);
+          }),
+        )
+      : category.videos.map(video => {
+          if (video.search_name_es.includes(withoutAccents))
+            foundVideos.push(video);
+        });
+
     return [...accFound, ...foundVideos];
   }, []);
 };

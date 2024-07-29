@@ -1,81 +1,75 @@
 import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
-import {
-  View,
-  Alert,
-  ScrollView,
-  Text,
-  Modal,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Alert, Text, Modal, TouchableOpacity } from 'react-native';
+import { HeaderBackButton } from '@react-navigation/elements';
 import ImageBackground from '../shared/ImageBackground';
 import { SelectableCard } from '../shared/Card';
 import List from '../shared/List';
 import { BaseHeader } from '../shared/BaseHeader';
-import AsyncStorage from '@react-native-community/async-storage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import RNFS from 'react-native-fs';
 import { PAGES } from './../../constants';
 import { styles } from './styles';
-import { CloseButton } from '../shared/Buttons';
+
 // Analytics
 import analytics from '@react-native-firebase/analytics';
 const Analytics = analytics();
 
 const categoryVideosBackground = require('./../../res/background/fondo-amarillo.jpg');
-const listaSlider = [
-  require('./../../res/wizard-ios/1-text.jpg'),
-  require('./../../res/wizard-ios/2-text.jpg'),
-  require('./../../res/wizard-ios/3-text.jpg'),
-  require('./../../res/wizard-ios/4-text.jpg'),
-  require('./../../res/wizard-ios/5-text.jpg'),
-  require('./../../res/wizard-ios/6-text.jpg'),
-];
 
-Category.navigationOptions = ({ navigation, route }) => ({
-  ...BaseHeader,
-  title: route.params.category.name_es,
-  headerTruncatedBackTitle: '',
-  //headerTruncatedBackTitle: I18n.t('back'),
-  headerRight: () =>
-    !route.params.categoryFull ? (
-      <MaterialIcons
-        name="cloud-download"
-        size={30}
-        style={styles.downloadIcon}
-        onPress={() => navigation.setParams({ showDialog: true })}
-      />
-    ) : (
-      <MaterialIcons
-        name="delete"
-        size={30}
-        style={styles.downloadIcon}
-        onPress={() => navigation.setParams({ deleteDialog: true })}
-      />
-    ),
-});
+export class Subcategory extends PureComponent {
+  static navigationOptions = ({ navigation, route }) => ({
+    ...BaseHeader,
+    title: route.params.subcategory
+      ? route.params.subcategory.name_es
+      : route.params.category.name_es,
+    headerTruncatedBackTitle: '',
+    headerLeft: props => {
+      const { subcategory } = route.params;
+      const button = subcategory ? (
+        <HeaderBackButton {...props} onPress={() => navigation.goBack()} />
+      ) : (
+        <HeaderBackButton
+          {...props}
+          onPress={() => {
+            navigation.pop();
+            navigation.goBack();
+          }}
+        />
+      );
+      return button;
+    },
+    headerRight: () => {
+      const icon = !route.params.categoryFull ? (
+        <MaterialIcons
+          name="cloud-download"
+          size={30}
+          style={styles.downloadIcon}
+          onPress={() => navigation.setParams({ showDialog: true })}
+        />
+      ) : (
+        <MaterialIcons
+          name="delete"
+          size={30}
+          style={styles.downloadIcon}
+          onPress={() => navigation.setParams({ deleteDialog: true })}
+        />
+      );
 
-export class Category extends PureComponent {
+      return icon;
+    },
+  });
+
   state = {
-    activeSlide: 0,
     downloadedVideos: 0,
     showBar: false,
     videos: [],
     initialAmount: 0,
     refresh: false,
-    firstCategory: false,
     showDownloadModal: false,
   };
 
-  _isFirstCategory = async () => {
-    const isFirstCategory = await AsyncStorage.getItem('firstCategory');
-    isFirstCategory === 'false'
-      ? this.setState({ firstCategory: false })
-      : this.setState({ firstCategory: true });
-  };
-
   componentDidMount() {
-    this._isFirstCategory();
     this.props.navigation.addListener('focus', payload => {
       this.reload();
     });
@@ -84,7 +78,10 @@ export class Category extends PureComponent {
 
   reload() {
     const { navigation, route } = this.props;
-    const videos = route.params.category.videos.map(video => ({
+    const src = route.params.subcategory
+      ? route.params.subcategory
+      : route.params.category;
+    const videos = src.videos.map(video => ({
       ...video,
       name: video.video.split('/').pop(),
     }));
@@ -172,66 +169,13 @@ export class Category extends PureComponent {
     });
   };
   _onLayout = () => this.forceUpdate();
-  _onChangeSlide = ({ nativeEvent }) => {
-    const slide = Math.floor(
-      nativeEvent.contentOffset.x / nativeEvent.layoutMeasurement.width,
-    );
-    if (slide !== this.state.activeSlide) {
-      this.setState({ activeSlide: slide });
-    }
-  };
-  _onCloseModal = async () => {
-    await AsyncStorage.setItem('firstCategory', 'false');
-    this.setState({ firstCategory: false });
-  };
-  _getTutorialLayout = () => {
-    return (
-      <View style={styles.full} onLayout={this._onLayout}>
-        <Modal style={styles.categoryModal} onRequestClose={this._onCloseModal}>
-          <View style={styles.categoryScrollContainer}>
-            <ScrollView
-              horizontal
-              pagingEnabled
-              onScroll={this._onChangeSlide}
-              showsHorizontalScrollIndicator={false}
-            >
-              {listaSlider.map((i, k) => (
-                <ImageBackground
-                  src={i}
-                  style={styles.sliderImage}
-                  key={k}
-                  resizeMode="contain"
-                />
-              ))}
-            </ScrollView>
-          </View>
-          <View style={styles.sliderButtonsContainer}>
-            <View style={styles.sliderButtons}>
-              {listaSlider.map((i, k) => (
-                <Text
-                  style={
-                    k === this.state.activeSlide
-                      ? styles.activeCircle
-                      : styles.inactiveCircle
-                  }
-                  key={k}
-                >
-                  ⬤
-                </Text>
-              ))}
-            </View>
-          </View>
-          <View style={styles.categoryCloseButtonContainer}>
-            <CloseButton onPress={this._onCloseModal} text="Saltar Intro" />
-          </View>
-        </Modal>
-      </View>
-    );
-  };
 
   _navigateToVideo(video) {
-    const { navigation } = this.props;
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
+    const { navigation, route } = this.props;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video,
+      hasSubcategories: Boolean(route.params.subcategory),
+    });
   }
 
   _renderVideo = ({ item }) => (
@@ -248,11 +192,10 @@ export class Category extends PureComponent {
   render() {
     const { navigation, route } = this.props;
     const params = route.params;
-    const videosAmount = params.category.videos.length;
+    const src = params.subcategory ? params.subcategory : params.category;
+    const videosAmount = src.videos.length;
     const amount = this.state.downloadedVideos;
-    return this.state.firstCategory ? (
-      this._getTutorialLayout()
-    ) : (
+    return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground src={categoryVideosBackground}>
           <View style={styles.headerContainer}>
