@@ -173,7 +173,7 @@ dependencies {
 
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     implementation 'androidx.multidex:multidex:2.0.1' // fix cannot fit classes in single dex file
 
