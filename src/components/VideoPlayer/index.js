@@ -25,15 +25,28 @@ export const VideoPlayerNavigationOptions = {
 };
 
 export function VideoPlayer({ navigation, route }) {
-  const video = route.params.video;
+  const { video, hasSubcategories } = route.params;
   const videoName = video.video.split('/').pop();
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
-  const videoCategory = categoriesIndex.categories.find(cat =>
-    cat.videos.some(cvideo => cvideo.video === video.video),
-  );
-  const videoIndex = videoCategory.videos.findIndex(
-    v => v.video === video.video,
-  );
+
+  const videoCategory = hasSubcategories
+    ? categoriesIndex.categories.find(cat =>
+        cat.subcategories?.find(subcat =>
+          subcat.videos.some(cvideo => cvideo.video === video.video),
+        ),
+      )
+    : categoriesIndex.categories.find(cat =>
+        cat.videos.some(cvideo => cvideo.video === video.video),
+      );
+
+  const videoSubcategory =
+    hasSubcategories &&
+    videoCategory.subcategories.find(sub =>
+      sub.videos.some(svideo => svideo.video === video.video),
+    );
+
+  const whereToLook = hasSubcategories ? videoSubcategory : videoCategory;
+  const videoIndex = whereToLook.videos.findIndex(v => v.video === video.video);
 
   const [show, setShow] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -71,17 +84,23 @@ export function VideoPlayer({ navigation, route }) {
   );
 
   const _goToPreviousVideo = () => {
-    const prevVideo = videoCategory.videos[videoIndex - 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: prevVideo });
+    const prevVideo = whereToLook.videos[videoIndex - 1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video: prevVideo,
+      hasSubcategories,
+    });
   };
 
   const _goToNextVideo = () => {
-    const nextVideo = videoCategory.videos[videoIndex + 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: nextVideo });
+    const nextVideo = whereToLook.videos[videoIndex + 1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video: nextVideo,
+      hasSubcategories,
+    });
   };
 
   const _checkIfLastVideo = () => {
-    const nextVideo = videoCategory.videos[videoIndex + 1];
+    const nextVideo = whereToLook.videos[videoIndex + 1];
     return nextVideo !== undefined;
   };
 
