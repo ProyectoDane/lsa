@@ -3,10 +3,24 @@ export const feelings = uri => ({
   icon: require('../res/icon/los-sentimientos.png'),
   videos: [
     {
+      name_es: 'ABURRIDO',
+      search_name_es: 'ABURRIDO',
+      image: require('../res/image/aburrido.png'),
+      video: `${uri}/aburrido.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'ALEGRE',
       search_name_es: 'ALEGRE',
       image: require('../res/image/alegre.png'),
       video: `${uri}/alegre.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'AMAR',
+      search_name_es: 'AMAR',
+      image: require('../res/image/amar.png'),
+      video: `${uri}/amar.mp4`,
       downloaded: false,
     },
     {
@@ -52,10 +66,10 @@ export const feelings = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'SENTIMIENTOS',
-      search_name_es: 'SENTIMIENTOS',
-      image: require('../res/image/los-sentimientos.png'),
-      video: `${uri}/los-sentimientos.mp4`,
+      name_es: 'LLORAR',
+      search_name_es: 'LLORAR',
+      image: require('../res/image/llorar.png'),
+      video: `${uri}/llorar.mp4`,
       downloaded: false,
     },
     {
@@ -70,6 +84,13 @@ export const feelings = uri => ({
       search_name_es: 'NERVIOSO',
       image: require('../res/image/nervioso.png'),
       video: `${uri}/nervioso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'SENTIMIENTOS',
+      search_name_es: 'SENTIMIENTOS',
+      image: require('../res/image/los-sentimientos.png'),
+      video: `${uri}/los-sentimientos.mp4`,
       downloaded: false,
     },
     {

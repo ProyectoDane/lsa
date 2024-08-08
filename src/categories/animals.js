@@ -3,17 +3,17 @@ export const animals = uri => ({
   icon: require('../res/icon/los-animales.png'),
   videos: [
     {
-      name_es: 'ANIMALES',
-      search_name_es: 'ANIMALES',
-      image: require('../res/image/animales.png'),
-      video: `${uri}/animales.mp4`,
-      downloaded: false,
-    },
-    {
       name_es: 'ÁGUILA',
       search_name_es: 'AGUILA',
       image: require('../res/image/aguila.png'),
       video: `${uri}/aguila.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'ANIMALES',
+      search_name_es: 'ANIMALES',
+      image: require('../res/image/animales.png'),
+      video: `${uri}/animales.mp4`,
       downloaded: false,
     },
     {
@@ -108,13 +108,6 @@ export const animals = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'DEL CAMPO',
-      search_name_es: 'DEL CAMPO',
-      image: require('../res/image/del-campo.png'),
-      video: `${uri}/del-campo.mp4`,
-      downloaded: false,
-    },
-    {
       name_es: 'DELFÍN',
       search_name_es: 'DELFIN',
       image: require('../res/image/delfin.png'),
@@ -126,13 +119,6 @@ export const animals = uri => ({
       search_name_es: 'DINOSAURIO',
       image: require('../res/image/dinosaurio.png'),
       video: `${uri}/dinosaurio.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'ZOOLÓGICO',
-      search_name_es: 'ZOOLOGICO',
-      image: require('../res/image/el-zoologico.png'),
-      video: `${uri}/el-zoologico.mp4`,
       downloaded: false,
     },
     {
@@ -206,6 +192,20 @@ export const animals = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'MARIPOSA',
+      search_name_es: 'MARIPOSA',
+      image: require('../res/image/mariposa.png'),
+      video: `${uri}/mariposa.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'MOSQUITO',
+      search_name_es: 'MOSQUITO',
+      image: require('../res/image/mosquito.png'),
+      video: `${uri}/mosquito.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'MONO',
       search_name_es: 'MONO',
       image: require('../res/image/mono.png'),
@@ -227,6 +227,13 @@ export const animals = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'PÁJARO',
+      search_name_es: 'PAJARO',
+      image: require('../res/image/pajaro.png'),
+      video: `${uri}/pajaro.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'PALOMA',
       search_name_es: 'PALOMA',
       image: require('../res/image/paloma.png'),
@@ -238,6 +245,20 @@ export const animals = uri => ({
       search_name_es: 'PATO',
       image: require('../res/image/pato.png'),
       video: `${uri}/pato.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'PERRO',
+      search_name_es: 'PERRO',
+      image: require('../res/image/perro.png'),
+      video: `${uri}/perro.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'PEZ',
+      search_name_es: 'PEZ',
+      image: require('../res/image/pez.png'),
+      video: `${uri}/pez.mp4`,
       downloaded: false,
     },
     {

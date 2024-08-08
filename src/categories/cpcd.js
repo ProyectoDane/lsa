@@ -1,6 +1,6 @@
 export const cpcd = uri => ({
   name_es: 'CONVENCIÓN (CPCD)',
-  search_name_es: 'CONVENCIÓN (CPCD)',
+  search_name_es: 'CONVENCION (CPCD)',
   icon: require('../res/icon/convencion.png'),
   videos: [
     {
@@ -11,7 +11,7 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'ADECUACION',
+      name_es: 'ADECUACIÓN',
       search_name_es: 'ADECUACION',
       image: require('../res/image/adecuacion.png'),
       video: `${uri}/adecuacion.mp4`,
@@ -25,14 +25,14 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'ARTICULOS',
+      name_es: 'ARTÍCULOS',
       search_name_es: 'ARTICULOS',
       image: require('../res/image/articulos.png'),
       video: `${uri}/articulos.mp4`,
       downloaded: false,
     },
     {
-      name_es: 'AUTONOMIA',
+      name_es: 'AUTONOMÍA',
       search_name_es: 'AUTONOMIA',
       image: require('../res/image/autonomia.png'),
       video: `${uri}/autonomia.mp4`,
@@ -53,7 +53,7 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'CONVENCION (CPCD)',
+      name_es: 'CONVENCIÓN (CPCD)',
       search_name_es: 'CONVENCION (CPCD)',
       image: require('../res/image/mesa-de-trabajo132.png'),
       video: `${uri}/cpcd.mp4`,
@@ -95,7 +95,7 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'DISCRIMINACION',
+      name_es: 'DISCRIMINACIÓN',
       search_name_es: 'DISCRIMINACION',
       image: require('../res/image/discriminacion.png'),
       video: `${uri}/discriminacion.mp4`,
@@ -158,14 +158,14 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'INCLUSION',
+      name_es: 'INCLUSIÓN',
       search_name_es: 'INCLUSION',
       image: require('../res/image/inclusion.png'),
       video: `${uri}/inclusion.mp4`,
       downloaded: false,
     },
     {
-      name_es: 'INFORMACION',
+      name_es: 'INFORMACIÓN',
       search_name_es: 'INFORMACION',
       image: require('../res/image/informacion.png'),
       video: `${uri}/informacion.mp4`,
@@ -200,21 +200,21 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'PARTICIPACION',
+      name_es: 'PARTICIPACIÓN',
       search_name_es: 'PARTICIPACION',
       image: require('../res/image/participacion.png'),
       video: `${uri}/participacion.mp4`,
       downloaded: false,
     },
     {
-      name_es: 'POLITICA',
+      name_es: 'POLÍTICA',
       search_name_es: 'POLITICA',
       image: require('../res/image/politica.png'),
       video: `${uri}/politica.mp4`,
       downloaded: false,
     },
     {
-      name_es: 'PROTECCION',
+      name_es: 'PROTECCIÓN',
       search_name_es: 'PROTECCION',
       image: require('../res/image/proteccion.png'),
       video: `${uri}/proteccion.mp4`,
@@ -235,7 +235,7 @@ export const cpcd = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'REGLAMENTACION',
+      name_es: 'REGLAMENTACIÓN',
       search_name_es: 'REGLAMENTACION',
       image: require('../res/image/reglamentacion.png'),
       video: `${uri}/reglamentacion.mp4`,
