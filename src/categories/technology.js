@@ -60,7 +60,7 @@ export const technology = uri => ({
     },
     {
       name_es: 'ESCÁNER',
-      search_name_es: 'ESCÁNER',
+      search_name_es: 'ESCANER',
       image: require('../res/image/escanear.png'),
       video: `${uri}/escaner.mp4`,
       downloaded: false,
@@ -144,7 +144,7 @@ export const technology = uri => ({
     },
     {
       name_es: 'PÁGINA WEB',
-      search_name_es: 'PÁGINA WEB',
+      search_name_es: 'PAGINA WEB',
       image: require('../res/image/pagina-web.png'),
       video: `${uri}/pagina-web.mp4`,
       downloaded: false,

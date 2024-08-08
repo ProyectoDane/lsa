@@ -1,7 +1,21 @@
-export const differences = uri => ({
+export const opposites = uri => ({
   name_es: 'OPUESTOS',
-  icon: require('../res/icon/las-diferencias.png'),
+  icon: require('../res/icon/opuestos.png'),
   videos: [
+    {
+      name_es: 'BAJAR',
+      search_name_es: 'BAJAR',
+      image: require('../res/image/bajar.png'),
+      video: `${uri}/bajar.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'SUBIR',
+      search_name_es: 'SUBIR',
+      image: require('../res/image/subir.png'),
+      video: `${uri}/subir.mp4`,
+      downloaded: false,
+    },
     {
       name_es: 'ABAJO',
       search_name_es: 'ABAJO',
@@ -199,17 +213,17 @@ export const differences = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'DIFERENTE',
-      search_name_es: 'DIFERENTE',
-      image: require('../res/image/diferente.png'),
-      video: `${uri}/diferente.mp4`,
+      name_es: 'MUCHO',
+      search_name_es: 'MUCHO',
+      image: require('../res/image/mucho.png'),
+      video: `${uri}/mucho.mp4`,
       downloaded: false,
     },
     {
-      name_es: 'IGUAL',
-      search_name_es: 'IGUAL',
-      image: require('../res/image/igual.png'),
-      video: `${uri}/igual.mp4`,
+      name_es: 'POCO',
+      search_name_es: 'POCO',
+      image: require('../res/image/poco.png'),
+      video: `${uri}/poco.mp4`,
       downloaded: false,
     },
     {
@@ -269,6 +283,20 @@ export const differences = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'DIFERENTE',
+      search_name_es: 'DIFERENTE',
+      image: require('../res/image/diferente.png'),
+      video: `${uri}/diferente.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'IGUAL',
+      search_name_es: 'IGUAL',
+      image: require('../res/image/igual.png'),
+      video: `${uri}/igual.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'MENTIRA',
       search_name_es: 'MENTIRA',
       image: require('../res/image/mentira.png'),
@@ -294,20 +322,6 @@ export const differences = uri => ({
       search_name_es: 'SECO',
       image: require('../res/image/seco.png'),
       video: `${uri}/seco.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'MUCHO',
-      search_name_es: 'MUCHO',
-      image: require('../res/image/mucho.png'),
-      video: `${uri}/mucho.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'POCO',
-      search_name_es: 'POCO',
-      image: require('../res/image/poco.png'),
-      video: `${uri}/poco.mp4`,
       downloaded: false,
     },
     {
