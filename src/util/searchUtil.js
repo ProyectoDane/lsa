@@ -4,6 +4,11 @@ import CATEGORIES_INDEX from '../categoriesIndex';
 export const removeAccents = str =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
+export const getUniqueVideos = videos =>
+  Array.from(new Set(videos.map(v => v.search_name_es))).map(name => {
+    return videos.find(v => v.search_name_es === name);
+  });
+
 export const searchVideos = searchString => {
   if (!searchString || searchString.length <= 1) {
     return [];
@@ -15,8 +20,11 @@ export const searchVideos = searchString => {
     category.subcategories
       ? category.subcategories.map(s =>
           s.videos.map(video => {
-            if (video.search_name_es.includes(withoutAccents))
-              foundVideos.push(video);
+            if (video.search_name_es.includes(withoutAccents)) {
+              const v = video;
+              v.hasSub = true;
+              foundVideos.push(v);
+            }
           }),
         )
       : category.videos.map(video => {

@@ -68,3 +68,5 @@ android/app/src/main/res/
 *.sqlite
 *.bin
 
+# bundle file
+/**/index.android.bundle
