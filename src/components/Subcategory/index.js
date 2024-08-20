@@ -174,7 +174,7 @@ export class Subcategory extends PureComponent {
     const { navigation, route } = this.props;
     navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
       video,
-      hasSubcategories: Boolean(route.params.subcategory),
+      hasSub: Boolean(route.params.subcategory),
     });
   }
 

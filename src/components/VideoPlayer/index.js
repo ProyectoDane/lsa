@@ -25,9 +25,10 @@ export const VideoPlayerNavigationOptions = {
 };
 
 export function VideoPlayer({ navigation, route }) {
-  const { video, hasSubcategories } = route.params;
+  const { video, hasSub } = route.params;
   const videoName = video.video.split('/').pop();
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
+  const hasSubcategories = video.hasSub || hasSub;
 
   const videoCategory = hasSubcategories
     ? categoriesIndex.categories.find(cat =>
@@ -87,7 +88,7 @@ export function VideoPlayer({ navigation, route }) {
     const prevVideo = whereToLook.videos[videoIndex - 1];
     navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
       video: prevVideo,
-      hasSubcategories,
+      hasSub: hasSubcategories,
     });
   };
 
@@ -95,7 +96,7 @@ export function VideoPlayer({ navigation, route }) {
     const nextVideo = whereToLook.videos[videoIndex + 1];
     navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
       video: nextVideo,
-      hasSubcategories,
+      hasSub: hasSubcategories,
     });
   };
 
