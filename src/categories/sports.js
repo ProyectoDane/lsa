@@ -41,6 +41,13 @@ export const sports = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'BUCEO',
+          search_name_es: 'BUCEO',
+          image: require('../res/image/buceo.png'),
+          video: `${uri}/buceo.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'CAMPEONATO',
           search_name_es: 'CAMPEONATO',
           image: require('../res/image/campeonato.png'),
@@ -97,6 +104,13 @@ export const sports = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'MARATÓN',
+          search_name_es: 'MARATON',
+          image: require('../res/image/maraton.png'),
+          video: `${uri}/maraton.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'OLIMPIADAS',
           search_name_es: 'OLIMPIADAS',
           image: require('../res/image/olimpiadas.png'),
@@ -108,6 +122,13 @@ export const sports = uri => ({
           search_name_es: 'PAPI FUTBOL',
           image: require('../res/image/papi-futbol.png'),
           video: `${uri}/papi-futbol.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'PARACAIDISMO',
+          search_name_es: 'PARACAIDISMO',
+          image: require('../res/image/paracaidismo.png'),
+          video: `${uri}/paracaidismo.mp4`,
           downloaded: false,
         },
         {
@@ -162,6 +183,13 @@ export const sports = uri => ({
           search_name_es: 'NADAR',
           image: require('../res/image/nadar.png'),
           video: `${uri}/nadar.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'NAVEGAR',
+          search_name_es: 'NAVEGAR',
+          image: require('../res/image/navegar.png'),
+          video: `${uri}/navegar.mp4`,
           downloaded: false,
         },
       ],

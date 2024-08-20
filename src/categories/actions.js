@@ -1,6 +1,6 @@
 export const actions = uri => ({
   name_es: 'ACCIONES',
-  icon: require('../res/icon/la-tecnologia.png'), //TODO: cambiar imagen de acciones
+  icon: require('../res/icon/acciones.png'),
   videos: [
     {
       name_es: 'ABRAZAR',

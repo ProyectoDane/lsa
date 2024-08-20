@@ -376,6 +376,20 @@ export const freeTime = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'IGLESIA',
+          search_name_es: 'IGLESIA',
+          image: require('../res/image/iglesia.png'),
+          video: `${uri}/iglesia.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'PARQUE DE DIVERSIONES',
+          search_name_es: 'PARQUE DE DIVERSIONES',
+          image: require('../res/image/parque-de-diversiones.png'),
+          video: `${uri}/parque-de-diversiones.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'PILETA',
           search_name_es: 'PILETA',
           image: require('../res/image/pileta.png'),
