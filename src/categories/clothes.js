@@ -6,10 +6,24 @@ export const clothes = uri => ({
       name_es: 'CALZADOS',
       videos: [
         {
+          name_es: 'BOTAS',
+          search_name_es: 'BOTAS',
+          image: require('../res/image/botas.png'),
+          video: `${uri}/botas.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'OJOTAS',
           search_name_es: 'OJOTAS',
           image: require('../res/image/ojotas.png'),
           video: `${uri}/ojotas.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'ZAPATILLAS',
+          search_name_es: 'ZAPATILLAS',
+          image: require('../res/image/zapatillas.png'),
+          video: `${uri}/zapatillas.mp4`,
           downloaded: false,
         },
         {
@@ -25,6 +39,13 @@ export const clothes = uri => ({
       name_es: 'ROPA DE INVIERNO',
       videos: [
         {
+          name_es: 'BUFANDA',
+          search_name_es: 'BUFANDA',
+          image: require('../res/image/bufanda.png'),
+          video: `${uri}/bufanda.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'CAMPERA',
           search_name_es: 'CAMPERA',
           image: require('../res/image/campera.png'),
@@ -32,10 +53,24 @@ export const clothes = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'GUANTES',
+          search_name_es: 'GUANTES',
+          image: require('../res/image/guantes.png'),
+          video: `${uri}/guantes.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'PANTALÓN',
           search_name_es: 'PANTALON',
           image: require('../res/image/pantalon.png'),
           video: `${uri}/pantalon.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'PARAGUAS',
+          search_name_es: 'PARAGUAS',
+          image: require('../res/image/paraguas.png'),
+          video: `${uri}/paraguas.mp4`,
           downloaded: false,
         },
         {

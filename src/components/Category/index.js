@@ -32,9 +32,10 @@ export class Category extends PureComponent {
 
   _isFirstCategory = async () => {
     const isFirstCategory = await AsyncStorage.getItem('firstCategory');
-    isFirstCategory === 'false'
-      ? this.setState({ firstCategory: false })
-      : this.setState({ firstCategory: true });
+    if (isFirstCategory === 'false') {
+      this.setState({ firstCategory: false });
+      this._hasNoSubcategories();
+    } else this.setState({ firstCategory: true });
   };
 
   _hasNoSubcategories = () => {
@@ -46,7 +47,6 @@ export class Category extends PureComponent {
 
   componentDidMount() {
     this._isFirstCategory();
-    this._hasNoSubcategories();
   }
   _onLayout = () => this.forceUpdate();
 
@@ -62,6 +62,7 @@ export class Category extends PureComponent {
   _onCloseModal = async () => {
     await AsyncStorage.setItem('firstCategory', 'false');
     this.setState({ firstCategory: false });
+    this._hasNoSubcategories();
   };
 
   _getTutorialLayout = () => (

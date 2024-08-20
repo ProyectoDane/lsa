@@ -6,6 +6,13 @@ export const street = uri => ({
       name_es: 'OTROS',
       videos: [
         {
+          name_es: 'DINERO',
+          search_name_es: 'DINERO',
+          image: require('../res/image/dinero.png'),
+          video: `${uri}/dinero.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'PERSONA',
           search_name_es: 'PERSONA',
           image: require('../res/image/persona.png'),

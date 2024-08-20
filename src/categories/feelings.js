@@ -59,10 +59,31 @@ export const feelings = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'DEPRIMIDO',
+      search_name_es: 'DEPRIMIDO',
+      image: require('../res/image/deprimido.png'),
+      video: `${uri}/deprimido.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'ENOJADO',
       search_name_es: 'ENOJADO',
       image: require('../res/image/enojado.png'),
       video: `${uri}/enojado.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'FELIZ',
+      search_name_es: 'FELIZ',
+      image: require('../res/image/feliz.png'),
+      video: `${uri}/feliz.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'GRACIOSO',
+      search_name_es: 'GRACIOSO',
+      image: require('../res/image/gracioso.png'),
+      video: `${uri}/gracioso.mp4`,
       downloaded: false,
     },
     {
@@ -84,6 +105,20 @@ export const feelings = uri => ({
       search_name_es: 'NERVIOSO',
       image: require('../res/image/nervioso.png'),
       video: `${uri}/nervioso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'ORGULLOSO',
+      search_name_es: 'ORGULLOSO',
+      image: require('../res/image/orgulloso.png'),
+      video: `${uri}/orgulloso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'PREOCUPADO',
+      search_name_es: 'PREOCUPADO',
+      image: require('../res/image/preocupado.png'),
+      video: `${uri}/preocupado.mp4`,
       downloaded: false,
     },
     {

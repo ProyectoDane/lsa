@@ -27,6 +27,13 @@ export const body = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'CACA',
+          search_name_es: 'CACA',
+          image: require('../res/image/caca.png'),
+          video: `${uri}/caca.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'CARA',
           search_name_es: 'CARA',
           image: require('../res/image/cara.png'),
@@ -167,6 +174,13 @@ export const body = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'PIS',
+          search_name_es: 'PIS',
+          image: require('../res/image/pis.png'),
+          video: `${uri}/pis.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'RODILLA',
           search_name_es: 'RODILLA',
           image: require('../res/image/rodilla.png'),
@@ -197,6 +211,20 @@ export const body = uri => ({
           search_name_es: 'CRECER',
           image: require('../res/image/crecer.png'),
           video: `${uri}/crecer.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'MORIR',
+          search_name_es: 'MORIR',
+          image: require('../res/image/morir.png'),
+          video: `${uri}/morir.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'NACER',
+          search_name_es: 'NACER',
+          image: require('../res/image/nacer.png'),
+          video: `${uri}/nacer.mp4`,
           downloaded: false,
         },
         {
