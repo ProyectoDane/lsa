@@ -136,6 +136,13 @@ export const actions = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'HABLAR SEÑAS',
+      search_name_es: 'HABLAR SEÑAS',
+      image: require('../res/image/hablar-senas.png'),
+      video: `${uri}/hablar-senas.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'LAVAR LOS PLATOS',
       search_name_es: 'LAVAR LOS PLATOS',
       image: require('../res/image/lavar-los-platos.png'),
@@ -217,13 +224,6 @@ export const actions = uri => ({
       search_name_es: 'SACAR FOTOS',
       image: require('../res/image/sacar-fotos.png'),
       video: `${uri}/sacar-fotos.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'SEÑAR',
-      search_name_es: 'SEÑAR',
-      image: require('../res/image/senar.png'),
-      video: `${uri}/senar.mp4`,
       downloaded: false,
     },
     {

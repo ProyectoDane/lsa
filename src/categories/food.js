@@ -413,7 +413,7 @@ export const food = uri => ({
       ],
     },
     {
-      name_es: 'INGREDIENTES',
+      name_es: 'INGREDIENTES BÁSICOS',
       videos: [
         {
           name_es: 'ACEITE',

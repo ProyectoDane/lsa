@@ -30,15 +30,13 @@ export function VideoPlayer({ navigation, route }) {
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
   const hasSubcategories = video.hasSub || hasSub;
 
-  const videoCategory = hasSubcategories
-    ? categoriesIndex.categories.find(cat =>
-        cat.subcategories?.find(subcat =>
+  const videoCategory = categoriesIndex.categories.find(cat =>
+    cat.subcategories
+      ? cat.subcategories.find(subcat =>
           subcat.videos.some(cvideo => cvideo.video === video.video),
-        ),
-      )
-    : categoriesIndex.categories.find(cat =>
-        cat.videos.some(cvideo => cvideo.video === video.video),
-      );
+        )
+      : cat.videos.some(cvideo => cvideo.video === video.video),
+  );
 
   const videoSubcategory =
     hasSubcategories &&

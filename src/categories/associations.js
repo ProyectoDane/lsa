@@ -3,6 +3,13 @@ export const associations = uri => ({
   icon: require('../res/icon/asociaciones.png'),
   videos: [
     {
+      name_es: '¿POR QUÉ SON IMPORTANTES LAS ASOCIACIONES DE SORDOS?',
+      search_name_es: '¿POR QUE SON IMPORTANTES LAS ASOCIACIONES DE SORDOS?',
+      image: require('../res/image/importancia-asociaciones-sordes.png'),
+      video: `${uri}/importancia-asociaciones-sordes.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'AAS',
       search_name_es: 'AAS',
       image: require('../res/image/aas.png'),

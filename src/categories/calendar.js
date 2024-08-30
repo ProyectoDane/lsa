@@ -188,7 +188,7 @@ export const calendar = uri => ({
       ],
     },
     {
-      name_es: 'GENERAL',
+      name_es: 'GENERAL O MOMENTOS',
       videos: [
         {
           name_es: 'AYER',

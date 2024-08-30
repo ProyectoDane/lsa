@@ -36,8 +36,8 @@ export const school = uri => ({
         {
           name_es: 'PROFESOR',
           search_name_es: 'PROFESOR',
-          image: require('../res/image/maestra.png'),
-          video: `${uri}/maestra.mp4`,
+          image: require('../res/image/profesor.png'),
+          video: `${uri}/profesor.mp4`,
           downloaded: false,
         },
       ],
@@ -151,6 +151,13 @@ export const school = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'TÍTULO',
+          search_name_es: 'TITULO',
+          image: require('../res/image/titulo.png'),
+          video: `${uri}/titulo.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'TIZA',
           search_name_es: 'TIZA',
           image: require('../res/image/tiza.png'),
@@ -217,6 +224,13 @@ export const school = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'APROBAR',
+          search_name_es: 'APROBAR',
+          image: require('../res/image/aprobar.png'),
+          video: `${uri}/aprobar.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'BUSCAR',
           search_name_es: 'BUSCAR',
           image: require('../res/image/buscar.png'),
@@ -256,6 +270,13 @@ export const school = uri => ({
           search_name_es: 'DIBUJAR',
           image: require('../res/image/dibujar.png'),
           video: `${uri}/dibujar.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'DESAPROBAR',
+          search_name_es: 'DESAPROBAR',
+          image: require('../res/image/desaprobar.png'),
+          video: `${uri}/desaprobar.mp4`,
           downloaded: false,
         },
         {
@@ -319,6 +340,13 @@ export const school = uri => ({
           search_name_es: 'HACIENDO LA TAREA',
           image: require('../res/image/haciendo-la-tarea.png'),
           video: `${uri}/haciendo-la-tarea.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'INVESTIGACIÓN',
+          search_name_es: 'INVESTIGACION',
+          image: require('../res/image/investigacion.png'),
+          video: `${uri}/investigacion.mp4`,
           downloaded: false,
         },
         {
@@ -481,10 +509,31 @@ export const school = uri => ({
       name_es: 'MATERIAS',
       videos: [
         {
+          name_es: 'BIOLOGÍA',
+          search_name_es: 'BIOLOGIA',
+          image: require('../res/image/biologia.png'),
+          video: `${uri}/biologia.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'CIENCIA',
           search_name_es: 'CIENCIA',
           image: require('../res/image/ciencia.png'),
           video: `${uri}/ciencia.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'CIENCIAS NATURALES',
+          search_name_es: 'CIENCIAS NATURALES',
+          image: require('../res/image/ciencias-naturales.png'),
+          video: `${uri}/ciencias-naturales.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'CIENCIAS SOCIALES',
+          search_name_es: 'CIENCIAS SOCIALES',
+          image: require('../res/image/ciencias-sociales.png'),
+          video: `${uri}/ciencias-sociales.mp4`,
           downloaded: false,
         },
         {
@@ -499,6 +548,13 @@ export const school = uri => ({
           search_name_es: 'EDUCACION FISICA',
           image: require('../res/image/educacion-fisica.png'),
           video: `${uri}/educacion-fisica.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'FÍSICA',
+          search_name_es: 'FISICA',
+          image: require('../res/image/fisica.png'),
+          video: `${uri}/fisica.mp4`,
           downloaded: false,
         },
         {
