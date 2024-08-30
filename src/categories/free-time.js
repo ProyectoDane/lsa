@@ -322,6 +322,13 @@ export const freeTime = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'DESENCHUFAR',
+          search_name_es: 'DESENCHUFAR',
+          image: require('../res/image/desenchufar.png'),
+          video: `${uri}/desenchufar.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'FILMAR',
           search_name_es: 'FILMAR',
           image: require('../res/image/filmar.png'),

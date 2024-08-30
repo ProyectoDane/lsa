@@ -20,6 +20,13 @@ export const communicating = uri => ({
           downloaded: false,
         },
         {
+          name_es: 'DNI',
+          search_name_es: 'DNI',
+          image: require('../res/image/dni.png'),
+          video: `${uri}/dni.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'OYENTE',
           search_name_es: 'OYENTE',
           image: require('../res/image/oyente.png'),
@@ -88,10 +95,10 @@ export const communicating = uri => ({
           downloaded: false,
         },
         {
-          name_es: '¿CUÁNTOS AÑOS TENÉS?',
-          search_name_es: '¿CUANTOS AÑOS TENES?',
-          image: require('../res/image/cuantos-anos-tenes.png'),
-          video: `${uri}/cuantos-anos-tenes.mp4`,
+          name_es: '¿CUÁL ES TÚ EDAD?',
+          search_name_es: '¿CUAL ES TU EDAD?',
+          image: require('../res/image/cual-es-tu-edad.png'),
+          video: `${uri}/cual-es-tu-edad.mp4`,
           downloaded: false,
         },
         {
@@ -134,6 +141,20 @@ export const communicating = uri => ({
           search_name_es: '¿QUIEN?',
           image: require('../res/image/quien.png'),
           video: `${uri}/quien.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: '¿CÓMO TE LLAMAS?',
+          search_name_es: '¿COMO TE LLAMAS?',
+          image: require('../res/image/como-te-llamas.png'),
+          video: `${uri}/como-te-llamas.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: '¿DE QUÉ?',
+          search_name_es: '¿DE QUE?',
+          image: require('../res/image/de-que.png'),
+          video: `${uri}/de-que.mp4`,
           downloaded: false,
         },
       ],
@@ -188,6 +209,13 @@ export const communicating = uri => ({
     {
       name_es: 'FRASES DE CORTESÍA',
       videos: [
+        {
+          name_es: 'BIENVENIDA',
+          search_name_es: 'BIENVENIDA',
+          image: require('../res/image/bienvenida.png'),
+          video: `${uri}/bienvenida.mp4`,
+          downloaded: false,
+        },
         {
           name_es: 'DE NADA',
           search_name_es: 'DE NADA',
@@ -294,6 +322,13 @@ export const communicating = uri => ({
           search_name_es: 'HABLAR ORAL',
           image: require('../res/image/hablar-oral.png'),
           video: `${uri}/hablar-oral.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'HABLAR SEÑAS',
+          search_name_es: 'HABLAR SEÑAS',
+          image: require('../res/image/hablar-senas.png'),
+          video: `${uri}/hablar-senas.mp4`,
           downloaded: false,
         },
         {

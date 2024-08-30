@@ -128,10 +128,31 @@ export const family = uri => ({
       name_es: 'VÍNCULOS',
       videos: [
         {
+          name_es: 'AMANTE',
+          search_name_es: 'AMANTE',
+          image: require('../res/image/amante.png'),
+          video: `${uri}/amante.mp4`,
+          downloaded: false,
+        },
+        {
           name_es: 'CASADOS',
           search_name_es: 'CASADOS',
           image: require('../res/image/casados.png'),
           video: `${uri}/casados.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'CODA',
+          search_name_es: 'CODA',
+          image: require('../res/image/coda.png'),
+          video: `${uri}/coda.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'DIVORCIADO',
+          search_name_es: 'DIVORCIADO',
+          image: require('../res/image/divorciado.png'),
+          video: `${uri}/divorciado.mp4`,
           downloaded: false,
         },
         {
@@ -146,6 +167,13 @@ export const family = uri => ({
           search_name_es: 'SEPARADOS',
           image: require('../res/image/separados.png'),
           video: `${uri}/separados.mp4`,
+          downloaded: false,
+        },
+        {
+          name_es: 'SOLTERO',
+          search_name_es: 'SOLTERO',
+          image: require('../res/image/soltero.png'),
+          video: `${uri}/soltero.mp4`,
           downloaded: false,
         },
       ],

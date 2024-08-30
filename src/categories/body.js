@@ -262,6 +262,13 @@ export const body = uri => ({
           video: `${uri}/ver.mp4`,
           downloaded: false,
         },
+        {
+          name_es: 'VIDA',
+          search_name_es: 'VIDA',
+          image: require('../res/image/vida.png'),
+          video: `${uri}/vida.mp4`,
+          downloaded: false,
+        },
       ],
     },
   ],

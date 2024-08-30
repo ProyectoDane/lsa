@@ -38,6 +38,13 @@ export const sexualEducation = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'COPA MENSTRUAL',
+      search_name_es: 'COPA MENSTRUAL',
+      image: require('../res/image/copa-menstrual.png'),
+      video: `${uri}/copa-menstrual.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'DIVERSIDAD',
       search_name_es: 'DIVERSIDAD',
       image: require('../res/image/diversidad.png'),
@@ -80,6 +87,13 @@ export const sexualEducation = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'INTERSEXUAL',
+      search_name_es: 'INTERSEXUAL',
+      image: require('../res/image/intersexual.png'),
+      video: `${uri}/intersexual.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'LESBIANA',
       search_name_es: 'LESBIANA',
       image: require('../res/image/lesbiana.png'),
@@ -87,10 +101,31 @@ export const sexualEducation = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'MENSTRUACIÓN',
+      search_name_es: 'MENSTRUACION',
+      image: require('../res/image/menstruacion.png'),
+      video: `${uri}/menstruacion.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'NI UNA MENOS',
       search_name_es: 'NI UNA MENOS',
       image: require('../res/image/ni-una-menos.png'),
       video: `${uri}/ni-una-menos.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'NO BINARIO',
+      search_name_es: 'NO BINARIO',
+      image: require('../res/image/no-binario.png'),
+      video: `${uri}/no-binario.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'RELACIONES SEXUALES',
+      search_name_es: 'RELACIONES SEXUALES',
+      image: require('../res/image/relaciones-sexuales.png'),
+      video: `${uri}/relaciones-sexuales.mp4`,
       downloaded: false,
     },
     {
@@ -105,6 +140,13 @@ export const sexualEducation = uri => ({
       search_name_es: 'TRAVESTI',
       image: require('../res/image/travesti.png'),
       video: `${uri}/travesti.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'TOALLAS HIGIÉNICAS',
+      search_name_es: 'TOALLAS HIGIENICAS',
+      image: require('../res/image/toallas-higienicas.png'),
+      video: `${uri}/toallas-higienicas.mp4`,
       downloaded: false,
     },
     {

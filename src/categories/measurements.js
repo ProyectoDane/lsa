@@ -3,6 +3,13 @@ export const measurements = uri => ({
   icon: require('../res/icon/medidas.png'),
   videos: [
     {
+      name_es: 'BALANZA',
+      search_name_es: 'BALANZA',
+      image: require('../res/image/balanza.png'),
+      video: `${uri}/balanza.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'CANTIDAD',
       search_name_es: 'CANTIDAD',
       image: require('../res/image/cantidad.png'),
