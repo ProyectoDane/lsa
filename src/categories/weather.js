@@ -1,6 +1,7 @@
 export const weather = uri => ({
   name_es: 'CLIMA',
   icon: require('../res/icon/clima.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'PRIMAVERA',

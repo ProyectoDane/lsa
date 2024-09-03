@@ -1,6 +1,7 @@
 export const opposites = uri => ({
   name_es: 'OPUESTOS',
   icon: require('../res/icon/opuestos.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'BAJAR',

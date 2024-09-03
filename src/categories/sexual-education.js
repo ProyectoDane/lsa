@@ -1,6 +1,7 @@
 export const sexualEducation = uri => ({
   name_es: 'EDUCACIÓN SEXUAL INTEGRAL',
   icon: require('../res/image/educacion-sexual-integral.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ABUSO',

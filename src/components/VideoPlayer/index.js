@@ -25,27 +25,16 @@ export const VideoPlayerNavigationOptions = {
 };
 
 export function VideoPlayer({ navigation, route }) {
-  const { video, hasSub } = route.params;
+  const { video } = route.params;
   const videoName = video.video.split('/').pop();
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
-  const hasSubcategories = video.hasSub || hasSub;
 
   const videoCategory = categoriesIndex.categories.find(cat =>
-    cat.subcategories
-      ? cat.subcategories.find(subcat =>
-          subcat.videos.some(cvideo => cvideo.video === video.video),
-        )
-      : cat.videos.some(cvideo => cvideo.video === video.video),
+    cat.videos.some(cvideo => cvideo.video === video.video),
   );
-
-  const videoSubcategory =
-    hasSubcategories &&
-    videoCategory.subcategories.find(sub =>
-      sub.videos.some(svideo => svideo.video === video.video),
-    );
-
-  const whereToLook = hasSubcategories ? videoSubcategory : videoCategory;
-  const videoIndex = whereToLook.videos.findIndex(v => v.video === video.video);
+  const videoIndex = videoCategory.videos.findIndex(
+    v => v.video === video.video,
+  );
 
   const [show, setShow] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -83,23 +72,17 @@ export function VideoPlayer({ navigation, route }) {
   );
 
   const _goToPreviousVideo = () => {
-    const prevVideo = whereToLook.videos[videoIndex - 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
-      video: prevVideo,
-      hasSub: hasSubcategories,
-    });
+    const prevVideo = videoCategory.videos[videoIndex - 1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: prevVideo });
   };
 
   const _goToNextVideo = () => {
-    const nextVideo = whereToLook.videos[videoIndex + 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
-      video: nextVideo,
-      hasSub: hasSubcategories,
-    });
+    const nextVideo = videoCategory.videos[videoIndex + 1];
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: nextVideo });
   };
 
   const _checkIfLastVideo = () => {
-    const nextVideo = whereToLook.videos[videoIndex + 1];
+    const nextVideo = videoCategory.videos[videoIndex + 1];
     return nextVideo !== undefined;
   };
 

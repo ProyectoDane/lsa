@@ -1,6 +1,7 @@
 export const colors = uri => ({
   name_es: 'COLORES',
   icon: require('../res/icon/los-colores.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'AMARILLO',

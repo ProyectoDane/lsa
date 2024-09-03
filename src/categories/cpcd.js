@@ -1,6 +1,7 @@
 export const cpcd = uri => ({
   name_es: 'CONVENCIÓN (CPCD)',
   icon: require('../res/icon/convencion.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: '¿POR QUÉ ES IMPORTANTE LA CPCD?',

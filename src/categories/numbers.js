@@ -1,6 +1,7 @@
 export const numbers = uri => ({
   name_es: 'NÚMEROS',
   icon: require('../res/icon/los-numeros.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'NÚMEROS',

@@ -20,7 +20,7 @@ export default function List({ data, scrollRef, renderItem, columns = 2 }) {
       maxToRenderPerBatch={10}
       removeClippedSubviews={true}
       data={data}
-      keyExtractor={item => item.name_es}
+      keyExtractor={item => item.name_es || item}
       renderItem={renderItem}
     />
   );
