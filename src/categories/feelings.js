@@ -1,6 +1,7 @@
 export const feelings = uri => ({
   name_es: 'SENTIMIENTOS',
   icon: require('../res/icon/los-sentimientos.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ABURRIDO',

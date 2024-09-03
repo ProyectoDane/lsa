@@ -1,6 +1,7 @@
 export const associations = uri => ({
   name_es: 'ASOCIACIONES DE LA COMUNIDAD SORDA',
   icon: require('../res/icon/asociaciones.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: '¿POR QUÉ SON IMPORTANTES LAS ASOCIACIONES DE SORDOS?',

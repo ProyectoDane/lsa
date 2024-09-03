@@ -1,6 +1,7 @@
 export const actions = uri => ({
   name_es: 'ACCIONES',
   icon: require('../res/icon/acciones.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ABRAZAR',

@@ -21,7 +21,7 @@ export class Subcategory extends PureComponent {
   static navigationOptions = ({ navigation, route }) => ({
     ...BaseHeader,
     title: route.params.subcategory
-      ? route.params.subcategory.name_es
+      ? route.params.subcategory
       : route.params.category.name_es,
     headerTruncatedBackTitle: '',
     headerLeft: props => {
@@ -78,13 +78,12 @@ export class Subcategory extends PureComponent {
 
   reload() {
     const { navigation, route } = this.props;
-    const src = route.params.subcategory
-      ? route.params.subcategory
-      : route.params.category;
-    const videos = src.videos.map(video => ({
-      ...video,
-      name: video.video.split('/').pop(),
-    }));
+    const videos = route.params.category.videos
+      .map(video => ({
+        ...video,
+        name: video.video.split('/').pop(),
+      }))
+      .filter(video => video.subcategory === route.params.subcategory);
     Promise.all(this._checkVideos(videos)).then(result => {
       const amount = result.filter(v => !v.downloaded).length;
       const downloaded = result.filter(v => v.downloaded).length;
@@ -171,11 +170,8 @@ export class Subcategory extends PureComponent {
   _onLayout = () => this.forceUpdate();
 
   _navigateToVideo(video) {
-    const { navigation, route } = this.props;
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
-      video,
-      hasSub: Boolean(route.params.subcategory),
-    });
+    const { navigation } = this.props;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
   }
 
   _renderVideo = ({ item }) => (
@@ -190,17 +186,16 @@ export class Subcategory extends PureComponent {
   );
 
   render() {
+    const { videos, downloadedVideos, initialAmount } = this.state;
     const { navigation, route } = this.props;
-    const params = route.params;
-    const src = params.subcategory ? params.subcategory : params.category;
-    const videosAmount = src.videos.length;
-    const amount = this.state.downloadedVideos;
+    const { params } = route;
+
     return (
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground src={categoryVideosBackground}>
           <View style={styles.headerContainer}>
             <Text style={styles.headerText}>
-              {amount} VIDEOS DESCARGADOS DE {videosAmount}
+              {downloadedVideos} VIDEOS DESCARGADOS DE {videos.length}
             </Text>
           </View>
           <List renderItem={this._renderVideo} data={this.state.videos} />
@@ -211,8 +206,7 @@ export class Subcategory extends PureComponent {
                 <View style={styles.modalMessageDownload}>
                   <Text style={styles.textBoldModal}>DESCARGA VIDEOS</Text>
                   <Text style={styles.textNormalModal}>
-                    VAS A DESCARGAR {this.state.initialAmount} DE {videosAmount}{' '}
-                    VIDEOS.
+                    VAS A DESCARGAR {initialAmount} DE {videos.length} VIDEOS.
                   </Text>
                   <Text style={styles.textNormalModal}>
                     ESTA ACCION PUEDE DEMORAR Y LA DESCARGA DE LOS VIDEOS SERÁ
@@ -266,11 +260,11 @@ export class Subcategory extends PureComponent {
               <Progress.Bar
                 color="green"
                 width={null}
-                progress={this.state.downloadedVideos / videosAmount}
+                progress={downloadedVideos / videos.length}
               />
               <Text
                 style={styles.downloadText}
-              >{`${this.state.downloadedVideos} de ${videosAmount}`}</Text>
+              >{`${downloadedVideos} de ${videos.length}`}</Text>
             </View>
           )}
         </ImageBackground>

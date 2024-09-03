@@ -1,6 +1,7 @@
 export const animals = uri => ({
   name_es: 'ANIMALES',
   icon: require('../res/icon/los-animales.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ÁGUILA',

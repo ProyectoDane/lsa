@@ -1,6 +1,7 @@
 export const technology = uri => ({
   name_es: 'TECNOLOGÍA',
   icon: require('../res/icon/la-tecnologia.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ADJUNTAR',

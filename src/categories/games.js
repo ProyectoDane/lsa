@@ -1,6 +1,7 @@
 export const games = uri => ({
   name_es: 'JUEGOS',
   icon: require('../res/icon/juegos.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'AJEDREZ',

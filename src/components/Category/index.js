@@ -28,6 +28,7 @@ export class Category extends PureComponent {
   state = {
     activeSlide: 0,
     firstCategory: false,
+    subcategories: [],
   };
 
   _isFirstCategory = async () => {
@@ -41,8 +42,12 @@ export class Category extends PureComponent {
   _hasNoSubcategories = () => {
     const { navigation, route } = this.props;
     const { category } = route.params;
-    !category.subcategories &&
-      navigation.navigate(PAGES.PAGE_SUBCATEGORY, { category });
+
+    if (category.hasSubcategories) {
+      const subs = category.videos.map(v => v.subcategory);
+      const uniques = [...new Set(subs)];
+      this.setState({ subcategories: uniques });
+    } else navigation.navigate(PAGES.PAGE_SUBCATEGORY, { category });
   };
 
   componentDidMount() {
@@ -108,7 +113,7 @@ export class Category extends PureComponent {
     </View>
   );
 
-  _renderCategory = ({ item }) => (
+  _renderSubCategories = ({ item }) => (
     <TouchableOpacity
       style={styles.categoryCard}
       onPress={() =>
@@ -116,7 +121,7 @@ export class Category extends PureComponent {
       }
     >
       <View>
-        <Text>{item.name_es}</Text>
+        <Text>{item}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -127,8 +132,7 @@ export class Category extends PureComponent {
   }
 
   render() {
-    const { route } = this.props;
-    const params = route.params;
+    const { subcategories } = this.state;
 
     return this.state.firstCategory ? (
       this._getTutorialLayout()
@@ -136,8 +140,8 @@ export class Category extends PureComponent {
       <View style={styles.full} onLayout={this._onLayout}>
         <ImageBackground src={categoryVideosBackground}>
           <List
-            renderItem={this._renderCategory}
-            data={params.category.subcategories}
+            renderItem={this._renderSubCategories}
+            data={subcategories}
             columns={1}
           />
         </ImageBackground>

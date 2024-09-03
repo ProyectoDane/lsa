@@ -1,6 +1,7 @@
 export const measurements = uri => ({
   name_es: 'MEDIDAS',
   icon: require('../res/icon/medidas.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'BALANZA',
