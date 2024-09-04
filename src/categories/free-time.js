@@ -1,4 +1,4 @@
-export const freeTime = uri => ({
+export const freeTime = (uri) => ({
   name_es: 'TIEMPO LIBRE',
   icon: require('../res/icon/tiempo-libre.png'),
   hasSubcategories: true,
@@ -404,14 +404,6 @@ export const freeTime = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'ZOOLÓGICO',
-      search_name_es: 'ZOOLOGICO',
-      subcategory: 'LUGARES',
-      image: require('../res/image/el-zoologico.png'),
-      video: `${uri}/el-zoologico.mp4`,
-      downloaded: false,
-    },
-    {
       name_es: 'IGLESIA',
       search_name_es: 'IGLESIA',
       subcategory: 'LUGARES',
@@ -433,6 +425,14 @@ export const freeTime = uri => ({
       subcategory: 'LUGARES',
       image: require('../res/image/pileta.png'),
       video: `${uri}/pileta.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'ZOOLÓGICO',
+      search_name_es: 'ZOOLOGICO',
+      subcategory: 'LUGARES',
+      image: require('../res/image/zoologico.png'),
+      video: `${uri}/el-zoologico.mp4`,
       downloaded: false,
     },
   ],
