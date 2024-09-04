@@ -1,6 +1,13 @@
 import * as Progress from 'react-native-progress';
 import React, { PureComponent } from 'react';
-import { View, Alert, Text, Modal, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Alert,
+  Text,
+  Modal,
+  TouchableOpacity,
+  BackHandler,
+} from 'react-native';
 import { HeaderBackButton } from '@react-navigation/elements';
 import ImageBackground from '../shared/ImageBackground';
 import { SelectableCard } from '../shared/Card';
@@ -73,8 +80,29 @@ export class Subcategory extends PureComponent {
     this.props.navigation.addListener('focus', payload => {
       this.reload();
     });
+    BackHandler.addEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
     this.reload();
   }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener(
+      'hardwareBackPress',
+      this.handleBackButtonClick,
+    );
+  }
+
+  handleBackButtonClick = () => {
+    const { navigation, route } = this.props;
+    if (route.params.subcategory) navigation.goBack(null);
+    else {
+      navigation.pop();
+      navigation.goBack();
+    }
+    return true;
+  };
 
   reload() {
     const { navigation, route } = this.props;
