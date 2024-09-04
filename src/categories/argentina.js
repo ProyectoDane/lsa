@@ -1,4 +1,4 @@
-export const argentina = uri => ({
+export const argentina = (uri) => ({
   name_es: 'ARGENTINA',
   icon: require('../res/icon/argentina.png'),
   hasSubcategories: true,
@@ -553,14 +553,6 @@ export const argentina = uri => ({
       subcategory: 'BARRIOS CONURBANO',
       image: require('../res/image/tigre-caba.png'),
       video: `${uri}/tigre-caba.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'TEMPERLEY',
-      search_name_es: 'TEMPERLEY',
-      subcategory: 'BARRIOS CONURBANO',
-      image: require('../res/image/temperley.png'),
-      video: `${uri}/temperley.mp4`,
       downloaded: false,
     },
     {
