@@ -1,11 +1,11 @@
-export const associations = uri => ({
+export const associations = (uri) => ({
   name_es: 'ASOCIACIONES DE LA COMUNIDAD SORDA',
   icon: require('../res/icon/asociaciones.png'),
   hasSubcategories: false,
   videos: [
     {
-      name_es: '¿POR QUÉ SON IMPORTANTES LAS ASOCIACIONES DE SORDOS?',
-      search_name_es: '¿POR QUE SON IMPORTANTES LAS ASOCIACIONES DE SORDOS?',
+      name_es: 'IMPORTANCIA DE ASOC. DE SORDOS',
+      search_name_es: 'IMPORTANCIA DE ASOC. DE SORDOS',
       image: require('../res/image/importancia-asociaciones-sordes.png'),
       video: `${uri}/importancia-asociaciones-sordes.mp4`,
       downloaded: false,
