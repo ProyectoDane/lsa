@@ -37,7 +37,10 @@ export function Alphabetical({ navigation, route }) {
   useScrollToTop(scrollRef);
 
   const _navigateToVideo = video => {
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video,
+      category: ALPHABETICAL_CATEGORY_NAME_ES,
+    });
   };
 
   const renderItem = ({ item }) => (

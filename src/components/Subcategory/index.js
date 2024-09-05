@@ -198,8 +198,9 @@ export class Subcategory extends PureComponent {
   _onLayout = () => this.forceUpdate();
 
   _navigateToVideo(video) {
-    const { navigation } = this.props;
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video });
+    const { navigation, route } = this.props;
+    const { name_es } = route.params.category;
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video, category: name_es });
   }
 
   _renderVideo = ({ item }) => (
