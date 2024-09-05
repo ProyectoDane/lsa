@@ -508,6 +508,14 @@ export const argentina = (uri) => ({
       downloaded: false,
     },
     {
+      name_es: 'SAN ISIDRO',
+      search_name_es: 'SAN ISIDRO',
+      subcategory: 'BARRIOS CONURBANO',
+      image: require('../res/image/san-isidro.png'),
+      video: `${uri}/san-isidro.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'SAN JUSTO',
       search_name_es: 'SAN JUSTO',
       subcategory: 'BARRIOS CONURBANO',
@@ -529,14 +537,6 @@ export const argentina = (uri) => ({
       subcategory: 'BARRIOS CONURBANO',
       image: require('../res/image/san-miguel.png'),
       video: `${uri}/san-miguel.mp4`,
-      downloaded: false,
-    },
-    {
-      name_es: 'SAN ISIDRO',
-      search_name_es: 'SAN ISIDRO',
-      subcategory: 'BARRIOS CONURBANO',
-      image: require('../res/image/san-isidro.png'),
-      video: `${uri}/san-isidro.mp4`,
       downloaded: false,
     },
     {
