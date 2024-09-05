@@ -656,7 +656,7 @@ export const school = uri => ({
       search_name_es: 'PRACTICAS DEL LENGUAJE',
       subcategory: 'MATERIAS',
       image: require('../res/image/practicas-del-lenguaje.png'),
-      video: `${uri}/practicas-del-lenguaje.mp4`,
+      video: `${uri}/practicas-del-lenguaje.webm`,
       downloaded: false,
     },
     {
