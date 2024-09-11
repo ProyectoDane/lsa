@@ -117,7 +117,7 @@ android {
         applicationId "com.proyectossolidarios"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3145801
+        versionCode 3145802
         versionName "1.6.0"
         multiDexEnabled true // fix cannot fit classes in single dex file
     }
