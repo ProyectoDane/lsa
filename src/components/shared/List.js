@@ -10,17 +10,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function List({ data, scrollRef, renderItem }) {
+export default function List({ data, scrollRef, renderItem, columns = 2 }) {
   return (
     <FlatList
       ref={scrollRef}
       style={styles.viewContainer}
-      numColumns={2}
+      numColumns={columns}
       initialNumToRender={6}
       maxToRenderPerBatch={10}
       removeClippedSubviews={true}
       data={data}
-      keyExtractor={item => item.name_es}
+      keyExtractor={item => item.name_es || item}
       renderItem={renderItem}
     />
   );

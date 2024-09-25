@@ -1,6 +1,7 @@
 export const games = uri => ({
   name_es: 'JUEGOS',
   icon: require('../res/icon/juegos.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'AJEDREZ',
@@ -45,6 +46,13 @@ export const games = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'JUGAR A LA MANCHA',
+      search_name_es: 'JUGAR A LA MANCHA',
+      image: require('../res/image/jugar-a-la-mancha.png'),
+      video: `${uri}/jugar-a-la-mancha.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'PLAYSTATION',
       search_name_es: 'PLAYSTATION',
       image: require('../res/image/play-station.png'),
@@ -63,6 +71,13 @@ export const games = uri => ({
       search_name_es: 'ROMPECABEZAS',
       image: require('../res/image/rompecabezas.png'),
       video: `${uri}/rompecabezas.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'TRUCO',
+      search_name_es: 'TRUCO',
+      image: require('../res/image/truco.png'),
+      video: `${uri}/truco.mp4`,
       downloaded: false,
     },
   ],

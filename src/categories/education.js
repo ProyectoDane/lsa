@@ -1,6 +1,7 @@
 export const education = uri => ({
   name_es: 'EDUCACIÓN',
   icon: require('../res/icon/educacion.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'CAPACITACIÓN',

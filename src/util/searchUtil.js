@@ -2,7 +2,15 @@ import CATEGORIES_INDEX from '../categoriesIndex';
 
 // https://stackoverflow.com/a/37511463/3916621
 export const removeAccents = str =>
-  str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f](?<!\u0303)/g, '')
+    .normalize('NFC');
+
+export const getUniqueVideos = videos =>
+  Array.from(new Set(videos.map(v => v.search_name_es))).map(name => {
+    return videos.find(v => v.search_name_es === name);
+  });
 
 export const searchVideos = searchString => {
   if (!searchString || searchString.length <= 1) {

@@ -25,12 +25,15 @@ export const VideoPlayerNavigationOptions = {
 };
 
 export function VideoPlayer({ navigation, route }) {
-  const video = route.params.video;
+  const { video, category } = route.params;
   const videoName = video.video.split('/').pop();
   const videoPath = `${RNFS.DocumentDirectoryPath}/${videoName}`;
-  const videoCategory = categoriesIndex.categories.find(cat =>
-    cat.videos.some(cvideo => cvideo.video === video.video),
-  );
+
+  const videoCategory = category
+    ? categoriesIndex.categories.find(cat => cat.name_es === category)
+    : categoriesIndex.categories.find(cat =>
+        cat.videos.some(cvideo => cvideo.video === video.video),
+      );
   const videoIndex = videoCategory.videos.findIndex(
     v => v.video === video.video,
   );
@@ -72,12 +75,18 @@ export function VideoPlayer({ navigation, route }) {
 
   const _goToPreviousVideo = () => {
     const prevVideo = videoCategory.videos[videoIndex - 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: prevVideo });
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video: prevVideo,
+      category: videoCategory.name_es,
+    });
   };
 
   const _goToNextVideo = () => {
     const nextVideo = videoCategory.videos[videoIndex + 1];
-    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, { video: nextVideo });
+    navigation.navigate(PAGES.PAGE_VIDEO_PLAYER, {
+      video: nextVideo,
+      category: videoCategory.name_es,
+    });
   };
 
   const _checkIfLastVideo = () => {

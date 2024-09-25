@@ -1,12 +1,27 @@
 export const feelings = uri => ({
   name_es: 'SENTIMIENTOS',
   icon: require('../res/icon/los-sentimientos.png'),
+  hasSubcategories: false,
   videos: [
+    {
+      name_es: 'ABURRIDO',
+      search_name_es: 'ABURRIDO',
+      image: require('../res/image/aburrido.png'),
+      video: `${uri}/aburrido.mp4`,
+      downloaded: false,
+    },
     {
       name_es: 'ALEGRE',
       search_name_es: 'ALEGRE',
       image: require('../res/image/alegre.png'),
       video: `${uri}/alegre.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'AMAR',
+      search_name_es: 'AMAR',
+      image: require('../res/image/amar.png'),
+      video: `${uri}/amar.mp4`,
       downloaded: false,
     },
     {
@@ -45,6 +60,13 @@ export const feelings = uri => ({
       downloaded: false,
     },
     {
+      name_es: 'DEPRIMIDO',
+      search_name_es: 'DEPRIMIDO',
+      image: require('../res/image/deprimido.png'),
+      video: `${uri}/deprimido.mp4`,
+      downloaded: false,
+    },
+    {
       name_es: 'ENOJADO',
       search_name_es: 'ENOJADO',
       image: require('../res/image/enojado.png'),
@@ -52,10 +74,24 @@ export const feelings = uri => ({
       downloaded: false,
     },
     {
-      name_es: 'SENTIMIENTOS',
-      search_name_es: 'SENTIMIENTOS',
-      image: require('../res/image/los-sentimientos.png'),
-      video: `${uri}/los-sentimientos.mp4`,
+      name_es: 'FELIZ',
+      search_name_es: 'FELIZ',
+      image: require('../res/image/feliz.png'),
+      video: `${uri}/feliz.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'GRACIOSO',
+      search_name_es: 'GRACIOSO',
+      image: require('../res/image/gracioso.png'),
+      video: `${uri}/gracioso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'LLORAR',
+      search_name_es: 'LLORAR',
+      image: require('../res/image/llorar.png'),
+      video: `${uri}/llorar.mp4`,
       downloaded: false,
     },
     {
@@ -70,6 +106,27 @@ export const feelings = uri => ({
       search_name_es: 'NERVIOSO',
       image: require('../res/image/nervioso.png'),
       video: `${uri}/nervioso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'ORGULLOSO',
+      search_name_es: 'ORGULLOSO',
+      image: require('../res/image/orgulloso.png'),
+      video: `${uri}/orgulloso.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'PREOCUPADO',
+      search_name_es: 'PREOCUPADO',
+      image: require('../res/image/preocupado.png'),
+      video: `${uri}/preocupado.mp4`,
+      downloaded: false,
+    },
+    {
+      name_es: 'SENTIMIENTOS',
+      search_name_es: 'SENTIMIENTOS',
+      image: require('../res/image/los-sentimientos.png'),
+      video: `${uri}/los-sentimientos.mp4`,
       downloaded: false,
     },
     {

@@ -1,7 +1,15 @@
 export const associations = uri => ({
   name_es: 'ASOCIACIONES DE LA COMUNIDAD SORDA',
-  icon: require('../res/icon/asociacion.png'),
+  icon: require('../res/icon/asociaciones.png'),
+  hasSubcategories: false,
   videos: [
+    {
+      name_es: 'IMPORTANCIA DE ASOC. DE SORDOS',
+      search_name_es: 'IMPORTANCIA DE ASOC. DE SORDOS',
+      image: require('../res/image/importancia-asociaciones-sordes.png'),
+      video: `${uri}/importancia-asociaciones-sordes.mp4`,
+      downloaded: false,
+    },
     {
       name_es: 'AAS',
       search_name_es: 'AAS',

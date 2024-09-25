@@ -17,7 +17,7 @@ import { BaseHeader } from '../shared/BaseHeader';
 
 const tincSource = require('../../res/image/tinc.png');
 const fundasorSource = require('../../res/image/fundasor.png');
-const hexactaSource = require('../../res/image/hexacta.png');
+const globalLogicSource = require('../../res/image/GL-Logo_Black-8.png');
 
 export const InformationNavigationOptions = {
   ...BaseHeader,
@@ -52,7 +52,7 @@ export function Information() {
         <Text style={styles.title}>IDEA Y CONTENIDO</Text>
         <Image style={styles.tincImage} source={fundasorSource} />
         <Text style={styles.title}>DESARROLLO</Text>
-        <Image style={styles.tincImage} source={hexactaSource} />
+        <Image style={styles.tincImage} source={globalLogicSource} />
         <Text style={styles.title}>AGRADECIMIENTOS</Text>
         <Text style={styles.subtitle}>
           {'A QUIENES FORMAN PARTE DE FUNDASOR: '}
@@ -66,13 +66,13 @@ export function Information() {
         <Text style={styles.subtitle}>{'A LOS SEÑANTES SORDOS: '}</Text>
         <Text>
           {
-            'LISANDRO RODRÍGUEZ, MATEO RODRÍGUEZ GARCÍA, OLIVIA RODRÍGUEZ GARCÍA, LUCÍA FAUVE, IVANA PAOLA NAVARRO, DAMIÁN ALEJANDRO SCIGLIANO, SEBASTIÁN ARIEL CÁCERES, ROCÍO MARÍA VIDIELLA, PAULA SILVINA COSTA GIL '
+            'LISANDRO RODRÍGUEZ, MATEO RODRÍGUEZ GARCÍA, OLIVIA RODRÍGUEZ GARCÍA, LUCÍA FAUVE, IVANA PAOLA NAVARRO, DAMIÁN ALEJANDRO SCIGLIANO, SEBASTIÁN ARIEL CÁCERES, ROCÍO MARÍA VIDIELLA, PAULA SILVINA COSTA GIL, MARISSA AQUINO, YONHATAN MIGUEL GONZALEZ TORALES, MELITON MANGIACABALLI, FELIPE FAUSTINO AGUIRRE Y NORMA JEANNETTE BALLESTEROS RAMOS.'
           }
         </Text>
-        <Text style={styles.subtitle}>{'AL STAFF DE HEXACTA: '}</Text>
+        <Text style={styles.subtitle}>{'AL STAFF DE GLOBALLOGIC: '}</Text>
         <Text>
           {
-            'JESICA TAIRA, VERÓNICA VIGNONI, AGUSTINA ISLA, CAMILA MAMANI, FRANKLIN LEAL, LEANDRO LOPEZ, LUCIANO FALETTI, JULIÁN BOLAÑO, LUIS BROEDERS, ESTEBAN SOPETTO, JAVIER OCAMPO, DIEGO PEDRO, GERARDO CABRERA, JAVIER FERNÁNDEZ, JULIETA FERNÁNDEZ, TOMÁS FRANCO, MACARENA IRIARTE, EZEQUIEL MEIJOMIL, MARIELA MOREL, JUAN IGNACIO BERNAL, JULIETA JUAREZ, NICOLAS GALLINAL, MARCOS GARCÍA Y DIEGO GAGLIARDI.'
+            'JESICA TAIRA, VERÓNICA VIGNONI, AGUSTINA ISLA, CAMILA MAMANI, FRANKLIN LEAL, LEANDRO LOPEZ, LUCIANO FALETTI, JULIÁN BOLAÑO, LUIS BROEDERS, ESTEBAN SOPETTO, JAVIER OCAMPO, DIEGO PEDRO, GERARDO CABRERA, JAVIER FERNÁNDEZ, JULIETA FERNÁNDEZ, TOMÁS FRANCO, MACARENA IRIARTE, EZEQUIEL MEIJOMIL, MARIELA MOREL, JUAN IGNACIO BERNAL, JULIETA JUAREZ, NICOLAS GALLINAL, MARCOS GARCÍA, DIEGO GAGLIARDI, CAMILO VILLATE, MAURO ROMERO E IVAN HERNANDEZ.'
           }
         </Text>
         <Text style={styles.title}>LICENCIA GNU V3</Text>

@@ -38,6 +38,15 @@ const styles = StyleSheet.create({
 });
 
 export function Card({ name, children, onPress, src }) {
+  const show = () => {
+    if (
+      name === 'IMPORTANCIA DE ASOC. DE SORDOS' ||
+      name === '¿POR QUÉ ES IMPORTANTE LA CPCD?'
+    )
+      return false;
+    else return true;
+  };
+
   const imagePaddingHorizontal = getCardPadding() * 2;
   const imagePaddingVertical = getCardPadding() * 2;
 
@@ -86,7 +95,7 @@ export function Card({ name, children, onPress, src }) {
           },
         ]}
       >
-        <Text style={styles.name}>{name}</Text>
+        {show() && <Text style={styles.name}>{name}</Text>}
       </View>
     </TouchableOpacity>
   );

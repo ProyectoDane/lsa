@@ -1,6 +1,7 @@
 export const alphabet = uri => ({
   name_es: 'ALFABETO DACTILOLÓGICO',
   icon: require('../res/icon/alfabeto-dactilologico.png'),
+  hasSubcategories: false,
   videos: [
     {
       name_es: 'ALFABETO DACTILOLÓGICO',

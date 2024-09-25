@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { useFocusEffect, useScrollToTop } from '@react-navigation/native';
-import { searchVideos } from '../../util/searchUtil';
+import { searchVideos, getUniqueVideos } from '../../util/searchUtil';
 import { Message } from '../Message/Message';
 import {
   Dimensions,
@@ -70,7 +70,8 @@ export function Search({ navigation, route }) {
   const updateSearchQuery = useCallback(() => {
     const searchQuery = (route.params?.searchQuery || '').toUpperCase();
     setQuery(searchQuery);
-    setVideos(searchVideos(searchQuery));
+    const foundVideos = searchVideos(searchQuery);
+    setVideos(getUniqueVideos(foundVideos));
   }, [route.params]);
 
   useFocusEffect(updateSearchQuery);

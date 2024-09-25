@@ -19,6 +19,7 @@ import {
   Search,
   SearchNavigationOptions,
   SplashScreen,
+  Subcategory,
   VideoPlayer,
   VideoPlayerNavigationOptions,
   VideoSplash,
@@ -50,6 +51,11 @@ const HomeStackScreen = () => {
         name="Category"
         component={Category}
         options={Category.navigationOptions}
+      />
+      <HomeStack.Screen
+        name="Subcategory"
+        component={Subcategory}
+        options={Subcategory.navigationOptions}
       />
       <HomeStack.Screen
         name="VideoPlayer"
