@@ -26,11 +26,16 @@ export const SearchNavigationOptions = ({ navigation, route, ref }) => ({
     <TextInput
       style={[
         styles.searchInput,
+        // eslint-disable-next-line react-native/no-inline-styles
         {
           width:
             Dimensions.get('window').width -
             searchInputMaginLeft -
             searchInputMaginRight,
+          height: 50,
+          paddingVertical: 5,
+          fontSize: 18,
+          lineHeight: 24,
         },
       ]}
       autoCapitalize="characters"
